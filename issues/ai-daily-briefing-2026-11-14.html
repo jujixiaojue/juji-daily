@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狙击日报｜2026年11月14日 · AI 每日早报</title>
+  <style>
+    :root {
+      --primary: #667eea;
+      --primary-2: #764ba2;
+      --bg: #f5f6fb;
+      --card: #ffffff;
+      --muted: #f8f9fa;
+      --text: #1f2937;
+      --sub: #4b5563;
+      --line: #e5e7eb;
+      --ai: #4f46e5;
+      --warn: #b45309;
+      --ok: #047857;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: #4f46e5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+    header.hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      opacity: .95;
+      margin-bottom: 12px;
+    }
+    header.hero h1 {
+      margin: 0 0 6px;
+      font-size: 36px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    header.hero .sub {
+      margin: 0 0 18px;
+      font-size: 15px;
+      opacity: .92;
+    }
+    header.hero .date {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+    .overview {
+      background: rgba(255,255,255,.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+    }
+    .archive {
+      margin: 16px 0 0;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--sub);
+      font-size: 14px;
+      border: 1px solid var(--line);
+    }
+    .sec {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px 24px 18px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+      border: 1px solid var(--line);
+    }
+    .sec h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+    }
+    .item { margin: 0 0 16px; padding: 0 0 16px; border-bottom: 1px dashed var(--line); }
+    .item:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 4px; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 650; }
+    .meta { color: var(--sub); font-size: 13px; margin-bottom: 6px; }
+    .src { font-size: 13px; color: var(--sub); margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tag-ai { background: #eef2ff; color: var(--ai); }
+    .tag-other { background: #f3f4f6; color: #4b5563; }
+    .tag-cat { background: #f3e8ff; color: #6d28d9; }
+    .tag-warn { background: #fff7ed; color: var(--warn); }
+    .insight {
+      background: var(--muted);
+      border-left: 4px solid #764ba2;
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .insight strong { color: #5b21b6; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 8px 0 12px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--muted); font-weight: 650; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul.clean { margin: 6px 0 0; padding-left: 1.2em; }
+    ul.clean li { margin: 4px 0; }
+    .note { font-size: 13px; color: var(--sub); }
+    footer.foot {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--sub);
+      font-size: 13px;
+      padding: 18px 8px 0;
+    }
+    @media (max-width: 720px) {
+      header.hero { padding: 26px 18px 20px; }
+      header.hero h1 { font-size: 28px; }
+      .sec { padding: 18px 16px 12px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">JUJI DAILY</div>
+      <h1>狙击日报</h1>
+      <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
+      <div class="date">2026年11月14日 星期六 · 用户时区 UTC+8</div>
+      <div class="overview">今日概览：Agent 基础设施与评测同日升温——LangChain 完成 3 亿美元 C 轮，Artificial Analysis 编码智能体榜刷新；Anthropic 新模型登上智能指数榜首，OpenAI 推出企业主页与 Wallet；企业「本体」正成为 Agent 可信上下文的关键抓手，需与区块链 Ontology 网络区分看待。</div>
+    </header>
+
+    <div class="archive">
+      <strong>归档：</strong>
+      <a href="./ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a> · <a href="../index.html">返回首页</a>
+      <span> · 公开站点地址尚未发布，今日暂无外部分享链接。</span>
+    </div>
+
+    <section class="sec" id="s1">
+      <h2>📊 GitHub Trending 日报</h2>
+      <p class="note">数据综合 <a href="https://github.com/trending">GitHub Trending</a> 与 <a href="https://gitstock.org/trending/2026-11-14">GitStock 2026-11-14 日归档</a>，星标与「今日新增」会随当天波动，以下取当日公开快照。</p>
+
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/alibaba/open-code-review">alibaba / open-code-review</a></h3>
+        <div class="meta">Go · 约 50.8k stars · 今日 +215</div>
+        <p>阿里巴巴开源的混合架构代码审查工具：确定性流水线 + LLM Agent，支持行级评论，内置 NPE、线程安全、XSS、SQL 注入等规则，兼容 OpenAI 与 Anthropic 接口。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/GoogleChrome/modern-web-guidance-src">GoogleChrome / modern-web-guidance-src</a></h3>
+        <div class="meta">TypeScript · 约 5.0k stars · 今日 +1,925（当日涨幅最显著）</div>
+        <p>面向编码 Agent 的现代 Web 最佳实践指南源码，用于让编程智能体跟上最新前端与工程规范。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/openai/codex-security">openai / codex-security</a></h3>
+        <div class="meta">TypeScript · 约 13.2k stars · 今日 +751</div>
+        <p>OpenAI 的 Codex Security CLI 与 TypeScript SDK，用于发现、验证并修复安全漏洞，npm 包名为 <code>@openai/codex-security</code>。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ZhuLinsen/daily_stock_analysis">ZhuLinsen / daily_stock_analysis</a></h3>
+        <div class="meta">Python · 约 71.8k stars · 今日 +256</div>
+        <p>LLM 驱动的多市场股票智能分析系统，覆盖多源行情、实时新闻、决策看板与自动推送，支持低成本定时运行。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">非 AI 主线</span><a href="https://github.com/we-promise/sure">we-promise / sure</a></h3>
+        <div class="meta">Ruby · 约 14.8k stars · 今日 +925</div>
+        <p>开源个人理财应用，定位「适合所有人、由社区共建」。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/backnotprop/plannotator">backnotprop / plannotator</a></h3>
+        <div class="meta">TypeScript · 约 10.5k stars · 今日 +108</div>
+        <p>面向 Agent 协作的工作空间：规划、批注、审代码、与团队共享，并支持一键把反馈回传给智能体。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">非 AI 主线</span><a href="https://github.com/louislam/uptime-kuma">louislam / uptime-kuma</a></h3>
+        <div class="meta">JavaScript · 约 93.9k stars · 今日 +71</div>
+        <p>流行的自托管可用性监控工具，仍稳定出现在日榜前列。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">属性待核实</span><a href="https://github.com/block/buzz">block / buzz</a></h3>
+        <div class="meta">Rust · 约 37.3k stars · 今日 +97</div>
+        <p>Block 开源的「蜂巢思维」通信平台。公开简介较短，是否以 AI Agent 为核心能力<span class="tag tag-warn">待核实</span>。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/tradermonty/claude-trading-skills">tradermonty / claude-trading-skills</a></h3>
+        <div class="meta">Python · 约 4.2k–4.3k stars · 今日 +69</div>
+        <p>面向股票投资者的 Claude Code skills，覆盖行情分析、技术图表、经济日历、筛选器与交易策略开发。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">非 AI 主线</span><a href="https://github.com/tailscale/tailcat">tailscale / tailcat</a></h3>
+        <div class="meta">Go · 约 9.5k stars · 今日 +256</div>
+        <p>类似 netcat 的工具，走 Tailscale 数据平面、不经过其控制平面。同日榜上还出现面向编码 Agent 的 Chrome DevTools 相关项目，以及带 AI 超分/帧生成的视频工具 Veyra-NRVideo。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s2">
+      <h2>🤖 AI Agent 前沿洞察</h2>
+      <div class="item">
+        <h3>LangChain 完成 3 亿美元 C 轮，投后估值 30 亿美元</h3>
+        <p>2026年11月13日，LangChain 宣布由 CapitalG 领投完成 3 亿美元 C 轮，GIC、DFJ Growth 参与，IVP、Sapphire Ventures 等跟投，估值约 30 亿美元，约为一年前 12.5 亿美元估值的两倍以上。官方称 LangSmith 已服务超过 7,000 家组织，客户包括 Harvey、Rippling、Clay，以及 NVIDIA、丰田、Salesforce 等。公司将平台概括为 Agent Runtime、Agent Improvement、Agent Governance 三块，并预告 11 月 20 日发布会。</p>
+        <div class="src">来源：<a href="https://www.langchain.com/blog/series-c">LangChain 官方博客</a>；<a href="https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/">TechCrunch</a></div>
+      </div>
+      <div class="item">
+        <h3>Anthropic：自托管 Managed Agents 进入私有预览，并发布记忆研究</h3>
+        <p>多家行业媒体 11 月 13 日报道，Anthropic 已向企业开放 Claude Managed Agents 的私有预览，允许在自有云或本地运行服务端、PostgreSQL、沙箱 worker、凭证与会话历史；模型请求仍可走 Anthropic、Amazon Bedrock、Google Agent Platform、Microsoft Foundry 或企业网关。另，Anthropic 于 11 月 6 日发表 <em>The components of agent memory</em>，报道称离线「dreaming」整理可将 Wiki 准确率从 13% 提升到 48%。11 月 12 日起，Claude Meetings 开始提供测试版（可用范围与套餐限制较细）。</p>
+        <div class="src">来源：<a href="https://i10x.ai/news/category/agents?product=claude">i10X News</a>；Claude Meetings 说明见 <a href="https://aiagent-navi.com/2026/11/">AIエージェントナビ</a>。自托管细节以官方文档为准，部分转述<span class="tag tag-warn">待核实</span>。</div>
+      </div>
+      <div class="item">
+        <h3>Google Gemini 4 Hydrogen、Antigravity 远程 Agent，以及混合路由样本</h3>
+        <p>Google 于 11 月 12 日发布面向多步「agentic」工作的更快模型 Gemini 4 Hydrogen（模型 ID：gemini-4-hydrogen），已进入 Search、Gemini 应用、AI Studio、API 与 Google Antigravity 等渠道；免费档往往不直接出现在选择栏，而是在自动选择时调用。另有报道称 Antigravity 2.29 增加可在关闭本地会话后继续编码的云端 Remote Agents。AWS 则发布示例，用 LiteLLM 与 NVIDIA NeMo Switchyard 在 Bedrock 上把编码 Agent 请求路由到 Claude Opus 5.5 或 Nemotron 3 Super 120B，并建议用「每个成功任务的成本」而非单纯的 token 单价来评估路由。</p>
+        <div class="src">来源：<a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agent Store 本周汇总</a>；<a href="https://aiagentnews.io/">AI Agent News</a>；<a href="https://snowsystem.net/ai/ai-news-202611/">Snow System 11月汇总</a></div>
+      </div>
+      <div class="item">
+        <h3>OpenAI 把企业主页与支付能力交给 Agent</h3>
+        <p>11 月 10 日，OpenAI 上线 Businesses in ChatGPT 测试版，企业可通过 Business Hub 认领主页、维护信息与商品源；面向美国符合条件的电商与在线服务商提供 Business Agent。11 月 13 日再发布 ChatGPT Wallet：先向美国 ChatGPT Pro 用户开放，由用户逐笔批准后，以支付 token 代替真实卡号完成代购，合作网络包括 American Express、Mastercard 与 Visa。</p>
+        <div class="src">来源：<a href="https://openai.com/index/introducing-businesses-chatgpt/">OpenAI：Businesses in ChatGPT</a>；<a href="https://openai.com/index/introducing-chatgpt-wallet/">OpenAI：ChatGPT Wallet</a></div>
+      </div>
+      <div class="item">
+        <h3>研究与论文速览</h3>
+        <ul class="clean">
+          <li>亚马逊、哥伦比亚大学等提出 ReTrace，把业务流程与执行日志编译成可复用代码，电信客服模拟中平均执行时间从 170 秒降至 1.3 秒（成功率 75.8%，原智能体 80.6%）。来源：<a href="https://www.arxivdaily.com/industry-trends/category/agent">arXivDaily</a>（arXiv:2611.14492，2026-11-11）。</li>
+          <li>微软等机构发布 642 道 Word 文档编辑评测：不仅看截图，还检查对象是否真正改对；报道称 Claude Code + Opus 5 总体通过率约 87.1%。来源：同上（arXiv:2611.10475，2026-11-10）。</li>
+          <li>Y Combinator CEO Garry Tan 11 月 8 日公布开源 harness 评测早期结果，强调「包装层」与模型同样影响 Agent 成绩。</li>
+        </ul>
+      </div>
+      <div class="insight">
+        <strong>未来方向洞察：</strong>今天的信号比较一致——Agent 正在从「能跑通一次任务」转向「可治理、可路由、可付费」的生产系统。融资侧把钱砸向运行时与评估平台（LangChain）；产品侧把企业身份和支付闭环交给智能体（OpenAI）；评测侧则把模型与 harness 绑在一起打分，并升级验证器以抑制 reward hacking。对本体 / Agent 中台同学而言，接下来更关键的可能不是再叠一个通用多 Agent 框架，而是：业务语义是否可审计、工具调用是否可降级路由、以及长程记忆与权限如何变成可运维资产。
+      </div>
+    </section>
+
+    <section class="sec" id="s3">
+      <h2>🔗 Ontology（本体）生态动态</h2>
+      <p class="note">本板块同时出现两类「Ontology / 本体」，含义不同，下文分开写，避免张冠李戴。</p>
+
+      <div class="item">
+        <h3>一、区块链 Ontology 网络（ONT）</h3>
+        <ul class="clean">
+          <li><strong>主网 v3.3.1 升级（10 月 23 日）：</strong>官方称本次升级提升稳定性、安全性与整体性能，所有同步节点需升级到 v3.3.1 以保持兼容。来源：<a href="https://x.com/OntologyNetwork/status/2113427297630126514">Ontology 官方 X</a>；<a href="https://coinmarketcap.com/cmc-ai/ontology/latest-updates/">CMC 汇总（更新至 11 月 10 日）</a>。</li>
+          <li><strong>第二次安全停机后恢复（10 月 10–12 日）：</strong>因「构建于 Ontology 上的未具名生态项目」安全风险预警，主网暂停出块约 41–43 小时后恢复。官方表示核心基础设施安全，网络本身无资金损失；触发项目名称与是否波及该项目用户，至今仍未公开。<span class="tag tag-warn">待核实</span></li>
+          <li><strong>近 1–3 日：</strong>检索未发现 11 月 12–14 日新的官方技术版本或主网事件。官网新闻栏在 11 月初仍有去中心化身份、个人声誉归属、欧盟数字身份（成员国务必于 2026 年底前提供至少一种官方钱包）以及韩国区块链周回顾等文章，强调「AI 时代的去中心化身份与用户数据」。来源：<a href="https://ont.io/news/">ont.io/news</a>。是否有未同步的中文公众号新文<span class="tag tag-warn">待核实</span>。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>二、企业知识本体 / 本体中台（与区块链 Ontology 不是同一件事）</h3>
+        <ul class="clean">
+          <li><strong>qOntology 开源版 v1.1.0（11 月 9 日）：</strong>千桐科技发布本体工程平台更新，重点是 AI 辅助建模（由业务材料生成可审核的候选模型）、知识图谱多视图（常规 / 关系 / 时序 / 表格），并补充项目版本管理与约束规则配置。来源：<a href="https://juejin.cn/post/7705974459643609142">掘金</a>。</li>
+          <li><strong>NVIDIA Auto Ontology（11 月 1 日开源）：</strong>Apache 2.0 的 Python 框架，在企业元数据目录与生成 SQL 的 AI Agent 之间构建图式语义层，用于减少「列名看起来对、业务定义却不同」导致的错答。报道称其属于 NVIDIA 在 GTC Berlin 预告的 Agent Knowledge Foundation 方向；同周 Snowflake Business Ontology、Neo4j Ontology Graph Specification 也在同一层发力。来源：<a href="https://www.ontologyrepository.com/blog/news-nvidia-auto-ontology-semantic-layer-ai-agents">CCO / Ontology Repository</a>。</li>
+          <li><strong>腾讯乐享「可信索引」（10 月 30 日发布，仍具参考价值）：</strong>在腾讯全球数字生态大会上，将本体、知识图谱与 LLM Wiki 组成「三位一体」索引，使 Agent 调用企业知识时能区分业务对象、文档版本与使用条件；并上线 AI 巡检以发现重复、冲突、过期内容，交由责任人确认。实践分享涉及中信建投、云南白药、OPPO、潮宏基等。来源：<a href="http://news.yesky.com/hotnews/374/380874.shtml">天极网</a>。</li>
+          <li><strong>JitKnow 知识库 4.8（11 月 3 日）：</strong>从纯向量检索升级为「本体驱动 + 知识图谱增强」，补齐实体归一、可审核抽取、溯源反馈与混合问答。来源：<a href="https://juejin.cn/post/7703743273756475419">掘金</a>。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="s4">
+      <h2>🏢 AI 公司要闻</h2>
+      <div class="item">
+        <h3><span class="tag tag-cat">[融资]</span>LangChain 3 亿美元 C 轮，估值 30 亿美元</h3>
+        <p>CapitalG 领投，详见「AI Agent 前沿洞察」。这是本周最明确的 Agent 基础设施融资事件。</p>
+        <div class="src">来源：<a href="https://www.langchain.com/blog/series-c">LangChain</a></div>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">[融资]</span><span class="tag tag-cat">[产品发布]</span>Anthropic：Fable / Mythos 5.2 发布，IPO 路演进行中</h3>
+        <p>11 月 9 日，Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2。Fable 5.2 面向复杂软件工程、视觉与可跨多日调度子 Agent 的长程工作，官方口径为 100 万 token 上下文、最高 128K 输出，并默认提供自适应思考。媒体报道其已启动 IPO 路演：11 月 10 日 S-1 修订给出每股 70–78 美元区间，有报道按发行规模测算估值约 1.02 万亿美元，并提到 18 日定价、19 日挂牌的时间表；亦有报道称认购踊跃、最终定价可能高于区间上限。最终发行价与挂牌安排仍以监管文件与官方公告为准。<span class="tag tag-warn">待核实</span></p>
+        <div class="src">来源：<a href="https://www.bloomberg.com/news/articles/2026-11-09/anthropic-unveils-new-fable-mythos-ai-models-ahead-of-ipo">Bloomberg</a>；<a href="https://dealroom.co/news/170996-anthropic-sets-ipo-terms-up-to-69-3b-at-70-to-80-a-share-plus-26b-from-s/">Dealroom</a> 等路演报道</div>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">[产品发布]</span>Google 发布 Gemini 4 Hydrogen</h3>
+        <p>11 月 12 日，Google 推出作为 Gemini 3.8 Flash 后续、偏日常编码与 Agent 快速执行的 Gemini 4 Hydrogen，已进入 Search、Gemini 应用与开发者 API 等产品。公开 API 价常见报道为输入 $1.50 / 输出 $7.50（每百万 token）。同系列的 Gemini 4 Carbon 仍是智能指数上的主要竞品。</p>
+        <div class="src">来源：<a href="https://snowsystem.net/ai/ai-news-202611/">Snow System</a>；定价见 LiteLLM 等公开价目（11 月 12–13 日）</div>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">[产品发布]</span>OpenAI：Business Hub / Business Agent，以及 ChatGPT Wallet</h3>
+        <p>11 月 10 日上线企业认领与美国电商 Business Agent；11 月 13 日向美国 ChatGPT Pro 用户推出需逐笔生物识别确认的 Wallet。官方称 ChatGPT 每周用户约 12 亿。</p>
+        <div class="src">来源：<a href="https://openai.com/index/introducing-businesses-chatgpt/">OpenAI</a>；<a href="https://openai.com/index/introducing-chatgpt-wallet/">ChatGPT Wallet</a></div>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">[产品发布]</span>国内厂商：月之暗面、字节、腾讯近期模型与算力动态</h3>
+        <ul class="clean">
+          <li>月之暗面 Kimi K3.1 Pro（约 10 月 24 日，报道称约 2.8 万亿参数）目前是 Artificial Analysis 智能指数上排名最高的开源权重模型之一（约 46 分）。工商时报 11 月 10–11 日援引美媒称，月之暗面今年 8 月向另一家中国科企租用 32 台搭载英伟达 B300 的 SuperMicro 服务器，价值约人民币 4.32 亿元。来源：<a href="https://www.ctee.com.tw/search/%E6%9C%88%E4%B9%8B">工商时报</a>；<a href="https://www.datalearner.com/whats-new">DataLearnerAI</a>。</li>
+          <li>字节跳动 Seed 团队于 11 月 9 日发布 Seedream 5.5（图像生成方向）。来源：DataLearnerAI。</li>
+          <li>腾讯 AI 实验室 Hy4 于 11 月 4 日前后收录，开源权重模型在智能指数上约 35 分量级。来源：DataLearnerAI、Artificial Analysis 榜单。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">[产品发布]</span>Meta Muse Ember（11 月 9 日）</h3>
+        <p>Facebook AI 研究实验室于 11 月 9 日发布 Muse Ember。在 Artificial Analysis 智能指数上，Muse Ember（max）约 36 分，定位偏轻量低价档；更高端的 Muse Wonder Full（max）约 50 分，并在 GDPval-AA v2 知识工作评测中名列前茅。</p>
+        <div class="src">来源：<a href="https://www.datalearner.com/whats-new">DataLearnerAI</a>；<a href="https://artificialanalysis.ai/leaderboards/models">Artificial Analysis</a></div>
+      </div>
+    </section>
+
+    <section class="sec" id="s5">
+      <h2>💊 AI 制药板块</h2>
+      <p class="note">下文区分「AI 辅助研发 / AI 发现与设计」与「已进入人体的在研管线 / 已上市药物」。目前公开信息里，多数成果仍在临床前或早期临床，尚不能等同于已上市药物。</p>
+
+      <div class="item">
+        <h3>a) 融资与并购</h3>
+        <ul class="clean">
+          <li><strong>Potential Sciences（英国，11 月 5 日）：</strong>英国政府 Sovereign AI 基金参与其「八位数」（eight-figure，未披露精确金额）融资，并提供国家超算算力。公司路径是用物理定律/量子化学而非既有实验记录来训练化学 AI，自称有望把计算成本降到约原来的 1/100。其他投资方包括 Twin Path、Odyssey、Portfolio Ventures 等，以及 Stripe 联合创始人 Patrick Collison、Recursion 联合创始人 Chris Gibson 等天使。来源：<a href="https://www.gov.uk/government/news/sovereign-ai-puts-cash-and-compute-behind-uk-startup-using-ai-to-redefine-chemistry">GOV.UK</a>。具体轮次与估值未公布。<span class="tag tag-warn">待核实</span></li>
+          <li><strong>行业口径（截至 11 月中）：</strong>《每日经济新闻》11 月 12 日引述投中嘉川 CVSource：2026 年至今 AI 制药赛道完成 57 笔投资、44 家企业获融资，披露总额 157.65 亿元，已超过 2023–2025 三年之和。来源：<a href="https://finance.sina.com.cn/stock/t/2026-11-12/doc-iniynyar1138358.shtml">每日经济新闻 / 新浪财经</a>。</li>
+          <li><strong>背景（非本周新事件）：</strong>9 月，字节跳动分拆的 Anew Labs（新生实验室）完成约 2.9 亿美元首轮外部融资、投后估值约 15 亿美元，字节保留约 56% 股份；报道称当时管线仍在临床前。来源：路透社及相关中文报道（2026-09-16）。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>b) 管线与临床进展</h3>
+        <p><strong>Recursion REC-4881（在研，非已上市）：</strong>11 月 2 日，Recursion 在 CGA-IGC 年会公布家族性腺瘤性息肉病（FAP）II 期 TUPELO 更新数据。REC-4881 是经其 AI 平台表型筛选发现的口服 MEK1/2 抑制剂，已获 FDA 孤儿药与 Fast Track 资格。扩展成年队列在治疗 12 周后，总息肉负荷中位下降 47%，约 1/3 患者降幅 ≥65%；停药 12 周后，85% 可评估患者仍低于基线。安全性方面，26 例安全分析集中最高级别治疗相关不良事件多为 1–2 级（约 81%），4 例为 3 级，无 4/5 级；公司预计在与 FDA 沟通后，于 2027 年下半年启动注册试验。这属于 AI 发现/辅助设计分子的中期临床信号，尚不是获批上市。</p>
+        <div class="src">来源：<a href="https://finance.yahoo.com/healthcare/articles/phase-2-rec-4881-data-212500104.html">Recursion / GlobeNewswire（2026-11-02）</a></div>
+      </div>
+      <div class="item">
+        <h3>c) 大厂与药企布局</h3>
+        <ul class="clean">
+          <li><strong>Anthropic × 六家生命科学机构（10 月 28 日前后，近两周仍被广泛转述）：</strong>合作方包括 Enveda、Generate Biomedicines、Divergence Labs、BigHat Biosciences、Bristol Myers Squibb 与 The Column Group。公开案例多为 AI 辅助：如 Enveda 用 Claude 审阅 1,061 页生产文件、缩短法规草稿时间；Generate 用 Claude Code 缩短 CAR-T 基因指令并在实验室观察到受体表达与杀伤提升；Divergence 约一个月生成约 3.5 万个抗体设计。Anthropic 同时收购一人公司 Mithril Medicine（两项罕见肌营养不良方向），目前仍为临床前，公司称若结果站得住，人体试验最早或在 2028 年末。来源：<a href="https://www.digitalhealthnews.com/anthropic-partners-with-six-life-sciences-organizations-to-advance-drug-development-with-claude">Digital Health News</a>。</li>
+          <li><strong>平台型合作成为议题：</strong>11 月香港国际生物计算创新峰会上，和铂医药与百图生科合资的 MegaStream 强调「Lab-in-a-Loop」干湿闭环，以及跨国药企从「买管线资产」转向「买可复用能力」；MegaStream 称有 5 条 AI 赋能管线，目标 2027 年上半年首个 IND——该时间表尚未被独立临床登记交叉验证。<span class="tag tag-warn">待核实</span> 来源：<a href="https://finance.sina.com.cn/stock/t/2026-11-12/doc-iniynyar1138358.shtml">每日经济新闻</a>。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>d) 政策与监管</h3>
+        <p>2026 年 9 月 18 日，工业和信息化部等十部门印发《医药工业发展「十五五」规划》，提出到 2030 年生物医药研发应用稳居世界前列等目标，并强调数智赋能与人工智能深度应用。该文件不是本周新发，但 10 月底至 11 月初行业会议与证券媒体仍在解读其「AI 制药」相关部署，可作为政策背景。来源：<a href="https://www.rmzxw.com.cn/c/2026-09-18/3977590.shtml">新华社 / 人民政协网</a>；<a href="http://epaper.zqrb.cn/html/2026-11/02/content_1285345.htm?div=-1">证券日报（11 月 2 日解读）</a>。</p>
+      </div>
+      <div class="item">
+        <h3>e) 产业生态（CRO、湿实验、干湿闭环）</h3>
+        <p>公开讨论继续把「因果性数据 + 湿实验验证」视为本轮 AI 制药的瓶颈，而不仅是模型分数。MegaStream 等强调把专有抗体数据、基础模型与 Lab-in-a-Loop 放进同一主体，以避免单点合作只交出管线、模型和数据无法沉淀。英国 Potential Sciences 则试图用更高效率的量子化学计算，缓解「只能学习已有实验记录」的数据瓶颈。这些都是配套能力，不等于临床终点已经兑现。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s6">
+      <h2>🏗️ 本体生态公司动态</h2>
+      <div class="item">
+        <h3>Ontology 网络侧：身份与「AI + Web3」定位仍在，但近两周少有新的具名项目融资</h3>
+        <p>Ontology 官方定位已写作 “The Trust Layer for AI &amp; Web3”，产品线仍围绕 ONT ID、ONTO Wallet、可携带声誉与数据授权。11 月初官网文章继续讨论个人声誉归属、欧盟数字身份落地，以及游戏等场景的可信评价。生态伙伴页仍列出支付、DeFi、安全审计等多类合作方。但自 10 月那次「未具名生态项目」安全停机之后，近 1–3 日未见该项目的后续披露，也缺少可独立核验的新一轮生态公司融资公告。<span class="tag tag-warn">待核实</span></p>
+        <div class="src">来源：<a href="https://ont.io/">ont.io</a>；<a href="https://ont.io/partners">Ecosystem Partners</a>；<a href="https://ont.io/news/">News</a></div>
+      </div>
+      <div class="item">
+        <h3>Web3 + AI 交叉：TSP 1.0 把「信任层」写成 Agent 基础设施</h3>
+        <p>Linux Foundation Decentralized Trust 于 11 月 4 日发表 <em>TSP 1.0: A Trust Layer for the Age of AI Agents</em>，讨论在 Agent 时代用可验证的信任与通信层（Trust Spanning Protocol）承载身份与授权。这与 Ontology「为 AI 提供信任层」的叙事相邻，但并非 Ontology 网络的产品公告，不能写成同一项目。</p>
+        <div class="src">来源：<a href="https://www.lfdecentralizedtrust.org/blog/tsp-1-0-a-trust-layer-for-the-age-of-ai-agents">LFDT 博客</a></div>
+      </div>
+      <div class="item">
+        <h3>企业本体工具商与云厂商：语义层正在产品化</h3>
+        <p>对「本体中台」同事更直接的公司动态，是云厂商与知识平台把本体做成 Agent 可查询的语义层：NVIDIA 开源 Auto Ontology；Snowflake、Neo4j 在同一周发布相近规格；qOntology、腾讯乐享、JitKnow 则把建模、治理和巡检做成可落地产品。数据治理媒体 7wData 11 月 3 日观察到：一个月内多家数据厂商挤进「为 Agent 提供语义层」赛道，核心问题变成「谁来签发数据的业务含义」。</p>
+        <div class="src">来源：<a href="https://www.ontologyrepository.com/blog/news-nvidia-auto-ontology-semantic-layer-ai-agents">CCO</a>；<a href="https://7wdata.be/data-governance/semantic-layer-for-ai-agents-who-signs-off/">7wData</a></div>
+      </div>
+      <p class="note">说明：纽约证券交易所代码 ONT 的 Onterris（环境服务公司，近日报有实验室收购）与区块链项目 Ontology / 企业知识本体均无关，不纳入本板块。</p>
+    </section>
+
+    <section class="sec" id="s7">
+      <h2>🏆 AI 模型比较（Artificial Analysis 能力榜）</h2>
+      <p class="note">本板块只采用能力评测，不使用 OpenRouter 等按调用量/流量的榜单。综合指数来自 <a href="https://artificialanalysis.ai/leaderboards/models">Artificial Analysis LLM Leaderboard</a>（2026-11-14 访问）。当前综合榜为 <strong>Intelligence Index v5</strong>（2026-10-27 宣布；v5 与旧版 v4.x 分数不可直接比较）。v5 由知识工作、编码、科学、通用四类各占 25%，成分包括 AA-Briefcase、AutomationBench-AA、GDP.pdf、FrontierCode 2.0、Terminal-Bench 4.0、Terminal-Bench-Science、CritPt v2 hard、AA-Omniscience v1.1、HLE-Diamond。官方页多以整数出示，第三方 BenchLeader 转写到一位小数，下表以官方整数为主并注明档位。</p>
+
+      <div class="item">
+        <h3>a) Intelligence Index v5 智能指数（Top 10，注明推理档位）</h3>
+        <table>
+          <thead>
+            <tr><th>排名</th><th>模型</th><th>厂商</th><th>档位</th><th>指数</th><th>任务成本（约）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>max</td><td>65</td><td>$26.54</td></tr>
+            <tr><td>2</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>xhigh</td><td>62</td><td>$14.83</td></tr>
+            <tr><td>3</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>high</td><td>62</td><td>$9.08</td></tr>
+            <tr><td>4</td><td>Gemini 4 Carbon</td><td>Google</td><td>high</td><td>60</td><td>$5.48</td></tr>
+            <tr><td>5</td><td>Claude Opus 5.5</td><td>Anthropic</td><td>max</td><td>59</td><td>$10.04</td></tr>
+            <tr><td>6</td><td>Gemini 4 Carbon</td><td>Google</td><td>medium</td><td>58</td><td>$4.68</td></tr>
+            <tr><td>7</td><td>Claude Opus 5.5</td><td>Anthropic</td><td>xhigh</td><td>57</td><td>$6.05</td></tr>
+            <tr><td>8</td><td>GPT-6 Astra</td><td>OpenAI</td><td>max</td><td>57</td><td>$6.24</td></tr>
+            <tr><td>9</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>medium</td><td>56</td><td>$3.80</td></tr>
+            <tr><td>10</td><td>GPT-6 Astra</td><td>OpenAI</td><td>xhigh</td><td>55</td><td>$3.66</td></tr>
+          </tbody>
+        </table>
+        <p class="note">官方问答写明第 1 名为 Claude Fable 5.2（Max, Default Fallback），指数 65。开源权重最高分为 Kimi K3.1 Pro（约 46）。新上榜的 Gemini 4 Hydrogen（xhigh）约 54 分。同一模型不同档位分数差距明显，比较时必须写明 max / xhigh / high / medium / low。</p>
+      </div>
+      <div class="item">
+        <h3>b) Coding Agent Index v2.1（今日更新）</h3>
+        <p>Artificial Analysis 于 11 月 14 日（UTC 00:04，北京时间上午 8:04）宣布 Coding Agent Index <strong>v2.1</strong>。该指数评估的是「模型 + Agent harness」组合，三项等权：FrontierCode-AA 2.0（132 个真实仓库任务，以「维护者是否会合并」为评分）、Terminal-Bench 4.1（66 题，更新验证器以降低 reward hacking）、SWE-Atlas-QnA-AA。官方要点：<strong>Claude Fable 5.2 与 Claude Opus 5.5 并列第一，综合分 58</strong>；Fable 5.2 在 Claude Code 的 xhigh 与 high 档均为 58，Opus 5.5（max）在 Claude Code 以及与 GPT-6 Luna High 搭配的 Cognition 多模型 harness 中也达到 58。注意：v2.1 与 v2.0（Opus 5.5 曾报 61.7）不可直接比较。</p>
+        <div class="src">来源：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">Artificial Analysis 官方账号（2026-11-14）</a>。部分二手报道把 FrontierCode / Terminal-Bench 版本写反，本文以官方说明为准。</div>
+      </div>
+      <div class="item">
+        <h3>c) Agentic 工作流评估</h3>
+        <p>Intelligence Index v5 已把 GDPval-AA 移出综合分（仍单独发布）。<strong>GDPval-AA v2</strong> 覆盖 44 个职业、9 个行业、220 项真实知识工作任务，在 Stirrup 环境产出交付物并以盲测 Elo 计分（人类专家锚定 1000 Elo）。截至 11 月 10 日左右的公开转写：</p>
+        <table>
+          <thead><tr><th>排名</th><th>模型</th><th>Elo</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Claude Opus 5.5（max, with tools）</td><td>1866</td><td>领先，但单任务成本与耗时显著上升</td></tr>
+            <tr><td>2</td><td>Muse Wonder Full</td><td>1857</td><td>Meta</td></tr>
+            <tr><td>3</td><td>Kimi K3.1 Pro</td><td>1846</td><td>开源权重最高</td></tr>
+            <tr><td>4</td><td>Claude Sonnet 5.5</td><td>1838</td><td></td></tr>
+            <tr><td>5</td><td>Claude Fable 5.2</td><td>1831</td><td>综合智能指数第一，但该工作流榜上尚未反超 Opus 5.5</td></tr>
+          </tbody>
+        </table>
+        <p class="note">AA-Briefcase 是 v5 知识工作分项之一，本日未检索到单独公示的分项完整榜，故不以第三方拼凑分数代替。<span class="tag tag-warn">待核实</span> 来源：<a href="https://llmlearner.com/rankings/gdpval-aa-v2">LLMLearner 对 AA GDPval-AA v2 的转写</a>；方法论见 <a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5">Index v5 说明</a>。</p>
+      </div>
+      <div class="item">
+        <h3>d) 最新模型动态</h3>
+        <ul class="clean">
+          <li>Claude Fable 5.2 / Mythos 5.2（Anthropic，11 月 9 日）：旗舰编程与长程 Agent；API 价 $8 / $40，较 5.1 的 $10 / $50 下调 20%。</li>
+          <li>Gemini 4 Hydrogen（Google，11 月 12 日）：更快的 agentic / 编码执行模型，公开价常见为 $1.50 / $7.50。</li>
+          <li>Muse Ember（Meta，11 月 9 日）；Seedream 5.5（字节 Seed，11 月 9 日）；Inkling 2 Small（Thinking Machines Lab，11 月 5 日，报道称权重待完全开放）。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <h3>e) 定价对比（美元 / 百万 token，标准档，约 11 月中旬公开价）</h3>
+        <table>
+          <thead>
+            <tr><th>模型</th><th>输入</th><th>输出</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Claude Fable 5.2</td><td>$8</td><td>$40</td><td>缓存读取 $0.20；Batch 半价；Fast mode $16 / $80</td></tr>
+            <tr><td>Claude Opus 5.5</td><td>$4</td><td>$20</td><td>同系次旗舰</td></tr>
+            <tr><td>Claude Sonnet 5.5</td><td>$2</td><td>$10</td><td></td></tr>
+            <tr><td>Claude Haiku 5.5（短请求）</td><td>$0.10</td><td>$0.50</td><td>超 100K 提示另有更高档</td></tr>
+            <tr><td>GPT-6 Astra</td><td>$10</td><td>$50</td><td>报道称输入超过约 272K 后为 $20 / $75</td></tr>
+            <tr><td>GPT-6.1 Sol</td><td>$2</td><td>$10</td><td></td></tr>
+            <tr><td>GPT-6.1 Terra</td><td>$1</td><td>$5</td><td>10 月 26 日型号，性价比档</td></tr>
+            <tr><td>Gemini 4 Carbon</td><td>$2</td><td>$10</td><td>有来源称此为截至 11 月 30 日的促销价，之后或上调<span class="tag tag-warn">待核实</span></td></tr>
+            <tr><td>Gemini 4 Hydrogen</td><td>$1.50</td><td>$7.50</td><td>11 月 12 日上市价</td></tr>
+          </tbody>
+        </table>
+        <p class="note">来源：Anthropic 定价页的第三方摘录（核对至 11 月 9–10 日）；OpenAI / Google 公开价的多家汇总（11 月 12–14 日）。合作云（Bedrock、Vertex 等）可能另设区域价。Kimi K3.1 Pro 在 BenchLeader 上有约 $4/百万 token 的综合标价，输入/输出拆分本日未独立核对，故不列入。</p>
+      </div>
+      <div class="insight">
+        <strong>模型能力洞察：</strong>能力格局正在出现「总分第一」与「真实工作流第一」的分叉。Fable 5.2 凭借更高推理档位拿走 Intelligence Index v5 榜首，并在今日刷新的 Coding Agent Index 上与 Opus 5.5 打平；但在 GDPval-AA 这类职业交付物评测里，Opus 5.5 与甚至 Muse Wonder Full、Kimi K3.1 Pro 仍然非常接近。档位（max/xhigh/high）会显著改写分数和费用，高分往往伴随数倍的任务成本与耗时。评测机构同步升级 Terminal-Bench 验证器，说明 reward hacking 已被当成可靠性问题，而不只是刷分技巧。国产开源方面，Kimi K3.1 Pro 在综合指数和 GDPval 上都给出了目前最强的开源权重成绩，但与闭源第一档仍有距离。对中台选型，更应看「模型 + harness + 档位 + 单任务成本」，而不是只看总分。
+      </div>
+    </section>
+
+    <section class="sec" id="s8">
+      <h2>💡 今日推荐阅读</h2>
+      <div class="item">
+        <h3>1. LangChain：C 轮公告与「让每家公司拥有自己的智能」</h3>
+        <p>推荐理由：这是今天最完整的 Agent 平台第一手材料，把 Runtime / Improvement / Governance 写清楚了，也给出 7,000 家客户与 11 月 20 日发布会的时间锚，适合本体 / Agent 中台讨论治理和评估体系时对照。</p>
+        <div class="src">链接：<a href="https://www.langchain.com/blog/series-c">https://www.langchain.com/blog/series-c</a></div>
+      </div>
+      <div class="item">
+        <h3>2. Artificial Analysis：Coding Agent Index v2.1 说明</h3>
+        <p>推荐理由：指数今日升级，明确「模型必须连同 harness 一起评」，并以维护者是否合并、以及抗 reward hacking 的新验证器作为尺度，正好呼应中台同学关心的「能干活」而不是「能刷榜」。</p>
+        <div class="src">链接：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">https://x.com/ArtificialAnlys/status/2121393821955334328</a>；综合榜：<a href="https://artificialanalysis.ai/leaderboards/models">https://artificialanalysis.ai/leaderboards/models</a></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>本早报由狙击日报自动生成</p>
+      <p>生成时间：2026年11月14日 15:20（UTC+8）</p>
+      <p>信息来自公开网页与检索快照，转载或决策前请核对原文。时效无法确认处已标「待核实」。</p>
+    </footer>
+  </div>
+</body>
+</html>
