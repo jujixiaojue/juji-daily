@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>狙击日报｜2026年11月14日 · AI 每日早报</title>
+  <title>狙击日报｜2026年11月16日 · AI 每日早报</title>
   <style>
     :root {
       --primary: #667eea;
@@ -153,6 +153,7 @@
       .sec { padding: 18px 16px 12px; }
       table { display: block; overflow-x: auto; }
     }
+
   </style>
 </head>
 <body>
@@ -161,104 +162,98 @@
       <div class="kicker">JUJI DAILY</div>
       <h1>狙击日报</h1>
       <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
-      <div class="date">2026年11月14日 星期六 · 用户时区 UTC+8</div>
-      <div class="overview">今日概览：Agent 基础设施与评测同日升温——LangChain 完成 3 亿美元 C 轮，Artificial Analysis 编码智能体榜刷新；Anthropic 新模型登上智能指数榜首，OpenAI 推出企业主页与 Wallet；企业「本体」正成为 Agent 可信上下文的关键抓手，需与区块链 Ontology 网络区分看待。</div>
+      <div class="date">2026年11月16日 星期一 · 用户时区 UTC+8</div>
+      <div class="overview">今日概览：周一开盘前，GitHub 日榜被 Agent 办公与技能工具占据，dream-num/univer 登顶，面向编码 Agent 的评测与工作流持续走热；企业侧 Databricks 将 Genie Ontology 推至正式可用，强调「本体由 Agent 构建、由人治理」；产业侧英伟达黄仁勋已于 11 月 12 日辞任 CEO，Anthropic 预计本周四登陆纳斯达克；AI 制药周末有 Orakl Oncology 3,400 万美元 A 轮，以及翰森制药与昂心生物的口服环肽合作。</div>
     </header>
 
+    
     <div class="archive">
       <strong>归档：</strong>
-      <a href="./issues/ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a>
-      <span> · 公开站点地址尚未发布，今日暂无外部分享链接。</span>
+      <a href="./issues/ai-daily-briefing-2026-11-16.html">2026-11-16（今日）</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a>
+      · 公开页面：<a href="https://jujixiaojue.github.io/juji-daily/">https://jujixiaojue.github.io/juji-daily/</a>
     </div>
 
     <section class="sec" id="s1">
       <h2>📊 GitHub Trending 日报</h2>
-      <p class="note">数据综合 <a href="https://github.com/trending">GitHub Trending</a> 与 <a href="https://gitstock.org/trending/2026-11-14">GitStock 2026-11-14 日归档</a>，星标与「今日新增」会随当天波动，以下取当日公开快照。</p>
+      <p class="note">数据综合 <a href="https://github.com/trending">GitHub Trending</a>（2026-11-16 上午快照）与 <a href="https://gitstock.org/trending/2026-11-16">GitStock 2026-11-16</a>。星标与「今日新增」会随当天波动，以下取当日公开快照。周末（11 月 15 日）日榜由 <a href="https://githubtrending.today/archive/2026-11-15/">backnotprop/plannotator</a> 领衔，可作对照。</p>
 
       <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/alibaba/open-code-review">alibaba / open-code-review</a></h3>
-        <div class="meta">Go · 约 50.8k stars · 今日 +215</div>
-        <p>阿里巴巴开源的混合架构代码审查工具：确定性流水线 + LLM Agent，支持行级评论，内置 NPE、线程安全、XSS、SQL 注入等规则，兼容 OpenAI 与 Anthropic 接口。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/GoogleChrome/modern-web-guidance-src">GoogleChrome / modern-web-guidance-src</a></h3>
-        <div class="meta">TypeScript · 约 5.0k stars · 今日 +1,925（当日涨幅最显著）</div>
-        <p>面向编码 Agent 的现代 Web 最佳实践指南源码，用于让编程智能体跟上最新前端与工程规范。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/openai/codex-security">openai / codex-security</a></h3>
-        <div class="meta">TypeScript · 约 13.2k stars · 今日 +751</div>
-        <p>OpenAI 的 Codex Security CLI 与 TypeScript SDK，用于发现、验证并修复安全漏洞，npm 包名为 <code>@openai/codex-security</code>。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ZhuLinsen/daily_stock_analysis">ZhuLinsen / daily_stock_analysis</a></h3>
-        <div class="meta">Python · 约 71.8k stars · 今日 +256</div>
-        <p>LLM 驱动的多市场股票智能分析系统，覆盖多源行情、实时新闻、决策看板与自动推送，支持低成本定时运行。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-other">非 AI 主线</span><a href="https://github.com/we-promise/sure">we-promise / sure</a></h3>
-        <div class="meta">Ruby · 约 14.8k stars · 今日 +925</div>
-        <p>开源个人理财应用，定位「适合所有人、由社区共建」。</p>
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/dream-num/univer">dream-num / univer</a></h3>
+        <div class="meta">TypeScript · 约 25.6k stars · 今日 +988</div>
+        <p>开源 Univer Office SDK，把电子表格与文档的编辑、计算、协作和文件处理接入自有产品，面向人与 AI Agent 共同使用。</p>
       </div>
       <div class="item">
         <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/backnotprop/plannotator">backnotprop / plannotator</a></h3>
-        <div class="meta">TypeScript · 约 10.5k stars · 今日 +108</div>
-        <p>面向 Agent 协作的工作空间：规划、批注、审代码、与团队共享，并支持一键把反馈回传给智能体。</p>
+        <div class="meta">TypeScript · 约 11.8k stars · 今日 +866</div>
+        <p>面向编码 Agent 的本地审阅工作空间：可批注计划与 diff，并一键把反馈回传给智能体。周日曾登顶日榜，周一仍保持高增量。</p>
       </div>
       <div class="item">
-        <h3><span class="tag tag-other">非 AI 主线</span><a href="https://github.com/louislam/uptime-kuma">louislam / uptime-kuma</a></h3>
-        <div class="meta">JavaScript · 约 93.9k stars · 今日 +71</div>
-        <p>流行的自托管可用性监控工具，仍稳定出现在日榜前列。</p>
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/GoogleChrome/modern-web-guidance-src">GoogleChrome / modern-web-guidance-src</a></h3>
+        <div class="meta">TypeScript · 约 7.1k stars · 今日 +1,219（当日涨幅最显著）</div>
+        <p>由浏览器团队维护的现代 Web 最佳实践指南源码，以 Agent Skills 形式向编码智能体提供平台能力与兼容性数据，避免沿用过时前端模式。</p>
       </div>
       <div class="item">
-        <h3><span class="tag tag-other">属性待核实</span><a href="https://github.com/block/buzz">block / buzz</a></h3>
-        <div class="meta">Rust · 约 37.3k stars · 今日 +97</div>
-        <p>Block 开源的「蜂巢思维」通信平台。公开简介较短，是否以 AI Agent 为核心能力<span class="tag tag-warn">待核实</span>。</p>
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">ChromeDevTools / chrome-devtools-mcp</a></h3>
+        <div class="meta">TypeScript · 约 56.9k stars · 今日 +717</div>
+        <p>把 Chrome DevTools 以 MCP 服务或 CLI 形式提供给编码 Agent，用于控制、检查实时浏览器，并采集性能追踪、网络与控制台信息。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/alibaba/open-code-review">alibaba / open-code-review</a></h3>
+        <div class="meta">Go · 约 52.1k stars · 今日 +691</div>
+        <p>阿里巴巴开源的混合架构代码审查工具：确定性流水线 + LLM Agent，支持行级评论，内置 NPE、线程安全、XSS、SQL 注入等规则，兼容 OpenAI 与 Anthropic 接口。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ag-ui-protocol/ag-ui">ag-ui-protocol / ag-ui</a></h3>
+        <div class="meta">TypeScript · 约 17.8k stars · 今日 +355</div>
+        <p>AG-UI：连接 AI Agent 与前端应用的事件协议，用于把智能体接入用户界面，并同步实时上下文。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/Tencent/LoopForge">Tencent / LoopForge</a></h3>
+        <div class="meta">Go · 约 1.5k stars · 今日 +423</div>
+        <p>腾讯开源的自托管编码 Agent 交付工作流，可编排 CodeBuddy、Codex 与 Claude Code，并加入脚本和人工审批关卡。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-labs-code/stitch-skills">google-labs-code / stitch-skills</a></h3>
+        <div class="meta">TypeScript · 约 9.3k stars · 今日 +247</div>
+        <p>面向 Stitch MCP 服务的 Agent Skills 库，遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码智能体。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/NVIDIA/SkillEvaluator">NVIDIA / SkillEvaluator</a></h3>
+        <div class="meta">Python · 约 1.7k stars · 今日 +122</div>
+        <p>用于评估 AI Agent Skills 的多层框架，包含质量门禁、语义重叠检测、合成评测集生成，以及衡量技能是否改变智能体行为的在线评估。</p>
       </div>
       <div class="item">
         <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/tradermonty/claude-trading-skills">tradermonty / claude-trading-skills</a></h3>
-        <div class="meta">Python · 约 4.2k–4.3k stars · 今日 +69</div>
-        <p>面向股票投资者的 Claude Code skills，覆盖行情分析、技术图表、经济日历、筛选器与交易策略开发。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-other">非 AI 主线</span><a href="https://github.com/tailscale/tailcat">tailscale / tailcat</a></h3>
-        <div class="meta">Go · 约 9.5k stars · 今日 +256</div>
-        <p>类似 netcat 的工具，走 Tailscale 数据平面、不经过其控制平面。同日榜上还出现面向编码 Agent 的 Chrome DevTools 相关项目，以及带 AI 超分/帧生成的视频工具 Veyra-NRVideo。</p>
+        <div class="meta">Python · 约 5.5k stars · 今日 +706</div>
+        <p>面向股票投资者的 Claude Code skills，覆盖行情分析、技术图表、经济日历、筛选器与交易策略开发。仓库声明其并非信号服务，也不承诺收益。</p>
       </div>
     </section>
 
     <section class="sec" id="s2">
       <h2>🤖 AI Agent 前沿洞察</h2>
       <div class="item">
-        <h3>LangChain 完成 3 亿美元 C 轮，投后估值 30 亿美元</h3>
-        <p>2026年11月13日，LangChain 宣布由 CapitalG 领投完成 3 亿美元 C 轮，GIC、DFJ Growth 参与，IVP、Sapphire Ventures 等跟投，估值约 30 亿美元，约为一年前 12.5 亿美元估值的两倍以上。官方称 LangSmith 已服务超过 7,000 家组织，客户包括 Harvey、Rippling、Clay，以及 NVIDIA、丰田、Salesforce 等。公司将平台概括为 Agent Runtime、Agent Improvement、Agent Governance 三块，并预告 11 月 20 日发布会。</p>
-        <div class="src">来源：<a href="https://www.langchain.com/blog/series-c">LangChain 官方博客</a>；<a href="https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/">TechCrunch</a></div>
+        <h3>Google DeepMind 发布 Gemini Robotics 2.5，并开源安全评测 ASIMOV-Jailbreak</h3>
+        <p>11 月 10 日，DeepMind 发布视觉-语言-动作（VLA）模型 Gemini Robotics 2.5。官方称在约 200 项任务上评估（如夹取上菜、给礼盒系蝴蝶结、移液），相对此前基线成功率提升约 30%–100%，完成速度加快约 20%–30%；模型可适配多种机器人形态，包括 Apptronik Apollo 2 人形机器人与 Franka Duo。与 Apptronik、Mercedes-Benz 在匈牙利凯奇凯梅特和德国辛德芬根产线做概念验证：Apollo 2 执行汽车零件分拣入盒（kitting），官方公布成功率为 96%。安全方面，推理期引导使绕过障碍与近人作业的安全完成率分别提升约 33% 和 43%。同时开源越狱评测集 ASIMOV-Jailbreak；官方称 Gemini 4 Argon 在该集上的抵抗率为 99.5%，此前基线 Gemini Robotics ER 2 为 82%。周末仍有行业媒体跟进报道。</p>
+        <div class="src">来源：<a href="https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/">Google DeepMind 官方博客（2026-11-10）</a>；后续报道见 <a href="https://arstechnica.com/google/2026/11/deepmind-reveals-gemini-robotics-2-5-and-open-safety-benchmark-asimov-jailbreak/">Ars Technica</a>、<a href="https://roboticsandautomationnews.com/2026/11/15/google-deepmind-launches-gemini-robotics-2-5-with-improved-dexterity-and-industrial-capabilities/107186/">Robotics and Automation News（2026-11-15）</a></div>
       </div>
       <div class="item">
-        <h3>Anthropic：自托管 Managed Agents 进入私有预览，并发布记忆研究</h3>
-        <p>多家行业媒体 11 月 13 日报道，Anthropic 已向企业开放 Claude Managed Agents 的私有预览，允许在自有云或本地运行服务端、PostgreSQL、沙箱 worker、凭证与会话历史；模型请求仍可走 Anthropic、Amazon Bedrock、Google Agent Platform、Microsoft Foundry 或企业网关。另，Anthropic 于 11 月 6 日发表 <em>The components of agent memory</em>，报道称离线「dreaming」整理可将 Wiki 准确率从 13% 提升到 48%。11 月 12 日起，Claude Meetings 开始提供测试版（可用范围与套餐限制较细）。</p>
-        <div class="src">来源：<a href="https://i10x.ai/news/category/agents?product=claude">i10X News</a>；Claude Meetings 说明见 <a href="https://aiagent-navi.com/2026/11/">AIエージェントナビ</a>。自托管细节以官方文档为准，部分转述<span class="tag tag-warn">待核实</span>。</div>
+        <h3>Agent Skills 与 MCP 在 AAIF 下的共同维护持续被强调</h3>
+        <p>Anthropic 于 10 月 22 日将 Agent Skills 规范捐赠给 Linux 基金会旗下的 Agentic AI Foundation（AAIF），与 MCP 一并纳入厂商中立治理。11 月 11 日，Google 开源博客刊出对 MCP / Agent Skills 核心维护者 Kurtis Van Gent 的访谈，称 Google、Anthropic、OpenAI 及更广泛生态正在共同维护该标准；文中回顾 2026 年 7 月 28 日 MCP 规范转向无状态、可水平扩展的传输模型。今日 GitHub 日榜上的 stitch-skills、SkillEvaluator 与 LoopForge，也从技能库、技能评测和带人工关卡的交付工作流三个方向，呼应同一套开放标准。</p>
+        <div class="src">来源：<a href="https://opensource.googleblog.com/2026/11/scaling-ai-agents-open-standards-mcp-aaif.html">Google Open Source Blog（2026-11-11）</a>；<a href="https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation">Anthropic：Donating Agent Skills to the AAIF</a></div>
       </div>
       <div class="item">
-        <h3>Google Gemini 4 Hydrogen、Antigravity 远程 Agent，以及混合路由样本</h3>
-        <p>Google 于 11 月 12 日发布面向多步「agentic」工作的更快模型 Gemini 4 Hydrogen（模型 ID：gemini-4-hydrogen），已进入 Search、Gemini 应用、AI Studio、API 与 Google Antigravity 等渠道；免费档往往不直接出现在选择栏，而是在自动选择时调用。另有报道称 Antigravity 2.29 增加可在关闭本地会话后继续编码的云端 Remote Agents。AWS 则发布示例，用 LiteLLM 与 NVIDIA NeMo Switchyard 在 Bedrock 上把编码 Agent 请求路由到 Claude Opus 5.5 或 Nemotron 3 Super 120B，并建议用「每个成功任务的成本」而非单纯的 token 单价来评估路由。</p>
-        <div class="src">来源：<a href="https://aiagentstore.ai/ai-agent-news/this-week">AI Agent Store 本周汇总</a>；<a href="https://aiagentnews.io/">AI Agent News</a>；<a href="https://snowsystem.net/ai/ai-news-202611/">Snow System 11月汇总</a></div>
+        <h3>KubeCon：Red Hat 加强 OpenShift / RHEL 上的 Agent 运维与安全</h3>
+        <p>在本周举行的 KubeCon + CloudNativeCon NA 2026 上，Red Hat 发布围绕 OpenShift 5 与 RHEL 的更新，重点包括用 AI Agent 辅助集群排障与升级，以及为非确定性智能体提供密钥掩码、沙箱等安全层。行业报道将其概括为竞逐企业环境中的「Agent 空中交通管制」。具体功能边界与正式版本号请以 Red Hat 公告为准。</p>
+        <div class="src">来源：<a href="https://www.networkworld.com/article/4247825/red-hat-joins-race-to-be-air-traffic-controller-for-ai-agents.html">Network World（2026-11-12）</a>；<a href="https://siliconangle.com/2026/11/09/red-hat-adds-agentic-ai-operations-stronger-security-in-openshift-5-and-rhel-updates/">SiliconANGLE（2026-11-09）</a></div>
       </div>
       <div class="item">
-        <h3>OpenAI 把企业主页与支付能力交给 Agent</h3>
-        <p>11 月 10 日，OpenAI 上线 Businesses in ChatGPT 测试版，企业可通过 Business Hub 认领主页、维护信息与商品源；面向美国符合条件的电商与在线服务商提供 Business Agent。11 月 13 日再发布 ChatGPT Wallet：先向美国 ChatGPT Pro 用户开放，由用户逐笔批准后，以支付 token 代替真实卡号完成代购，合作网络包括 American Express、Mastercard 与 Visa。</p>
-        <div class="src">来源：<a href="https://openai.com/index/introducing-businesses-chatgpt/">OpenAI：Businesses in ChatGPT</a>；<a href="https://openai.com/index/introducing-chatgpt-wallet/">OpenAI：ChatGPT Wallet</a></div>
-      </div>
-      <div class="item">
-        <h3>研究与论文速览</h3>
-        <ul class="clean">
-          <li>亚马逊、哥伦比亚大学等提出 ReTrace，把业务流程与执行日志编译成可复用代码，电信客服模拟中平均执行时间从 170 秒降至 1.3 秒（成功率 75.8%，原智能体 80.6%）。来源：<a href="https://www.arxivdaily.com/industry-trends/category/agent">arXivDaily</a>（arXiv:2611.14492，2026-11-11）。</li>
-          <li>微软等机构发布 642 道 Word 文档编辑评测：不仅看截图，还检查对象是否真正改对；报道称 Claude Code + Opus 5 总体通过率约 87.1%。来源：同上（arXiv:2611.10475，2026-11-10）。</li>
-          <li>Y Combinator CEO Garry Tan 11 月 8 日公布开源 harness 评测早期结果，强调「包装层」与模型同样影响 Agent 成绩。</li>
-        </ul>
+        <h3>后续节点：LangChain 11 月 20 日发布会</h3>
+        <p>上期已报道 LangChain 于 11 月 13 日完成由 CapitalG 领投的 3 亿美元 C 轮、投后估值约 30 亿美元。官方预告的 11 月 20 日发布会仍是本周可跟踪节点，公司将平台概括为 Agent Runtime、Agent Improvement、Agent Governance 三块。</p>
+        <div class="src">来源：<a href="https://www.langchain.com/blog/series-c">LangChain 官方博客</a></div>
       </div>
       <div class="insight">
-        <strong>未来方向洞察：</strong>今天的信号比较一致——Agent 正在从「能跑通一次任务」转向「可治理、可路由、可付费」的生产系统。融资侧把钱砸向运行时与评估平台（LangChain）；产品侧把企业身份和支付闭环交给智能体（OpenAI）；评测侧则把模型与 harness 绑在一起打分，并升级验证器以抑制 reward hacking。对本体 / Agent 中台同学而言，接下来更关键的可能不是再叠一个通用多 Agent 框架，而是：业务语义是否可审计、工具调用是否可降级路由、以及长程记忆与权限如何变成可运维资产。
+        <strong>未来方向洞察：</strong>今天能看到三条并行的线索。一是标准层：MCP 与 Agent Skills 进入 AAIF 共同维护后，技能库、技能评测和带审批关卡的工作流开始一起出现在开源热榜上，说明「怎么给 Agent 注入可复用程序知识」正在从各家私有格式走向可移植资产。二是上下文层：企业不再满足于单 Agent、单域的临时提示词，而是把本体当作所有智能体共享的语义基础设施（详见下一板块的 Databricks Genie Ontology）。三是物理与治理层：Gemini Robotics 2.5 把 Agent 从屏幕推进到产线，同时用开源越狱评测约束长程动作；Red Hat 则在集群侧补运维和沙箱。对本体 / Agent 中台而言，选型重点正从「再做一个通用多 Agent 框架」转向：业务语义是否可治理、技能是否可评测、工具调用是否可降级，以及长程动作能否被审计。
       </div>
     </section>
 
@@ -269,56 +264,36 @@
       <div class="item">
         <h3>一、区块链 Ontology 网络（ONT）</h3>
         <ul class="clean">
-          <li><strong>主网 v3.3.1 升级（10 月 23 日）：</strong>官方称本次升级提升稳定性、安全性与整体性能，所有同步节点需升级到 v3.3.1 以保持兼容。来源：<a href="https://x.com/OntologyNetwork/status/2113427297630126514">Ontology 官方 X</a>；<a href="https://coinmarketcap.com/cmc-ai/ontology/latest-updates/">CMC 汇总（更新至 11 月 10 日）</a>。</li>
-          <li><strong>第二次安全停机后恢复（10 月 10–12 日）：</strong>因「构建于 Ontology 上的未具名生态项目」安全风险预警，主网暂停出块约 41–43 小时后恢复。官方表示核心基础设施安全，网络本身无资金损失；触发项目名称与是否波及该项目用户，至今仍未公开。<span class="tag tag-warn">待核实</span></li>
-          <li><strong>近 1–3 日：</strong>检索未发现 11 月 12–14 日新的官方技术版本或主网事件。官网新闻栏在 11 月初仍有去中心化身份、个人声誉归属、欧盟数字身份（成员国务必于 2026 年底前提供至少一种官方钱包）以及韩国区块链周回顾等文章，强调「AI 时代的去中心化身份与用户数据」。来源：<a href="https://ont.io/news/">ont.io/news</a>。是否有未同步的中文公众号新文<span class="tag tag-warn">待核实</span>。</li>
+          <li><strong>近 1–3 日：</strong>检索官方新闻栏与公开渠道，未发现 11 月 13–16 日新的主网版本或官方技术公告。官网最近一篇文章仍是 11 月 4 日关于「个人声誉归属」的去中心化身份讨论；10 月 27 日文还提到，欧盟成员国须在 2026 年底前至少提供一种官方数字钱包。来源：<a href="https://ont.io/news/">ont.io/news</a>。</li>
+          <li><strong>背景（非本周新事件）：</strong>主网 v3.3.1 升级发生于 10 月 23 日；10 月 10–12 日曾因生态项目安全风险预警暂停出块后恢复。近三日无新的官方进展说明。是否有未同步的中文公众号新文<span class="tag tag-warn">待核实</span>。</li>
         </ul>
       </div>
       <div class="item">
         <h3>二、企业知识本体 / 本体中台（与区块链 Ontology 不是同一件事）</h3>
-        <ul class="clean">
-          <li><strong>qOntology 开源版 v1.1.0（11 月 9 日）：</strong>千桐科技发布本体工程平台更新，重点是 AI 辅助建模（由业务材料生成可审核的候选模型）、知识图谱多视图（常规 / 关系 / 时序 / 表格），并补充项目版本管理与约束规则配置。来源：<a href="https://juejin.cn/post/7705974459643609142">掘金</a>。</li>
-          <li><strong>NVIDIA Auto Ontology（11 月 1 日开源）：</strong>Apache 2.0 的 Python 框架，在企业元数据目录与生成 SQL 的 AI Agent 之间构建图式语义层，用于减少「列名看起来对、业务定义却不同」导致的错答。报道称其属于 NVIDIA 在 GTC Berlin 预告的 Agent Knowledge Foundation 方向；同周 Snowflake Business Ontology、Neo4j Ontology Graph Specification 也在同一层发力。来源：<a href="https://www.ontologyrepository.com/blog/news-nvidia-auto-ontology-semantic-layer-ai-agents">CCO / Ontology Repository</a>。</li>
-          <li><strong>腾讯乐享「可信索引」（10 月 30 日发布，仍具参考价值）：</strong>在腾讯全球数字生态大会上，将本体、知识图谱与 LLM Wiki 组成「三位一体」索引，使 Agent 调用企业知识时能区分业务对象、文档版本与使用条件；并上线 AI 巡检以发现重复、冲突、过期内容，交由责任人确认。实践分享涉及中信建投、云南白药、OPPO、潮宏基等。来源：<a href="http://news.yesky.com/hotnews/374/380874.shtml">天极网</a>。</li>
-          <li><strong>JitKnow 知识库 4.8（11 月 3 日）：</strong>从纯向量检索升级为「本体驱动 + 知识图谱增强」，补齐实体归一、可审核抽取、溯源反馈与混合问答。来源：<a href="https://juejin.cn/post/7703743273756475419">掘金</a>。</li>
-        </ul>
+        <p><strong>Databricks 宣布 Genie Ontology 正式可用（GA，11 月 11 日）。</strong>官方将其定位为「由 Agent 构建、由人治理、供每个 Agent 使用」的企业级本体：智能体从仪表盘、SQL、笔记本、Power BI 等语义模型中持续学习，沉淀可复用的 Ontology Snippets；必须精确的定义（如确认收入、ARR）则由人通过 Unity Catalog 的 Metric Views、Domains 与 Pages 建模，并作为权威来源。OntoRank 按来源权威性、认证、人员相关性、流行度与新旧程度对冲突定义排序。通过 Genie MCP，同一套上下文也可提供给 ChatGPT、Claude、Microsoft Copilot 等外部智能体。官方称已有数千家客户在生产中运行 Genie Agents，点名客户包括 7-Eleven、Virgin Atlantic 与 General Motors。</p>
+        <p>同期发布的、与 Turing 合作的可分享基准称：在模拟英国能源公司的真实 Databricks 工作区中，带 Genie Ontology 的 Genie 通过率为 91%，对照的两个前沿 Agent 分别为 45% 与 58%，即约 1.6 倍通过率，同时消耗不到一半的 token，完成时间快 3–4 倍。该基准包含笔记本、仪表盘、已保存 SQL 和文档，而不仅是表结构。上述数字来自 Databricks 与合作方公布的评测，并非独立第三方复现。<span class="tag tag-warn">待核实</span></p>
+        <div class="src">来源：<a href="https://www.databricks.com/blog/announcing-ga-of-genie-ontology">Databricks：Announcing GA of Genie Ontology</a>；<a href="https://www.databricks.com/blog/genie-genie-ontology-delivers-16-accuracy-less-half-tokens">配套评测博文</a></div>
       </div>
     </section>
 
     <section class="sec" id="s4">
       <h2>🏢 AI 公司要闻</h2>
       <div class="item">
-        <h3><span class="tag tag-cat">[融资]</span>LangChain 3 亿美元 C 轮，估值 30 亿美元</h3>
-        <p>CapitalG 领投，详见「AI Agent 前沿洞察」。这是本周最明确的 Agent 基础设施融资事件。</p>
-        <div class="src">来源：<a href="https://www.langchain.com/blog/series-c">LangChain</a></div>
+        <h3><span class="tag tag-cat">[人事]</span>英伟达：黄仁勋辞任 CEO，CFO 科莱特·克雷斯任临时 CEO</h3>
+        <p>11 月 12 日，英伟达董事会宣布，黄仁勋辞去总裁、首席执行官及董事会成员职务，即刻生效。现任执行副总裁兼首席财务官科莱特·克雷斯（Colette Kress）出任临时 CEO，在正式继任者产生前继续兼任 CFO；董事会将同时考察内部与外部候选人。董事会同时任命 Harvey C. Jones 为公司史上首位董事长（Chair of the Board）。Jones 自 1990 年代起担任董事，曾任 Synopsys 首席执行官。官方声明强调业务、客户承诺与产品路线图预计不受打断，但未说明请辞原因。多家主流媒体报道称，此事发生在一项已引发广泛关注的争议之后；具体事实与调查进展请以监管文件和权威报道为准。公司仍按原计划于 11 月 17 日太平洋时间约 13:20（对应 11 月 18 日 05:20，UTC+8）发布 2027 财年第三季度业绩。TechCrunch 等报道称，消息公布后早盘股价一度下跌约 12%。</p>
+        <div class="src">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition">NVIDIA 官方新闻稿（2026-11-12）</a>；<a href="https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/">TechCrunch</a>；中文报道如 <a href="https://finance.sina.com.cn/tech/roll/2026-11-13/doc-iniypvhf1078613.shtml">新浪科技</a>、<a href="https://www.cls.cn/detail/2533159">财联社</a></div>
       </div>
       <div class="item">
-        <h3><span class="tag tag-cat">[融资]</span><span class="tag tag-cat">[产品发布]</span>Anthropic：Fable / Mythos 5.2 发布，IPO 路演进行中</h3>
-        <p>11 月 9 日，Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2。Fable 5.2 面向复杂软件工程、视觉与可跨多日调度子 Agent 的长程工作，官方口径为 100 万 token 上下文、最高 128K 输出，并默认提供自适应思考。媒体报道其已启动 IPO 路演：11 月 10 日 S-1 修订给出每股 70–78 美元区间，有报道按发行规模测算估值约 1.02 万亿美元，并提到 18 日定价、19 日挂牌的时间表；亦有报道称认购踊跃、最终定价可能高于区间上限。最终发行价与挂牌安排仍以监管文件与官方公告为准。<span class="tag tag-warn">待核实</span></p>
-        <div class="src">来源：<a href="https://www.bloomberg.com/news/articles/2026-11-09/anthropic-unveils-new-fable-mythos-ai-models-ahead-of-ipo">Bloomberg</a>；<a href="https://dealroom.co/news/170996-anthropic-sets-ipo-terms-up-to-69-3b-at-70-to-80-a-share-plus-26b-from-s/">Dealroom</a> 等路演报道</div>
+        <h3><span class="tag tag-cat">[融资]</span>Anthropic IPO：媒体称或于 11 月 19 日登陆纳斯达克</h3>
+        <p>11 月 15 日 CNBC 等继续跟踪 Anthropic 的上市安排：报道称公司预计周四（11 月 19 日）在纳斯达克挂牌，定价区间仍为每股 70–78 美元。纽约时报、TechCrunch、路透等此前按该区间报道隐含估值可高达约 1.4 万亿美元；亦有报道按发行规模给出不同测算。CNBC 引述最新招股书口径称，Anthropic 有超过 9,000 亿美元的支出承诺，其中对亚马逊十年期承诺至少 1,100 亿美元；2026 年前九个月净亏损 1,040 亿美元；IPO 可能募得逾 900 亿美元，再叠加现有现金及短期投资约 1,320 亿美元。报道还称，AMD、Broadcom、Google、Micron、Microsoft、Nvidia 与台积电等按发行价合计拟投资约 260 亿美元。最终发行价、募资额与挂牌安排以定价公告和监管文件为准。<span class="tag tag-warn">待核实</span></p>
+        <div class="src">来源：<a href="https://www.cnbc.com/2026/11/15/anthropic-ipo-is-make-or-break-for-the-technology-industry.html">CNBC（2026-11-15）</a>；<a href="https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/">TechCrunch（2026-11-10）</a>；<a href="https://www.nytimes.com/2026/11/10/technology/anthropic-ipo-valuation-share-price.html">The New York Times</a></div>
       </div>
       <div class="item">
-        <h3><span class="tag tag-cat">[产品发布]</span>Google 发布 Gemini 4 Hydrogen</h3>
-        <p>11 月 12 日，Google 推出作为 Gemini 3.8 Flash 后续、偏日常编码与 Agent 快速执行的 Gemini 4 Hydrogen，已进入 Search、Gemini 应用与开发者 API 等产品。公开 API 价常见报道为输入 $1.50 / 输出 $7.50（每百万 token）。同系列的 Gemini 4 Carbon 仍是智能指数上的主要竞品。</p>
-        <div class="src">来源：<a href="https://snowsystem.net/ai/ai-news-202611/">Snow System</a>；定价见 LiteLLM 等公开价目（11 月 12–13 日）</div>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-cat">[产品发布]</span>OpenAI：Business Hub / Business Agent，以及 ChatGPT Wallet</h3>
-        <p>11 月 10 日上线企业认领与美国电商 Business Agent；11 月 13 日向美国 ChatGPT Pro 用户推出需逐笔生物识别确认的 Wallet。官方称 ChatGPT 每周用户约 12 亿。</p>
-        <div class="src">来源：<a href="https://openai.com/index/introducing-businesses-chatgpt/">OpenAI</a>；<a href="https://openai.com/index/introducing-chatgpt-wallet/">ChatGPT Wallet</a></div>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-cat">[产品发布]</span>国内厂商：月之暗面、字节、腾讯近期模型与算力动态</h3>
+        <h3><span class="tag tag-cat">[产品发布]</span>国内厂商近期动态</h3>
         <ul class="clean">
-          <li>月之暗面 Kimi K3.1 Pro（约 10 月 24 日，报道称约 2.8 万亿参数）目前是 Artificial Analysis 智能指数上排名最高的开源权重模型之一（约 46 分）。工商时报 11 月 10–11 日援引美媒称，月之暗面今年 8 月向另一家中国科企租用 32 台搭载英伟达 B300 的 SuperMicro 服务器，价值约人民币 4.32 亿元。来源：<a href="https://www.ctee.com.tw/search/%E6%9C%88%E4%B9%8B">工商时报</a>；<a href="https://www.datalearner.com/whats-new">DataLearnerAI</a>。</li>
-          <li>字节跳动 Seed 团队于 11 月 9 日发布 Seedream 5.5（图像生成方向）。来源：DataLearnerAI。</li>
-          <li>腾讯 AI 实验室 Hy4 于 11 月 4 日前后收录，开源权重模型在智能指数上约 35 分量级。来源：DataLearnerAI、Artificial Analysis 榜单。</li>
+          <li>月之暗面金融行业与生态负责人徐天天 11 月 12 日在第十七届财新峰会上表示，预训练算力、后训练与推理、智能体设计三条增长曲线叠加，AI 迭代速度将继续加快。来源：<a href="https://www.guandian.hk/tag/%E6%9C%88%E4%B9%8B%E6%9A%97%E9%9D%A2">观点网对财新峰会的转述（2026-11-12）</a>。</li>
+          <li>近 1–3 日未检索到百度、阿里、字节跳动的新一轮官方模型发布；字节 Seedream 5.5（11 月 9 日）与月之暗面 Kimi K3.1 Pro（10 月 24 日，开放权重）仍是日前已覆盖的背景，不作为今日新事件。</li>
         </ul>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-cat">[产品发布]</span>Meta Muse Ember（11 月 9 日）</h3>
-        <p>Facebook AI 研究实验室于 11 月 9 日发布 Muse Ember。在 Artificial Analysis 智能指数上，Muse Ember（max）约 36 分，定位偏轻量低价档；更高端的 Muse Wonder Full（max）约 50 分，并在 GDPval-AA v2 知识工作评测中名列前茅。</p>
-        <div class="src">来源：<a href="https://www.datalearner.com/whats-new">DataLearnerAI</a>；<a href="https://artificialanalysis.ai/leaderboards/models">Artificial Analysis</a></div>
       </div>
     </section>
 
@@ -329,150 +304,125 @@
       <div class="item">
         <h3>a) 融资与并购</h3>
         <ul class="clean">
-          <li><strong>Potential Sciences（英国，11 月 5 日）：</strong>英国政府 Sovereign AI 基金参与其「八位数」（eight-figure，未披露精确金额）融资，并提供国家超算算力。公司路径是用物理定律/量子化学而非既有实验记录来训练化学 AI，自称有望把计算成本降到约原来的 1/100。其他投资方包括 Twin Path、Odyssey、Portfolio Ventures 等，以及 Stripe 联合创始人 Patrick Collison、Recursion 联合创始人 Chris Gibson 等天使。来源：<a href="https://www.gov.uk/government/news/sovereign-ai-puts-cash-and-compute-behind-uk-startup-using-ai-to-redefine-chemistry">GOV.UK</a>。具体轮次与估值未公布。<span class="tag tag-warn">待核实</span></li>
-          <li><strong>行业口径（截至 11 月中）：</strong>《每日经济新闻》11 月 12 日引述投中嘉川 CVSource：2026 年至今 AI 制药赛道完成 57 笔投资、44 家企业获融资，披露总额 157.65 亿元，已超过 2023–2025 三年之和。来源：<a href="https://finance.sina.com.cn/stock/t/2026-11-12/doc-iniynyar1138358.shtml">每日经济新闻 / 新浪财经</a>。</li>
-          <li><strong>背景（非本周新事件）：</strong>9 月，字节跳动分拆的 Anew Labs（新生实验室）完成约 2.9 亿美元首轮外部融资、投后估值约 15 亿美元，字节保留约 56% 股份；报道称当时管线仍在临床前。来源：路透社及相关中文报道（2026-09-16）。</li>
+          <li><strong>Orakl Oncology（法国，11 月 12 日）：</strong>这家 2023 年成立、源自 Gustave Roussy 的 TechBio 公司完成 3,400 万美元 A 轮，由 Norrsken VC 与 Singular 联合领投，InfraVia Growth、Bpifrance 的 Patient Autonome Fund 等参与，累计融资约 5,000 万美元。公司把 AI 模型与实验室培养的患者肿瘤、临床史连接，用于在人体试验前预测抗癌药物试验结局；「约 90% 预测准确率」为公司自行披露，尚未见到独立复现。<span class="tag tag-warn">待核实</span> 这属于试验结局预测 / AI 辅助研发工具，不是已上市药物。来源：<a href="https://infraviacapital.com/wp-content/uploads/2026/11/PR-Orakl-Nov-2026.docx.pdf">Orakl / InfraVia 新闻稿（2026-11-12）</a>；<a href="https://hitconsultant.net/2026/11/12/orakl-oncology-raises-34-million-series-a-predict-cancer-clinical-trial-outcomes/">HIT Consultant</a>。</li>
+          <li><strong>nPhase（美国，11 月 2 日宣布，中文媒体 11 月 15 日仍在跟进）：</strong>AI 原生临床数据平台完成 3,000 万美元 D 轮，由 Viking Global Investors 领投。报道称这是公司自 2017 年以来首次股权融资，技术源于范德堡大学 REDCap。定位是临床数据管理与 agentic 工作流，而非药物分子设计。来源：<a href="https://www.fiercebiotech.com/cro/nphase-rakes-30m-expand-ai-native-clinical-data-platform">Fierce Biotech</a>；<a href="https://www.pharnexcloud.com/zixun/shiye/yytrz_393775">摩熵医药 / 智药邦（2026-11-15）</a>。</li>
         </ul>
       </div>
       <div class="item">
-        <h3>b) 管线与临床进展</h3>
-        <p><strong>Recursion REC-4881（在研，非已上市）：</strong>11 月 2 日，Recursion 在 CGA-IGC 年会公布家族性腺瘤性息肉病（FAP）II 期 TUPELO 更新数据。REC-4881 是经其 AI 平台表型筛选发现的口服 MEK1/2 抑制剂，已获 FDA 孤儿药与 Fast Track 资格。扩展成年队列在治疗 12 周后，总息肉负荷中位下降 47%，约 1/3 患者降幅 ≥65%；停药 12 周后，85% 可评估患者仍低于基线。安全性方面，26 例安全分析集中最高级别治疗相关不良事件多为 1–2 级（约 81%），4 例为 3 级，无 4/5 级；公司预计在与 FDA 沟通后，于 2027 年下半年启动注册试验。这属于 AI 发现/辅助设计分子的中期临床信号，尚不是获批上市。</p>
-        <div class="src">来源：<a href="https://finance.yahoo.com/healthcare/articles/phase-2-rec-4881-data-212500104.html">Recursion / GlobeNewswire（2026-11-02）</a></div>
-      </div>
-      <div class="item">
-        <h3>c) 大厂与药企布局</h3>
+        <h3>b) 管线、合作与临床相关进展</h3>
         <ul class="clean">
-          <li><strong>Anthropic × 六家生命科学机构（10 月 28 日前后，近两周仍被广泛转述）：</strong>合作方包括 Enveda、Generate Biomedicines、Divergence Labs、BigHat Biosciences、Bristol Myers Squibb 与 The Column Group。公开案例多为 AI 辅助：如 Enveda 用 Claude 审阅 1,061 页生产文件、缩短法规草稿时间；Generate 用 Claude Code 缩短 CAR-T 基因指令并在实验室观察到受体表达与杀伤提升；Divergence 约一个月生成约 3.5 万个抗体设计。Anthropic 同时收购一人公司 Mithril Medicine（两项罕见肌营养不良方向），目前仍为临床前，公司称若结果站得住，人体试验最早或在 2028 年末。来源：<a href="https://www.digitalhealthnews.com/anthropic-partners-with-six-life-sciences-organizations-to-advance-drug-development-with-claude">Digital Health News</a>。</li>
-          <li><strong>平台型合作成为议题：</strong>11 月香港国际生物计算创新峰会上，和铂医药与百图生科合资的 MegaStream 强调「Lab-in-a-Loop」干湿闭环，以及跨国药企从「买管线资产」转向「买可复用能力」；MegaStream 称有 5 条 AI 赋能管线，目标 2027 年上半年首个 IND——该时间表尚未被独立临床登记交叉验证。<span class="tag tag-warn">待核实</span> 来源：<a href="https://finance.sina.com.cn/stock/t/2026-11-12/doc-iniynyar1138358.shtml">每日经济新闻</a>。</li>
+          <li><strong>翰森制药 × 昂心生物（AilsynBio，11 月 13 日）：</strong>翰森制药（03692.HK）公告，全资附属翰森（上海）健康科技与昂心生物订立合作开发协议，获得使用对方 AI 平台发现新型口服环肽候选药物的许可；翰森有权选择靶点、取得项目知识产权并主导后续开发，昂心生物最高可收取人民币 3.17 亿元，另加已获批产品的个位数销售分成。这属于 AI 发现 / 设计候选分子的授权合作，目前尚未见到具体进入人体的管线披露，更不是已上市药物。来源：<a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1113/2026111300947.pdf">香港交易所公告（2026-11-13）</a>；<a href="https://www.newtimespace.com/zh-cn/finance/1461584.html">新时空</a>。</li>
+          <li><strong>UCB × Cradle（11 月 3–4 日宣布，11 月 14 日行业综述仍在转载）：</strong>比利时药企 UCB 将 Cradle 的端到端 AI 蛋白质设计平台纳入其数字化抗体工程项目，覆盖从命中生成到工程优化的选定发现项目。这是 AI 辅助 / 从头设计抗体候选物的平台型合作，不是已上市药物；财务条款公开报道中未见完整披露。来源：<a href="https://www.ucb.com/newsroom/press-releases/article/ucb-advances-its-digital-antibody-engineering-program-with-new-cradle-collaboration">UCB 官方新闻稿</a>；<a href="https://www.bio-itworld.com/news/2026/11/14/ucb-taps-cradle-for-ai-antibody-design--insilico-medicine-releases-open-source-longevity-ai-system">Bio-IT World（2026-11-14）</a>。</li>
+          <li><strong>Lab Thread 推出实验室 MCP 服务（见于 11 月 14 日行业综述）：</strong>科学家可将自有助手（如 ChatGPT、Claude）经 MCP 连接到实验室结构化记录，官方强调租户隔离、角色权限与不可篡改审计日志，只向模型发送必要上下文。这属于湿实验数据接入 Agent 的产业工具，并非药物本身。来源：<a href="https://www.bio-itworld.com/news/2026/11/14/ucb-taps-cradle-for-ai-antibody-design--insilico-medicine-releases-open-source-longevity-ai-system">Bio-IT World</a>。</li>
         </ul>
       </div>
       <div class="item">
-        <h3>d) 政策与监管</h3>
-        <p>2026 年 9 月 18 日，工业和信息化部等十部门印发《医药工业发展「十五五」规划》，提出到 2030 年生物医药研发应用稳居世界前列等目标，并强调数智赋能与人工智能深度应用。该文件不是本周新发，但 10 月底至 11 月初行业会议与证券媒体仍在解读其「AI 制药」相关部署，可作为政策背景。来源：<a href="https://www.rmzxw.com.cn/c/2026-09-18/3977590.shtml">新华社 / 人民政协网</a>；<a href="http://epaper.zqrb.cn/html/2026-11/02/content_1285345.htm?div=-1">证券日报（11 月 2 日解读）</a>。</p>
+        <h3>c) 政策与监管</h3>
+        <p>11 月 13 日，国家药监局药品审评中心（CDE）网站公开征求《药物临床试验申办者变更有关问题问与答（征求意见稿）》意见，明确临床试验期间申办者变更的申报路径：变更后的申办者承担相关责任和义务，并应按规定向药品监督管理部门提出申请。该文件面向一般药物临床试验，并非专门针对 AI 制药，但对涉及申办者变更的合作与管线交易有直接影响。</p>
+        <div class="src">来源：<a href="https://www.cnpharm.com/c/2026-11-14/1110511.shtml">中国食品药品网（2026-11-14，转述 CDE 11 月 13 日通知）</a>；征求意见稿 PDF：<a href="https://www.cnpharm.com/upload/resources/file/2026/11/14/196753.pdf">问与答（征求意见稿）</a></div>
       </div>
       <div class="item">
-        <h3>e) 产业生态（CRO、湿实验、干湿闭环）</h3>
-        <p>公开讨论继续把「因果性数据 + 湿实验验证」视为本轮 AI 制药的瓶颈，而不仅是模型分数。MegaStream 等强调把专有抗体数据、基础模型与 Lab-in-a-Loop 放进同一主体，以避免单点合作只交出管线、模型和数据无法沉淀。英国 Potential Sciences 则试图用更高效率的量子化学计算，缓解「只能学习已有实验记录」的数据瓶颈。这些都是配套能力，不等于临床终点已经兑现。</p>
+        <h3>d) 产业讨论：实验室自主性需要人在环内</h3>
+        <p>11 月 13 日前后，《Frontiers in Robotics and AI》一项对英美德实验化学家的访谈研究指出，受访者欢迎机器人承担重复的样品准备与筛选，但反对完全自主实验室；《Frontiers in Genetics》一篇观点文章则建议，基因组学中的多 Agent 系统应预先限定权限、落实机器可读的知情同意，并在对外传输等关键节点要求人工签核。上述研究样本有限，是学术观点而非新的监管规则。</p>
+        <div class="src">来源：转述见 <a href="https://aisengtech.com/ai-for-science-brief-2026-11-13/">AI for Science Brief（2026-11-13）</a></div>
       </div>
     </section>
 
     <section class="sec" id="s6">
-      <h2>🏗️ 本体生态公司动态</h2>
+      <h2>🌐 本体生态公司动态</h2>
       <div class="item">
-        <h3>Ontology 网络侧：身份与「AI + Web3」定位仍在，但近两周少有新的具名项目融资</h3>
-        <p>Ontology 官方定位已写作 “The Trust Layer for AI &amp; Web3”，产品线仍围绕 ONT ID、ONTO Wallet、可携带声誉与数据授权。11 月初官网文章继续讨论个人声誉归属、欧盟数字身份落地，以及游戏等场景的可信评价。生态伙伴页仍列出支付、DeFi、安全审计等多类合作方。但自 10 月那次「未具名生态项目」安全停机之后，近 1–3 日未见该项目的后续披露，也缺少可独立核验的新一轮生态公司融资公告。<span class="tag tag-warn">待核实</span></p>
-        <div class="src">来源：<a href="https://ont.io/">ont.io</a>；<a href="https://ont.io/partners">Ecosystem Partners</a>；<a href="https://ont.io/news/">News</a></div>
+        <h3>企业「本体即服务」：Databricks 把 Genie Ontology 做成共享基础设施</h3>
+        <p>对「本体中台」同事更直接的公司动态，是 Databricks 在 11 月 11 日把 Genie Ontology 推到 GA，并同时发布 Always-on Genie，强调可在长周期企业任务中主动工作。官方把本体定义为 IT / 数据负责人应像数据平台一样拥有的共享层，而不是每个 Agent 各自维护一份互相冲突的业务视图。Genie MCP 则把这层上下文输出给 ChatGPT、Claude 和 Copilot，意味着本体中台不一定绑死在单一模型或单一编排框架上。</p>
+        <div class="src">来源：<a href="https://www.databricks.com/blog/announcing-ga-of-genie-ontology">Databricks 官方博客</a>；<a href="https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex">Always-on Genie 新闻稿</a></div>
       </div>
       <div class="item">
-        <h3>Web3 + AI 交叉：TSP 1.0 把「信任层」写成 Agent 基础设施</h3>
-        <p>Linux Foundation Decentralized Trust 于 11 月 4 日发表 <em>TSP 1.0: A Trust Layer for the Age of AI Agents</em>，讨论在 Agent 时代用可验证的信任与通信层（Trust Spanning Protocol）承载身份与授权。这与 Ontology「为 AI 提供信任层」的叙事相邻，但并非 Ontology 网络的产品公告，不能写成同一项目。</p>
-        <div class="src">来源：<a href="https://www.lfdecentralizedtrust.org/blog/tsp-1-0-a-trust-layer-for-the-age-of-ai-agents">LFDT 博客</a></div>
+        <h3>Web3 交叉：Ontology 网络近日无新的产品或融资公告</h3>
+        <p>面向去中心化身份与数据的 Ontology 网络，官网新闻栏在 11 月 4 日之后没有新的融资、主网或生态合作公告。公开讨论仍集中在去中心化身份、个人声誉归属，以及欧盟数字身份钱包的时间表。若将「Web3 + AI」与企业知识本体混为一谈，容易误判技术进展，故此处只记录可核验的官方动态：近三日暂无新公告。</p>
+        <div class="src">来源：<a href="https://ont.io/news/">Ontology 官网新闻</a></div>
       </div>
-      <div class="item">
-        <h3>企业本体工具商与云厂商：语义层正在产品化</h3>
-        <p>对「本体中台」同事更直接的公司动态，是云厂商与知识平台把本体做成 Agent 可查询的语义层：NVIDIA 开源 Auto Ontology；Snowflake、Neo4j 在同一周发布相近规格；qOntology、腾讯乐享、JitKnow 则把建模、治理和巡检做成可落地产品。数据治理媒体 7wData 11 月 3 日观察到：一个月内多家数据厂商挤进「为 Agent 提供语义层」赛道，核心问题变成「谁来签发数据的业务含义」。</p>
-        <div class="src">来源：<a href="https://www.ontologyrepository.com/blog/news-nvidia-auto-ontology-semantic-layer-ai-agents">CCO</a>；<a href="https://7wdata.be/data-governance/semantic-layer-for-ai-agents-who-signs-off/">7wData</a></div>
-      </div>
-      <p class="note">说明：纽约证券交易所代码 ONT 的 Onterris（环境服务公司，近日报有实验室收购）与区块链项目 Ontology / 企业知识本体均无关，不纳入本板块。</p>
     </section>
 
     <section class="sec" id="s7">
-      <h2>🏆 AI 模型比较（Artificial Analysis 能力榜）</h2>
-      <p class="note">本板块只采用能力评测，不使用 OpenRouter 等按调用量/流量的榜单。综合指数来自 <a href="https://artificialanalysis.ai/leaderboards/models">Artificial Analysis LLM Leaderboard</a>（2026-11-14 访问）。当前综合榜为 <strong>Intelligence Index v5</strong>（2026-10-27 宣布；v5 与旧版 v4.x 分数不可直接比较）。v5 由知识工作、编码、科学、通用四类各占 25%，成分包括 AA-Briefcase、AutomationBench-AA、GDP.pdf、FrontierCode 2.0、Terminal-Bench 4.0、Terminal-Bench-Science、CritPt v2 hard、AA-Omniscience v1.1、HLE-Diamond。官方页多以整数出示，第三方 BenchLeader 转写到一位小数，下表以官方整数为主并注明档位。</p>
+      <h2>📈 AI 模型比较（Artificial Analysis 能力榜）</h2>
+      <p class="note">以下聚焦能力而非流量或价格战。不同版本的 Intelligence Index 分数不可直接比较；同一模型的推理档位（max / xhigh / high / medium / low）会显著改变分数与费用。数据转写自 11 月 15 日对 Artificial Analysis 公开榜的第三方快照，官方页为 <a href="https://artificialanalysis.ai/models">artificialanalysis.ai/models</a> 与 <a href="https://artificialanalysis.ai/leaderboards">leaderboards</a>。</p>
 
       <div class="item">
-        <h3>a) Intelligence Index v5 智能指数（Top 10，注明推理档位）</h3>
+        <h3>a) Intelligence Index v5（注明版本与档位）</h3>
+        <p>Artificial Analysis Intelligence Index v5.0.1 由知识工作、编码、科学、综合知识四类各占 25% 构成，共九项评测（含 AA-Briefcase、AutomationBench-AA、GDP.pdf、FrontierCode 2.0、Terminal-Bench 4.0、Terminal-Bench-Science、CritPt v2 hard、AA-Omniscience v1.1、HLE-Diamond）。v5 已将 GDPval-AA 移出综合分（仍单独发布）。据 BenchLeader 在 11 月 15 日对 AA 公开结果的转写（129 个已发布配置）：</p>
         <table>
-          <thead>
-            <tr><th>排名</th><th>模型</th><th>厂商</th><th>档位</th><th>指数</th><th>任务成本（约）</th></tr>
-          </thead>
+          <thead><tr><th>排名</th><th>模型（档位）</th><th>Index</th><th>结果日期（转写）</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>max</td><td>65</td><td>$26.54</td></tr>
-            <tr><td>2</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>xhigh</td><td>62</td><td>$14.83</td></tr>
-            <tr><td>3</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>high</td><td>62</td><td>$9.08</td></tr>
-            <tr><td>4</td><td>Gemini 4 Carbon</td><td>Google</td><td>high</td><td>60</td><td>$5.48</td></tr>
-            <tr><td>5</td><td>Claude Opus 5.5</td><td>Anthropic</td><td>max</td><td>59</td><td>$10.04</td></tr>
-            <tr><td>6</td><td>Gemini 4 Carbon</td><td>Google</td><td>medium</td><td>58</td><td>$4.68</td></tr>
-            <tr><td>7</td><td>Claude Opus 5.5</td><td>Anthropic</td><td>xhigh</td><td>57</td><td>$6.05</td></tr>
-            <tr><td>8</td><td>GPT-6 Astra</td><td>OpenAI</td><td>max</td><td>57</td><td>$6.24</td></tr>
-            <tr><td>9</td><td>Claude Fable 5.2</td><td>Anthropic</td><td>medium</td><td>56</td><td>$3.80</td></tr>
-            <tr><td>10</td><td>GPT-6 Astra</td><td>OpenAI</td><td>xhigh</td><td>55</td><td>$3.66</td></tr>
+            <tr><td>1</td><td>Claude Fable 5.2（max）</td><td>64.6</td><td>2026-11-09</td></tr>
+            <tr><td>2</td><td>Claude Fable 5.2（xhigh）</td><td>62.2</td><td>2026-11-09</td></tr>
+            <tr><td>3</td><td>Claude Fable 5.2（high）</td><td>61.8</td><td>2026-11-09</td></tr>
+            <tr><td>4</td><td>Gemini 4 Carbon（high）</td><td>60.0</td><td>2026-10-28</td></tr>
+            <tr><td>5</td><td>Claude Opus 5.5（max）</td><td>59.1</td><td>2026-09-22</td></tr>
+            <tr><td>6</td><td>Gemini 4 Carbon（medium）</td><td>58.3</td><td>2026-10-28</td></tr>
+            <tr><td>8</td><td>GPT-6 Astra（max）</td><td>56.9</td><td>2026-09-03</td></tr>
+            <tr><td>12</td><td>GPT-6.1 Sol（max）</td><td>54.6</td><td>2026-09-29</td></tr>
+            <tr><td>13</td><td>Claude Sonnet 5.5（max）</td><td>54.5</td><td>2026-09-28</td></tr>
+            <tr><td>16</td><td>Gemini 4 Hydrogen（xhigh）</td><td>53.9</td><td>2026-11-12</td></tr>
           </tbody>
         </table>
-        <p class="note">官方问答写明第 1 名为 Claude Fable 5.2（Max, Default Fallback），指数 65。开源权重最高分为 Kimi K3.1 Pro（约 46）。新上榜的 Gemini 4 Hydrogen（xhigh）约 54 分。同一模型不同档位分数差距明显，比较时必须写明 max / xhigh / high / medium / low。</p>
+        <p class="note">各实验室「最佳非淘汰配置」的另一份 11 月 15 日快照（Airace）把 Anthropic 记为 Opus 5.5、58–59 分量级，未把 Fable 5.2 列为该实验室最佳，与按配置展开的 BenchLeader 表不一致；本表以列出档位的完整转写为准，并请以 AA 官方页核对。<span class="tag tag-warn">待核实</span> 开源权重方面，同期快照中 Kimi K3.1 Pro 约 46.5 分，仍是公开转写里排名靠前的开源权重模型之一。来源：<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader：AA Intelligence Index v5（截至 2026-11-15）</a>；<a href="https://airacescoreboard.com/aa-index/">Airace 实验室快照（2026-11-15 22:43）</a>。</p>
       </div>
       <div class="item">
-        <h3>b) Coding Agent Index v2.1（今日更新）</h3>
-        <p>Artificial Analysis 于 11 月 14 日（UTC 00:04，北京时间上午 8:04）宣布 Coding Agent Index <strong>v2.1</strong>。该指数评估的是「模型 + Agent harness」组合，三项等权：FrontierCode-AA 2.0（132 个真实仓库任务，以「维护者是否会合并」为评分）、Terminal-Bench 4.1（66 题，更新验证器以降低 reward hacking）、SWE-Atlas-QnA-AA。官方要点：<strong>Claude Fable 5.2 与 Claude Opus 5.5 并列第一，综合分 58</strong>；Fable 5.2 在 Claude Code 的 xhigh 与 high 档均为 58，Opus 5.5（max）在 Claude Code 以及与 GPT-6 Luna High 搭配的 Cognition 多模型 harness 中也达到 58。注意：v2.1 与 v2.0（Opus 5.5 曾报 61.7）不可直接比较。</p>
-        <div class="src">来源：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">Artificial Analysis 官方账号（2026-11-14）</a>。部分二手报道把 FrontierCode / Terminal-Bench 版本写反，本文以官方说明为准。</div>
+        <h3>b) Coding Agent Index v2.1 / Terminal-Bench</h3>
+        <p>Artificial Analysis 于 11 月 14 日宣布 Coding Agent Index 升级为 v2.1：FrontierCode 升至 2.0（132 项真实编码任务，以「仓库维护者是否会合并」评分），Terminal-Bench 升至 4.1（仍为 66 项任务，但更新验证器以降低 reward hacking）。该指数按「模型 + harness」组合计分。官方称 Claude Fable 5.2（xhigh / high，Claude Code）与 Claude Opus 5.5（max，Claude Code；以及与 GPT-6 Luna High 组成的 Cognition 多模型 harness）并列领先，得分均为 58。就 Terminal-Bench 4.1 单项，官方称在同时具有 4.0 与 4.1 分数的 23 个配置上，分差均小于 3 分；Kimi Code CLI + Kimi K3.1 Pro 以 68% 领先，其后为 Claude Code + Claude Sonnet 5.5（max）66%，以及 Claude Code + Opus 5.5（max）与 Antigravity CLI + Gemini 4 Carbon（high）的 65%。周末未见该指数的新一轮官方刷新。</p>
+        <div class="src">来源：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">Artificial Analysis 官方账号（2026-11-14）</a>；Terminal-Bench 4.1 说明见<a href="https://x.com/ArtificialAnlys/status/2121393826933907647">同一线索后续帖</a></div>
       </div>
       <div class="item">
-        <h3>c) Agentic 工作流评估</h3>
-        <p>Intelligence Index v5 已把 GDPval-AA 移出综合分（仍单独发布）。<strong>GDPval-AA v2</strong> 覆盖 44 个职业、9 个行业、220 项真实知识工作任务，在 Stirrup 环境产出交付物并以盲测 Elo 计分（人类专家锚定 1000 Elo）。截至 11 月 10 日左右的公开转写：</p>
-        <table>
-          <thead><tr><th>排名</th><th>模型</th><th>Elo</th><th>备注</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Claude Opus 5.5（max, with tools）</td><td>1866</td><td>领先，但单任务成本与耗时显著上升</td></tr>
-            <tr><td>2</td><td>Muse Wonder Full</td><td>1857</td><td>Meta</td></tr>
-            <tr><td>3</td><td>Kimi K3.1 Pro</td><td>1846</td><td>开源权重最高</td></tr>
-            <tr><td>4</td><td>Claude Sonnet 5.5</td><td>1838</td><td></td></tr>
-            <tr><td>5</td><td>Claude Fable 5.2</td><td>1831</td><td>综合智能指数第一，但该工作流榜上尚未反超 Opus 5.5</td></tr>
-          </tbody>
-        </table>
-        <p class="note">AA-Briefcase 是 v5 知识工作分项之一，本日未检索到单独公示的分项完整榜，故不以第三方拼凑分数代替。<span class="tag tag-warn">待核实</span> 来源：<a href="https://llmlearner.com/rankings/gdpval-aa-v2">LLMLearner 对 AA GDPval-AA v2 的转写</a>；方法论见 <a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5">Index v5 说明</a>。</p>
+        <h3>c) Agentic 真实工作流评估</h3>
+        <p>Intelligence Index v5 已把 GDPval-AA 移出综合分。<strong>GDPval-AA v2</strong> 覆盖 44 个职业、9 个行业、220 项真实知识工作任务，在 Stirrup 环境产出交付物并以盲测 Elo 计分（人类专家锚定 1000 Elo）。截至 11 月 10 日左右的公开转写，前五为：Claude Opus 5.5（max, with tools）1866、Muse Wonder Full 1857、Kimi K3.1 Pro 1846、Claude Sonnet 5.5 1838、Claude Fable 5.2 1831。本日未检索到该榜的新官方刷新，数字仍为前期转写，使用时请回查原页。<span class="tag tag-warn">待核实</span></p>
+        <div class="src">来源：<a href="https://llmlearner.com/rankings/gdpval-aa-v2">LLMLearner 对 AA GDPval-AA v2 的转写</a>；方法论见 <a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5">Index v5 说明</a></div>
       </div>
       <div class="item">
-        <h3>d) 最新模型动态</h3>
-        <ul class="clean">
-          <li>Claude Fable 5.2 / Mythos 5.2（Anthropic，11 月 9 日）：旗舰编程与长程 Agent；API 价 $8 / $40，较 5.1 的 $10 / $50 下调 20%。</li>
-          <li>Gemini 4 Hydrogen（Google，11 月 12 日）：更快的 agentic / 编码执行模型，公开价常见为 $1.50 / $7.50。</li>
-          <li>Muse Ember（Meta，11 月 9 日）；Seedream 5.5（字节 Seed，11 月 9 日）；Inkling 2 Small（Thinking Machines Lab，11 月 5 日，报道称权重待完全开放）。</li>
-        </ul>
-      </div>
-      <div class="item">
-        <h3>e) 定价对比（美元 / 百万 token，标准档，约 11 月中旬公开价）</h3>
+        <h3>d) 近期新模型与定价简表（美元 / 百万 token）</h3>
+        <p>近几日进入榜单的较新配置仍是 11 月 12 日的 Gemini 4 Hydrogen（xhigh 约 53.9 分）和 11 月 9 日的 Claude Fable 5.2。下表为约 11 月中旬公开标价，11 月 15 日快照未见大幅调价；合作云（Bedrock、Vertex 等）可能另设区域价。</p>
         <table>
           <thead>
             <tr><th>模型</th><th>输入</th><th>输出</th><th>说明</th></tr>
           </thead>
           <tbody>
-            <tr><td>Claude Fable 5.2</td><td>$8</td><td>$40</td><td>缓存读取 $0.20；Batch 半价；Fast mode $16 / $80</td></tr>
-            <tr><td>Claude Opus 5.5</td><td>$4</td><td>$20</td><td>同系次旗舰</td></tr>
+            <tr><td>Claude Fable 5.2</td><td>$8</td><td>$40</td><td>Fast mode 常见报道为 $16 / $80</td></tr>
+            <tr><td>Claude Opus 5.5</td><td>$4</td><td>$20</td><td></td></tr>
             <tr><td>Claude Sonnet 5.5</td><td>$2</td><td>$10</td><td></td></tr>
-            <tr><td>Claude Haiku 5.5（短请求）</td><td>$0.10</td><td>$0.50</td><td>超 100K 提示另有更高档</td></tr>
-            <tr><td>GPT-6 Astra</td><td>$10</td><td>$50</td><td>报道称输入超过约 272K 后为 $20 / $75</td></tr>
+            <tr><td>GPT-6 Astra</td><td>$10</td><td>$50</td><td></td></tr>
             <tr><td>GPT-6.1 Sol</td><td>$2</td><td>$10</td><td></td></tr>
-            <tr><td>GPT-6.1 Terra</td><td>$1</td><td>$5</td><td>10 月 26 日型号，性价比档</td></tr>
-            <tr><td>Gemini 4 Carbon</td><td>$2</td><td>$10</td><td>有来源称此为截至 11 月 30 日的促销价，之后或上调<span class="tag tag-warn">待核实</span></td></tr>
+            <tr><td>Gemini 4 Carbon</td><td>$2</td><td>$10</td><td></td></tr>
             <tr><td>Gemini 4 Hydrogen</td><td>$1.50</td><td>$7.50</td><td>11 月 12 日上市价</td></tr>
+            <tr><td>Kimi K3.1 Pro</td><td>$2</td><td>$10</td><td>据 11 月 15 日实验室快照</td></tr>
+            <tr><td>Qwen3.8 Max（0902）</td><td>$2</td><td>$6</td><td>同上</td></tr>
+            <tr><td>DeepSeek V4 Pro 0813</td><td>$1.32</td><td>$3.96</td><td>同上</td></tr>
           </tbody>
         </table>
-        <p class="note">来源：Anthropic 定价页的第三方摘录（核对至 11 月 9–10 日）；OpenAI / Google 公开价的多家汇总（11 月 12–14 日）。合作云（Bedrock、Vertex 等）可能另设区域价。Kimi K3.1 Pro 在 BenchLeader 上有约 $4/百万 token 的综合标价，输入/输出拆分本日未独立核对，故不列入。</p>
+        <p class="note">来源：上期已核对的 Anthropic / OpenAI / Google 公开价，以及 <a href="https://airacescoreboard.com/aa-index/">Airace 11 月 15 日对 AA 列表价的转写</a>。Kimi、Qwen、DeepSeek 的输入/输出拆分以该快照为准，若官方价目页有出入请以官方为准。</p>
       </div>
       <div class="insight">
-        <strong>模型能力洞察：</strong>能力格局正在出现「总分第一」与「真实工作流第一」的分叉。Fable 5.2 凭借更高推理档位拿走 Intelligence Index v5 榜首，并在今日刷新的 Coding Agent Index 上与 Opus 5.5 打平；但在 GDPval-AA 这类职业交付物评测里，Opus 5.5 与甚至 Muse Wonder Full、Kimi K3.1 Pro 仍然非常接近。档位（max/xhigh/high）会显著改写分数和费用，高分往往伴随数倍的任务成本与耗时。评测机构同步升级 Terminal-Bench 验证器，说明 reward hacking 已被当成可靠性问题，而不只是刷分技巧。国产开源方面，Kimi K3.1 Pro 在综合指数和 GDPval 上都给出了目前最强的开源权重成绩，但与闭源第一档仍有距离。对中台选型，更应看「模型 + harness + 档位 + 单任务成本」，而不是只看总分。
+        <strong>模型能力洞察：</strong>周末没有翻盘式的新榜首，但「总分第一」和「真实工作流第一」的分叉仍然成立。Fable 5.2（max）继续领跑 Intelligence Index v5，并在 Coding Agent Index v2.1 上与 Opus 5.5 打平；GDPval-AA 这类职业交付物评测里，Opus 5.5、Muse Wonder Full 与 Kimi K3.1 Pro 仍非常接近，Fable 并未自动换成工作流第一。Hydrogen 作为更快的执行档，综合分明显低于 Carbon，说明「快」和「强」已被拆成两条产品线。开源权重里，Kimi K3.1 Pro 在综合指数、Terminal-Bench 和 GDPval 上都给出了目前公开转写中最稳的一组成绩。对中台选型，仍然应看「模型 + harness + 档位 + 单任务成本」，而不是只看总分。
       </div>
     </section>
 
     <section class="sec" id="s8">
       <h2>💡 今日推荐阅读</h2>
       <div class="item">
-        <h3>1. LangChain：C 轮公告与「让每家公司拥有自己的智能」</h3>
-        <p>推荐理由：这是今天最完整的 Agent 平台第一手材料，把 Runtime / Improvement / Governance 写清楚了，也给出 7,000 家客户与 11 月 20 日发布会的时间锚，适合本体 / Agent 中台讨论治理和评估体系时对照。</p>
-        <div class="src">链接：<a href="https://www.langchain.com/blog/series-c">https://www.langchain.com/blog/series-c</a></div>
+        <h3>1. Databricks：Genie Ontology 正式可用</h3>
+        <p>推荐理由：这是周末对「本体中台」最直接的第一手材料。它把本体写成由 Agent 抽取、由人签发权威定义、再通过 MCP 分发给所有智能体的共享基础设施，并附上与 Turing 合作的可分享评测（91% vs 45%/58%）。适合讨论语义层该由谁治理、如何避免每个 Agent 各建一套互相冲突的业务视图。</p>
+        <div class="src">链接：<a href="https://www.databricks.com/blog/announcing-ga-of-genie-ontology">https://www.databricks.com/blog/announcing-ga-of-genie-ontology</a>；评测篇：<a href="https://www.databricks.com/blog/genie-genie-ontology-delivers-16-accuracy-less-half-tokens">1.6× 准确率说明</a></div>
       </div>
       <div class="item">
-        <h3>2. Artificial Analysis：Coding Agent Index v2.1 说明</h3>
-        <p>推荐理由：指数今日升级，明确「模型必须连同 harness 一起评」，并以维护者是否合并、以及抗 reward hacking 的新验证器作为尺度，正好呼应中台同学关心的「能干活」而不是「能刷榜」。</p>
-        <div class="src">链接：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">https://x.com/ArtificialAnlys/status/2121393821955334328</a>；综合榜：<a href="https://artificialanalysis.ai/leaderboards/models">https://artificialanalysis.ai/leaderboards/models</a></div>
+        <h3>2. Google DeepMind：Gemini Robotics 2.5 与 ASIMOV-Jailbreak</h3>
+        <p>推荐理由：官方博客把「更灵巧」和「可被约束的长程动作」写在同一篇里，并给出与 Mercedes-Benz 产线概念验证的 96% 成功率，以及开源越狱评测。想理解 Agent 从屏幕走到物理世界时，安全评测该长什么样，这是目前最完整的一手说明。</p>
+        <div class="src">链接：<a href="https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/">https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/</a></div>
       </div>
     </section>
 
     <footer class="foot">
       <p>本早报由狙击日报自动生成</p>
-      <p>生成时间：2026年11月14日 15:20（UTC+8）</p>
+      <p>生成时间：2026年11月16日 09:05（UTC+8）</p>
       <p>信息来自公开网页与检索快照，转载或决策前请核对原文。时效无法确认处已标「待核实」。</p>
     </footer>
+
   </div>
 </body>
 </html>
