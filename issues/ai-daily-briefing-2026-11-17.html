@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狙击日报｜2026年11月17日 · AI 每日早报</title>
+  <style>
+    :root {
+      --primary: #667eea;
+      --primary-2: #764ba2;
+      --bg: #f5f6fb;
+      --card: #ffffff;
+      --muted: #f8f9fa;
+      --text: #1f2937;
+      --sub: #4b5563;
+      --line: #e5e7eb;
+      --ai: #4f46e5;
+      --warn: #b45309;
+      --ok: #047857;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: #4f46e5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+    header.hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      opacity: .95;
+      margin-bottom: 12px;
+    }
+    header.hero h1 {
+      margin: 0 0 6px;
+      font-size: 36px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    header.hero .sub {
+      margin: 0 0 18px;
+      font-size: 15px;
+      opacity: .92;
+    }
+    header.hero .date {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+    .overview {
+      background: rgba(255,255,255,.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+    }
+    .archive {
+      margin: 16px 0 0;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--sub);
+      font-size: 14px;
+      border: 1px solid var(--line);
+    }
+    .sec {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px 24px 18px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+      border: 1px solid var(--line);
+    }
+    .sec h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+    }
+    .item { margin: 0 0 16px; padding: 0 0 16px; border-bottom: 1px dashed var(--line); }
+    .item:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 4px; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 650; }
+    .meta { color: var(--sub); font-size: 13px; margin-bottom: 6px; }
+    .src { font-size: 13px; color: var(--sub); margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tag-ai { background: #eef2ff; color: var(--ai); }
+    .tag-other { background: #f3f4f6; color: #4b5563; }
+    .tag-cat { background: #f3e8ff; color: #6d28d9; }
+    .tag-warn { background: #fff7ed; color: var(--warn); }
+    .insight {
+      background: var(--muted);
+      border-left: 4px solid #764ba2;
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .insight strong { color: #5b21b6; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 8px 0 12px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--muted); font-weight: 650; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul.clean { margin: 6px 0 0; padding-left: 1.2em; }
+    ul.clean li { margin: 4px 0; }
+    .note { font-size: 13px; color: var(--sub); }
+    footer.foot {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--sub);
+      font-size: 13px;
+      padding: 18px 8px 0;
+    }
+    @media (max-width: 720px) {
+      header.hero { padding: 26px 18px 20px; }
+      header.hero h1 { font-size: 28px; }
+      .sec { padding: 18px 16px 12px; }
+      table { display: block; overflow-x: auto; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">JUJI DAILY</div>
+      <h1>狙击日报</h1>
+      <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
+      <div class="date">2026年11月17日 星期二 · 用户时区 UTC+8</div>
+      <div class="overview">今日概览：周二早间，GitStock 11 月 17 日 UTC 零点快照里，ag-ui-protocol/ag-ui 升至日榜第一，dream-num/univer 虽居第三但「今日新增」最高（+1,828）；安全侧，Google 威胁情报组首次记录到可在无人值守下把补丁差分自动转成利用的 Agent 框架；本体侧，Palantir 宣布 Ontology SQL 与 SQL 函数已正式可用；产业侧，英伟达将于今日（美东 11 月 17 日）发布财报，这是黄仁勋辞任后的首季，Anthropic 仍计划周三定价、周四以代码 ANT 登陆纳斯达克；制药侧，Flagship 宣布向伦敦投入 1 亿英镑建设 AI 原生生物科技孵化实验室，英伟达同步发布面向科学发现的 Nemotron for Science。</div>
+    </header>
+
+    <div class="archive">
+      <strong>归档：</strong>
+      <a href="./ai-daily-briefing-2026-11-17.html">2026-11-17（今日）</a>
+      · <a href="./ai-daily-briefing-2026-11-16.html">2026-11-16</a>
+      · <a href="./ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a>
+      · <a href="../index.html">返回首页</a>
+      · 公开页面：<a href="https://jujixiaojue.github.io/juji-daily/">https://jujixiaojue.github.io/juji-daily/</a>
+    </div>
+
+    <section class="sec" id="s1">
+      <h2>📊 GitHub Trending 日报</h2>
+      <p class="note">本日以 <a href="https://gitstock.org/trending">GitStock</a> 的 <a href="https://gitstock.org/api/v1/github/trending?period=daily">2026-11-17 日榜快照</a>为准（<code>captured_at</code> 对应 2026-11-17 00:00 UTC，即北京时间 08:00）。星标与「今日新增」会随当天波动。<a href="https://githubtrending.today/">githubtrending.today</a> 在截稿时仍展示 11 月 16 日 06:57 UTC 的采集结果，故不作为今日排序依据。非 AI 项目（如 Docker 管理工具 Arcane、江山时序地图、Svelte）出现在榜单中，但下文只展开与 Agent / 模型相关的条目。</p>
+
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ag-ui-protocol/ag-ui">ag-ui-protocol / ag-ui</a></h3>
+        <div class="meta">TypeScript · 18,936 stars · 今日 +791 · GitStock 日榜第 1</div>
+        <p>AG-UI：把 AI Agent 接入前端应用的事件协议，用于在界面中同步智能体状态与用户上下文。较周一快照上升至榜首。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/backnotprop/plannotator">backnotprop / plannotator</a></h3>
+        <div class="meta">TypeScript · 12,536 stars · 今日 +696 · GitStock 日榜第 2</div>
+        <p>面向编码 Agent 的审阅工作空间：可规划、批注、审查代码，并把反馈一次性回传给智能体。周末曾登顶，本周继续维持高增量。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/dream-num/univer">dream-num / univer</a></h3>
+        <div class="meta">TypeScript · 27,760 stars · 今日 +1,828（当日新增最高）· GitStock 日榜第 3</div>
+        <p>开源 Univer Office SDK，把电子表格与文档的编辑、计算、协作和文件处理接入自有产品，面向人与 AI Agent 共同使用。排序上被 ag-ui、plannotator 超过，但「今日新增」仍明显领先。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/alibaba/open-code-review">alibaba / open-code-review</a></h3>
+        <div class="meta">Go · 52,917 stars · 今日 +951 · GitStock 日榜第 10</div>
+        <p>阿里巴巴开源的混合架构代码审查工具：确定性流水线加 LLM Agent，支持行级评论，内置多语言规则，兼容 OpenAI 与 Anthropic 接口。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/NVIDIA/SkillEvaluator">NVIDIA / SkillEvaluator</a></h3>
+        <div class="meta">Python · 2,667 stars · 今日 +873 · GitStock 日榜第 9</div>
+        <p>用于评估 AI Agent Skills 的多层框架，包含质量门禁、语义重叠检测、合成评测集，以及衡量技能是否改变智能体行为的在线评估。对评测工作台和技能治理仍有直接参考价值。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">ChromeDevTools / chrome-devtools-mcp</a></h3>
+        <div class="meta">TypeScript · 57,665 stars · 今日 +841 · GitStock 日榜第 12</div>
+        <p>把 Chrome DevTools 以 MCP 或 CLI 提供给编码 Agent，用于控制、检查实时浏览器，并采集性能追踪、网络与控制台信息。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/tradermonty/claude-trading-skills">tradermonty / claude-trading-skills</a></h3>
+        <div class="meta">Python · 6,295 stars · 今日 +837 · GitStock 日榜第 4</div>
+        <p>面向股票投资者的 Claude Code skills，覆盖行情分析、技术图表、经济日历、筛选器与交易策略开发。仓库声明其并非信号服务，也不承诺收益。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-labs-code/stitch-skills">google-labs-code / stitch-skills</a></h3>
+        <div class="meta">TypeScript · 9,727 stars · 今日 +529 · GitStock 日榜第 7</div>
+        <p>面向 Stitch MCP 服务的 Agent Skills 库，遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码智能体。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-research/paper-orchestra">google-research / paper-orchestra</a></h3>
+        <div class="meta">Python · 1,473 stars · 今日 +313 · GitStock 日榜第 11</div>
+        <p>Google Research 开源的多 Agent 框架，用于自动化撰写 AI 研究论文。是今日榜单相对周一更明显的新面孔，具体能力边界请以仓库说明为准。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/kajisho5/ffmpeg-skill">kajisho5 / ffmpeg-skill</a></h3>
+        <div class="meta">Python · 6,670 stars · 今日 +367 · GitStock 日榜第 14</div>
+        <p>给编码 Agent 用的本地视频编辑技能：提供 42 个 FFmpeg 工具、机器可读契约和 MCP 服务，支持剪切、字幕、重构图和平台导出，声明无需云端或 API 密钥。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s2">
+      <h2>🤖 AI Agent 前沿洞察</h2>
+      <div class="item">
+        <h3>Google 威胁情报组：首次记录到可无人值守完成「补丁到利用」的 Agent 框架</h3>
+        <p>11 月 16 日，Google Threat Intelligence Group（GTIG）与 Mandiant 发布季度更新，题为「Agentic Threat Activity Crosses a Significant Threshold」。官方称，过去一个季度里，他们<strong>首次</strong>发现威胁行为者使用大模型框架，在没有人介入的情况下，自动完成漏洞发现与利用。</p>
+        <p>报告写到，该框架在配置中名为 <code>exploit_agent</code>，出现在一台暴露的预发布服务器上，可对接多个前沿模型与本地模型。它被设置为持续比较常用 Web 应用在补丁公告前后的代码差异，分析可能漏洞，起草利用代码并自动执行。Google 同时在该服务器上看到失窃数据，以及用于内网侦察、暴力破解、安装或清理 webshell 的脚本；受害者遥测显示，运营者对法国媒体、娱乐和教育类网站更感兴趣。VentureBeat 对该报告的转述补充：Google <strong>没有</strong>指认该框架已成功利用的某个具体漏洞，也没有给出受害者数量或「补丁到利用」的实测耗时，因此不宜把「发现框架」写成「已大规模得手」。</p>
+        <p>对防御的直接含义是：补丁披露后的窗口被进一步压缩；同时，大量声称可用、实则无效的大模型生成验证材料会增加排查负担。官方建议仍是缩短补丁落地时间，并核对来源，而不是相信来路不明的概念验证。本文只记录公开结论，不转述技术细节。</p>
+        <p class="src">来源：<a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold">Google Cloud / GTIG 博客（2026-11-16）</a>；<a href="https://venturebeat.com/security/google-says-attackers-built-an-ai-framework-to-turn-software-patches-into-exploits-without-human-intervention">VentureBeat 同日报道</a></p>
+      </div>
+      <div class="item">
+        <h3>编码 Agent 的信任问题，正在从「看每一行」转向「看验证与来源」</h3>
+        <p>同一天的行业综述把「验证」写成了工程主线。LLM Digest 对 11 月 16 日的整理提到，Claude Code 团队称其约 90% 的代码由 Agent 编写，因而更依赖端到端测试、属性测试和差异测试，才能同时跑多个智能体；Linear 则在重建面向 Agent 提交的代码审查，Grapim 一类工具尝试把 PR 中的每一行回溯到写出它的那次 Agent 运行。这些数字和产品细节来自二级汇总，正式口径请以各团队原文为准，此处只作为「人审已跟不上 Agent 产量」的旁证。</p>
+        <p class="src">来源：<a href="https://www.llm-digest.com/daily">LLM Digest Daily（What happened in AI - Nov 16, 2026）</a>。Claude Code「约 90%」与 Linear 相关表述待与官方或一手采访核对。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s3">
+      <h2>🔗 Ontology（本体）生态动态</h2>
+      <p class="note">本板块同时出现两类「Ontology / 本体」，含义不同，下文分开写，避免张冠李戴。</p>
+      <div class="item">
+        <h3>一、区块链 Ontology 网络（ONT）</h3>
+        <p>近 1–3 日：检索 <a href="https://ont.io/news/">ont.io/news</a> 公开栏目，未发现 11 月 5–17 日新的主网版本或官方技术公告。官网最近一篇文章仍是 11 月 4 日关于「个人声誉归属」的去中心化身份讨论。是否有未同步的中文公众号新文待核实。</p>
+      </div>
+      <div class="item">
+        <h3>二、企业知识本体 / 本体中台（与区块链 Ontology 不是同一件事）</h3>
+        <p><strong>Palantir 宣布 Ontology SQL 与 SQL 函数正式可用（GA，公告日期 2026-11-12）。</strong>官方说明，该能力已于 11 月 9 日当周在全部 enrollment 上线：可用 Spark SQL 的一个子集查询 Ontology 中的对象类型、接口和多对多链接；支持的查询形状走对象存储上的内存计算路径，更复杂的查询会自动转到 Spark。Ontology SQL functions 是带参数、可发布的 Ontology 查询，能在 Workshop、Actions、Automate 和 Ontology SDK 中复用。同期还有 SQL Studio（面向表格数据与 Ontology 对象的交互式、带 AI 辅助的 SQL 分析界面）。这对「已发布对象怎么被可靠查数」是比应用搭建更靠近内核的一步。</p>
+        <p class="src">来源：<a href="https://palantir.com/docs/foundry/announcements/2026-11/">Palantir Foundry November 2026 Announcements</a>（Ontology SQL and SQL functions are GA）</p>
+        <p>补充背景（非今日新事件）：Databricks 已于 11 月 11 日将 Genie Ontology 推至正式可用，定位为「由 Agent 构建、由人治理、供每个 Agent 使用」的企业级本体，并通过 Metric Views、Domains 与 MCP 对外提供。本周若讨论语义层该由谁签发、如何避免每个 Agent 各建一套互相冲突的业务视图，这两份官方说明可以对照着读。</p>
+        <p class="src">来源：<a href="https://www.databricks.com/blog/announcing-ga-genie-ontology">Databricks：Announcing GA of Genie Ontology（2026-11-11）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s4">
+      <h2>🏢 AI 公司要闻</h2>
+      <div class="item">
+        <h3><span class="tag tag-cat">财报</span>英伟达：黄仁勋辞任后的首份季报，日程仍是今日（美东 11 月 17 日）</h3>
+        <p>11 月 12 日，英伟达董事会宣布，黄仁勋辞去总裁、首席执行官及董事会成员职务，即刻生效；现任执行副总裁兼首席财务官科莱特·克雷斯（Colette Kress）出任临时 CEO，并继续兼任 CFO；董事会同时任命 Harvey C. Jones 为公司史上首位董事长。公司称将同时考察内部与外部候选人。截稿时（2026-11-17 上午，UTC+8），尚未看到已发布的正式业绩数字。多家媒体报道，英伟达仍按原计划在 11 月 17 日发布财报；克雷斯还在内部备忘录中宣布，将于 11 月 18 日 9:00（太平洋时间）召开全员会。具体数字请以公司正式公告和电话会为准。</p>
+        <p class="src">来源：<a href="https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/">TechCrunch（2026-11-12）</a>；<a href="https://www.reuters.com/business/retail-consumer/nvidia-ceo-jensen-huang-step-down-big-blow-ai-boom-2026-11-12/">路透（2026-11-12，11 月 13 日更新）</a>；<a href="https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html">CNBC 对今日财报关注点的预告（2026-11-16）</a></p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">融资</span>Anthropic IPO：媒体称仍计划周三定价、周四以代码 ANT 开盘</h3>
+        <p>11 月 16 日，CNBC 更新称，Anthropic 预计在 11 月 18 日（周三）为 IPO 定价，11 月 19 日（周四）开始在纳斯达克交易，代码为 ANT；发行约 8.25 亿股 A 类股，预估区间仍为每股 70–78 美元。按该区间上沿，TechCrunch 对 11 月 10 日更新后招股书的报道给出完全稀释约 1.404 万亿美元的隐含估值，并称另有 AMD、Broadcom、Google、Micron、Microsoft、Nvidia 和 TSMC 以发行价认购 260 亿美元无投票权股份。部分媒体对股本、估值和零售配售比例的测算并不完全一致，以下以招股文件和 CNBC / TechCrunch 的转述为准，最终以定价结果为准。</p>
+        <p class="src">来源：<a href="https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html">CNBC IPO 指南（2026-11-16）</a>；<a href="https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/">TechCrunch 对更新后招股书的报道（2026-11-10）</a></p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span>英伟达在 SC26 发布 Nemotron for Science</h3>
+        <p>11 月 16 日，英伟达在超级计算大会 SC26 宣布 Nemotron for Science：把开源模型 Nemotron 3.5 Super VL、科学评测、新的开放化学数据集 LitmusBench v0.2（官方称近 5 万道化学推理题）以及后训练配方放在一起，帮助研究机构搭建科学发现 Agent。官方点名阿贡国家实验室、于利希超算中心，以及 Lila Sciences、Terray Therapeutics、Therna 等生命科学公司已在使用或定制该模型。Nemotron 3.5 Super VL 与 LitmusBench v0.2 已在 Hugging Face 上提供。这是开源科学 Agent 工具链，不等同于已上市药物或已完成的临床试验结果；文中引用的基准提升数字来自英伟达新闻稿对合作方工作的转述，使用前请核对原论文或合作方说明。</p>
+        <p class="src">来源：<a href="https://www.globenewswire.com/news-release/2026/11/16/3403880/0/en/nvidia-introduces-nemotron-for-science-to-accelerate-discoveries-with-agents.html">NVIDIA / GlobeNewswire 新闻稿（2026-11-16）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s5">
+      <h2>💊 AI 制药板块</h2>
+      <p class="note">下文区分「AI 辅助研发 / 平台与孵化」与「已进入人体的在研管线 / 已上市药物」。目前公开信息里，多数成果仍在平台、临床前或早期临床，尚不能等同于已上市药物。</p>
+      <div class="item">
+        <h3>a) 平台、孵化与投资</h3>
+        <p><strong>Flagship Pioneering（美国，11 月 16 日）：</strong>这家曾孵化 Moderna 的公司宣布，在伦敦设立其首个位于剑桥（马萨诸塞）以外的公司创建单元「Flagship Origination Lab, U.K.」，初始承诺 1 亿英镑（报道折合约 1.32 亿美元），用于构思、验证、出资并创建「AI 原生」平台型公司，方向包括人类与行星健康及其他科学前沿。计划在英国招募并培训约 50 名科学家创业者与运营人员，并与其 AI 平台 Pioneering Intelligence、内部药物发现单元 Pioneering Medicines 连接。创始人兼 CEO Noubar Afeyan 称，预计还可通过合作再吸引 5 亿英镑。这是孵化与资本承诺，不是某个具体管线的上市或临床读出。</p>
+        <p class="src">来源：<a href="https://www.fiercebiotech.com/biotech/flagship-commits-ps100-million-set-ai-focused-biotech-incubation-outpost-london">Fierce Biotech（2026-11-16）</a>；路透、Bloomberg、Endpoints 等同日亦有报道</p>
+      </div>
+      <div class="item">
+        <h3>b) 工具、模型与科学 Agent（尚非上市药物）</h3>
+        <p>同上文英伟达 Nemotron for Science：LitmusBench v0.2 使用分子性质与实验药物发现数据，用于训练和评估化学推理；新闻稿称 Terray 用后训练后的模型从科学图中抽取反应物、产物和反应条件，在 RxnScribe 测试中按该基准匹配标准回收了约 76% 的标注反应；Lila Sciences 用于生成可执行实验室协议，并称在量子点合成相关任务上，经实验室反馈后训练后准确率接近翻倍至 61%。这些是工具与基准数字，不是进入人体的管线结果。</p>
+        <p class="src">来源：<a href="https://www.globenewswire.com/news-release/2026/11/16/3403880/0/en/nvidia-introduces-nemotron-for-science-to-accelerate-discoveries-with-agents.html">NVIDIA 新闻稿（2026-11-16）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s6">
+      <h2>🌐 本体生态公司动态</h2>
+      <div class="item">
+        <h3>企业「本体即查询层」：Palantir 把 Ontology SQL 做成可发布的平台能力</h3>
+        <p>对「本体中台」同事更直接的公司动态，是 Palantir 在本月中旬把 Ontology SQL 和 SQL 函数推到 GA，并配上 SQL Studio。它把「用熟悉的 SQL 查询已发布对象、接口和链接」写成平台能力，查询函数还可以版本化后在 Action、自动化和 Ontology SDK 里复用。若与 11 月 11 日 Databricks Genie Ontology 的 GA 对照：前者更强调对已有 Ontology 的查询与函数发布，后者更强调由 Agent 抽取片段、由人签发权威指标再经 MCP 分发。两者都把「未发布或互相冲突的口径不能直接拿来算」当成治理问题，只是切入点不同。</p>
+      </div>
+      <div class="item">
+        <h3>Web3 交叉：Ontology 网络近日无新的产品或融资公告</h3>
+        <p>面向去中心化身份与数据的 Ontology 网络，官网新闻栏在 11 月 4 日之后没有新的融资、主网或生态合作公告。若将「Web3 + AI」与企业知识本体混为一谈，容易误判技术进展，故此处只记录可核验的官方动态：近数日暂无新公告。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s7">
+      <h2>📈 AI 模型比较（Artificial Analysis 能力榜）</h2>
+      <p class="note">以下聚焦能力而非流量或价格战。不同版本的 Intelligence Index 分数不可直接比较；同一模型的推理档位（max / xhigh / high / medium / low）会显著改变分数与费用。官方页为 <a href="https://artificialanalysis.ai/models">artificialanalysis.ai/models</a> 与 leaderboards。</p>
+      <div class="item">
+        <h3>a) Intelligence Index（按实验室「最佳未淘汰配置」的第三方快照）</h3>
+        <p>Airace 在 2026-11-17 01:56（布加勒斯特时间，约 UTC+2）从 Artificial Analysis 抓取的「每家实验室最佳未淘汰模型」表，把 Anthropic 的 Claude Opus 5.5 记为 59.1（该站在 57 个有指数的模型中排第 1），Google DeepMind 的 Gemini 4 Carbon 为 58.3（第 2），OpenAI 的 GPT-6 Astra 为 55.3（第 4），Meta Superintelligence Labs 的 Muse Wonder Full 为 50.1（第 6），Moonshot 的 Kimi K3.1 Pro 为 46.5（第 8），阿里云 Qwen4 Max 为 42.9（第 9）。标价（每百万 tokens 输入/输出）在该快照中为：Opus 5.5 约 4 / 20 美元，Gemini 4 Carbon 约 2 / 10 美元，GPT-6 Astra 约 10 / 50 美元，Kimi K3.1 Pro 约 2 / 10 美元，Qwen4 Max 约 1.5 / 4.5 美元。</p>
+        <p>需要注意：周一那期曾根据按配置展开的转写，提到 Claude Fable 5.2 在 Intelligence Index v5 上领先。实验室「只保留一个最佳配置」的表，与按档位全部列出的表可能不一致。本表以 Airace 11 月 17 日对官方页的转写为准，并请以 AA 官方页核对档位和版本号。待核实 配置级榜单今日是否仍把 Fable 5.2 排在 Opus 5.5 之前。</p>
+        <p class="src">来源：<a href="https://airacescoreboard.com/aa-index/">Airace AA Index 快照（标明取自 2026-11-17 01:56 对 Artificial Analysis 的抓取）</a></p>
+      </div>
+      <div class="item">
+        <h3>b) 读数时不要混用 v4 与 v5</h3>
+        <p>BenchLeader 提醒，Artificial Analysis Intelligence Index v4.3.2 已于 2026-10-27 冻结，并由 v5.0 / v5.0.1 替换，成员和量表都不同，两套分数不能直接比较。若只看到 Opus 5.5 在旧版 v4.3.2 上的 57.6 分，那是冻结参考值，不是今日 v5 的官方名次。</p>
+        <p class="src">来源：<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index">BenchLeader：AA Intelligence Index v4.3.2（注明已冻结）</a></p>
+      </div>
+      <p class="insight">模型能力洞察：截稿时的实验室最佳快照里，Anthropic 与 Google 仍非常接近（59.1 对 58.3），开源权重侧 Kimi K3.1 Pro 仍是该转写中最稳的一档。对中台选型，仍然应看「模型 + harness + 档位 + 单任务成本」，并先确认指数版本，而不是只看总分或沿用上周对 Fable 的印象。</p>
+    </section>
+
+    <section class="sec" id="s8">
+      <h2>💡 今日推荐阅读</h2>
+      <div class="item">
+        <h3>1. Palantir：Ontology SQL 与 SQL 函数正式可用</h3>
+        <p>推荐理由：这是这几天对「本体中台」最直接的产品说明。它把已发布对象、接口和链接的查询写成可发布、可版本化的 SQL 函数，并能接到 Action 与 SDK。适合和上周 Databricks Genie Ontology 的 GA 对照，讨论查数合同应该落在「对象查询 / 函数」还是「由人签发的指标再分发给 Agent」。</p>
+        <p class="src">链接：<a href="https://palantir.com/docs/foundry/announcements/2026-11/">https://palantir.com/docs/foundry/announcements/2026-11/</a></p>
+      </div>
+      <div class="item">
+        <h3>2. Google GTIG：Agent 威胁活动越过关键阈值</h3>
+        <p>推荐理由：官方把「无人值守的补丁差分与自动利用」写成过去一个季度的新现象，同时也承认并未给出该框架的成功利用清单。想讨论 Agent 安全评测、补丁窗口和来源核验，这是目前最完整的一手威胁情报说明。</p>
+        <p class="src">链接：<a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold">https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold</a></p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>本早报由狙击日报自动生成</p>
+      <p>生成时间：2026年11月17日 08:07（UTC+8）</p>
+      <p>信息来自公开网页与检索快照，转载或决策前请核对原文。时效无法确认处已标「待核实」。</p>
+    </footer>
+  </div>
+</body>
+</html>
