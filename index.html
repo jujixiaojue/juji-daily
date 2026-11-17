@@ -153,7 +153,6 @@
       .sec { padding: 18px 16px 12px; }
       table { display: block; overflow-x: auto; }
     }
-
   </style>
 </head>
 <body>
@@ -163,7 +162,7 @@
       <h1>狙击日报</h1>
       <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
       <div class="date">2026年11月17日 星期二 · 用户时区 UTC+8</div>
-      <div class="overview">今日概览：周二早间，GitStock 11 月 17 日 UTC 零点快照里，ag-ui-protocol/ag-ui 升至日榜第一，dream-num/univer 虽居第三但「今日新增」最高（+1,828）；安全侧，Google 威胁情报组首次记录到可在无人值守下把补丁差分自动转成利用的 Agent 框架；本体侧，Palantir 宣布 Ontology SQL 与 SQL 函数已正式可用；产业侧，英伟达将于今日（美东 11 月 17 日）发布财报，这是黄仁勋辞任后的首季，Anthropic 仍计划周三定价、周四以代码 ANT 登陆纳斯达克；制药侧，Flagship 宣布向伦敦投入 1 亿英镑建设 AI 原生生物科技孵化实验室，英伟达同步发布面向科学发现的 Nemotron for Science。</div>
+      <div class="overview">今日概览：周二早间，GitStock 日榜由 ag-ui-protocol/ag-ui 升至第一，dream-num/univer 虽居第三但「今日新增」最高（+1,828）；安全侧，Google 威胁情报组首次记录到可在无人值守下把补丁差分自动转成利用的 Agent 框架；本体侧，Palantir 宣布 Ontology SQL 与 SQL 函数已正式可用；产业侧，英伟达将于今日美西时间发布财报，这是黄仁勋 11 月 12 日辞任、Colette Kress 出任临时 CEO 后的首季，Anthropic 仍计划周三定价、周四以代码 ANT 登陆纳斯达克；制药侧，Flagship 宣布向伦敦投入初始 1 亿英镑建设 AI 原生生物科技孵化实验室，英伟达同步发布面向科学发现的 Nemotron for Science。能力榜上，Artificial Analysis Intelligence Index v5.0.1 按配置计，Claude Fable 5.2（max）仍居首位。</div>
     </header>
 
     <div class="archive">
@@ -176,37 +175,22 @@
 
     <section class="sec" id="s1">
       <h2>📊 GitHub Trending 日报</h2>
-      <p class="note">本日以 <a href="https://gitstock.org/trending">GitStock</a> 的 <a href="https://gitstock.org/api/v1/github/trending?period=daily">2026-11-17 日榜快照</a>为准（<code>captured_at</code> 对应 2026-11-17 00:00 UTC，即北京时间 08:00）。星标与「今日新增」会随当天波动。<a href="https://githubtrending.today/">githubtrending.today</a> 在截稿时仍展示 11 月 16 日 06:57 UTC 的采集结果，故不作为今日排序依据。非 AI 项目（如 Docker 管理工具 Arcane、江山时序地图、Svelte）出现在榜单中，但下文只展开与 Agent / 模型相关的条目。</p>
+      <p class="note">本日以 <a href="https://gitstock.org/trending">GitStock</a> 的 <a href="https://gitstock.org/api/v1/github/trending?period=daily">2026-11-17 日榜快照</a>为准（<code>captured_at</code> 对应 2026-11-17 00:00 UTC，即北京时间 08:00）。星标与「今日新增」会随当天波动。下文列出日榜 Top 10，并补充榜单稍后仍与 Agent 相关的条目。</p>
 
       <div class="item">
         <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ag-ui-protocol/ag-ui">ag-ui-protocol / ag-ui</a></h3>
         <div class="meta">TypeScript · 18,936 stars · 今日 +791 · GitStock 日榜第 1</div>
-        <p>AG-UI：把 AI Agent 接入前端应用的事件协议，用于在界面中同步智能体状态与用户上下文。较周一快照上升至榜首。</p>
+        <p>AG-UI：把 AI Agent 接入前端应用的事件协议，用于在界面中同步智能体状态与用户上下文。今日快照中升至榜首。</p>
       </div>
       <div class="item">
         <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/backnotprop/plannotator">backnotprop / plannotator</a></h3>
         <div class="meta">TypeScript · 12,536 stars · 今日 +696 · GitStock 日榜第 2</div>
-        <p>面向编码 Agent 的审阅工作空间：可规划、批注、审查代码，并把反馈一次性回传给智能体。周末曾登顶，本周继续维持高增量。</p>
+        <p>面向编码 Agent 的审阅工作空间：可规划、批注、审查代码，并把反馈一次性回传给智能体。</p>
       </div>
       <div class="item">
         <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/dream-num/univer">dream-num / univer</a></h3>
         <div class="meta">TypeScript · 27,760 stars · 今日 +1,828（当日新增最高）· GitStock 日榜第 3</div>
-        <p>开源 Univer Office SDK，把电子表格与文档的编辑、计算、协作和文件处理接入自有产品，面向人与 AI Agent 共同使用。排序上被 ag-ui、plannotator 超过，但「今日新增」仍明显领先。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/alibaba/open-code-review">alibaba / open-code-review</a></h3>
-        <div class="meta">Go · 52,917 stars · 今日 +951 · GitStock 日榜第 10</div>
-        <p>阿里巴巴开源的混合架构代码审查工具：确定性流水线加 LLM Agent，支持行级评论，内置多语言规则，兼容 OpenAI 与 Anthropic 接口。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/NVIDIA/SkillEvaluator">NVIDIA / SkillEvaluator</a></h3>
-        <div class="meta">Python · 2,667 stars · 今日 +873 · GitStock 日榜第 9</div>
-        <p>用于评估 AI Agent Skills 的多层框架，包含质量门禁、语义重叠检测、合成评测集，以及衡量技能是否改变智能体行为的在线评估。对评测工作台和技能治理仍有直接参考价值。</p>
-      </div>
-      <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">ChromeDevTools / chrome-devtools-mcp</a></h3>
-        <div class="meta">TypeScript · 57,665 stars · 今日 +841 · GitStock 日榜第 12</div>
-        <p>把 Chrome DevTools 以 MCP 或 CLI 提供给编码 Agent，用于控制、检查实时浏览器，并采集性能追踪、网络与控制台信息。</p>
+        <p>开源 Univer Office SDK，把电子表格与文档的编辑、计算、协作和文件处理接入自有产品，面向人与 AI Agent 共同使用。排序上被前两名超过，但「今日新增」仍明显领先。</p>
       </div>
       <div class="item">
         <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/tradermonty/claude-trading-skills">tradermonty / claude-trading-skills</a></h3>
@@ -214,19 +198,44 @@
         <p>面向股票投资者的 Claude Code skills，覆盖行情分析、技术图表、经济日历、筛选器与交易策略开发。仓库声明其并非信号服务，也不承诺收益。</p>
       </div>
       <div class="item">
+        <h3><span class="tag tag-other">非 AI</span><a href="https://github.com/getarcaneapp/arcane">getarcaneapp / arcane</a></h3>
+        <div class="meta">Go · 8,696 stars · 今日 +46 · GitStock 日榜第 5</div>
+        <p>面向广泛用户的现代 Docker 管理工具。出现在日榜中，但与 AI / Agent 无直接关系。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">非 AI</span><a href="https://github.com/DeanChensj/jiangshan-map">DeanChensj / jiangshan-map</a></h3>
+        <div class="meta">JavaScript · 6,682 stars · 今日 +288 · GitStock 日榜第 6</div>
+        <p>「江山时序」中国历史交互地图时间轴，覆盖 18 个王朝与古今地名谱系。非 AI 项目。</p>
+      </div>
+      <div class="item">
         <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-labs-code/stitch-skills">google-labs-code / stitch-skills</a></h3>
         <div class="meta">TypeScript · 9,727 stars · 今日 +529 · GitStock 日榜第 7</div>
         <p>面向 Stitch MCP 服务的 Agent Skills 库，遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码智能体。</p>
       </div>
       <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-research/paper-orchestra">google-research / paper-orchestra</a></h3>
-        <div class="meta">Python · 1,473 stars · 今日 +313 · GitStock 日榜第 11</div>
-        <p>Google Research 开源的多 Agent 框架，用于自动化撰写 AI 研究论文。是今日榜单相对周一更明显的新面孔，具体能力边界请以仓库说明为准。</p>
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/mvanhorn/last30days-skill">mvanhorn / last30days-skill</a></h3>
+        <div class="meta">Python · 68,103 stars · 今日 +135 · GitStock 日榜第 8</div>
+        <p>AI Agent skill：从 Reddit、X、YouTube、Hacker News、Polymarket 和网页检索某一主题近况，并整理成有依据的摘要。</p>
       </div>
       <div class="item">
-        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/kajisho5/ffmpeg-skill">kajisho5 / ffmpeg-skill</a></h3>
-        <div class="meta">Python · 6,670 stars · 今日 +367 · GitStock 日榜第 14</div>
-        <p>给编码 Agent 用的本地视频编辑技能：提供 42 个 FFmpeg 工具、机器可读契约和 MCP 服务，支持剪切、字幕、重构图和平台导出，声明无需云端或 API 密钥。</p>
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/NVIDIA/SkillEvaluator">NVIDIA / SkillEvaluator</a></h3>
+        <div class="meta">Python · 2,667 stars · 今日 +873 · GitStock 日榜第 9</div>
+        <p>用于评估 AI Agent Skills 的多层框架，包含质量门禁、语义重叠检测、合成评测集，以及衡量技能是否改变智能体行为的在线评估。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/alibaba/open-code-review">alibaba / open-code-review</a></h3>
+        <div class="meta">Go · 52,917 stars · 今日 +951 · GitStock 日榜第 10</div>
+        <p>阿里巴巴开源的混合架构代码审查工具：确定性流水线加 LLM Agent，支持行级评论，内置多语言规则，兼容 OpenAI 与 Anthropic 接口。</p>
+      </div>
+      <div class="item">
+        <h3>榜单稍后仍值得记下的 AI 项目</h3>
+        <ul class="clean">
+          <li><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-research/paper-orchestra">google-research / paper-orchestra</a> · Python · 1,473 stars · 今日 +313 · 日榜第 11。Google Research 开源的多 Agent 框架，用于自动化撰写 AI 研究论文。</li>
+          <li><span class="tag tag-ai">AI 相关</span><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">ChromeDevTools / chrome-devtools-mcp</a> · TypeScript · 57,665 stars · 今日 +841 · 日榜第 12。把 Chrome DevTools 以 MCP 或 CLI 提供给编码 Agent，用于控制、检查实时浏览器并采集性能、网络与控制台信息。</li>
+          <li><span class="tag tag-ai">AI 相关</span><a href="https://github.com/kajisho5/ffmpeg-skill">kajisho5 / ffmpeg-skill</a> · Python · 6,670 stars · 今日 +367 · 日榜第 14。给编码 Agent 用的本地视频编辑技能：提供 42 个 FFmpeg 工具、机器可读契约和 MCP 服务，声明无需云端或 API 密钥。</li>
+        </ul>
+        <p class="note">日榜第 13 为非 AI 项目 <a href="https://github.com/sveltejs/svelte">sveltejs / svelte</a>。</p>
+        <p class="src">来源：<a href="https://gitstock.org/trending">GitStock 日榜（2026-11-17 00:00 UTC 快照）</a></p>
       </div>
     </section>
 
@@ -234,15 +243,18 @@
       <h2>🤖 AI Agent 前沿洞察</h2>
       <div class="item">
         <h3>Google 威胁情报组：首次记录到可无人值守完成「补丁到利用」的 Agent 框架</h3>
-        <p>11 月 16 日，Google Threat Intelligence Group（GTIG）与 Mandiant 发布季度更新，题为「Agentic Threat Activity Crosses a Significant Threshold」。官方称，过去一个季度里，他们<strong>首次</strong>发现威胁行为者使用大模型框架，在没有人介入的情况下，自动完成漏洞发现与利用。</p>
-        <p>报告写到，该框架在配置中名为 <code>exploit_agent</code>，出现在一台暴露的预发布服务器上，可对接多个前沿模型与本地模型。它被设置为持续比较常用 Web 应用在补丁公告前后的代码差异，分析可能漏洞，起草利用代码并自动执行。Google 同时在该服务器上看到失窃数据，以及用于内网侦察、暴力破解、安装或清理 webshell 的脚本；受害者遥测显示，运营者对法国媒体、娱乐和教育类网站更感兴趣。VentureBeat 对该报告的转述补充：Google <strong>没有</strong>指认该框架已成功利用的某个具体漏洞，也没有给出受害者数量或「补丁到利用」的实测耗时，因此不宜把「发现框架」写成「已大规模得手」。</p>
-        <p>对防御的直接含义是：补丁披露后的窗口被进一步压缩；同时，大量声称可用、实则无效的大模型生成验证材料会增加排查负担。官方建议仍是缩短补丁落地时间，并核对来源，而不是相信来路不明的概念验证。本文只记录公开结论，不转述技术细节。</p>
-        <p class="src">来源：<a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold">Google Cloud / GTIG 博客（2026-11-16）</a>；<a href="https://venturebeat.com/security/google-says-attackers-built-an-ai-framework-to-turn-software-patches-into-exploits-without-human-intervention">VentureBeat 同日报道</a></p>
+        <p>11 月 16 日，Google Threat Intelligence Group（GTIG）与 Mandiant 发布季度更新，题为「Agentic Threat Activity Crosses a Significant Threshold」。官方称，过去一个季度里，他们首次发现威胁行为者使用大模型框架，在没有人介入的情况下，自动完成漏洞发现与利用。</p>
+        <p>报告写到，该框架出现在一台暴露的预发布服务器上，可对接多个前沿模型与本地模型，并被设置为持续比较常用 Web 应用在补丁公告前后的代码差异，分析可能漏洞，起草利用代码并自动执行。Google 同时在该服务器上看到失窃数据，以及用于内网侦察、暴力破解、安装或清理 webshell 的脚本；受害者遥测显示，运营者对法国媒体、娱乐和教育类网站更感兴趣。</p>
+        <p>SiliconANGLE 对同日报告的转述补充：Google 没有指认该框架已成功利用的某个具体漏洞，也没有给出受害者数量或「补丁到利用」的实测耗时，因此不宜把「发现框架」写成「已大规模得手」。官方建议仍是缩短补丁落地时间，并核对来源，而不是相信来路不明的概念验证。本文只记录公开结论，不转述技术细节。</p>
+        <p class="src">来源：<a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold">Google Cloud / GTIG 博客（2026-11-16）</a>；<a href="https://siliconangle.com/2026/11/16/google-says-an-ai-framework-turned-security-patches-into-exploits-with-no-human-in-the-loop/">SiliconANGLE 同日报道</a></p>
       </div>
       <div class="item">
-        <h3>编码 Agent 的信任问题，正在从「看每一行」转向「看验证与来源」</h3>
-        <p>同一天的行业综述把「验证」写成了工程主线。LLM Digest 对 11 月 16 日的整理提到，Claude Code 团队称其约 90% 的代码由 Agent 编写，因而更依赖端到端测试、属性测试和差异测试，才能同时跑多个智能体；Linear 则在重建面向 Agent 提交的代码审查，Grapim 一类工具尝试把 PR 中的每一行回溯到写出它的那次 Agent 运行。这些数字和产品细节来自二级汇总，正式口径请以各团队原文为准，此处只作为「人审已跟不上 Agent 产量」的旁证。</p>
-        <p class="src">来源：<a href="https://www.llm-digest.com/daily">LLM Digest Daily（What happened in AI - Nov 16, 2026）</a>。Claude Code「约 90%」与 Linear 相关表述待与官方或一手采访核对。</p>
+        <h3>科学发现 Agent：英伟达把开源模型、化学数据与后训练配方打包给实验室</h3>
+        <p>同一天，英伟达在新闻稿中发布 Nemotron for Science：以开源视觉语言模型 Nemotron 3.5 Super VL 为基础，配上新的开放化学数据集 LitmusBench v0.2（约 5 万道化学推理题）和后训练配方，帮助研究机构构建领域科学 Agent。新闻稿列举的使用方包括 Lila Sciences、Terray Therapeutics、Therna，以及美国能源部阿贡国家实验室、于利希超算中心等。这是工具与评测资源发布，不是新的上市药物或人体试验结果。细节见「AI 制药」板块。</p>
+        <p class="src">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-introduces-nemotron-for-science-to-accelerate-discoveries-with-agents">NVIDIA 新闻稿（2026-11-16）</a></p>
+      </div>
+      <div class="insight">
+        <strong>未来方向洞察：</strong>今日几条线索指向同一趋势——Agent 正在从「辅助写代码、辅助问答」进入可连续执行的工作流，评测也从单次答题转向「模型 + harness」的真实仓库与终端任务（见第 7 节 Coding Agent Index v2.1）。与此同时，攻击侧同样把补丁差分、利用起草和执行串成无人值守流水线，补丁披露后的窗口会被进一步压缩。对做 Agent / 本体中台的团队，这意味着两件事同时变硬：一是要把技能、评测和来源核验做成可治理的平台能力（今日 GitHub 日榜上 SkillEvaluator、AG-UI、代码审查工具的热度也在印证这一点）；二是不能把未签发、来路不明的 Agent 输出直接当成可执行事实。
       </div>
     </section>
 
@@ -250,49 +262,53 @@
       <h2>🔗 Ontology（本体）生态动态</h2>
       <p class="note">本板块同时出现两类「Ontology / 本体」，含义不同，下文分开写，避免张冠李戴。</p>
       <div class="item">
-        <h3>一、区块链 Ontology 网络（ONT）</h3>
-        <p>近 1–3 日：检索 <a href="https://ont.io/news/">ont.io/news</a> 公开栏目，未发现 11 月 5–17 日新的主网版本或官方技术公告。官网最近一篇文章仍是 11 月 4 日关于「个人声誉归属」的去中心化身份讨论。是否有未同步的中文公众号新文待核实。</p>
+        <h3>一、企业知识本体 / 本体中台</h3>
+        <p>Palantir 在 11 月 12 日的 Foundry 公告中宣布，Ontology SQL 与 SQL 函数已正式可用（GA），并写明该能力自 11 月 9 日当周起在全部 enrollment 上开放。官方说明：Ontology SQL 可用 Spark SQL 方言的一个子集查询已发布的对象类型、接口和多对多链接；查询先走对象存储上的内存计算路径，更复杂的查询再自动转到 Spark。SQL 函数是可参数化、可发布的 Ontology 查询，能在 Workshop、Actions、Automate 和 Ontology SDK 中复用。配套的 SQL Studio 用于编写和运行这些查询，并可把查询发布为函数、在 Ontology Manager 中管理版本。</p>
+        <p>同月稍早（11 月 10 日），Palantir 还宣布 SuperRepo 预览支持 <code>REMOTE_ONLY</code> 模式：可在本地对已有 Ontology 中的实况对象和链接做只读预览，而不再依赖手工维护的种子数据。访问仍走用户自身权限，对象类型 schema 不一致时会报错并停止返回数据。</p>
+        <p>补充背景（非今日新事件）：Databricks 已于 11 月 11 日将 Genie Ontology 推至正式可用，定位为「由 Agent 构建、由人治理、供每个 Agent 使用」的企业级本体。若与 Palantir 对照：前者更强调由 Agent 抽取片段、由人签发权威口径再分发；后者更强调对已发布对象、接口和链接的 SQL 查询与可版本化函数。两者都把「未发布或互相冲突的口径不能直接拿来算」当成治理问题，只是切入点不同。</p>
+        <p class="src">来源：<a href="https://palantir.com/docs/foundry/announcements/2026-11/">Palantir Foundry 2026 年 11 月公告（Ontology SQL GA：2026-11-12；Remote preview：2026-11-10）</a>；<a href="https://www.databricks.com/blog/announcing-ga-of-genie-ontology">Databricks：Announcing GA of Genie Ontology（2026-11-11）</a></p>
       </div>
       <div class="item">
-        <h3>二、企业知识本体 / 本体中台（与区块链 Ontology 不是同一件事）</h3>
-        <p><strong>Palantir 宣布 Ontology SQL 与 SQL 函数正式可用（GA，公告日期 2026-11-12）。</strong>官方说明，该能力已于 11 月 9 日当周在全部 enrollment 上线：可用 Spark SQL 的一个子集查询 Ontology 中的对象类型、接口和多对多链接；支持的查询形状走对象存储上的内存计算路径，更复杂的查询会自动转到 Spark。Ontology SQL functions 是带参数、可发布的 Ontology 查询，能在 Workshop、Actions、Automate 和 Ontology SDK 中复用。同期还有 SQL Studio（面向表格数据与 Ontology 对象的交互式、带 AI 辅助的 SQL 分析界面）。这对「已发布对象怎么被可靠查数」是比应用搭建更靠近内核的一步。</p>
-        <p class="src">来源：<a href="https://palantir.com/docs/foundry/announcements/2026-11/">Palantir Foundry November 2026 Announcements</a>（Ontology SQL and SQL functions are GA）</p>
-        <p>补充背景（非今日新事件）：Databricks 已于 11 月 11 日将 Genie Ontology 推至正式可用，定位为「由 Agent 构建、由人治理、供每个 Agent 使用」的企业级本体，并通过 Metric Views、Domains 与 MCP 对外提供。本周若讨论语义层该由谁签发、如何避免每个 Agent 各建一套互相冲突的业务视图，这两份官方说明可以对照着读。</p>
-        <p class="src">来源：<a href="https://www.databricks.com/blog/announcing-ga-genie-ontology">Databricks：Announcing GA of Genie Ontology（2026-11-11）</a></p>
+        <h3>二、区块链 Ontology 网络（ONT）</h3>
+        <p>面向去中心化身份与数据的 Ontology 网络，近日没有检索到新的官方产品、主网或融资公告。公开信息仍主要是既有路线图与市场转述，不把币价波动当作技术进展。与上一小节的企业知识本体不是同一件事。</p>
       </div>
     </section>
 
     <section class="sec" id="s4">
       <h2>🏢 AI 公司要闻</h2>
       <div class="item">
-        <h3><span class="tag tag-cat">财报</span>英伟达：黄仁勋辞任后的首份季报，日程仍是今日（美东 11 月 17 日）</h3>
-        <p>11 月 12 日，英伟达董事会宣布，黄仁勋辞去总裁、首席执行官及董事会成员职务，即刻生效；现任执行副总裁兼首席财务官科莱特·克雷斯（Colette Kress）出任临时 CEO，并继续兼任 CFO；董事会同时任命 Harvey C. Jones 为公司史上首位董事长。公司称将同时考察内部与外部候选人。截稿时（2026-11-17 上午，UTC+8），尚未看到已发布的正式业绩数字。多家媒体报道，英伟达仍按原计划在 11 月 17 日发布财报；克雷斯还在内部备忘录中宣布，将于 11 月 18 日 9:00（太平洋时间）召开全员会。具体数字请以公司正式公告和电话会为准。</p>
-        <p class="src">来源：<a href="https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/">TechCrunch（2026-11-12）</a>；<a href="https://www.reuters.com/business/retail-consumer/nvidia-ceo-jensen-huang-step-down-big-blow-ai-boom-2026-11-12/">路透（2026-11-12，11 月 13 日更新）</a>；<a href="https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html">CNBC 对今日财报关注点的预告（2026-11-16）</a></p>
+        <h3><span class="tag tag-cat">财报</span>英伟达：黄仁勋辞任后的首份季报，日程仍是今日（美西 11 月 17 日）</h3>
+        <p>英伟达董事会于 11 月 12 日宣布，黄仁勋已辞去总裁、首席执行官及董事职务，即时生效；现任执行副总裁兼首席财务官 Colette Kress 出任临时 CEO，并在找到常任继任者之前继续兼任 CFO。董事会同时任命 Harvey C. Jones 为公司史上首位董事会主席，并启动常任 CEO 的内外部遴选。官方新闻稿写明：公司将按原计划于 11 月 17 日约美西时间下午 1:20 发布 2027 财年第三季度财报，随后在下午 2:00 举行财报电话会。换算为用户时区 UTC+8，约在 11 月 18 日 05:20 前后出炉，截稿时结果尚未公布。</p>
+        <p class="src">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition">NVIDIA 新闻稿（2026-11-12）</a>；<a href="https://www.cnbc.com/2026/11/16/nvidia-earnings-jensen-huang-resignation.html">CNBC 对今日财报关注点的预告（2026-11-16）</a></p>
       </div>
       <div class="item">
         <h3><span class="tag tag-cat">融资</span>Anthropic IPO：媒体称仍计划周三定价、周四以代码 ANT 开盘</h3>
-        <p>11 月 16 日，CNBC 更新称，Anthropic 预计在 11 月 18 日（周三）为 IPO 定价，11 月 19 日（周四）开始在纳斯达克交易，代码为 ANT；发行约 8.25 亿股 A 类股，预估区间仍为每股 70–78 美元。按该区间上沿，TechCrunch 对 11 月 10 日更新后招股书的报道给出完全稀释约 1.404 万亿美元的隐含估值，并称另有 AMD、Broadcom、Google、Micron、Microsoft、Nvidia 和 TSMC 以发行价认购 260 亿美元无投票权股份。部分媒体对股本、估值和零售配售比例的测算并不完全一致，以下以招股文件和 CNBC / TechCrunch 的转述为准，最终以定价结果为准。</p>
-        <p class="src">来源：<a href="https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html">CNBC IPO 指南（2026-11-16）</a>；<a href="https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/">TechCrunch 对更新后招股书的报道（2026-11-10）</a></p>
+        <p>CNBC 在 11 月 16 日更新的 IPO 指南中写到：Anthropic 预计于 11 月 18 日（周三）晚上定价，11 月 19 日（周四）以代码 ANT 在纳斯达克开始交易；此次发行 8.25 亿股 A 类股，估计定价区间为每股 70 至 78 美元，按区间上沿测算发行规模超过 640 亿美元、公司估值约 1.405 万亿美元；面向美国及其他地区零售投资者的分配预计最多占发行规模的 20%。TechCrunch 对更新后招股文件的报道还写到：公司计划按 IPO 价格向 AMD、Broadcom、Google、Micron、Microsoft、Nvidia 和 TSMC 私募出售 260 亿美元无投票权 N 类股，其中 Google 与 Nvidia 各投资 100 亿美元；加上承销商超额认购权，公司估计净募资约 846 亿至 937 亿美元。上述日期与估值仍以最终定价和交易所公告为准。</p>
+        <p class="src">来源：<a href="https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html">CNBC（2026-11-16）</a>；<a href="https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/">TechCrunch（2026-11-10）</a></p>
       </div>
       <div class="item">
-        <h3><span class="tag tag-cat">产品发布</span>英伟达在 SC26 发布 Nemotron for Science</h3>
-        <p>11 月 16 日，英伟达在超级计算大会 SC26 宣布 Nemotron for Science：把开源模型 Nemotron 3.5 Super VL、科学评测、新的开放化学数据集 LitmusBench v0.2（官方称近 5 万道化学推理题）以及后训练配方放在一起，帮助研究机构搭建科学发现 Agent。官方点名阿贡国家实验室、于利希超算中心，以及 Lila Sciences、Terray Therapeutics、Therna 等生命科学公司已在使用或定制该模型。Nemotron 3.5 Super VL 与 LitmusBench v0.2 已在 Hugging Face 上提供。这是开源科学 Agent 工具链，不等同于已上市药物或已完成的临床试验结果；文中引用的基准提升数字来自英伟达新闻稿对合作方工作的转述，使用前请核对原论文或合作方说明。</p>
-        <p class="src">来源：<a href="https://www.globenewswire.com/news-release/2026/11/16/3403880/0/en/nvidia-introduces-nemotron-for-science-to-accelerate-discoveries-with-agents.html">NVIDIA / GlobeNewswire 新闻稿（2026-11-16）</a></p>
+        <h3><span class="tag tag-cat">产品发布</span>英伟达发布 Nemotron for Science</h3>
+        <p>11 月 16 日，英伟达发布面向科学发现的 Nemotron for Science 资源包，详见第 2 节与第 5 节。这是开源模型、数据集与后训练配方的组合，用于构建化学、生命科学等领域的科学 Agent。</p>
+        <p class="src">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-introduces-nemotron-for-science-to-accelerate-discoveries-with-agents">NVIDIA 新闻稿（2026-11-16）</a></p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-cat">融资</span>月之暗面：媒体援引知情人士称正拆除 VIE、筹备赴港 IPO</h3>
+        <p>《华尔街日报》11 月 13 日援引知情人士报道，月之暗面（Moonshot AI，Kimi）正完成公司架构重组，为赴港上市铺路：拟停用开曼群岛控股公司，并将早期美元投资人的股份转至中国境内运营实体。多家中文媒体转述称，目标约在 2027 年年初上市，集资额或高达 50 亿美元，最近一轮估值约 500 亿美元。检索中未见公司同步发布的官方招股或架构重组公告，故上述安排与时间表仍属媒体报道，待核实。</p>
+        <p class="src">来源：<a href="https://finance.mingpao.com/fin/daily/20261114/1794590692245/wsj-%e6%9c%88%e4%b9%8b%e6%9a%97%e9%9d%a2%e5%b0%87%e5%ae%8c%e6%88%90%e9%87%8d%e7%b5%84-%e6%98%8e%e5%b9%b4%e5%88%9d%e6%b8%afipo">明报财经转述《华尔街日报》（2026-11-14 报章）</a>；<a href="https://news.cnyes.com/news/id/6664273">钜亨网（2026-11-16）</a></p>
       </div>
     </section>
 
     <section class="sec" id="s5">
       <h2>💊 AI 制药板块</h2>
-      <p class="note">下文区分「AI 辅助研发 / 平台与孵化」与「已进入人体的在研管线 / 已上市药物」。目前公开信息里，多数成果仍在平台、临床前或早期临床，尚不能等同于已上市药物。</p>
       <div class="item">
         <h3>a) 平台、孵化与投资</h3>
-        <p><strong>Flagship Pioneering（美国，11 月 16 日）：</strong>这家曾孵化 Moderna 的公司宣布，在伦敦设立其首个位于剑桥（马萨诸塞）以外的公司创建单元「Flagship Origination Lab, U.K.」，初始承诺 1 亿英镑（报道折合约 1.32 亿美元），用于构思、验证、出资并创建「AI 原生」平台型公司，方向包括人类与行星健康及其他科学前沿。计划在英国招募并培训约 50 名科学家创业者与运营人员，并与其 AI 平台 Pioneering Intelligence、内部药物发现单元 Pioneering Medicines 连接。创始人兼 CEO Noubar Afeyan 称，预计还可通过合作再吸引 5 亿英镑。这是孵化与资本承诺，不是某个具体管线的上市或临床读出。</p>
-        <p class="src">来源：<a href="https://www.fiercebiotech.com/biotech/flagship-commits-ps100-million-set-ai-focused-biotech-incubation-outpost-london">Fierce Biotech（2026-11-16）</a>；路透、Bloomberg、Endpoints 等同日亦有报道</p>
+        <p>11 月 16 日，Flagship Pioneering 宣布在伦敦成立 Flagship Origination Lab, U.K.，这是其公司创建单元首次设在美国以外。官方新闻稿写明：实验室将构思、验证、出资并创建面向人类与行星健康及其他科技前沿的 AI 原生平台公司；Flagship 先投入 1 亿英镑启动该实验室，作为 Flagship Labs 的一部分运营，并计划在英国招募和训练约 50 名科学家企业家与运营人员。创始人兼 CEO Noubar Afeyan 在声明中表示，在这 1 亿英镑的初始承诺之外，预计还可通过合作再吸引 5 亿英镑——后者是展望，不是已经到位的承诺。路透、Fierce Biotech 等对同一宣布作了报道。这是孵化与投资布局，不等于已有新的在研管线或上市药物。</p>
+        <p class="src">来源：<a href="https://www.flagshippioneering.com/news/press-release/flagship-pioneering-launches-flagship-origination-lab-in-london-to-create-ai-native-platform-companies-in-the-u-k">Flagship Pioneering 新闻稿（2026-11-16）</a>；<a href="https://www.reuters.com/world/uk/venture-firm-flagship-bets-100-million-build-ai-driven-drug-companies-britain-2026-11-16/">路透（2026-11-16）</a></p>
       </div>
       <div class="item">
         <h3>b) 工具、模型与科学 Agent（尚非上市药物）</h3>
-        <p>同上文英伟达 Nemotron for Science：LitmusBench v0.2 使用分子性质与实验药物发现数据，用于训练和评估化学推理；新闻稿称 Terray 用后训练后的模型从科学图中抽取反应物、产物和反应条件，在 RxnScribe 测试中按该基准匹配标准回收了约 76% 的标注反应；Lila Sciences 用于生成可执行实验室协议，并称在量子点合成相关任务上，经实验室反馈后训练后准确率接近翻倍至 61%。这些是工具与基准数字，不是进入人体的管线结果。</p>
-        <p class="src">来源：<a href="https://www.globenewswire.com/news-release/2026/11/16/3403880/0/en/nvidia-introduces-nemotron-for-science-to-accelerate-discoveries-with-agents.html">NVIDIA 新闻稿（2026-11-16）</a></p>
+        <p>英伟达同日发布的 Nemotron for Science，明确是「AI 辅助研发工具」而非「AI 从头设计并已进入人体的药物」。新闻稿中的可核验数字来自合作方对模型能力的描述：Terray Therapeutics 用后训练后的模型从科学图示中抽取反应物、产物和反应条件，在 RxnScribe 测试集上按该基准匹配标准回收了约 76% 的标注反应；Lila Sciences 用于生成可执行实验室协议，并称在量子点合成相关任务上，经实验室反馈后训练后准确率接近翻倍至 61%，高于其给出的 GPT-6 Astra 的 54%，且推理成本约为后者的 1/10 到 1/20。这些是工具与基准数字，不是进入人体的管线结果。</p>
+        <p class="src">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-introduces-nemotron-for-science-to-accelerate-discoveries-with-agents">NVIDIA 新闻稿（2026-11-16）</a></p>
       </div>
     </section>
 
@@ -300,29 +316,72 @@
       <h2>🌐 本体生态公司动态</h2>
       <div class="item">
         <h3>企业「本体即查询层」：Palantir 把 Ontology SQL 做成可发布的平台能力</h3>
-        <p>对「本体中台」同事更直接的公司动态，是 Palantir 在本月中旬把 Ontology SQL 和 SQL 函数推到 GA，并配上 SQL Studio。它把「用熟悉的 SQL 查询已发布对象、接口和链接」写成平台能力，查询函数还可以版本化后在 Action、自动化和 Ontology SDK 里复用。若与 11 月 11 日 Databricks Genie Ontology 的 GA 对照：前者更强调对已有 Ontology 的查询与函数发布，后者更强调由 Agent 抽取片段、由人签发权威指标再经 MCP 分发。两者都把「未发布或互相冲突的口径不能直接拿来算」当成治理问题，只是切入点不同。</p>
+        <p>对「本体中台」同事更直接的公司动态，是 Palantir 在本月中旬把 Ontology SQL 和 SQL 函数推到 GA，并配上 SQL Studio。它把「用熟悉的 SQL 查询已发布对象、接口和链接」写成平台能力，查询函数还可以版本化后在 Action、自动化和 Ontology SDK 里复用。若与 11 月 11 日 Databricks Genie Ontology 的 GA 对照：前者更强调对已有 Ontology 的查询与函数发布，后者更强调由 Agent 抽取片段、由人签发权威指标再经平台分发。两者都把「未发布或互相冲突的口径不能直接拿来算」当成治理问题，只是切入点不同。</p>
+        <p class="src">来源：<a href="https://palantir.com/docs/foundry/announcements/2026-11/">Palantir Foundry 公告（2026-11-12）</a>；<a href="https://www.databricks.com/blog/announcing-ga-of-genie-ontology">Databricks 博客（2026-11-11）</a></p>
       </div>
       <div class="item">
         <h3>Web3 交叉：Ontology 网络近日无新的产品或融资公告</h3>
-        <p>面向去中心化身份与数据的 Ontology 网络，官网新闻栏在 11 月 4 日之后没有新的融资、主网或生态合作公告。若将「Web3 + AI」与企业知识本体混为一谈，容易误判技术进展，故此处只记录可核验的官方动态：近数日暂无新公告。</p>
+        <p>面向去中心化身份与数据的 Ontology 网络，近日没有检索到新的官方融资、主网或生态合作公告。若将「Web3 + AI」与企业知识本体混为一谈，容易误判技术进展，故此处只记录可核验的官方动态：近数日暂无新公告。</p>
       </div>
     </section>
 
     <section class="sec" id="s7">
       <h2>📈 AI 模型比较（Artificial Analysis 能力榜）</h2>
-      <p class="note">以下聚焦能力而非流量或价格战。不同版本的 Intelligence Index 分数不可直接比较；同一模型的推理档位（max / xhigh / high / medium / low）会显著改变分数与费用。官方页为 <a href="https://artificialanalysis.ai/models">artificialanalysis.ai/models</a> 与 leaderboards。</p>
+      <p class="note">以下聚焦能力而非流量或价格战。不同版本的 Intelligence Index 分数不可直接比较；同一模型的推理档位（max / xhigh / high / medium / low）会显著改变分数与费用。官方页为 <a href="https://artificialanalysis.ai/models">artificialanalysis.ai/models</a>。</p>
       <div class="item">
-        <h3>a) Intelligence Index（按实验室「最佳未淘汰配置」的第三方快照）</h3>
-        <p>Airace 在 2026-11-17 01:56（布加勒斯特时间，约 UTC+2）从 Artificial Analysis 抓取的「每家实验室最佳未淘汰模型」表，把 Anthropic 的 Claude Opus 5.5 记为 59.1（该站在 57 个有指数的模型中排第 1），Google DeepMind 的 Gemini 4 Carbon 为 58.3（第 2），OpenAI 的 GPT-6 Astra 为 55.3（第 4），Meta Superintelligence Labs 的 Muse Wonder Full 为 50.1（第 6），Moonshot 的 Kimi K3.1 Pro 为 46.5（第 8），阿里云 Qwen4 Max 为 42.9（第 9）。标价（每百万 tokens 输入/输出）在该快照中为：Opus 5.5 约 4 / 20 美元，Gemini 4 Carbon 约 2 / 10 美元，GPT-6 Astra 约 10 / 50 美元，Kimi K3.1 Pro 约 2 / 10 美元，Qwen4 Max 约 1.5 / 4.5 美元。</p>
-        <p>需要注意：周一那期曾根据按配置展开的转写，提到 Claude Fable 5.2 在 Intelligence Index v5 上领先。实验室「只保留一个最佳配置」的表，与按档位全部列出的表可能不一致。本表以 Airace 11 月 17 日对官方页的转写为准，并请以 AA 官方页核对档位和版本号。待核实 配置级榜单今日是否仍把 Fable 5.2 排在 Opus 5.5 之前。</p>
-        <p class="src">来源：<a href="https://airacescoreboard.com/aa-index/">Airace AA Index 快照（标明取自 2026-11-17 01:56 对 Artificial Analysis 的抓取）</a></p>
+        <h3>a) Intelligence Index v5.0.1：按配置列出的官方能力序</h3>
+        <p>Artificial Analysis 官方模型页在截稿时可核验的表述是：Claude Fable 5.2（max）与 Claude Fable 5.2（xhigh）是当前 Intelligence 最高的模型，随后是 Claude Fable 5.2（high）和 Gemini 4 Carbon（high）。该指数版本为 Intelligence Index v5.0.1，由 9 项评测等权组成，四大类（知识工作、编码、科学、综合）各占 25%：AA-Briefcase v1.1、AutomationBench-AA、GDP.pdf、FrontierCode-AA 2.0、Terminal-Bench 4.0、Terminal-Bench-Science 0.1、CritPt v2（Hard Subset）、AA-Omniscience v1.1、HLE-Diamond。</p>
+        <p>BenchLeader 转写的同一官方榜（标明数据截至 2026-11-17、共 130 个已发布配置）给出的前 15 名如下。不同档位是不同配置，不可把「实验室只保留一个最佳配置」的简表直接当成官方名次。</p>
+        <table>
+          <thead>
+            <tr><th>#</th><th>模型与档位</th><th>Intelligence Index v5.0.1</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Claude Fable 5.2（max）</td><td>64.6</td></tr>
+            <tr><td>2</td><td>Claude Fable 5.2（xhigh）</td><td>62.2</td></tr>
+            <tr><td>3</td><td>Claude Fable 5.2（high）</td><td>61.8</td></tr>
+            <tr><td>4</td><td>Gemini 4 Carbon（high）</td><td>60.0</td></tr>
+            <tr><td>5</td><td>Claude Opus 5.5（max）</td><td>59.1</td></tr>
+            <tr><td>6</td><td>Gemini 4 Carbon（medium）</td><td>58.3</td></tr>
+            <tr><td>7</td><td>Claude Opus 5.5（xhigh）</td><td>57.4</td></tr>
+            <tr><td>8</td><td>GPT-6 Astra（max）</td><td>56.9</td></tr>
+            <tr><td>9</td><td>Claude Fable 5.2（medium）</td><td>56.4</td></tr>
+            <tr><td>10</td><td>GPT-6 Astra（xhigh）</td><td>55.3</td></tr>
+            <tr><td>11</td><td>GPT-6 Astra（high）</td><td>54.9</td></tr>
+            <tr><td>12</td><td>GPT-6.1 Sol（max）</td><td>54.6</td></tr>
+            <tr><td>13</td><td>Claude Sonnet 5.5（max）</td><td>54.5</td></tr>
+            <tr><td>14</td><td>Gemini 4 Carbon（low）</td><td>54.2</td></tr>
+            <tr><td>15</td><td>Claude Fable 5.2（low）</td><td>53.9</td></tr>
+          </tbody>
+        </table>
+        <p class="src">来源：<a href="https://artificialanalysis.ai/models">Artificial Analysis 模型页</a>（截稿时官方文字确认 Fable 5.2 max / xhigh 领先）；<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader 对 AA Intelligence Index v5.0.1 的转写（数据截至 2026-11-17）</a></p>
       </div>
       <div class="item">
-        <h3>b) 读数时不要混用 v4 与 v5</h3>
-        <p>BenchLeader 提醒，Artificial Analysis Intelligence Index v4.3.2 已于 2026-10-27 冻结，并由 v5.0 / v5.0.1 替换，成员和量表都不同，两套分数不能直接比较。若只看到 Opus 5.5 在旧版 v4.3.2 上的 57.6 分，那是冻结参考值，不是今日 v5 的官方名次。</p>
-        <p class="src">来源：<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index">BenchLeader：AA Intelligence Index v4.3.2（注明已冻结）</a></p>
+        <h3>b) 不要把「每家实验室一个最佳配置」简表当成完整榜</h3>
+        <p>第三方站点 Airace 在 2026-11-17 01:56（布加勒斯特时间）从 Artificial Analysis 抓取的「每家实验室最佳未淘汰模型」表，把 Anthropic 记为 Claude Opus 5.5、分数 59.1（该简表中排第 1），Google DeepMind 的 Gemini 4 Carbon 为 58.3，OpenAI 的 GPT-6 Astra 为 55.3，Moonshot 的 Kimi K3.1 Pro 为 46.5，阿里云 Qwen4 Max 为 42.9。这张表按实验室去重，且未把 Fable 5.2 列为 Anthropic 的代表配置，因此会出现「Opus 5.5 第一」的读法；它与上一小节按全部档位展开的官方序并不矛盾，只是口径不同。引用时请标明是「实验室去重简表」，并以 AA 官方页核对档位和版本号。</p>
+        <p>另：Intelligence Index v4.3.2 已于 2026-10-27 冻结，并由 v5.0 / v5.0.1 替换，成员和量表都不同，两套分数不能直接比较。</p>
+        <p class="src">来源：<a href="https://airacescoreboard.com/aa-index/">Airace AA Index 快照（标明取自 2026-11-17 01:56 对 Artificial Analysis 的抓取）</a>；<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader 对 v4 / v5 不可比的说明</a></p>
       </div>
-      <p class="insight">模型能力洞察：截稿时的实验室最佳快照里，Anthropic 与 Google 仍非常接近（59.1 对 58.3），开源权重侧 Kimi K3.1 Pro 仍是该转写中最稳的一档。对中台选型，仍然应看「模型 + harness + 档位 + 单任务成本」，并先确认指数版本，而不是只看总分或沿用上周对 Fable 的印象。</p>
+      <div class="item">
+        <h3>c) Coding Agent Index v2.1 与定价简表</h3>
+        <p>Artificial Analysis 于 11 月 14 日宣布 Coding Agent Index v2.1。官方说明：该指数衡量的是「模型 + Agent harness」组合；v2.1 将 FrontierCode 从 1.1 升级为 FrontierCode-AA 2.0（132 项真实仓库任务，按维护者是否会合并智能体改动来评分），将 Terminal-Bench 从 4.0 升级为 4.1（仍为 66 项任务，但更换了更抗奖励黑客的校验器），并保留 SWE-Atlas-QnA-AA。官方结果：Claude Fable 5.2 在 Claude Code 的 xhigh 与 high 档均得到 58 分，Claude Opus 5.5（max）在 Claude Code 中也是 58 分，两者并列领先。因测试集已更换，不能把该分数与旧版 v2.0 上的分数直接比较。</p>
+        <p>主流模型列表价（每百万 tokens 输入 / 输出，美元），取自 Airace 11 月 17 日对 AA 的抓取；这是列表价，不是完成一道指数题的实际费用，也不是 BenchLeader 页上的混合单价。</p>
+        <table>
+          <thead>
+            <tr><th>模型</th><th>输入 $/百万 tokens</th><th>输出 $/百万 tokens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Claude Opus 5.5</td><td>4</td><td>20</td></tr>
+            <tr><td>Gemini 4 Carbon</td><td>2</td><td>10</td></tr>
+            <tr><td>GPT-6 Astra</td><td>10</td><td>50</td></tr>
+            <tr><td>Kimi K3.1 Pro</td><td>2</td><td>10</td></tr>
+            <tr><td>Qwen4 Max</td><td>1.5</td><td>4.5</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Fable 5.2 的分档列表价未出现在上述实验室去重简表中。BenchLeader 另给出按配置折算的混合单价参考：Fable 5.2（max）约 16 美元 / 百万 tokens，Carbon（high）约 4 美元，Opus 5.5（max）约 8 美元，Astra（max）约 20 美元；该列为混合口径，不可与上表的输入/输出列表价直接加减。</p>
+        <p class="src">来源：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">Artificial Analysis 官方账号关于 Coding Agent Index v2.1 的说明（2026-11-14）</a>；<a href="https://airacescoreboard.com/aa-index/">Airace 列表价快照（2026-11-17）</a>；<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader 混合单价（2026-11-17）</a></p>
+      </div>
+      <p class="insight"><strong>模型能力洞察：</strong>按配置展开的 v5.0.1 官方序里，Anthropic 的 Fable 5.2（max 64.6）仍明显领先，其次是其较低推理档和 Gemini 4 Carbon（high 60.0）；Opus 5.5（max 59.1）紧随其后。但在面向真实仓库与终端的 Coding Agent Index v2.1 上，Fable 5.2 与 Opus 5.5 并列 58 分，说明「综合智力指数」和「编码 Agent 真实工作流」不是同一件事。开源权重侧，实验室去重简表里 Kimi K3.1 Pro（46.5）仍高于 Qwen4 Max（42.9）。选型时应同时看指数版本、推理档位、harness 和单任务成本，而不是只记一个总分。</p>
     </section>
 
     <section class="sec" id="s8">
@@ -334,14 +393,14 @@
       </div>
       <div class="item">
         <h3>2. Google GTIG：Agent 威胁活动越过关键阈值</h3>
-        <p>推荐理由：官方把「无人值守的补丁差分与自动利用」写成过去一个季度的新现象，同时也承认并未给出该框架的成功利用清单。想讨论 Agent 安全评测、补丁窗口和来源核验，这是目前最完整的一手威胁情报说明。</p>
+        <p>推荐理由：官方把「无人值守的补丁差分与自动利用」写成过去一个季度的新现象，同时也没有给出该框架的成功利用清单。想讨论 Agent 安全评测、补丁窗口和来源核验，这是目前最完整的一手威胁情报说明。</p>
         <p class="src">链接：<a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold">https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold</a></p>
       </div>
     </section>
 
     <footer class="foot">
       <p>本早报由狙击日报自动生成</p>
-      <p>生成时间：2026年11月17日 08:07（UTC+8）</p>
+      <p>生成时间：2026年11月17日 08:50（UTC+8）</p>
       <p>信息来自公开网页与检索快照，转载或决策前请核对原文。时效无法确认处已标「待核实」。</p>
     </footer>
   </div>
