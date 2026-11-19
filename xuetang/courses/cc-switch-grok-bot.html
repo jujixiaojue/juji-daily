@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC Switch 接不进这套 Grok Bot｜狙击学堂</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">课程目录</a>
+      <a href="../../">狙击日报</a>
+    </nav>
+
+    <header class="course-hero">
+      <a class="back" href="../">← 返回目录</a>
+      <h1>CC Switch 接不进这套 Grok Bot</h1>
+      <p class="summary">CC Switch 是给 Claude Code、Codex、Gemini CLI、Grok Build 管配置和自定义 API 的工具。这套 Grok Bot 应用没有对外的 OpenAI / Anthropic 兼容 API，不能当成后端接上去。</p>
+      <div class="tags">
+        <span class="tag">使用教程</span>
+      </div>
+      <div class="course-meta">
+        <span>整理日期：2026-11-19（UTC+8）</span>
+      </div>
+      <div class="scope">
+        <strong>资料范围：</strong>CC Switch 官方文档与仓库说明。这套 Grok Bot 应用本身没有公开的兼容 API。
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="页内目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#s1">CC Switch 是什么</a></li>
+          <li><a href="#s2">自定义提供商与计费</a></li>
+          <li><a href="#s3">为什么接不进 Grok Bot</a></li>
+          <li><a href="#s4">来源</a></li>
+        </ol>
+      </aside>
+
+      <article class="article">
+        <section id="s1">
+          <h2>1. CC Switch 是什么</h2>
+          <p>CC Switch（farion1231/cc-switch，网站 ccswitch.io）给几种编程助手命令行工具管配置、提供商和路由，面向 Claude Code、Codex、Gemini CLI、Grok Build。</p>
+        </section>
+
+        <section id="s2">
+          <h2>2. 自定义提供商与计费</h2>
+          <p>可以加自定义提供商：填 URL、API Key、模型 ID；如果接口格式不是原生 Responses，还可以做本地路由转换。有官方 xAI（Grok）预设。Grok Build 会写入 <code>~/.grok/config.toml</code>。自定义站点的 API 由那个站点计费；xAI API Key 不是 Grok Bot 的登录凭证。</p>
+        </section>
+
+        <section id="s3">
+          <h2>3. 为什么接不进 Grok Bot</h2>
+          <p>这套 Grok Bot 应用是聊天与任务入口，不是对外的 OpenAI 或 Anthropic 兼容 API 服务。CC Switch 不能把本应用当成后端挂上去。</p>
+        </section>
+
+        <section id="s4" class="sources">
+          <h2>来源</h2>
+          <ul>
+            <li><a href="https://ccswitch.io/zh/docs?section=proxy&amp;item=routing" rel="noopener noreferrer" target="_blank">https://ccswitch.io/zh/docs?section=proxy&amp;item=routing</a></li>
+            <li><a href="https://github.com/farion1231/cc-switch/blob/main/docs/user-manual/zh/2-providers/2.1-add.md" rel="noopener noreferrer" target="_blank">https://github.com/farion1231/cc-switch/blob/main/docs/user-manual/zh/2-providers/2.1-add.md</a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回课程目录</a> · <a href="../../">狙击日报</a></p>
+    </footer>
+  </div>
+</body>
+</html>

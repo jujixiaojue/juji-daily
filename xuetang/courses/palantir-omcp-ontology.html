@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palantir OMCP 与本体问数：冻结契约、推理机与对象集｜狙击学堂</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">课程目录</a>
+      <a href="../../">狙击日报</a>
+    </nav>
+
+    <header class="course-hero">
+      <a class="back" href="../">← 返回目录</a>
+      <h1>Palantir OMCP 与本体问数：冻结契约、推理机与对象集</h1>
+      <p class="summary">问数走业务库对象集，图数据库只校验已发布的 T-Box。推理机把术语落到 QueryIntent 并校验，通过后才调已发布的 Function / Logic / Action。对外是自家狭窄目录，不是直接说成 Palantir 产品。</p>
+      <div class="tags">
+        <span class="tag">原理解析</span>
+        <span class="tag theme">本体</span>
+      </div>
+      <div class="course-meta">
+        <span>整理日期：2026-11-19（UTC+8）</span>
+      </div>
+      <div class="scope">
+        <strong>资料范围：</strong>Palantir 官方 OMCP / Ontology 公开口径，加上与「本体设计」对齐后的架构结论。这不是 Palantir 实施手册，也不是测评。
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="页内目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#s1">导读</a></li>
+          <li><a href="#s2">Palantir OMCP 暴露什么</a></li>
+          <li><a href="#s3">自家方案分工</a></li>
+          <li><a href="#s4">记住</a></li>
+          <li><a href="#s5">来源说明</a></li>
+        </ol>
+      </aside>
+
+      <article class="article">
+        <section id="s1">
+          <h2>1. 导读</h2>
+          <p>要分清两层。Palantir 自己的 Ontology MCP（OMCP）怎么暴露能力；以及自家方案里，图数据库、推理机、对象集各管什么。后者才是要落地的契约。</p>
+        </section>
+
+        <section id="s2">
+          <h2>2. Palantir OMCP 暴露什么</h2>
+          <p>Palantir OMCP 暴露：对已暴露类型的 SQL 查询（Ontology SQL）；Action types、query functions，以及经 AIP Logic 的 Agents。支柱仍是数据、逻辑、动作、安全。语义搜索 / KNN / AIP 可用于检索，但不等于「图推理替代了问数」。</p>
+        </section>
+
+        <section id="s3">
+          <h2>3. 自家方案分工（已对齐）</h2>
+          <p>图数据库只校验已发布的 T-Box，不承担业务数据的问数。问数走业务库里的对象集；冻结图是契约，对象集是数据。推理机把业务术语落到 QueryIntent 并做校验；校不过就停下来或记一条缺口，不要猜着往下走。只有计划校验通过、且确实需要时，才调已发布的 Function / Logic / Action。对外表面是自家的狭窄、形状类似 OMCP 的目录，不是把 Palantir 产品当成自己的对外接口。</p>
+        </section>
+
+        <section id="s4">
+          <h2>4. 记住</h2>
+          <p>推理机不是被 OMCP 取代了，它是问数之前的门禁。目录只暴露已发布且校验通过的能力，避免工具爆炸。</p>
+        </section>
+
+        <section id="s5" class="sources">
+          <h2>来源说明</h2>
+          <p>依据官方公开口径与内部对齐结论。本课不编造 Palantir 文档 URL。</p>
+        </section>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回课程目录</a> · <a href="../../">狙击日报</a></p>
+    </footer>
+  </div>
+</body>
+</html>

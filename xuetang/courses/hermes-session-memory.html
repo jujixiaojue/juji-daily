@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermes Agent：飞书与微信的会话记忆为什么不能互通｜狙击学堂</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">课程目录</a>
+      <a href="../../">狙击日报</a>
+    </nav>
+
+    <header class="course-hero">
+      <a class="back" href="../">← 返回目录</a>
+      <h1>Hermes Agent：飞书与微信的会话记忆为什么不能互通</h1>
+      <p class="summary">部署在阿里云的 Hermes，持久记忆工具可共用，但飞书和微信是两套独立会话历史。AgentMsgr 也拼不起这两个窗口的内部记忆。</p>
+      <div class="tags">
+        <span class="tag">产品调研</span>
+        <span class="tag">技术方案</span>
+      </div>
+      <div class="course-meta">
+        <span>整理日期：2026-11-19（UTC+8）</span>
+      </div>
+      <div class="scope">
+        <strong>资料范围：</strong>Nous Research Hermes Agent 仓库、阿里云官方部署说明，以及 GitHub issues #25544、#4335。未改部署配置。
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="页内目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#s1">导读</a></li>
+          <li><a href="#s2">会话键按平台分开</a></li>
+          <li><a href="#s3">AgentMsgr 拼不起两个窗口</a></li>
+          <li><a href="#s4">实用做法</a></li>
+          <li><a href="#s5">来源</a></li>
+        </ol>
+      </aside>
+
+      <article class="article">
+        <section id="s1">
+          <h2>1. 导读</h2>
+          <p>Hermes Agent 可通过 Gateway 接飞书、微信（Weixin / iLink）、企业微信和钉钉，阿里云也提供一键部署。常见误会是同一个 Hermes 实例接了两个渠道，记忆就一定共享。官方和已知 issue 都说明：不是这样。</p>
+        </section>
+
+        <section id="s2">
+          <h2>2. 会话键按平台分开</h2>
+          <p>会话键按平台分开，例如 <code>agent:main:weixin:dm:xxx</code> 与 <code>agent:main:feishu:dm:xxx</code>。持久记忆工具可以共享，但会话历史本身不共享。微信里讲过的要求，飞书窗口里看不到原对话。</p>
+        </section>
+
+        <section id="s3">
+          <h2>3. AgentMsgr 不能把两个窗口拼起来</h2>
+          <p>它连的是「一个 Hermes 助手」，最多多出一个共享房间。不会把微信和飞书的内部会话史缝起来。</p>
+        </section>
+
+        <section id="s4">
+          <h2>4. 实用做法</h2>
+          <p>换渠道时把关键要求再说一遍，或把截图发到当前窗口。真正要长期共用的约定，写进 Hermes 的持久记忆，而不要只留在某一侧的聊天记录里。</p>
+        </section>
+
+        <section id="s5" class="sources">
+          <h2>来源</h2>
+          <ul>
+            <li><a href="https://github.com/NousResearch/hermes-agent" rel="noopener noreferrer" target="_blank">https://github.com/NousResearch/hermes-agent</a></li>
+            <li><a href="https://help.aliyun.com/zh/simple-application-server/use-cases/hermes-agent-messaging" rel="noopener noreferrer" target="_blank">https://help.aliyun.com/zh/simple-application-server/use-cases/hermes-agent-messaging</a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回课程目录</a> · <a href="../../">狙击日报</a></p>
+    </footer>
+  </div>
+</body>
+</html>
