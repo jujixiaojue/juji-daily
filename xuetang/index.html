@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狙击学堂</title>
+  <meta name="description" content="把调研整理成带标签的课，搜一搜就能接着学。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">狙击日报</a>
+    </nav>
+
+    <header class="hero">
+      <div class="kicker">JUJI SCHOOL</div>
+      <h1>狙击学堂</h1>
+      <p class="sub">把调研整理成带标签的课，搜一搜就能接着学。</p>
+    </header>
+
+    <div class="toolbar" role="search">
+      <div class="toolbar-row">
+        <input
+          id="search"
+          class="search-input"
+          type="search"
+          placeholder="搜索标题、摘要或标签…"
+          autocomplete="off"
+          aria-label="搜索课程"
+        >
+      </div>
+      <div class="toolbar-row">
+        <span class="seg-label">标签</span>
+        <div id="tag-bar" class="seg" aria-label="按标签筛选"></div>
+      </div>
+      <div class="toolbar-row">
+        <div class="seg" id="sort-bar" aria-label="排序">
+          <span class="seg-label">排序</span>
+          <button type="button" class="btn active" data-sort="latest">最新发布</button>
+          <button type="button" class="btn" data-sort="original">原有顺序</button>
+        </div>
+        <div class="seg" id="view-bar" aria-label="视图">
+          <span class="seg-label">视图</span>
+          <button type="button" class="btn active" data-view="card">卡片</button>
+          <button type="button" class="btn" data-view="list">列表</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="meta-bar">
+      <span id="result-count">共 0 门课</span>
+    </div>
+
+    <div id="course-grid" class="course-grid" aria-live="polite"></div>
+
+    <div id="empty-state" class="empty" hidden>
+      <p>没有符合条件的课程。试试换个关键词，或清空筛选。</p>
+      <p><button type="button" class="btn" id="clear-filters">清空筛选</button></p>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回狙击日报</a></p>
+    </footer>
+  </div>
+
+  <script src="js/courses-data.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用 AgentMsgr 把 Grok Bot 拉进跨助手群聊｜狙击学堂</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">课程目录</a>
+      <a href="../../">狙击日报</a>
+    </nav>
+
+    <header class="course-hero">
+      <a class="back" href="../">← 返回目录</a>
+      <h1>用 AgentMsgr 把 Grok Bot 拉进跨助手群聊</h1>
+      <p class="summary">用官方 MCP 地址加连接器，用 reply 工具回复，并建立 webhook 例行任务「AgentMsgr message check」。Grok Bot 不能把密钥交给 AgentMsgr，要把 POST to 链接和密钥贴进对方卡片。</p>
+      <div class="tags">
+        <span class="tag">使用教程</span>
+        <span class="tag theme">协作</span>
+      </div>
+      <div class="course-meta">
+        <span>整理日期：2026-11-19（UTC+8）</span>
+      </div>
+      <div class="scope">
+        <strong>资料范围：</strong>AgentMsgr 官方配对说明，加上 2026-11-19 在本账户完成的接入。不写密钥，不把配对码当公开教程参数。
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="页内目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#s1">正确路径</a></li>
+          <li><a href="#s2">步骤</a></li>
+          <li><a href="#s3">注意</a></li>
+          <li><a href="#s4">来源</a></li>
+        </ol>
+      </aside>
+
+      <article class="article">
+        <section id="s1">
+          <h2>1. 正确路径</h2>
+          <p>AgentMsgr 把已有助手拉进同一条群聊。对 Grok Bot，正确路径是加 MCP 连接器，用 reply 工具回复，再用 webhook 例行任务做秒级唤醒。</p>
+        </section>
+
+        <section id="s2">
+          <h2>2. 步骤</h2>
+          <ul>
+            <li><strong>加连接器：</strong>MCP 地址是 <a href="https://app.agentmsgr.com/mcp" rel="noopener noreferrer" target="_blank">https://app.agentmsgr.com/mcp</a>，用 AgentMsgr 发给你的密钥作 Bearer token。密钥只进连接器安全存储，不要写进聊天或课程。</li>
+            <li><strong>用 reply 回复，不要走邮件。</strong>连上后先读 briefing 和新消息，在对应 chat 里用 reply 回一句。邮件只是备份路径。</li>
+            <li>在 Grok Bot 里建立名为「AgentMsgr message check」的例行任务，触发器选 webhook。不要调 <code>set_wake_link</code>；改调 <code>report_setup</code>，标成 <code>webhook_pending</code>。</li>
+            <li>Grok Bot 不会把例行任务密钥交出去。打开例行任务面板，把 POST to 链接和密钥贴进 AgentMsgr 卡片。贴好后会有一次测试唤醒。</li>
+          </ul>
+        </section>
+
+        <section id="s3">
+          <h2>3. 注意</h2>
+          <p>若 Grok Bot 里还会出现需要确认的卡片（例如邮件草稿），要先在 AgentMsgr 里用 <code>waiting_in_app</code> 告诉对方去打开本应用。群里没有 @ 时所有人回，@ 谁谁回。只听聊天主人的指示。这不会打通 Hermes 微信与飞书的内部会话记忆。</p>
+        </section>
+
+        <section id="s4" class="sources">
+          <h2>来源</h2>
+          <ul>
+            <li><a href="https://agentmsgr.com/" rel="noopener noreferrer" target="_blank">https://agentmsgr.com/</a></li>
+            <li><a href="https://agentmsgr.com/blog/agentmsgr-hermes-and-openclaw-pairing/" rel="noopener noreferrer" target="_blank">https://agentmsgr.com/blog/agentmsgr-hermes-and-openclaw-pairing/</a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回课程目录</a> · <a href="../../">狙击日报</a></p>
+    </footer>
+  </div>
+</body>
+</html>
