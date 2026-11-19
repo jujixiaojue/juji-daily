@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狙击日报｜2026年11月19日 · AI 每日早报</title>
+  <style>
+    :root {
+      --primary: #667eea;
+      --primary-2: #764ba2;
+      --bg: #f5f6fb;
+      --card: #ffffff;
+      --muted: #f8f9fa;
+      --text: #1f2937;
+      --sub: #4b5563;
+      --line: #e5e7eb;
+      --ai: #4f46e5;
+      --warn: #b45309;
+      --ok: #047857;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: #4f46e5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+    header.hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      opacity: .95;
+      margin-bottom: 12px;
+    }
+    header.hero h1 {
+      margin: 0 0 6px;
+      font-size: 36px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    header.hero .sub {
+      margin: 0 0 18px;
+      font-size: 15px;
+      opacity: .92;
+    }
+    header.hero .date {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+    .overview {
+      background: rgba(255,255,255,.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+    }
+    .archive {
+      margin: 16px 0 0;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--sub);
+      font-size: 14px;
+      border: 1px solid var(--line);
+    }
+    .sec {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px 24px 18px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+      border: 1px solid var(--line);
+    }
+    .sec h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+    }
+    .item { margin: 0 0 16px; padding: 0 0 16px; border-bottom: 1px dashed var(--line); }
+    .item:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 4px; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 650; }
+    .meta { color: var(--sub); font-size: 13px; margin-bottom: 6px; }
+    .src { font-size: 13px; color: var(--sub); margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tag-ai { background: #eef2ff; color: var(--ai); }
+    .tag-other { background: #f3f4f6; color: #4b5563; }
+    .tag-cat { background: #f3e8ff; color: #6d28d9; }
+    .tag-warn { background: #fff7ed; color: var(--warn); }
+    .insight {
+      background: var(--muted);
+      border-left: 4px solid #764ba2;
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .insight strong { color: #5b21b6; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 8px 0 12px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--muted); font-weight: 650; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul.clean { margin: 6px 0 0; padding-left: 1.2em; }
+    ul.clean li { margin: 4px 0; }
+    .note { font-size: 13px; color: var(--sub); }
+    footer.foot {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--sub);
+      font-size: 13px;
+      padding: 18px 8px 0;
+    }
+    @media (max-width: 720px) {
+      header.hero { padding: 26px 18px 20px; }
+      header.hero h1 { font-size: 28px; }
+      .sec { padding: 18px 16px 12px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">JUJI DAILY</div>
+      <h1>狙击日报</h1>
+      <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
+      <div class="date">2026年11月19日 星期四 · 用户时区 UTC+8</div>
+      <div class="overview">今日概览：Anthropic 于美东时间 11 月 18 日将 IPO 定价为每股 83 美元，发行约 9.80 亿股、筹资约 813 亿美元，股票预计于 11 月 19 日以代码 ANT 在纳斯达克全球精选市场开始交易（北京时间截稿时美股尚未开盘）。Google DeepMind 同日发布 Gemini 4 Neon。Artificial Analysis Intelligence Index v5.0.1 上，Claude Fable 5.2（max）仍以 64.6 分居首，GPT-6.2 Astra（max）为 62.1 分，Neon（xhigh）以 61.4 分进入前三（按各模型最高档计）。AI 制药方面，Isomorphic Labs 50 亿美元 C 轮与 Recursion 宣布 REC-4881 注册 III 期方案获 FDA 对齐仍是主线。GitStock 日榜由 elementalsouls/Claude-BugHunter 领跑，google-research/paper-orchestra「今日新增」居前。</div>
+    </header>
+
+    <div class="archive">
+      <strong>归档：</strong>
+      <a href="./issues/ai-daily-briefing-2026-11-19.html">2026-11-19（今日）</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-18.html">2026-11-18</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-17.html">2026-11-17</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-16.html">2026-11-16</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a>
+      · 公开页面：<a href="https://jujixiaojue.github.io/juji-daily/">https://jujixiaojue.github.io/juji-daily/</a>
+    </div>
+
+    <section class="sec" id="s1">
+      <h2>📊 GitHub Trending 日报</h2>
+      <p class="note">本日以 <a href="https://gitstock.org/trending">GitStock</a> 的 <a href="https://gitstock.org/api/v1/github/trending?period=daily">2026-11-19 日榜快照</a>为准（<code>captured_at</code> 对应 2026-11-19 00:00 UTC，即北京时间 08:00）。星标与「今日新增」会随当天波动。下文列出日榜 Top 10，并补充榜单稍后仍与 Agent 相关的条目。同一时段抓取的 <a href="https://github.com/trending">GitHub Trending</a> 可见条目与此大体重合，但页面排序可能因抓取时刻略有差异。</p>
+
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/elementalsouls/Claude-BugHunter">elementalsouls / Claude-BugHunter</a></h3>
+        <div class="meta">Python · 11,339 stars · 今日 +2,313 · GitStock 日榜第 1</div>
+        <p>面向漏洞狩猎与外部红队工作的 Claude Code skill 包：宣称收录 82 个 skills、15 条斜杠命令，以及覆盖 24 类核心漏洞的 681 条已披露报告模式，并包含企业身份与基础设施攻击矩阵。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/cursor/plugins">cursor / plugins</a></h3>
+        <div class="meta">TypeScript · 17,183 stars · 今日 +314 · GitStock 日榜第 2</div>
+        <p>Cursor 插件规范与官方插件仓库，面向编辑器内的 Agent / 插件生态。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/HKUDS/CLI-Anything">HKUDS / CLI-Anything</a></h3>
+        <div class="meta">Python · 59,719 stars · 今日 +389 · GitStock 日榜第 3</div>
+        <p>港大团队项目，口号是 “Making ALL Software Agent-Native”，并提供 CLI-Hub（<a href="https://clianything.cc/">clianything.cc</a>）。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/mvanhorn/last30days-skill">mvanhorn / last30days-skill</a></h3>
+        <div class="meta">Python · 69,974 stars · 今日 +1,059 · GitStock 日榜第 4</div>
+        <p>AI Agent skill：可就任一主题检索 Reddit、X、YouTube、Hacker News、Polymarket 与公开网页，并汇总成有依据的综述。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">其他</span><a href="https://github.com/getarcaneapp/arcane">getarcaneapp / arcane</a></h3>
+        <div class="meta">Go · 9,781 stars · 今日 +547 · GitStock 日榜第 5</div>
+        <p>面向日常使用的现代化 Docker 管理工具。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/NVIDIA/SkillEvaluator">NVIDIA / SkillEvaluator</a></h3>
+        <div class="meta">Python · 3,706 stars · 今日 +312 · GitStock 日榜第 6</div>
+        <p>英伟达开源的多层框架，用于评估 AI Agent 的 skills 与插件：包含质量门禁、语义重叠检测、合成评测集生成，以及衡量 skill 如何改变 Agent 行为的在线评估。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">其他</span><a href="https://github.com/nvm-sh/nvm">nvm-sh / nvm</a></h3>
+        <div class="meta">Shell · 96,152 stars · 今日 +237 · GitStock 日榜第 7</div>
+        <p>POSIX 兼容的 Node.js 版本管理脚本。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-other">其他</span><a href="https://github.com/astral-sh/uv">astral-sh / uv</a></h3>
+        <div class="meta">Rust · 92,218 stars · 今日 +258 · GitStock 日榜第 8</div>
+        <p>用 Rust 编写的高性能 Python 包与项目管理器。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-research/paper-orchestra">google-research / paper-orchestra</a></h3>
+        <div class="meta">Python · 4,251 stars · 今日 +1,524 · GitStock 日榜第 9</div>
+        <p>Google Research 开源的多智能体框架，用于把实验日志等研究材料自动写成 AI 研究论文。</p>
+      </div>
+      <div class="item">
+        <h3><span class="tag tag-ai">AI 相关</span><a href="https://github.com/google-labs-code/stitch-skills">google-labs-code / stitch-skills</a></h3>
+        <div class="meta">TypeScript · 10,390 stars · 今日 +365 · GitStock 日榜第 10</div>
+        <p>与 Stitch MCP 服务器配套的 Agent Skills 库，宣称遵循 Agent Skills 开放标准，可与 Antigravity、Gemini CLI、Claude Code、Cursor 等编码 Agent 配合使用。</p>
+      </div>
+
+      <p class="note">日榜稍后仍与 Agent 相关、且「今日新增」较高的条目还包括：<a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a>（约 306,478 stars，今日 +1,108；Agent harness 优化系统）与 <a href="https://github.com/obra/superpowers">obra/superpowers</a>（约 321,304 stars，今日 +822；agentic skills 框架）。Top 10 中「今日新增」最高的是 Claude-BugHunter（+2,313），其次为 paper-orchestra（+1,524）和 last30days-skill（+1,059）。</p>
+      <p class="src">来源：<a href="https://gitstock.org/api/v1/github/trending?period=daily">GitStock daily API（date=2026-11-19）</a>；<a href="https://github.com/trending">GitHub Trending</a></p>
+    </section>
+
+    <section class="sec" id="s2">
+      <h2>🤖 AI Agent 前沿洞察</h2>
+
+      <div class="item">
+        <h3>Google DeepMind 发布 Gemini 4 Neon，面向长程 Agent 工作流</h3>
+        <p>11 月 18 日，Google DeepMind 首席 AI 架构师 Koray Kavukcuoglu 发文介绍 Gemini 4 Neon，定位为在复杂软件工程、知识工作与科学工作流中「以更快端到端完成速度接近前沿智力」的型号。官方称其具有 100 万 token 上下文、四档可调 thinking，并正在 Google Antigravity 中作为编排器调度并行的 Hydrogen 子智能体。Google 写道：Neon 在 xhigh 档的 Artificial Analysis Intelligence Index 得分为 61，按各模型最高档计排在第 3；在 Artificial Analysis Coding Agent Index 上以 58.6 分排在第 1，并给出 Terminal-Bench 4.1 为 65.2%、FrontierCode 2.0（默认 high）为 46.2%。上述编码榜名次来自 Google 官方博文，截稿时未在 Artificial Analysis 官方分榜全文中逐项复核，建议以 AA 页面为准。产品已在 Gemini API / Google AI Studio、Gemini for business，以及付费 Google AI Pro / Ultra 的 Antigravity 与 Gemini 应用中推出。定价为每百万 token 输入 3 美元、输出 15 美元，缓存输入 0.15 美元。</p>
+        <p class="src">来源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Google 官方博文《Introducing Gemini 4 Neon》（2026-11-18）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>NVIDIA SkillEvaluator：先评 skill，再交给 Agent</h3>
+        <p>英伟达开源的 SkillEvaluator 进入今日 GitHub 日榜前六。项目说明将其定位为多层评估框架：在质量门禁与语义重叠检测之外，还能量化 skill 对 Agent 行为的实际影响。11 月 18 日前后的开发者文档与第三方介绍提到 1.0.1 版本，并提供可在编码 Agent 内直接调用的检查流程。该项目与近期 skill / 插件仓库（如 cursor/plugins、stitch-skills）同日出现在趋势榜，反映出「Agent 可扩展能力」正在从编写 skill 转向验证 skill。</p>
+        <p class="src">来源：<a href="https://github.com/NVIDIA/SkillEvaluator">NVIDIA/SkillEvaluator 仓库说明</a>；<a href="https://docs.nvidia.com/skills/skillevaluator/agent-skill">NVIDIA SkillEvaluator 文档</a>；<a href="https://dev.to/sh20raj/nvidia-skillevaluator-101-test-agent-skills-before-shipping-them-d8n">DEV Community 对 1.0.1 的介绍（2026-11-18）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>PaperOrchestra：用多智能体把实验日志写成论文</h3>
+        <p>Google Research 的 <a href="https://github.com/google-research/paper-orchestra">paper-orchestra</a> 在今日 GitStock 日榜位列第 9，「今日新增」1,524，为 Top 10 中增长第二高的仓库。项目简介称这是一个用于自动撰写 AI 研究论文的多智能体框架。Google Cloud / 研究侧相关介绍将其描述为：把实验日志等非结构化研究材料，经过文献综述、写作与绘图等步骤，转成可投稿的 LaTeX 稿件。论文条目可见于 <a href="https://www.alphaxiv.org/abs/2604.05018">alphaXiv:2604.05018</a>（标注提交于 2026 年 4 月）；本日关注点是开源仓库进入日榜，而不是新的会议接收结果。</p>
+        <p class="src">来源：<a href="https://github.com/google-research/paper-orchestra">google-research/paper-orchestra</a>；<a href="https://www.alphaxiv.org/abs/2604.05018">alphaXiv 摘要页</a>；<a href="https://gitstock.org/api/v1/github/trending?period=daily">GitStock 2026-11-19 日榜</a></p>
+      </div>
+
+      <div class="item">
+        <h3>编码 Agent 生态：官方插件、CLI 原生化与 skill 标准</h3>
+        <p>除上述项目外，日榜中的 cursor/plugins（Cursor 官方插件规范）、HKUDS/CLI-Anything（「让所有软件对 Agent 原生」）以及 google-labs-code/stitch-skills（面向 Stitch MCP、宣称兼容 Agent Skills 开放标准）也在同一日集中出现。它们分别对应编辑器插件、把已有软件改造成 Agent 可调用接口、以及可跨 Claude Code / Cursor / Gemini CLI 复用的 skill 包，构成当前编码 Agent 的主要扩展路径。</p>
+        <p class="src">来源：各项目 GitHub 仓库说明；GitStock 2026-11-19 日榜</p>
+      </div>
+
+      <p class="insight"><strong>未来方向洞察：</strong>今天的信号很集中：一边是 Claude Code、Cursor、Antigravity、Gemini CLI 等 harness 继续抢入口，一边是 skill / 插件开始被单独评测（SkillEvaluator），另一边是 Neon 这类「更快、更便宜、专为长程工作流」的模型被直接送进编码 Agent 榜。PaperOrchestra 则提示多智能体正在进入科研写作这类长文档工作流。对做 Agent / 本体中台的同事来说，下一阶段的差别可能不在「能不能接工具」，而在 skill 是否可验证、本体/业务语义能否约束 Agent，以及模型档位与 harness 组合会怎样改变真实仓库任务的合并率。</p>
+    </section>
+
+    <section class="sec" id="s3">
+      <h2>🧬 Ontology（本体）生态动态</h2>
+
+      <div class="item">
+        <h3>Collate 发布 Ontology Studio：把业务概念映射给 AI Agent</h3>
+        <p>11 月 17 日，OpenMetadata 背后的公司 Collate 宣布推出 Ontology Studio，作为 Collate 2.1 的组成部分，计划于本月晚些时候一般可用。该工具用于定义业务概念、把概念连接到企业数据资产，并把这些含义提供给 AI Agent，减少 Agent 仅凭表名或列名猜测业务定义（例如「活跃客户」或「已确认收入」）的情况。报道称，它支持带类型的属性与具名、有方向的关系，概念可链接到表、列、仪表盘等资产，并使用开放语义网标准，以便检查和导出业务模型；知识图谱相关工具运行在默认关闭的测试投影上。导出为开放格式的本体在企业更换 AI 供应商后仍可复用。</p>
+        <p class="src">来源：<a href="https://www.unite.ai/collate-ontology-studio-business-context-ai-agents/">Unite.AI《Collate Announces Ontology Studio to Give AI Agents Business Context》（2026-11-18）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>qOntology 开源版 v1.1.0：AI 辅助建模与知识图谱多视图</h3>
+        <p>千桐科技开源的企业本体工程平台 qOntology 在 11 月 8 日至 10 日前后公布开源版 v1.1.0，开源中国等渠道称其增强了 AI 辅助建模，并提供知识图谱多视图，面向企业本体治理与语义治理。仓库说明将其定位为连接知识图谱、企业运行本体与本体驱动 AI 的语义基础设施。该更新略早于最近 1–3 天窗口，但与本日 Collate 的产品发布同属「把本体做成 Agent 可消费的工程平台」这一方向，故一并记录。</p>
+        <p class="src">来源：<a href="https://github.com/qiantongtech/qOntology">qiantongtech/qOntology</a>；<a href="https://navxd.com/ai-news/8340/">NavXD 对 OSCHINA 资讯的转述（原文时间 2026-11-10）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>实践讨论：为 AI Agent 补上可验证的本体层</h3>
+        <p>11 月 12 日，ApFramework 发表《面向 AI Agent 的本体层：从实体对齐到可验证的工具边界》，讨论如何把实体身份、可追溯事实与受约束的工具边界连接起来，避免智能体在问数场景中「找得到表、却用错业务口径」。11 月 10 日，积墨 AI 一篇实践文章则记录了把专家判断写成可执行决策函数、把业务知识建模为可遍历本体图谱，从而让 Agent 托管真实工单与数据订正的做法。这些文本属于方法与案例分享，不是厂商正式的产品发布，但对本体中台落地仍有参考价值。</p>
+        <p class="src">来源：<a href="https://apframework.com/blog/essay/2026-11-12-ontology-layer-for-ai-agents">ApFramework（2026-11-12）</a>；<a href="https://jimo.studio/blog/from-fixed-workflows-to-dynamic-decisions-ontology-driven-full-agent-delegation/">积墨 AI（2026-11-10）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s4">
+      <h2>🏢 AI 公司要闻</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[融资]</span>Anthropic 将 IPO 定价为 83 美元，股票预计今日登陆纳斯达克</h3>
+        <p>Anthropic 于 11 月 18 日宣布，其 A 类普通股 IPO 定价为每股 83.00 美元，高于此前 70–78 美元的指导区间。发行规模为 9.80 亿股，其中公司发售 956,351,354 股，部分股东发售 23,648,646 股；公司不会获得股东售股所得。另授予承销商在 30 日内最多加购 1.47 亿股的选择权。按 9.80 亿股×83 美元计算，发行规模约 813 亿美元。CNBC 称，此次筹资额超过 SpaceX 今年 6 月 IPO 的初始筹资（750 亿美元），成为有记录以来最大的一笔 IPO 筹资；SpaceX 在承销商行使超额配售后总计 857 亿美元。股票预计于 2026 年 11 月 19 日以代码 ANT 在纳斯达克全球精选市场开始交易，发行预计于 11 月 20 日交割。北京时间本日上午截稿时，美国股市尚未开盘，开盘价与首日表现待收盘后核实。CNBC 还写到：亚马逊与谷歌所持股份估值均超过 1,000 亿美元；谷歌、微软、英伟达与 AMD 等同意按发行价合计投资 260 亿美元。招股书口径方面，CNBC 援引文件称，截至 9 月 30 日的九个月收入为 332.4 亿美元，约同比增长 1,200%；同期净亏损 1,040 亿美元，其中大部分来自可转债与衍生负债的公允价值变动。修订文件还称，10 月底年化收入（run-rate）约 810 亿美元，较上月增加 100 亿美元。CNBC 称，OpenAI 已机密递交 IPO 申请，上市可能在 2027 年。</p>
+        <p class="src">来源：<a href="https://www.anthropic.com/news/anthropic-prices-initial-public-offering">Anthropic 官网公告（2026-11-18）</a>；<a href="https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html">CNBC（2026-11-18）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[产品发布]</span>Google 推出 Gemini 4 Neon</h3>
+        <p>11 月 18 日，Google DeepMind 发布 Gemini 4 Neon，官方称这是约一个月内推出的又一款 Gemini 4 系列模型，定位在 Carbon 之外提供更快的端到端任务完成。列表价为每百万 token 输入 3 美元、输出 15 美元，上下文窗口 100 万 token。更多评测与上线范围见「AI Agent 前沿洞察」与「AI 模型比较」。</p>
+        <p class="src">来源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Google 官方博文（2026-11-18）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[产品发布]</span>OpenAI GPT-6.2 Astra 与 Sol 继续进入评测与产品线</h3>
+        <p>OpenAI 于 11 月 17 日将 GPT-6.2 Astra 与 GPT-6.2 Sol 推向 ChatGPT Work、Codex（Plus / Pro / Enterprise / Edu）及 API。Artificial Analysis 同日发文称，Astra 在 Intelligence Index v5.0.1 上成为第 2 名，标准价为每百万 token 输入 8 美元、输出 40 美元，较 GPT-6 Astra 低 20%，缓存输入由 1.00 美元降至 0.40 美元；Sol 为 2 / 10 美元，与 GPT-6.1 Sol 相同。详细分数见第 7 节。</p>
+        <p class="src">来源：<a href="https://artificialanalysis.ai/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol">Artificial Analysis 官方文章（2026-11-17）</a>；<a href="https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531">OpenAI 开发者社区公告</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[技术突破]</span>英伟达公布 2027 财年第三季度业绩</h3>
+        <p>英伟达 11 月 17 日发布截至 2026 年 10 月 25 日的第三季度业绩：营收 1,158 亿美元，环比增长 20%，同比增长 103%；数据中心营收 1,076 亿美元，同比增长 110%。GAAP 毛利率 74.8%，稀释后每股收益 2.70 美元；净利润 653 亿美元。临时 CEO 兼 CFO Colette Kress 表示，Vera Rubin「起步强劲」，路线图按计划推进，并称 Vera Rubin NVL72 已经出货。第四季度展望（该季多一周）为营收 1,300 亿美元，上下浮动 3%，且展望未计入来自中国的数据中心计算营收。这是 Kress 出任临时 CEO 后的首份财报；11 月 18 日多家媒体跟进报道了业绩会内容，本文以公司公告中的数字为准。</p>
+        <p class="src">来源：<a href="https://www.globenewswire.com/news-release/2026/11/17/3405200/0/en/nvidia-announces-financial-results-for-third-quarter-fiscal-202.html">NVIDIA 公告（GlobeNewswire，2026-11-17）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[政策]</span>多家中国 AI 企业削弱新模型的网络攻击能力</h3>
+        <p>据《联合早报》11 月 17 日援引彭博社报道，阿里巴巴、腾讯和月之暗面等企业在近期新模型中削弱了网络攻击能力，同时强化网络防御功能；报道并将其与中国政府拟限制出口具备网络攻击能力的 AI 技术联系起来。IT之家、工商时报等亦有转述。具体改动范围以各公司模型卡或官方说明为准，本稿未逐项核对模型权重是否公开。</p>
+        <p class="src">来源：<a href="https://www.zaobao.com.sg/news/china/story20261117-10009793">《联合早报》（2026-11-17）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s5">
+      <h2>💊 AI 制药板块</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[融资]</span>Isomorphic Labs 完成 50 亿美元 C 轮</h3>
+        <p>Alphabet 旗下 Isomorphic Labs 于 11 月 17 日宣布完成 50 亿美元 C 轮融资，由 Greenoaks 与 Sequoia Capital 联合领投，a16z 及其他新投资者参与，Alphabet 继续大额投资；原有投资者 Thrive Capital、MGX、GV、CapitalG、Temasek 与 UK Sovereign AI Fund 全部跟投。官方称本轮获超额认购。资金将用于扩展专有药物设计引擎 IsoDDE、推进「用 AI 设计」的候选药物管线，并建设 AI 主导的转化与临床开发基础设施。公司表示，IsoDDE 统一了跨治疗领域与药物模态的基础模拟模型，并与「在复杂生物系统中导航和推理」的专有智能体结合；目前在肿瘤学与免疫学的内部项目及合作项目上取得临床前阳性结果，「为进入临床做准备」。官方通稿未披露估值。部分媒体（如《泰晤士报》、虎嗅）报道估值为 500 亿美元，这一数字未出现在公司公告中，标为<span class="tag tag-warn">待核实</span>。需区分：这是 AI 从头设计平台与管线的融资，并非已有上市药物；通稿写明仍处于临床前阶段。</p>
+        <p class="src">来源：<a href="https://www.isomorphiclabs.com/articles/isomorphic-labs-announces-series-c-investment-round">Isomorphic Labs 官网（2026-11-17）</a>；<a href="https://www.prnewswire.com/news-releases/isomorphic-labs-announces-5-billion-series-c-funding-302942093.html">PR Newswire 通稿</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[管线]</span>Recursion 宣布 REC-4881 注册 III 期方案与 FDA 对齐</h3>
+        <p>Recursion Pharmaceuticals 于 11 月 18 日宣布，已与 FDA 就 REC-4881 的注册 III 期试验设计达成一致。REC-4881 是在研口服 MEK1/2 抑制剂，拟用于已接受结肠切除或结直肠切除的成人家族性腺瘤性息肉病（FAP）。公司称，该项目通过其 AI 基础模型的无偏表型筛选被识别，属于 AI 辅助发现的在研管线，不是已上市药物；FAP 目前尚无 FDA 批准的药物治疗。试验计划入组约 200 名成人，随机、双盲、安慰剂对照，主要终点为无事件生存期，并将胃肠道内切除直径 ≥10 mm 的腺瘤计为事件，同时包括符合预设标准的 FAP 相关手术、高级别上皮内瘤变或癌症以及死亡。给药剂量为 4 mg，给药方案将参考进行中的 TUPELO 试验数据确定。公司计划在 2027 年下半年启动该试验，并包含预设中期分析。关键次要终点包括改良 Spigelman 量表进展（评估十二指肠息肉病严重程度）和息肉负荷。</p>
+        <p class="src">来源：<a href="https://www.drugdiscoverytrends.com/recursions-phase-3-fap-trial-will-count-large-polyp-removals-as-events-under-fda-agreed-design/">Drug Discovery Trends（2026-11-18）</a>；<a href="https://www.globenewswire.com/news-release/2026/11/18/3405436/0/en/recursion-announces-alignment-with-fda-on-registrational-phase-3-trial-design-for-rec-4881-in-familial-adenomatous-polyposis.html">Recursion / GlobeNewswire 公告（2026-11-18）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">[融资]</span>CataX AI 完成 4,000 万元种子轮，用 Agent 加速临床开发</h3>
+        <p>11 月 16 日消息，上海凯思达生物医药科技有限公司（CataX AI）宣布完成 4,000 万元人民币种子轮融资，由启明创投孵化并独家投资。公司定位为「智能体（Agent）原生」的创新药研发企业，聚焦临床开发端，构建 Clinic 相关工作流：由临床负责人统筹，专业团队评估，AI 智能体承担查阅资料、起草文件和处理数据，关键决策仍由临床团队作出。计划通过许可引进或共同开发取得临床前或早期临床阶段的候选药物，再推进到临床概念验证。与 Isomorphic、Recursion 侧重发现或分子设计不同，CataX 明确不做靶点与分子发现，而是把 Agent 用在临床开发文档与流程加速。</p>
+        <p class="src">来源：<a href="https://finance.sina.com.cn/tech/roll/2026-11-16/doc-iniywwza8965401.shtml">新浪科技 / TechWeb（2026-11-16）</a>；<a href="https://cn.technode.com/post/2026-11-16/catax-ai-seed-funding/">动点科技（2026-11-16）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s6">
+      <h2>🌐 本体生态公司动态</h2>
+
+      <div class="item">
+        <h3>Collate：企业数据目录公司把本体产品化</h3>
+        <p>OpenMetadata 商业化公司 Collate 在 11 月 17 日把 Ontology Studio 写入 2.1 版本，计划本月晚些时候一般可用。这是近几日本体生态里最明确的公司级产品动作：把业务本体做成可版本管理、可导出、并可被 Agent 调用的工作区，而不是停留在文档或一次性知识图谱演示。细节见第 3 节。</p>
+        <p class="src">来源：<a href="https://www.unite.ai/collate-ontology-studio-business-context-ai-agents/">Unite.AI（2026-11-18）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>千桐科技 qOntology：开源本体工程平台继续迭代</h3>
+        <p>qOntology v1.1.0 的开源更新显示，国内厂商仍在把「企业本体 FDE」做成可安装的工程平台，并叠加 AI 辅助建模。该项目与 Collate 的商业产品形成对照：一个走开源本体治理，一个走数据目录 + 本体工作室，两者都把 Agent 作为主要消费者。</p>
+        <p class="src">来源：<a href="https://github.com/qiantongtech/qOntology">qiantongtech/qOntology</a></p>
+      </div>
+
+      <div class="item">
+        <h3>Web3 方向：近 1–3 日未见需单独记录的非价格公告</h3>
+        <p>围绕 Ontology（ONT）公链及更广义的 Web3 + AI 交叉公司，本稿在 11 月 17 日至 19 日窗口内未检索到可独立核验的新融资、主网升级或重大合作公告；3 月发布的 Ontology 2026 Roadmap 已超出本次时效范围，故不展开。若后续出现与身份、数据授权或 Agent 可信数据层相关的实质进展，再单独跟踪。本日更实质性的「本体公司」动态仍集中在企业知识工程与数据目录一侧。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s7">
+      <h2>📈 AI 模型比较（Artificial Analysis 能力榜）</h2>
+      <p class="note">以下聚焦能力而非流量或价格排行。不同指数版本的分数不可直接比较；同一模型的不同推理档位应分开记录。Intelligence Index 当前版本为 <strong>v5.0.1</strong>，由 9 项评测组成：AA-Briefcase v1.1、AutomationBench-AA、Terminal-Bench 4.0、FrontierCode-AA 2.0、AA-Omniscience v1.1、GDP.pdf、HLE-Diamond、CritPt v2（Hard Subset）、Terminal-Bench-Science 0.1。</p>
+
+      <div class="item">
+        <h3>a) Intelligence Index v5.0.1</h3>
+        <p>Artificial Analysis 于 11 月 17 日发文，确认 GPT-6.2 Astra 进入该指数并成为第 2 名（官方文章按整数写为 62 分，落后于 Claude Fable 5.2 的 65 分）。第三方站点 BenchLeader 从 AA 公开榜抓取、标注数据截至 2026 年 11 月 18 日的更细档位如下（分数保留一位小数）：</p>
+        <table>
+          <thead>
+            <tr><th>名次（按该配置）</th><th>模型与推理档位</th><th>v5.0.1 分数</th><th>结果标注日期</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Claude Fable 5.2（max）</td><td>64.6</td><td>2026-11-09</td></tr>
+            <tr><td>2</td><td>Claude Fable 5.2（xhigh）</td><td>62.2</td><td>2026-11-09</td></tr>
+            <tr><td>3</td><td>GPT-6.2 Astra（max）</td><td>62.1</td><td>2026-11-17</td></tr>
+            <tr><td>4</td><td>Claude Fable 5.2（high）</td><td>61.8</td><td>2026-11-09</td></tr>
+            <tr><td>5</td><td>GPT-6.2 Astra（xhigh）</td><td>61.6</td><td>2026-11-17</td></tr>
+            <tr><td>6</td><td>Gemini 4 Neon（xhigh）</td><td>61.4</td><td>2026-11-18</td></tr>
+            <tr><td>7</td><td>GPT-6.2 Astra（high）</td><td>60.1</td><td>2026-11-17</td></tr>
+            <tr><td>8</td><td>Gemini 4 Carbon（high）</td><td>60.0</td><td>2026-10-28</td></tr>
+            <tr><td>10</td><td>Claude Opus 5.5（max）</td><td>59.1</td><td>2026-09-22</td></tr>
+            <tr><td>13</td><td>GPT-6.2 Sol（max）</td><td>57.3</td><td>2026-11-17</td></tr>
+            <tr><td>35</td><td>Muse Wonder Full（max，Meta）</td><td>50.1</td><td>2026-10-12</td></tr>
+            <tr><td>42</td><td>Kimi K3.1 Pro（Moonshot，开源权重）</td><td>46.5</td><td>2026-10-23</td></tr>
+            <tr><td>52</td><td>Qwen4 Max（Alibaba）</td><td>42.9</td><td>2026-11-16</td></tr>
+          </tbody>
+        </table>
+        <p>若只比较各实验室「最高档」：Fable 5.2（max）64.6、Astra（max）62.1、Neon（xhigh）61.4，与 Google 博文所称「Neon 以 61 分排在总体第 3」一致（官方取整）。AA 还写道：Astra 较 GPT-6 Astra 提升 5 分；Sol 为 57 分，提升 2 分；GPT-6.2 在 Terminal-Bench-Science 0.1 领先，并在 AA-3D、AA-Robotics v0.1 预览中领先；Astra / Sol 在 AA-Omniscience 幻觉率（max）分别为 59% 与 55%。这些分项不可与总分混用。</p>
+        <p class="src">来源：<a href="https://artificialanalysis.ai/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol">Artificial Analysis 官方文章（2026-11-17）</a>；<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader 转载的 AA Intelligence Index v5 表（截至 2026-11-18）</a>；<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Google 关于 Neon 分数的说明</a>；<a href="https://artificialanalysis.ai/leaderboards">Artificial Analysis Leaderboards</a></p>
+      </div>
+
+      <div class="item">
+        <h3>b) Coding Agent Index v2.1 与 Agentic 评测</h3>
+        <p>Artificial Analysis 于 11 月 14 日宣布 Coding Agent Index v2.1。该指数衡量的是「模型 + Agent harness」组合；v2.1 将 FrontierCode 升级为 FrontierCode-AA 2.0（132 项真实仓库任务，按维护者是否会合并改动评分），将 Terminal-Bench 从 4.0 升级为 4.1（仍为 66 项任务，但更换了更抗奖励黑客的校验器），并保留 SWE-Atlas-QnA-AA。当时官方结果：Claude Fable 5.2 在 Claude Code 的 xhigh 与 high 档均为 58 分，Claude Opus 5.5（max）在 Claude Code 中也是 58 分，两者并列领先。因测试集已更换，不能与旧版分数直接比较。</p>
+        <p>11 月 17 日，AA 在评测 GPT-6.2 时写到：Astra 在 Coding Agent Index 上与 GPT-6 Astra 持平，Sol 相对 GPT-6.1 Sol 下降 3 分（主要因为 SWE-Atlas-QnA-AA 下降 14 分）；评测使用的是 Codex harness、max 档。11 月 18 日，Google 官方博文称 Neon 在该指数以 58.6 分排在第 1，并给出 Terminal-Bench 4.1 为 65.2%、FrontierCode 2.0（默认 high）为 46.2%。若该数字随后出现在 AA 官方榜上，则此前 Fable / Opus 的 58 分并列将被刷新；本稿截稿时以 Google 博文转述，<span class="tag tag-warn">待核实</span> AA 官方分榜是否已完整展示 Neon 的 harness 与档位。</p>
+        <p>在指数之外，AA 文章还写到：GPT-6.2 Astra 在 AA-3D 上以 1,318 Elo 领先 Fable 5.2（1,271）和 Sol（1,259）；在 AA-Robotics v0.1 预览中 Astra 79、Sol 78、Fable 5.2 为 75。</p>
+        <p class="src">来源：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">Artificial Analysis 关于 Coding Agent Index v2.1 的说明（2026-11-14）</a>；<a href="https://artificialanalysis.ai/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol">AA 对 GPT-6.2 的评测文章</a>；<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Google 博文中的 Coding Agent Index 陈述</a></p>
+      </div>
+
+      <div class="item">
+        <h3>c) 主流模型输入 / 输出定价简表（$/百万 tokens）</h3>
+        <p>下表是公开列表价，不是完成一道 Intelligence Index 题目的实际费用。长上下文、缓存命中、Batch 和加速档会另计。</p>
+        <table>
+          <thead>
+            <tr><th>模型</th><th>输入 $/百万 tokens</th><th>输出 $/百万 tokens</th><th>备注</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>GPT-6.2 Astra</td><td>8.00</td><td>40.00</td><td>较 GPT-6 Astra 标准价低 20%；缓存输入 0.40</td></tr>
+            <tr><td>GPT-6.2 Sol</td><td>2.00</td><td>10.00</td><td>与 GPT-6.1 Sol 相同</td></tr>
+            <tr><td>Claude Fable 5.2</td><td>8.00</td><td>40.00</td><td>沿用此前第三方对照表；非本日新报价</td></tr>
+            <tr><td>Gemini 4 Neon</td><td>3.00</td><td>15.00</td><td>官方定价；缓存输入 0.15（95% 折扣）；100 万上下文</td></tr>
+            <tr><td>Gemini 4 Carbon</td><td>2.00（至 11 月 30 日）</td><td>10.00（至 11 月 30 日）</td><td>之后为 4 / 20；导入价据此前第三方对照表</td></tr>
+          </tbody>
+        </table>
+        <p class="note">AA 官方文章确认 Astra 为 8 / 40、Sol 为 2 / 10。OpenAI 此前还说明：输入超过 272K tokens 时，输入与缓存价格加倍、输出为 1.5 倍。Google 称 Neon 在默认 high 档的单任务费用比 Carbon 低 32%。</p>
+        <p class="src">来源：<a href="https://artificialanalysis.ai/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol">Artificial Analysis 官方定价陈述</a>；<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Gemini 4 Neon 官方定价</a>；<a href="https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531">OpenAI 开发者社区公告</a></p>
+      </div>
+
+      <p class="insight"><strong>模型能力洞察：</strong>v5.0.1 的前排不再只由 Fable 的多个档位占据。Fable（max）仍以 64.6 分领先，但 Astra（max，62.1）已经贴上 Fable 的 xhigh / high，Neon（xhigh，61.4）则用明显更低的列表价挤进最高档前三。更值得分开看的是能力分叉：综合智力指数上 OpenAI 收回第二，科学与 3D / 机器人预览上 Astra 领先，而编码 Agent 榜在 11 月 14 日仍是 Fable 与 Opus 的 58 分并列；Google 现在宣称 Neon 以 58.6 分反超，若被 AA 官方榜确认，将是「更便宜的快模型在真实仓库任务上追上旗舰」的信号。选型时请同时核对指数版本、推理档位、harness 和单任务成本，而不是只记一个总分。</p>
+    </section>
+
+    <section class="sec" id="s8">
+      <h2>💡 今日推荐阅读</h2>
+
+      <div class="item">
+        <h3>1. Anthropic：IPO 定价公告，以及 CNBC 对发行规模的整理</h3>
+        <p>这是生成式 AI 龙头公司第一次公开上市前夜最完整的一手材料：官方公告给出定价、股数、交易代码 ANT 与时间表；CNBC 补充了筹资额比较、大厂跟投和招股书中的收入 / 亏损口径。对关注 Agent 商业化的同事，它也是理解 Claude Code 所在公司资本结构的入口。需注意：北京时间截稿时交易尚未开始，首日表现以收盘后交易所数据为准。</p>
+        <p class="src">链接：<a href="https://www.anthropic.com/news/anthropic-prices-initial-public-offering">Anthropic 官网公告</a>；<a href="https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html">CNBC 报道</a></p>
+      </div>
+
+      <div class="item">
+        <h3>2. Google：Introducing Gemini 4 Neon</h3>
+        <p>这是过去 24 小时里对编码 Agent / 长程工作流最直接的产品更新：官方同时给出列表价、上线范围，以及 Intelligence Index 与 Coding Agent Index 上的成绩。建议对照 Artificial Analysis 官方榜单核对 Neon 的 harness 与推理档位，再决定是否把它接入现有 Agent 评测矩阵。</p>
+        <p class="src">链接：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Google 官方博文</a>；<a href="https://artificialanalysis.ai/leaderboards">Artificial Analysis 榜单</a></p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>本早报由狙击日报自动生成</p>
+      <p>生成时间：2026年11月19日 08:55（UTC+8）</p>
+    </footer>
+  </div>
+</body>
+</html>
