@@ -58,6 +58,45 @@
             <li><strong>最接近的公开建模框架</strong>：蚂蚁集团与 OpenKG 于 2023 年 8 月联合发布的《语义增强可编程知识图谱 SPG》白皮书 v1.0，以及据此开源的 OpenSPG 引擎。T/CCF 0008—2025 的参考文献第一项就是这份白皮书，两边的起草/编写单位高度重合。</li>
             <li><strong>名称最像、但不是蚂蚁牵头的文件</strong>：中国互联网协会 2026 年 10 月 15 日公开征求意见的《金融领域本体模型构建与应用规范》。征求意见截止 2026 年 11 月 14 日。编制说明写明牵头单位是国金证券股份有限公司、中国信息通信研究院。正文里「起草单位」「主要起草人」在征求意见稿中仍为空白，标准号仍是占位符 T/ISC XXX—XXXX。本课不把它写成蚂蚁的标准。</li>
           </ul>
+          <p class="table-caption">表 1　辨名：哪些文件是或不是「蚂蚁的本体建模标准」（据本课第 1、8 节整理）</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">文件</th>
+                  <th scope="col">本课判定</th>
+                  <th scope="col">依据（课文已述）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>T/CCF 0008—2025《知识图谱企业级平台技术要求》</td>
+                  <td>最接近的正式团体标准</td>
+                  <td>蚂蚁为立项牵头单位、发布稿第一起草单位；规范企业级知识图谱平台能力，模式层把模式定义为「本体模型的规范化表达」</td>
+                </tr>
+                <tr>
+                  <td>《语义增强可编程知识图谱 SPG》白皮书 v1.0 与 OpenSPG</td>
+                  <td>最接近的公开建模框架 / 开源引擎</td>
+                  <td>蚂蚁集团与 OpenKG 联合发布；T/CCF 0008—2025 参考文献第一项；起草/编写单位高度重合</td>
+                </tr>
+                <tr>
+                  <td>《金融领域本体模型构建与应用规范》（征求意见稿）</td>
+                  <td>名称最像，但不是蚂蚁牵头</td>
+                  <td>中国互联网协会征求意见；牵头单位为国金证券、中国信通院；至检索日仍为征求意见稿、编号未定</td>
+                </tr>
+                <tr>
+                  <td>GB/T 42131—2022、GB/T 45628—2025 等国标</td>
+                  <td>不称作「蚂蚁的本体建模标准」</td>
+                  <td>可为引用或参与起草；第一起草 / 归口并非蚂蚁；本课不为这些国标写细节</td>
+                </tr>
+                <tr>
+                  <td>工程师文章、知蛛平台等实践分享</td>
+                  <td>不是已发布的标准文本</td>
+                  <td>公开技术文章中的内部方法论；不以它们代替标准或白皮书</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p>本课依据上面已经打开的第一手页面和 PDF，不把第三方综述里的价格、未核到的准确率表或打不开的链接写成已核实事实。GitHub 星标数会变，课文不记某一天的数字。</p>
         </section>
         <section id="s2">
@@ -70,6 +109,30 @@
         <section id="s3">
           <h2>3. 它怎么工作：生成、认证、问数与对外接口</h2>
           <p>官方把工作分成两段：<strong>先生成一份要人认证的本体，再让智能体按这份本体回答问题</strong>。</p>
+          <figure class="figure" aria-labelledby="fig-flow-caption">
+            <div class="figure-frame">
+              <svg viewBox="0 0 720 168" role="img" aria-label="Auto Ontology 工作流：生成、人审认证、问数">
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#667eea"></path>
+                  </marker>
+                </defs>
+                <rect x="16" y="36" width="180" height="88" rx="12" fill="#eef2ff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="106" y="74" text-anchor="middle" font-size="16" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">生成</text>
+                <text x="106" y="98" text-anchor="middle" font-size="12" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">摄入库表 · 语义编译</text>
+                <line x1="204" y1="80" x2="248" y2="80" stroke="#667eea" stroke-width="2" marker-end="url(#arrow)"></line>
+                <rect x="256" y="36" width="200" height="88" rx="12" fill="#f5eefc" stroke="#764ba2" stroke-width="1.5"></rect>
+                <text x="356" y="74" text-anchor="middle" font-size="16" font-weight="700" fill="#6d28d9" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">人审认证</text>
+                <text x="356" y="98" text-anchor="middle" font-size="12" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">修订术语 / SQL / 关系</text>
+                <line x1="464" y1="80" x2="508" y2="80" stroke="#667eea" stroke-width="2" marker-end="url(#arrow)"></line>
+                <rect x="516" y="36" width="180" height="88" rx="12" fill="#eef2ff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="606" y="74" text-anchor="middle" font-size="16" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">问数</text>
+                <text x="606" y="98" text-anchor="middle" font-size="12" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">按已审本体写 SQL</text>
+                <text x="360" y="152" text-anchor="middle" font-size="11" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">认证标记本身不改变检索；真正改行为靠改术语、描述、SQL 与关系</text>
+              </svg>
+            </div>
+            <figcaption id="fig-flow-caption" class="figure-caption">图 1　Auto Ontology 公开工作流示意：生成 → 人审认证 → 问数（据第 3 节；标注来自官方架构文档关于认证与检索的说明）</figcaption>
+          </figure>
           <p>本体要回答六个问题，对应六类要素：</p>
           <ul>
             <li><strong>含义</strong>：术语（term），例如 Customer、Invoice Line，带描述和同义词。</li>
@@ -169,6 +232,45 @@
         <section id="s9">
           <h2>9. 对照与借鉴</h2>
           <p>两者要解决的问题 <strong>相邻，但并不相同</strong>。Auto Ontology 针对的是：智能体按列名猜意思、写出语法正确但口径错误的 SQL。蚂蚁这套公开规范针对的是：企业知识图谱缺少可落地的工业级建模框架，模式语法不统一，构建和推理难以编程、难以跨场景迁移。一边主要给关系数据上的分析型智能体准备可认证的业务术语和计算口径；一边主要给知识图谱平台规定模式、约束、规则、引擎和与大模型的交接。若把前者直接说成「英伟达的本体标准」，或把后者说成「蚂蚁的 text-to-SQL 工具」，都不准确。</p>
+          <p class="table-caption">表 2　对照：Auto Ontology、T/CCF 0008—2025、SPG / OpenSPG（据第 7、9 节整理；本课未做跑分或实施对比）</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">维度</th>
+                  <th scope="col">Auto Ontology</th>
+                  <th scope="col">T/CCF 0008—2025</th>
+                  <th scope="col">SPG / OpenSPG</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>要解决的问题</td>
+                  <td>智能体按列名猜意思，写出语法正确但口径错误的 SQL</td>
+                  <td>企业知识图谱缺少可落地的工业级建模框架；模式语法不统一；构建与推理难编程、难跨场景迁移</td>
+                  <td>在属性图上融合 LPG 结构性与 RDF 语义性，形成可落地的工业级知识建模框架，并由开源引擎实现</td>
+                </tr>
+                <tr>
+                  <td>形态</td>
+                  <td>可克隆、可部署的开源软件（UI / REST / MCP）；可用 Ossie YAML 导入导出</td>
+                  <td>团体标准：写「应支持 / 宜支持 / 可支持」的平台技术要求</td>
+                  <td>白皮书（方法论）+ OpenSPG 开源知识图谱引擎（Apache 2.0）</td>
+                </tr>
+                <tr>
+                  <td>自动化程度</td>
+                  <td>从元数据起草术语、关系与 SQL 属性；仍要求人测试、修订与认证；认证标记本身不改检索</td>
+                  <td>要求平台具备自动抽取、构建、补全与自然语言问答等能力；标准文本本身不是一键生成软件</td>
+                  <td>自动化发生在知识构建与算子里；与「对着仓库做语义编译」不是同一条流水线</td>
+                </tr>
+                <tr>
+                  <td>典型用途</td>
+                  <td>关系数据上的分析型智能体：可认证业务术语、映射、连接与指标 SQL</td>
+                  <td>规定知识图谱平台的模式、约束、规则、引擎及与大模型的交接能力</td>
+                  <td>领域知识图谱的建模与构建：实体 / 概念 / 事件、规则与推理（示例含供应链、风险、医疗等）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p><strong>自动化程度。</strong> Auto Ontology 的自动化更高：从元数据起草术语、关系和 SQL 属性，但官方仍要求人来测试、修订和认证，而且认证标记本身不改检索。SPG / T/CCF 0008 首先是规范与框架，要求平台具备自动抽取、构建、补全和自然语言问答等能力，但标准文本本身不是一套一键生成企业本体的软件。OpenSPG 把框架做成了开源引擎，自动化发生在知识构建和算子里，与 Auto Ontology 那种「对着仓库做语义编译」不是同一条流水线。本课未做两边的跑分或实施对比，不能量化谁「更自动」。</p>
           <p><strong>规范与工具。</strong> 这是最清楚的差别。T/CCF 0008—2025 是团体标准，写的是「应支持 / 宜支持 / 可支持」；SPG 白皮书是方法论文本。Auto Ontology 是可克隆、可部署、带 UI / REST / MCP 的开源软件，并可用 Ossie YAML 把语义模型搬进搬出。企业若要「有一份可执行的语义层给智能体问数」，看的是工具；若要「模式怎么分层、约束怎么写、平台必须具备哪些能力」，看的是规范和框架。</p>
           <p><strong>适用行业。</strong> Auto Ontology 的公开材料按通用企业分析来写，连接的是常见分析型仓库和数据库，没有把自身限定为某一行业产品。SPG 和 OpenSPG 明确写出来自蚂蚁金融领域多场景的积累，但框架按可扩展领域模型来设计，公开示例已覆盖供应链、风险和医疗等。T/CCF 0008 的适用范围是企业级知识图谱平台，也不限于金融。ISC 那份金融本体征求意见稿才是明确面向金融领域的，但它不是蚂蚁牵头。</p>
