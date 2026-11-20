@@ -1,6 +1,5 @@
 /**
  * 课程目录元数据（筛选 / 排序用）。正文在 courses/*.html。
- * published: 2026-11-19（UTC+8）
  */
 window.JUJI_XUETANG_COURSES = [
   {
@@ -65,6 +64,15 @@ window.JUJI_XUETANG_COURSES = [
     tags: ["使用教程", "协作"],
     published: "2026-11-19",
     order: 7,
+  },
+  {
+    id: "autoontology-ant-standard",
+    title: "NVIDIA Auto Ontology 与蚂蚁的本体建模标准：工具和规范各自解决什么",
+    summary:
+      "英伟达 Auto Ontology 从库表生成可认证业务术语，再给智能体写 SQL。蚂蚁没有同名「本体建模标准」；最接近的是它牵头的 T/CCF 0008—2025，以及与 OpenKG 发布的 SPG 框架。一边是可部署工具，一边是建模规范。",
+    tags: ["产品调研", "原理解析", "本体"],
+    published: "2026-11-20",
+    order: 8,
   },
 ];
 

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVIDIA Auto Ontology 与蚂蚁的本体建模标准：工具和规范各自解决什么｜狙击学堂</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">课程目录</a>
+      <a href="../../">狙击日报</a>
+    </nav>
+
+    <header class="course-hero">
+      <a class="back" href="../">← 返回目录</a>
+      <h1>NVIDIA Auto Ontology 与蚂蚁的本体建模标准：工具和规范各自解决什么</h1>
+      <p class="summary">英伟达 Auto Ontology 从库表生成可认证业务术语，再给智能体写 SQL。蚂蚁没有同名「本体建模标准」；最接近的是它牵头的 T/CCF 0008—2025，以及与 OpenKG 发布的 SPG 框架。一边是可部署工具，一边是建模规范。</p>
+      <div class="tags">
+        <span class="tag">产品调研</span>
+        <span class="tag">原理解析</span>
+        <span class="tag theme">本体</span>
+      </div>
+      <div class="course-meta">
+        <span>整理日期：2026-11-20（UTC+8）</span>
+      </div>
+      <div class="scope">
+        <strong>资料范围：</strong>已读 NVIDIA 2026-10-21 官方博客、Developer 上的 Agent Knowledge Foundation 介绍页、GitHub 仓库 NVIDIA/auto-ontology 与 auto-ontology-eval 的 README 及架构/MCP 文档（检索日 2026-11-20，UTC+8）；已打开 BEAVER、BIRD-Interact 排行榜公开数据，以及 Apache Ossie 官网。蚂蚁一侧已打开中国计算机学会发布公告与 T/CCF 0008—2025 标准 PDF、OpenSPG 官方仓库与《SPG 白皮书》v1.0 中英文 PDF，以及中国互联网协会 2026-10-15 征求意见通知和《金融领域本体模型构建与应用规范》征求意见稿及其编制说明。未部署或实测 Auto Ontology / OpenSPG，不写价格，不作产品排名。
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="页内目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#s1">导读与证据范围</a></li>
+          <li><a href="#s2">NVIDIA Auto Ontology 是什么</a></li>
+          <li><a href="#s3">它怎么工作：生成、认证、问数与对外接口</a></li>
+          <li><a href="#s4">开源、用法、适用场景与已公布限制</a></li>
+          <li><a href="#s5">「蚂蚁的本体建模标准」先要辨名</a></li>
+          <li><a href="#s6">T/CCF 0008—2025：蚂蚁牵头的团体标准</a></li>
+          <li><a href="#s7">SPG 与 OpenSPG：公开的建模框架和开源引擎</a></li>
+          <li><a href="#s8">容易认错的相邻文件</a></li>
+          <li><a href="#s9">对照与借鉴</a></li>
+          <li><a href="#s10">来源</a></li>
+        </ol>
+      </aside>
+
+      <article class="article">
+        <section id="s1">
+          <h2>1. 导读与证据范围</h2>
+          <p>两边的名字都容易对错号。</p>
+          <p>「NVIDIA AutoOntology」在公开材料里，对应的是 <strong>Auto Ontology</strong>（仓库与文档里也写成 Auto-Ontology）。它不是单独的 NeMo 产品名。官方把它放在 2026 年 10 月 21 日推出的 <strong>NVIDIA Agent Knowledge Foundation</strong> 里，称作一套开源库：从企业数据生成可先由业务专家测试、修订并认证的起始本体，并给智能体当语义层用。默认推理会走 NVIDIA NIM 上的 Nemotron 模型，评测仓库会用到 NeMo Gym，但产品名仍是 Auto Ontology。本课没有看到另一个也叫 AutoOntology、需要改指的官方项目。</p>
+          <p>「蚂蚁的本体建模标准」对外没有找到一份就叫这个名字的文件。本课按接近程度列出候选，并说明为什么把其中两份当作主体，而不是把一份不相干的征求意见稿暗中换成「蚂蚁的标准」：</p>
+          <ul>
+            <li><strong>最接近的正式团体标准</strong>：中国计算机学会 2025 年 6 月 11 日发布并实施的 T/CCF 0008—2025《知识图谱企业级平台技术要求》。立项阶段的牵头单位是蚂蚁科技集团股份有限公司；发布稿起草单位名单以蚂蚁为第一起草单位。它规范的是企业级知识图谱平台该具备的能力，其中「模式层」把模式定义为「本体模型的规范化表达」。</li>
+            <li><strong>最接近的公开建模框架</strong>：蚂蚁集团与 OpenKG 于 2023 年 8 月联合发布的《语义增强可编程知识图谱 SPG》白皮书 v1.0，以及据此开源的 OpenSPG 引擎。T/CCF 0008—2025 的参考文献第一项就是这份白皮书，两边的起草/编写单位高度重合。</li>
+            <li><strong>名称最像、但不是蚂蚁牵头的文件</strong>：中国互联网协会 2026 年 10 月 15 日公开征求意见的《金融领域本体模型构建与应用规范》。征求意见截止 2026 年 11 月 14 日。编制说明写明牵头单位是国金证券股份有限公司、中国信息通信研究院。正文里「起草单位」「主要起草人」在征求意见稿中仍为空白，标准号仍是占位符 T/ISC XXX—XXXX。本课不把它写成蚂蚁的标准。</li>
+          </ul>
+          <p>本课依据上面已经打开的第一手页面和 PDF，不把第三方综述里的价格、未核到的准确率表或打不开的链接写成已核实事实。GitHub 星标数会变，课文不记某一天的数字。</p>
+        </section>
+        <section id="s2">
+          <h2>2. NVIDIA Auto Ontology 是什么</h2>
+          <p>它是一套 <strong>Apache 2.0 开源的 Python 框架和服务</strong>，用来在企业库表之上建一层可治理的语义上下文，让智能体按已审过的业务定义写 SQL。官方 README 把要解决的问题说得很直接：智能体可以查库，但更快给出的营收数字如果算错，就没有价值。智能体需要知道一个业务概念是什么意思、数据在哪、表怎么连、指标怎么算、从哪来、能不能信。本体就是把这些上下文放到一处、供人治理后再给智能体用。</p>
+          <p>按官方定位，它是 <strong>Agent Knowledge Foundation 里的一个开源库</strong>，不是要把企业现有本体平台整套换掉。NVIDIA Developer 介绍页写：它从企业数据和文档生成一份起始本体，业务专家可以测试、修订并认证；它补充已有的本体平台。同一页还写入了 NVIDIA 内部测试中「本体创建时间减少 90%」的说法。这是官方自述，本课没有看到公开的测试方法、样本规模或对照实验，因此只记口径，不把它当作独立验证过的效果。</p>
+          <p>2026 年 10 月 21 日的 NVIDIA 官方博客，把 Auto-Ontology library 和 cuDF、cuGraph、cuML、cuOpt、cuVS 等 CUDA-X 库一起放进 Agent Knowledge Foundation，并说明企业不必搬迁数据、不必重做现有流程或改治理控件就能使用这套基础能力。博客举例：NVIDIA 自己的供应链组织通过 Palantir Foundry、Ontology 和 AIP 使用该基础能力。这是官方采用叙述，不是对本课未打开的 Palantir 产品文档的转述。</p>
+          <p>GitHub 仓库是 <a href="https://github.com/NVIDIA/auto-ontology" rel="noopener noreferrer" target="_blank">NVIDIA/auto-ontology</a>。GitHub API 记录的仓库创建时间为 2026-04-28 05:45（UTC+8；源时间戳为 2026-04-27T21:45:56Z）。官方对外介绍是 2026-10-21。本课无法从已打开材料里精确写出仓库何时从私有变为公开。检索当日（2026-11-20 09:51，UTC+8）仓库仍在更新，默认分支 <code>main</code>，许可为 Apache-2.0。</p>
+        </section>
+        <section id="s3">
+          <h2>3. 它怎么工作：生成、认证、问数与对外接口</h2>
+          <p>官方把工作分成两段：<strong>先生成一份要人认证的本体，再让智能体按这份本体回答问题</strong>。</p>
+          <p>本体要回答六个问题，对应六类要素：</p>
+          <ul>
+            <li><strong>含义</strong>：术语（term），例如 Customer、Invoice Line，带描述和同义词。</li>
+            <li><strong>位置</strong>：映射到存放该概念的表和列。</li>
+            <li><strong>关联</strong>：表之间的连接，包括桥接表；既用已声明的键，也用对照数据后确认的推断连接。</li>
+            <li><strong>计算</strong>：SQL 属性，即挂在术语下、经过审阅的 SQL 表达式，例如某种利润口径，以便每次计算方式一致。</li>
+            <li><strong>来源</strong>：术语和属性回溯到源表源列；每个答案会带回它执行的 SQL。</li>
+            <li><strong>能否采用</strong>：由专家认证名称、描述和属性；已认证项会标成已审阅。</li>
+          </ul>
+          <p><strong>生成。</strong> 接入源库后，摄入服务读取表、列、键、视图，以及引擎若暴露则可选读取查询历史；可按设置做 PII 标记；把表和列写入 Postgres 的 pgvector。语义编译默认关闭，要在界面「Settings → Semantic Compilation」打开后才会跑，随后可在启动时、每 24 小时或按需执行。编译分表内与跨表两步：用 SQL 做值剖析，用模型建议外键、连接表、列描述和术语名；再把同一套模式的副本归成术语族，用嵌入和模型建议语义外键，并只用数据核得过的推断连接。查询历史（若有）可用来建议 SQL 属性。结果本体存在 Postgres，向量在 pgvector，也可按 Apache Ossie YAML 导入导出。下一次编译默认只处理还没有术语的表，以保留人工修改；但「每条连接选用哪一个语义外键」每次编译都会重选，关掉某一条并不能靠编译一直记住。</p>
+          <p><strong>认证与检索的关系要分开看。</strong> 官方架构文档写：在界面或 REST 里认证名称、描述或属性，只会在界面和搜索结果里标成已审阅，<strong>并不会改变智能体检索的方式</strong>。真正改行为，要靠改术语、描述、SQL 属性和关系，并依赖重新嵌入后的下一轮问答。</p>
+          <p><strong>问数。</strong> 回答阶段是 ReAct 循环：推理模型一开始不带完整库表结构，按需调用工具。<code>retrieve</code> 按含义和名称搜索术语、列含义和命名计算，返回描述、存值、定义 SQL 和连接路径；<code>run_sql</code> 在执行前会按目录校验表名列名，并核对是否属于检索结果；<code>submit</code> 提交最终 SQL 和说明，校验失败会回到模型修改。若问题问的是目录本身（有哪些表、某术语是什么意思），可以只返文字、不跑 SQL。可选的 <code>predict</code> 在配置了 <code>KUMO_RFM_API_URL</code> 时处理预测类问题。模型若达到工具调用上限仍得不到可接受的查询，会报告这份数据回答不了该问题。MCP 侧还有 <code>check_answerable</code>，可在提问前先看覆盖情况。官方示例里，Wide World Importers 没有广告花费，问「广告回报」时会说明覆盖不足，并问是否改查营收或另接数据源。</p>
+          <p><strong>对外接口</strong>主要有三类：</p>
+          <ul>
+            <li>Web 界面（Next.js，端口 3000）：聊天、目录、分析和设置；同时是认证与公开 API 网关。</li>
+            <li>REST：例如 <code>POST /api/chat/completions</code>，用 API token 提问，回答以 SSE 推送，含答案和 SQL。</li>
+            <li>MCP 服务器（FastMCP，端口 3003，只读）：官方文档列出的工具是 <code>check_readiness</code>、<code>search_terms</code>、<code>get_term</code>、<code>get_term_columns</code>、<code>get_term_sql_attributes</code>、<code>get_sql_attribute</code>、<code>describe_table</code>、<code>check_answerable</code>、<code>ask_question</code>。MCP 进程本身不持有数据库凭证或模型配置，调用以登录用户的权限执行。工具集是显式白名单：OpenAPI 规格里有更多操作，官方刻意不全部暴露，以免降低工具选择质量。没有浏览原始库、模式或裸列的工具，避免智能体绕过语义层直接猜表。</li>
+          </ul>
+          <p>另外还有 CLI/技能目录：<code>nvidia-ontology-setup</code>、<code>nvidia-ontology-management</code>、<code>nvidia-ontology-query</code>，用于安装、建模认证和校验问答。</p>
+          <p>组件上，后端是 FastAPI + LangChain（端口 3001），摄入与语义编译在端口 3002，目录和本体在 PostgreSQL 17 + pgvector。官方明确要求 <strong>3001 和 3002 放在私网</strong>：后端信任前端转发的用户身份，摄入服务自己的摄入、删除、重置、编译接口没有独立认证。MCP 服务器不在 Docker Compose 或 Helm 图表里，需另行对着部署地址启动。</p>
+        </section>
+        <section id="s4">
+          <h2>4. 开源、用法、适用场景与已公布限制</h2>
+          <p><strong>怎么用。</strong> 仓库提供 Docker Compose 快速启动，对着微软示例库 Wide World Importers；也可用 Helm 部署到 Kubernetes，见仓库 <code>DEPLOYMENT.md</code>。需要 Docker Compose v2、uv，以及来自 build.nvidia.com 的 NVIDIA API key（<code>nvapi-...</code>）。也可用自托管 NIM 或任何 OpenAI 兼容端点，按角色设置端点、密钥和模型。当前 README 写明的四个默认模型角色（使用 <code>nvapi-</code> 密钥时）是：</p>
+          <ul>
+            <li><code>REASONING</code>：<code>nvidia/nemotron-3.5-lightning-30b-a3b</code>（问答智能体、<code>check_answerable</code>、构建本体、PII 检测）</li>
+            <li><code>NON_REASONING</code>：同一默认模型（改写追问、规划图表、为预测写 PQL 等）</li>
+            <li><code>EMBED</code>：<code>nvidia/nemotron-3.5-embed-1b</code></li>
+            <li><code>RERANK</code>：<code>nvidia/nemotron-3.5-rerank-8b</code>（编译桥接表 SQL 属性时使用，问答阶段不用）</li>
+          </ul>
+          <p>官方写明：应使用支持结构化输出的模型，摄入和查询要保持同一个嵌入模型。</p>
+          <p>支持的源引擎有十个：PostgreSQL、MySQL、Databricks、Snowflake、ClickHouse、Trino、Apache Kyuubi、HeavyDB、DuckDB、SQLite。其中 DuckDB 和 SQLite 只能用连接串接入。连接凭证可放在可选的 HashiCorp Vault。语义模型可用 Apache Ossie YAML 导入导出；Ossie 官网称自己是孵化中的语义元数据交换规范，此前也叫 Open Semantic Interchange（OSI）。仓库提到 Ossie 含 Auto Ontology 转换器。</p>
+          <p><strong>官方认为本体最有用的情况</strong>：问题开放、含糊；数据跨多个来源，定义重叠或冲突；含义需要在多次运行、多个团队和多个智能体之间复用并治理；模型或上下文装不下全部文档；用户用业务术语提问，需要路由到正确的源和粒度。若只有一个建模良好的数据源、问题集合又固定，官方说直接写 SQL 可能就够了。</p>
+          <p><strong>已公布的限制和应注意的点：</strong></p>
+          <ul>
+            <li>语义编译要人打开并审稿，不是「连上库就自动成为可信口径」。认证标记本身也不改变检索。</li>
+            <li>预测路径会把已连接的表上传到 KumoRFM 托管服务，默认最多 20 张表，行数上限除非另行设置否则不限。官方要求启用前完成所在组织的数据审查。</li>
+            <li>评测是另仓 <a href="https://github.com/NVIDIA/auto-ontology-eval" rel="noopener noreferrer" target="_blank">NVIDIA/auto-ontology-eval</a>：同一模型做「只给 schema」和「走 Auto Ontology 本体」两臂对照，用确定性校验器按基准官方规则打分（多数用 BIRD 的执行准确率，BEAVER 用 <code>ex_acc</code>），不靠 LLM 当裁判。评测仓提供的是方法，不是一份写死在 README 里的官方总分表。</li>
+            <li>本课在 2026-11-20（UTC+8）打开了公开榜单数据，核到：BEAVER 的 <code>data/leaderboard.json</code> 中，方法名「NVIDIA Auto-Ontology」、模型 Claude-Opus-5.5、提交日期 2026-11-09，Setting 0 执行准确率为 14.1，在该文件 33 条记录里按 Setting 0 排序居首；Setting 1、Setting 2 为空。领先幅度只有 0.1 分（下一名是 ReFoRCE + Claude-Opus-5.5 的 14.0），且其余设置没有分数，不宜写成全面领先。仓库 README 还挂着 BIRD-Interact「#2」徽章；本课在 BIRD-Interact 页面数据中核到一条已验证提交：NVIDIA Auto-Ontology + Claude-Opus-4.8，日期 2026-10-21，数据集 full、类别 query、stress、c-interact，Reward* 约为 29.39（410 题）。但该文件里大多数其他提交是 a-interact，本课无法在同一过滤条件下独立确认「现在就是第 2 名」。课文只记：官方徽章如此宣称，公开榜上确有提交，名次要以榜单当时的过滤条件为准。</li>
+            <li>官方贡献指南欢迎修复、连接器、文档和示例方面的 pull request。较早的第三方文章曾写「不接受外部 PR」，与当前官方仓库说明不一致，本课以仓库 <code>CONTRIBUTING.md</code> 为准。</li>
+          </ul>
+          <p>本课没有在本地把这套栈跑起来，所以上面只是公开文档中的工作流和限制，不是实测结论。</p>
+        </section>
+        <section id="s5">
+          <h2>5. 「蚂蚁的本体建模标准」先要辨名</h2>
+          <p>如果按字面去搜「蚂蚁本体建模标准」，容易先撞上 2026 年的金融本体征求意见稿，或把 OpenSPG、团体标准和某项国标混成一份东西。这几份并不是同一个文件，效力也不一样。</p>
+          <p>本课的判断是：用户很可能指的是蚂蚁在知识图谱/本体建模上对外公开的那套方法与规范，而不是某一份尚未填起草单位的行业征求意见稿。公开材料里，这套方法同时以 <strong>白皮书（SPG）</strong> 和 <strong>团体标准（T/CCF 0008—2025）</strong> 两种形式出现，后者把前者的工业级知识建模框架收成平台技术要求。下面按这两份来讲，并单独标出不应算作「蚂蚁标准」的相邻文件。</p>
+        </section>
+        <section id="s6">
+          <h2>6. T/CCF 0008—2025：蚂蚁牵头的团体标准</h2>
+          <p><strong>正式名称：</strong>《知识图谱企业级平台技术要求》（英文名 Technical Requirements of Knowledge Graph Enterprise Platform）。</p>
+          <p><strong>编号与效力：</strong> T/CCF 0008—2025。中国计算机学会 2025 年 6 月 11 日发布公告，批准发布该文件及另外三项团体标准，并写明自 2025 年 6 月 11 日起实施。CCF「已发布标准」列表中的编号也是 T/CCF 0008—2025。需要记下一个排版问题：已打开的官方 PDF 封面和公告用 0008，但正文页眉多次印成 T/CCF 0003—2025。0003 与封面、公告不一致，本课以公告和封面的 <strong>0008</strong> 为准，并把页眉差异视为文档笔误，而不是另有一份 0003 标准。</p>
+          <p><strong>发布方：</strong> 中国计算机学会。文件写明由中国计算机学会提出并归口。</p>
+          <p><strong>起草：</strong> 第一起草单位为蚂蚁科技集团股份有限公司。其余起草单位为同济大学、天津大学、恒生电子股份有限公司、浙江创邻科技有限公司、达观数据有限公司、海乂知信息科技（南京）有限公司、浙江大学、之江实验室、中国科学院计算技术研究所。主要起草人名单以郭智慧、梁磊、王昊奋等开头。CCF 在研标准页（2023-12-08）也写明该草案牵头单位为蚂蚁科技集团股份有限公司。</p>
+          <p><strong>适用范围：</strong> 给出知识图谱企业级平台的总体框架，规定引擎层、模式层、控制层、编程接口层、与大语言模型交互层、知识质量评估与维护、以及平台安全的技术要求；适用于这类平台的规划、设计、建设及评估。</p>
+          <p><strong>它要解决的问题：</strong> 引言写，传统知识图谱平台缺乏统一的工业级知识建模框架，推理能力不足且不可解释，构建和推理难以编程、难以跨场景迁移，从而推高构建成本。本文件要建立适应不同领域的工业级知识建模框架，规范知识图谱模式的语法语义，并规定平台应具备的功能。</p>
+          <p><strong>建模相关要求（模式层是关键）：</strong></p>
+          <ul>
+            <li>术语上，把「模式 / schema」定义为「本体模型的规范化表达」。</li>
+            <li>「最小约束集合」定义为只包含 <code>subClassOf</code>、<code>domain</code> 和 <code>range</code> 三个谓词及其语义约束的集合，并注明来源于 RDF 最小谓词集合。</li>
+            <li>模式层应支持实体类型、概念类型、事件类型、属性和关系；实体类型应支持继承和复用；应支持扩展融合实体类型，以对齐不同图谱中命名不一致但实为同一类的实体；应支持概念事件；应支持命名空间，以区分标准类型和用户自定义类型，标准类型须定义在标准命名空间下。</li>
+            <li>节点类型包括实体、标准、概念和事件。标准类型属性可用正则约束；若标准类型语义可传播，应支持默认把该属性转成关系、属性值作为该标准类型下的实例。事件类型默认具有时间和事件主体属性，事件客体可选。实体类型宜支持唯一（EXCLUSIVE）、至少（MANDATORY）、单列（SINGLETON）三类属性约束，也可声明为不可直接实例化的抽象类型。</li>
+            <li>关系在创建时源、目标节点类型必须已定义；可设别名；可对源或目标做唯一约束，以表达一对一、一对多、多对多等。</li>
+            <li>语义推理语法应支持最小约束集合、二元关系约束、多元关系约束、关系分组和动态类型。二元关系约束宜支持自反、对称、传递，可扩展函数式与非函数式；多元关系约束应支持互反与互斥。还应支持按规则自动创建关系，以及在满足条件时把两个关系视为逆关系。</li>
+            <li>引擎层要求能把实体、概念、标准、事件类型以及语义化关系、属性转换成属性图并附加约束，底层对接图存储、图查询和图计算。</li>
+            <li>与大语言模型交互层要求具备自动知识抽取和图谱构建、基于大模型的领域知识补全、以及基于自然语言的知识查询与问答等能力。平台安全引用了分类分级和个人信息保护方面的国家标准。</li>
+          </ul>
+          <p><strong>与 OWL/RDF、知识图谱工程的关系：</strong> 文件并不把自己写成 OWL 本体语言规范。它引用 GB/T 42131—2022《人工智能 知识图谱技术框架》等国家标准，采用来自 RDF 的最小谓词集合，同时把落地点放在属性图系统上。参考文献第一项是「语义增强可编程知识图谱 SPG 白皮书(v1.0). 蚂蚁集团 × OpenKG, 2022。」白皮书封面写的发布月份是 2023 年 8 月，标准参考文献写成 2022，两者不一致；本课以白皮书封面为准记录白皮书日期，并把标准里的 2022 视为待核对的著录差异。</p>
+          <p><strong>公开获取：</strong> CCF 发布公告页提供标准文本下载。本课打开的官方 PDF 地址见来源列表。这是团体标准，不是强制性国家标准。</p>
+        </section>
+        <section id="s7">
+          <h2>7. SPG 与 OpenSPG：公开的建模框架和开源引擎</h2>
+          <p>SPG 的全称是 Semantic-enhanced Programmable Graph，中文是「语义增强可编程知识图谱」。白皮书 v1.0 由蚂蚁集团与 OpenKG 联合出品，封面日期为 2023 年 8 月；牵头编写单位为蚂蚁科技集团股份有限公司，参与编写单位与 T/CCF 0008—2025 的起草单位名单一致。官方介绍页和中英文 PDF 可从 OpenSPG 文档站获取。</p>
+          <p>白皮书把 SPG 定位为：在属性图基础上融合 LPG 的结构性和 RDF 的语义性，既要避免 RDF/OWL 语义复杂难以在工业场景落地，又要保留 LPG 结构简单、能衔接大数据体系的优点。它从三个维度形式化「知识」：</p>
+          <ol>
+            <li><strong>领域类型结构约束</strong>：每个事物都必须有明确的领域类型，类型要有属性、关系等内在结构。领域类型按「由动态到静态、由特殊到一般、由实例到概念」分成事件超图、实体、概念三类。</li>
+            <li><strong>领域内实例唯一性</strong>：同一领域类型下的实例应唯一；通过实体链指、属性标化、实体归一等可编程算子逐步提高唯一性。</li>
+            <li><strong>知识间逻辑依赖性</strong>：用谓词和逻辑规则定义属性、关系、类型之间的依赖与传导。</li>
+          </ol>
+          <p>分层上，白皮书给出 SPG-Schema、SPG-Engine、SPG-Controller、SPG-Programming、SPG-LLM 等层，与后来团体标准里的模式层、引擎层、控制层、编程接口层、与大语言模型交互层能够对上。Schema 层在普通属性图之上扩展主体分类（概念、事件、标准类型）以及可推理的谓词与规则；标准类型放在 <code>std</code> 命名空间，常用正则约束取值，并可与属性标化配合。白皮书 4.6 节也写明：v1.0 还没有对语法的语义完备性做严格证明，更细的谓词逻辑会后续发布。</p>
+          <p>OpenSPG 是按这一框架实现的开源知识图谱引擎，许可同样是 Apache 2.0，仓库为 <a href="https://github.com/OpenSPG/openspg" rel="noopener noreferrer" target="_blank">OpenSPG/openspg</a>，官网入口包括 https://openspg.github.io/v2 和仓库首页给出的 https://spg.openkg.cn/en-US。核心能力包括：</p>
+          <ul>
+            <li><strong>SPG-Schema</strong>：属性图语义增强的 Schema，含主体模型、演化模型、谓词模型等。</li>
+            <li><strong>SPG-Builder</strong>：结构化和非结构化知识导入，以及实体链指、概念标化、实体归一等。</li>
+            <li><strong>SPG-Reasoner</strong>：用 KGDSL 为逻辑规则提供可编程符号表示，并衔接规则推理、神经/符号融合、以及与大模型的知识抽取和推理。</li>
+            <li><strong>KNext</strong> 可编程框架和 <strong>Cloudext</strong> 云适配层，用于对接不同图存储、图计算和机器学习框架。</li>
+          </ul>
+          <p>仓库说明，这是蚂蚁结合多年金融领域多场景知识图谱构建与应用经验、并与 OpenKG 联合推出的引擎。示例包括企业供应链、黑产/风险挖掘、医疗等，并不限于单一问数场景。它还原生支持后续的 KAG（Knowledge Augmented Generation）等工作，相关论文是 arXiv:2409.13731。KAG 是在 SPG/OpenSPG 之上的应用方向，不是另一份「本体建模标准」。</p>
+          <p>和 Auto Ontology 相比，OpenSPG 首先是 <strong>领域知识图谱的建模与构建引擎</strong>，面向图上的实体、概念、事件、规则和推理；Auto Ontology 首先是 <strong>关系库上的语义层与 text-to-SQL 智能体</strong>。两者都谈「本体/语义层」，但默认的数据形态和下游任务并不相同。</p>
+        </section>
+        <section id="s8">
+          <h2>8. 容易认错的相邻文件</h2>
+          <p><strong>《金融领域本体模型构建与应用规范》（征求意见稿）。</strong> 中国互联网协会 2026 年 10 月 15 日与《金融智能体系统可观测性技术规范》一并公开征求意见，意见反馈截止 2026 年 11 月 14 日。文件要规范金融领域本体的建模方法与要素、术语对齐与映射、版本演化，以及与知识图谱、RAG 系统的衔接。构建原则包括业务驱动、标准先行等，建模路径建议自顶向下与自底向上结合。它在题目上最接近「本体建模标准」，但编制说明写明牵头单位是国金证券和中国信通院，不是蚂蚁；到本课检索日（2026-11-20，UTC+8），公开稿仍是征求意见稿，编号未定。不可把它写成已经发布的蚂蚁标准。</p>
+          <p><strong>参与但并非牵头的国家标准。</strong> T/CCF 0008—2025 规范性引用了 GB/T 42131—2022《人工智能 知识图谱技术框架》等。另有商业标准目录转载 GB/T 45628—2025《人工智能 知识图谱 知识交换协议》，起草单位名单中出现蚂蚁科技集团股份有限公司，但该文件由全国信息技术标准化技术委员会提出并归口，第一起草单位不是蚂蚁。本课没有打开国家标准全文或官方发布稿，不为这些国标写细节，也不把它们称作「蚂蚁的本体建模标准」。</p>
+          <p><strong>工程师文章中的内部方法论。</strong> 公开技术文章里还能看到蚂蚁知识建模实践、结构与语义解耦、知蛛平台等介绍。那些是实践分享，不是已发布的标准文本，本课不以它们代替标准或白皮书。</p>
+        </section>
+        <section id="s9">
+          <h2>9. 对照与借鉴</h2>
+          <p>两者要解决的问题 <strong>相邻，但并不相同</strong>。Auto Ontology 针对的是：智能体按列名猜意思、写出语法正确但口径错误的 SQL。蚂蚁这套公开规范针对的是：企业知识图谱缺少可落地的工业级建模框架，模式语法不统一，构建和推理难以编程、难以跨场景迁移。一边主要给关系数据上的分析型智能体准备可认证的业务术语和计算口径；一边主要给知识图谱平台规定模式、约束、规则、引擎和与大模型的交接。若把前者直接说成「英伟达的本体标准」，或把后者说成「蚂蚁的 text-to-SQL 工具」，都不准确。</p>
+          <p><strong>自动化程度。</strong> Auto Ontology 的自动化更高：从元数据起草术语、关系和 SQL 属性，但官方仍要求人来测试、修订和认证，而且认证标记本身不改检索。SPG / T/CCF 0008 首先是规范与框架，要求平台具备自动抽取、构建、补全和自然语言问答等能力，但标准文本本身不是一套一键生成企业本体的软件。OpenSPG 把框架做成了开源引擎，自动化发生在知识构建和算子里，与 Auto Ontology 那种「对着仓库做语义编译」不是同一条流水线。本课未做两边的跑分或实施对比，不能量化谁「更自动」。</p>
+          <p><strong>规范与工具。</strong> 这是最清楚的差别。T/CCF 0008—2025 是团体标准，写的是「应支持 / 宜支持 / 可支持」；SPG 白皮书是方法论文本。Auto Ontology 是可克隆、可部署、带 UI / REST / MCP 的开源软件，并可用 Ossie YAML 把语义模型搬进搬出。企业若要「有一份可执行的语义层给智能体问数」，看的是工具；若要「模式怎么分层、约束怎么写、平台必须具备哪些能力」，看的是规范和框架。</p>
+          <p><strong>适用行业。</strong> Auto Ontology 的公开材料按通用企业分析来写，连接的是常见分析型仓库和数据库，没有把自身限定为某一行业产品。SPG 和 OpenSPG 明确写出来自蚂蚁金融领域多场景的积累，但框架按可扩展领域模型来设计，公开示例已覆盖供应链、风险和医疗等。T/CCF 0008 的适用范围是企业级知识图谱平台，也不限于金融。ISC 那份金融本体征求意见稿才是明确面向金融领域的，但它不是蚂蚁牵头。</p>
+          <p><strong>对一般企业本体建模，可以带走的通用原则：</strong></p>
+          <ul>
+            <li>先分清要解决的是「问数口径」还是「领域知识的类型、关系和规则」。两者都叫本体，但构件不一样：前者重术语、映射、连接和可复用的指标 SQL；后者重实体/概念/事件、继承、谓词约束和逻辑规则。</li>
+            <li>机器可以起草，不宜跳过认证。Auto Ontology 把生成和认证写成两段，但仍提醒：只打「已审阅」标记并不会让检索变得更严。规范一侧则把模式当作发布和治理的对象，而不是一次性文档。</li>
+            <li>问数之前先问覆盖。Auto Ontology 用 <code>check_answerable</code> 和「答不了就停」来处理语义层盖不住的问题；这比让模型在缺定义时硬猜更安全。标准一侧对应的是：查询、推理和与大模型的交互应落在已定义的模式与能力上。</li>
+            <li>语义层要对人可检查。Auto Ontology 每个答案带回 SQL 和步骤；SPG / 团体标准强调模式可转换到属性图、规则可写、平台能力可评估。对智能体而言，可检查通常比更长的提示词更有用。</li>
+            <li>不要假设只有一种交换格式。Auto Ontology 选择与 Ossie YAML 互通；SPG 选择在 LPG 上做语义增强，并用适配层对接到具体图系统。选型时要看下游是仓库问数，还是图上的规则与推理，或两者都要，再决定映射，而不是先发明一套只在内部使用、无法对照公开规范的术语。</li>
+          </ul>
+          <p>仍不确定、因而本课不下结论的点包括：Auto Ontology 的本体是否在语义上等同于 SPG-Schema 或 OWL 本体；两边有没有官方的导入导出桥；90% 创建时间下降和各项榜单名次在不同过滤条件下是否稳定；以及 ISC 金融本体征求意见稿在意见期结束后会否吸收蚂蚁方面的意见——公开材料里还看不到。</p>
+        </section>
+        <section id="s10" class="sources">
+          <h2>10. 来源</h2>
+          <ul>
+            <li><a href="https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/" rel="noopener noreferrer" target="_blank">NVIDIA Agent Toolkit Expands, Grounding Enterprise Agents in Company Data</a>（2026-10-21）</li>
+            <li><a href="https://developer.nvidia.com/topic/ai/agent-knowledge-foundation" rel="noopener noreferrer" target="_blank">NVIDIA Agent Knowledge Foundation</a></li>
+            <li><a href="https://github.com/NVIDIA/auto-ontology" rel="noopener noreferrer" target="_blank">NVIDIA/auto-ontology</a></li>
+            <li><a href="https://github.com/NVIDIA/auto-ontology/blob/main/README.md" rel="noopener noreferrer" target="_blank">NVIDIA/auto-ontology README</a></li>
+            <li><a href="https://github.com/NVIDIA/auto-ontology/blob/main/docs/architecture.md" rel="noopener noreferrer" target="_blank">Auto-Ontology architecture</a></li>
+            <li><a href="https://github.com/NVIDIA/auto-ontology/blob/main/docs/mcp.md" rel="noopener noreferrer" target="_blank">Auto-Ontology MCP server</a></li>
+            <li><a href="https://github.com/NVIDIA/auto-ontology-eval" rel="noopener noreferrer" target="_blank">NVIDIA/auto-ontology-eval</a></li>
+            <li><a href="https://beaverbench.github.io/#leaderboard" rel="noopener noreferrer" target="_blank">BEAVER leaderboard</a>（公开数据 <a href="https://beaverbench.github.io/data/leaderboard.json" rel="noopener noreferrer" target="_blank">leaderboard.json</a>，检索日 2026-11-20）</li>
+            <li><a href="https://bird-interact.github.io/" rel="noopener noreferrer" target="_blank">BIRD-Interact</a></li>
+            <li><a href="https://ossie.apache.org/" rel="noopener noreferrer" target="_blank">Apache Ossie (incubating)</a></li>
+            <li><a href="https://www.ccf.org.cn/Standards/News/2025-06-11/844164.shtml" rel="noopener noreferrer" target="_blank">CCF：关于发布《强化学习系统 第1部分：通用要求》等4项团体标准的公告</a>（2025-06-11）</li>
+            <li><a href="https://www.ccf.org.cn/Standards/ccfbz/ccf-yfbbz/" rel="noopener noreferrer" target="_blank">CCF 已发布标准</a></li>
+            <li><a href="https://www.ccf.org.cn/Standards/ccfbz/ccf-zybz/2023-12-08/837581.shtml" rel="noopener noreferrer" target="_blank">CCF《知识图谱企业级平台技术要求》团体标准草案说明</a></li>
+            <li><a href="https://www.ccf.org.cn/ccf/contentcore/resource/download?ID=AE9AE8457085A5049656015DB543945AAF45EE0C017353B85521B4FC4271DEE1" rel="noopener noreferrer" target="_blank">T/CCF 0008—2025《知识图谱企业级平台技术要求》PDF</a></li>
+            <li><a href="https://github.com/OpenSPG/openspg" rel="noopener noreferrer" target="_blank">OpenSPG/openspg</a></li>
+            <li><a href="https://github.com/OpenSPG/openspg/blob/master/README_cn.md" rel="noopener noreferrer" target="_blank">OpenSPG 中文 README</a></li>
+            <li><a href="https://openspg.github.io/v2/blog/design_philosophy/white_paper/openspg" rel="noopener noreferrer" target="_blank">White Paper for OpenSPG</a></li>
+            <li><a href="https://github.com/user-attachments/files/17794079/-.v1.0.pdf" rel="noopener noreferrer" target="_blank">SPG 白皮书 v1.0（中文 PDF）</a></li>
+            <li><a href="https://github.com/user-attachments/files/17794077/Semantic-enhanced.Programmable.Graph-white.paper.v1.0.pdf" rel="noopener noreferrer" target="_blank">SPG White Paper v1.0（英文 PDF）</a></li>
+            <li><a href="https://www.isc.org.cn/article/30741742379069440.html" rel="noopener noreferrer" target="_blank">中国互联网协会：两项团体标准公开征求意见的通知</a>（2026-10-15）</li>
+            <li><a href="https://www.isc.org.cn/profile/2026/10/15/77039f3a-2b4b-4c16-a3de-a999398d9d04.pdf" rel="noopener noreferrer" target="_blank">《金融领域本体模型构建与应用规范》征求意见稿 PDF</a></li>
+            <li><a href="https://www.isc.org.cn/profile/2026/10/15/c1f92724-47da-4726-a82c-b69670b8775a.pdf" rel="noopener noreferrer" target="_blank">《金融领域本体模型构建与应用规范》编制说明 PDF</a></li>
+            <li><a href="https://arxiv.org/abs/2409.13731" rel="noopener noreferrer" target="_blank">KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation</a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回课程目录</a> · <a href="../../">狙击日报</a></p>
+    </footer>
+  </div>
+</body>
+</html>
