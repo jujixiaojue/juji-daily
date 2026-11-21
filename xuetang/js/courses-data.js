@@ -74,6 +74,15 @@ window.JUJI_XUETANG_COURSES = [
     published: "2026-11-20",
     order: 8,
   },
+  {
+    id: "palantir-functions-aip-logic",
+    title: "Palantir Functions 与 AIP Logic：代码函数和逻辑函数怎么分工",
+    summary:
+      "Foundry 里的 Functions 是用 TypeScript 或 Python 写的、在隔离环境里服务端执行的代码逻辑；AIP Logic 是无代码环境，用来编排可被平台当函数调用的「逻辑函数」。两者都能读本体，也能准备编辑，但真正改对象必须经过 Action。另外还有只读的 Query，以及用 SQL 定义的 Ontology SQL functions，不要和前两者混成一种东西。",
+    tags: ["原理解析", "使用教程", "本体"],
+    published: "2026-11-21",
+    order: 9,
+  },
 ];
 
 window.JUJI_XUETANG_ALL_TAGS = [

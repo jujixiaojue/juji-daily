@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palantir Functions 与 AIP Logic：代码函数和逻辑函数怎么分工｜狙击学堂</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">课程目录</a>
+      <a href="../../">狙击日报</a>
+    </nav>
+
+    <header class="course-hero">
+      <a class="back" href="../">← 返回目录</a>
+      <h1>Palantir Functions 与 AIP Logic：代码函数和逻辑函数怎么分工</h1>
+      <p class="summary">Foundry 里的 Functions 是用 TypeScript 或 Python 写的、在隔离环境里服务端执行的代码逻辑；AIP Logic 是无代码环境，用来编排可被平台当函数调用的「逻辑函数」。两者都能读本体，也能准备编辑，但真正改对象必须经过 Action。另外还有只读的 Query，以及用 SQL 定义的 Ontology SQL functions，不要和前两者混成一种东西。</p>
+      <div class="tags">
+        <span class="tag">原理解析</span>
+        <span class="tag">使用教程</span>
+        <span class="tag theme">本体</span>
+      </div>
+      <div class="course-meta">
+        <span>整理日期：2026-11-21（UTC+8）</span>
+      </div>
+      <div class="scope">
+        <strong>资料范围：</strong>已读 Palantir 官方文档（检索日 2026-11-21，UTC+8）：Functions 概述与入门、functions on objects、按语言的功能对照、在平台中的用法、Ontology edits、强制限制、Query functions；AIP Logic 核心概念、入门、Blocks、FAQ、执行模式、计算用量，以及 AIP 功能对照；Action 中的 function-backed actions；Ontology 核心概念；Ontology SQL 与 Ontology SQL functions。未登录或实测 Foundry 租户，不写价格，不作产品排名，也不虚构未在文档中出现的 API。文档站提供中文界面，本课核对用的是英文原文页面。
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="页内目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#s1">导读与辨名</a></li>
+          <li><a href="#s2">Functions：代码函数怎么工作</a></li>
+          <li><a href="#s3">AIP Logic：逻辑函数怎么工作</a></li>
+          <li><a href="#s4">两者如何配合</a></li>
+          <li><a href="#s5">改本体必须经过 Action</a></li>
+          <li><a href="#s6">何时用 Function，何时用 AIP Logic</a></li>
+          <li><a href="#s7">典型例子（均来自官方示例）</a></li>
+          <li><a href="#s8">常见坑与已公布限制</a></li>
+          <li><a href="#s9">本课未核实的地方</a></li>
+          <li><a href="#s10">来源</a></li>
+        </ol>
+      </aside>
+
+      <article class="article">
+        <section id="s1">
+          <h2>1. 导读与辨名</h2>
+          <p>同事口头里说的「Palantir 的 function 和 logic」，在官方文档里并不是一对对称的产品名。需要先把名字对齐，后面的分工才说得清。</p>
+          <p>官方文档把代码侧叫作 <strong>Functions</strong>。它指的是：由代码作者编写、在服务端隔离环境中快速执行的逻辑，并且原生支持按 Ontology（本体）来读属性、遍历链接、准备编辑。在对象上读写的那一类，文档又称为 <strong>functions on objects</strong>（FoO，对象上的函数）。在 Slate 里，为了和文档内部那套 JavaScript 片段区分，Functions 产品也被叫作 <strong>Foundry functions</strong>。本课没有找到名为「Foundry Logic」的独立产品页；人们说的 Logic，对应的官方产品名是 <strong>AIP Logic</strong>，它产出的是 <strong>Logic function</strong>（逻辑函数）。</p>
+          <p>AIP Logic 的官方定位是：一个无代码开发环境，用来创建、测试和部署「由 AI 驱动的函数」，让你用点选方式调用大语言模型（LLM），并接上本体里的数据。逻辑函数在平台里可以像普通 FoO 一样被调用，例如用在 Workshop 模块中。</p>
+          <p class="table-caption">表 1　先辨名：本课涉及的官方名称（据第 1 节所引文档整理）</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">官方名称</th>
+                  <th scope="col">它是什么</th>
+                  <th scope="col">不是什么</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Functions / Foundry functions</td>
+                  <td>用 TypeScript v1、TypeScript v2 或 Python 编写、发布后可在平台各处调用的代码函数</td>
+                  <td>不是 AIP Logic 的无代码块编排；也不是 Slate 文档里的 JavaScript 片段</td>
+                </tr>
+                <tr>
+                  <td>functions on objects（FoO）</td>
+                  <td>Functions 的核心能力之一：以本体对象、对象集为输入，读属性、走链接、做聚合或准备编辑</td>
+                  <td>不是另一套独立运行时，而是 Functions 面向本体时的说法</td>
+                </tr>
+                <tr>
+                  <td>AIP Logic / Logic function</td>
+                  <td>无代码环境及其产出的逻辑函数：由输入、块（blocks）和输出组成，常含 Use LLM 块</td>
+                  <td>本课未见名为「Foundry Logic」或「Ontology Logic」的独立产品。逻辑函数也是一种可被平台调用的函数，但作者方式不同</td>
+                </tr>
+                <tr>
+                  <td>Action / action type</td>
+                  <td>动作类型：一次可对对象、属性、链接做的一组修改，以及提交时的副作用。端用户通过应用 Action 来改对象</td>
+                  <td>不是函数本身。函数或逻辑函数要改本体，通常必须先发布，再由 Action 来调用</td>
+                </tr>
+                <tr>
+                  <td>function-backed action</td>
+                  <td>由函数（或逻辑函数）定义「对象应如何被修改」的 Action，适合简单规则写不清的复杂编辑</td>
+                  <td>不是「一写函数就会自动改库」。在作者环境里跑编辑函数，默认不会落真实对象</td>
+                </tr>
+                <tr>
+                  <td>Query / query function</td>
+                  <td>Functions 里只读的子集，可选择经 API gateway 对外暴露；不能有副作用（不能改本体或外部系统）</td>
+                  <td>若要经 API gateway 做编辑，文档写明应使用 Action，而不是 Query</td>
+                </tr>
+                <tr>
+                  <td>Ontology SQL</td>
+                  <td>面向本体对象的 SQL 查询引擎，可用标准 Spark SQL 语法查询对象类型、多对多链接和接口</td>
+                  <td>不是 Functions 仓库里的 TypeScript / Python 函数，也不是 AIP Logic</td>
+                </tr>
+                <tr>
+                  <td>Ontology SQL functions</td>
+                  <td>在 SQL Studio 的 Object mode 里用 SQL 定义的、可复用的参数化只读查询；发布后可在接受本体函数的地方使用，也可被 TypeScript / Python 函数调用</td>
+                  <td>不能在函数体内修改本体。名字带 functions，但作者语言是 SQL，不要和代码 Functions 混用同一个心智模型</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="s2">
+          <h2>2. Functions：代码函数怎么工作</h2>
+          <p>官方概述的原话大意是：Functions 让代码作者编写能在运营场景（如支撑决策的仪表盘和应用）中快速执行的逻辑；这段逻辑在服务端的隔离环境中运行。它原生支持按本体编写逻辑，包括读取各类对象类型的属性、遍历链接，以及灵活地准备本体编辑。</p>
+          <p>文档列出的常见用途包括：为 Workshop 返回对象集或变量值；用 function-backed columns 在表格里显示变换后的值；为 Workshop 图表做聚合；通过 function-backed action 表达一次更新许多对象的复杂编辑；在 Slate 后端计算后交给前端展示；在 Quiver 里算自定义指标或聚合；用 external functions 查询外部系统以丰富对象；在与语言模型协作时流式返回结果；以及把 Python 函数当作 Pipeline Builder 里的 sidecar 容器。</p>
+          <h3>语言、仓库与发布</h3>
+          <p>目前支持的语言是 TypeScript 和 Python，具体分为 TypeScript v1、TypeScript v2 和 Python。三种语言都能完成运行、测试和发布这些基本平台能力，但高级特性并不对齐。文档建议大多数新工作流优先考虑 TypeScript v2，以获得完整 Node.js 运行时、一等的 Ontology SDK（OSDK）支持、可配置的资源请求，以及测试版的 staged writes（暂存写入）。Python 与 TypeScript v2 都支持 OSDK。</p>
+          <p>工作流程可以概括为：在项目中新建 Functions 仓库（或从 Code Repositories 新建）并选定语言 → 在 VS Code workspace（文档推荐）或网页版 Code Repositories 里编写 → 用 Live Preview 试跑 → 提交到仓库的 <code>master</code> 分支并 Tag version，把仓库里的函数发布到 functions registry → 再在 Workshop、Action、Slate 等处按已发布版本调用。Live Preview 的运行时与已发布函数并不相同，文档写明差别包括 CPU、内存和超时。</p>
+          <p>任何要在函数里使用的对象类型、接口或链接类型，必须先导入到仓库所在的 Project。导入发生在 Project 级别，改一个仓库的 Ontology 导入可能影响同一 Project 里的其他仓库。</p>
+          <h3>在平台里怎么被消费</h3>
+          <p>Workshop 里，多数变量可以由函数计算；函数结果会按相同输入做缓存，也可配置重算行为。Object Table 可以有函数支撑的派生列，用户滚动时即时重算。Chart 可以使用函数支撑的聚合。Slate 在 Platform 页签里添加 Foundry Function，并可与 Slate 自己的文档内 functions 组合使用。Quiver 的对象集图与 Workshop 图表共用底层组件，也支持函数支撑的聚合，以及带对象参数的 code function 卡片。Automate 可以在条件满足时自动执行函数：对稳定版本（1.0.0 及以上）可打开兼容版本自动升级；在 Automate 里函数异步执行，最长可达 4 小时。注意：作为 Automate 的 Function effect 时，返回本体编辑的函数<strong>不会</strong>把编辑真正写进去，详见第 5 节。</p>
+        </section>
+
+        <section id="s3">
+          <h2>3. AIP Logic：逻辑函数怎么工作</h2>
+          <p>一条 Logic function 接收本体对象或文本等输入，返回值（例如字符串）、对象，或对本体的编辑。它由 <strong>blocks</strong>（块）组成。块可以读或写本体、做计算与聚合、调用其他函数、遍历集合、判断条件，或与 LLM 交互。把块串起来，前一块的输出就成为后一块的输入。</p>
+          <p>使用入口是工作区导航或快捷键（macOS 为 <code>CMD + J</code>，Windows 为 <code>CTRL + J</code>），也可以在 Files 里选 <code>+New</code> → <code>AIP Logic</code>。逻辑文件必须保存在项目文件夹中，不能放在个人主文件夹。界面从左到右主要是：输入 / 块 / 输出的配置区、Debugger、Run 面板。右侧还有与 Automate、AIP Evals 的集成。</p>
+          <p>支持的输入类型包括 array、boolean、date、double、float、integer、long、media reference、model、object、object list、object set、short、string、struct 和 timestamp。最后一块的输出就是整条逻辑函数的输出，可以是值（原始类型或对象），也可以是该函数做出的全部本体编辑。</p>
+          <h3>常用块与工具</h3>
+          <p>官方介绍的常用块包括：</p>
+          <ul>
+            <li><strong>Use LLM</strong>：AIP Logic 的核心。由提示词（prompt）、工具（tools）和输出组成，可选用平台上已提供的 LLM。文档把工具分成 data、logic、action 三类。LLM <strong>不能直接使用工具</strong>，只能提出工具调用请求，再由 AIP Logic 在调用者权限范围内执行。</li>
+            <li><strong>Apply action</strong>：不经过 LLM，确定性地调用 Action，参数由你填，执行更快。</li>
+            <li><strong>Execute function</strong>：调用已有的 TypeScript、Python 函数，或其他逻辑函数，避免把已有逻辑再写一遍。</li>
+            <li><strong>Conditionals</strong>：按条件走不同路径。各分支的输出类型必须一致；若分支通过 Action 返回本体编辑，其他分支必须同样执行 Action，或显式选择 “take no action”。</li>
+            <li><strong>Loops</strong>：遍历集合，对每个元素做变换或执行 Action。循环只接受 List，不接受 Array；若输入是 Array，会自动先插入 “Array to List” 块。若循环内没有 Action，各次迭代会并行执行。</li>
+            <li><strong>Create variable</strong>：创建供后续块使用的变量。</li>
+          </ul>
+          <p>Use LLM 块可用的工具包括：<strong>Apply actions</strong>（让 LLM 经 Action 编辑本体）、<strong>Call function</strong>（让 LLM 调用代码函数或已有逻辑函数）、<strong>Query objects</strong>（指定对象类型及可见属性，供 LLM 查询）、以及 <strong>Calculator tool</strong>（做准确的数学计算）。Query objects 应只勾选必要属性，以节省 token。</p>
+          <p>跑一次逻辑函数会打开 Debugger，展示各块里 LLM 的思维链（chain-of-thought）以及用到的工具，便于排错。发布之后可以用 AIP Evals 写详细测试，比较模型、观察多次运行的方差，并用 AI FDE 根据失败用例分析提示词。执行模式有两种：默认的 <strong>user-scoped</strong>（按运行者本人权限执行，每人只能看自己的执行日志，日志保留 24 小时）和 <strong>project-scoped</strong>（按逻辑函数所在项目的权限执行，项目成员可见日志；所用资源必须导入同一项目，用户还需具备这些资源的 marking 权限。此模式还可把运行历史写入数据集，保留最近 10000 次）。</p>
+          <p>逻辑函数的用法，官方写明可以像普通 FoO 一样：用逻辑函数支撑 Action，再从 Workshop 调用；用逻辑函数支撑 Workshop 的 Markdown 控件（此时输出类型必须是字符串）；在其他逻辑函数里调用它；也可以在对象上的函数里调用它。Uses 页签可以复制一条 curl，在 Foundry 外的终端运行，但<strong>返回本体编辑的逻辑函数没有这条路径</strong>。</p>
+        </section>
+
+        <section id="s4">
+          <h2>4. 两者如何配合</h2>
+          <p>可以把 Functions 理解成「用代码写死、可测试的确定性能力」，把 AIP Logic 理解成「用块编排、常常带着 LLM 判断的函数」。它们不是互斥产品：逻辑函数在平台里按函数来消费，并且可以调用代码函数；代码函数也可以调用逻辑函数。</p>
+          <figure class="figure" aria-labelledby="fig-coop-caption">
+            <div class="figure-frame">
+              <svg viewBox="0 0 720 268" role="img" aria-label="Functions 与 AIP Logic 如何一起接到本体和 Action">
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#667eea"></path>
+                  </marker>
+                </defs>
+                <rect x="80" y="16" width="560" height="48" rx="12" fill="#eef2ff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="360" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">Workshop / Slate / Quiver / Automate / API</text>
+                <text x="360" y="54" text-anchor="middle" font-size="11" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">消费已发布函数的返回值（对象集、字符串、聚合等）</text>
+                <line x1="220" y1="96" x2="220" y2="66" stroke="#667eea" stroke-width="2" marker-end="url(#arrow)"></line>
+                <line x1="500" y1="96" x2="500" y2="66" stroke="#667eea" stroke-width="2" marker-end="url(#arrow)"></line>
+                <rect x="40" y="96" width="280" height="72" rx="12" fill="#eef2ff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="180" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">Functions</text>
+                <text x="180" y="148" text-anchor="middle" font-size="12" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">TypeScript / Python 代码函数</text>
+                <line x1="320" y1="132" x2="400" y2="132" stroke="#764ba2" stroke-width="2" marker-end="url(#arrow)"></line>
+                <line x1="400" y1="148" x2="320" y2="148" stroke="#764ba2" stroke-width="2" marker-end="url(#arrow)"></line>
+                <text x="360" y="118" text-anchor="middle" font-size="10" fill="#6d28d9" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">Execute / Call function</text>
+                <rect x="400" y="96" width="280" height="72" rx="12" fill="#f5eefc" stroke="#764ba2" stroke-width="1.5"></rect>
+                <text x="540" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#6d28d9" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AIP Logic</text>
+                <text x="540" y="148" text-anchor="middle" font-size="12" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">块编排的逻辑函数</text>
+                <line x1="180" y1="168" x2="180" y2="196" stroke="#667eea" stroke-width="2" marker-end="url(#arrow)"></line>
+                <line x1="540" y1="168" x2="540" y2="196" stroke="#667eea" stroke-width="2" marker-end="url(#arrow)"></line>
+                <rect x="200" y="200" width="320" height="28" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"></rect>
+                <text x="360" y="219" text-anchor="middle" font-size="13" font-weight="700" fill="#9a3412" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">编辑提案需经 Action（或符合条件的 Automate）才写入</text>
+                <line x1="360" y1="228" x2="360" y2="244" stroke="#667eea" stroke-width="2" marker-end="url(#arrow)"></line>
+                <rect x="200" y="244" width="320" height="20" rx="8" fill="#eef2ff" stroke="#667eea" stroke-width="1.2"></rect>
+                <text x="360" y="258" text-anchor="middle" font-size="12" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">Ontology：对象、属性、链接</text>
+              </svg>
+            </div>
+            <figcaption id="fig-coop-caption" class="figure-caption">图 1　配合关系示意（据 Functions 概述、AIP Logic 入门与 Blocks、Ontology edits 整理）：应用消费返回值；两边可互相调用；编辑要经过 Action 才落本体。</figcaption>
+          </figure>
+          <p>官方给出的典型接法是：把已经写好的确定性能力（例如语义检索函数）放到 <strong>Execute function</strong> 块里直接调用；若希望由模型决定何时调用，就在 Use LLM 块里挂上 <strong>Call function</strong> 工具。反过来，语义搜索这类工作流也可以「先写一个 function-on-object，再从 AIP Logic 调用它」。FAQ 还建议：能用确定性块（transform、execute、apply action）就不要交给 LLM，这些块不消耗 token，结果也更可预期。</p>
+        </section>
+
+        <section id="s5">
+          <h2>5. 改本体必须经过 Action</h2>
+          <p>这是最容易踩错的一点。官方在 Ontology edits 文档里写明：一个常见误解是「运行编辑函数就会更新本体里的对象」。在 Authoring 的 functions helper 里运行 Ontology edit function，<strong>不会</strong>把编辑应用到真实对象。要用函数更新对象，必须把该函数配置到一个 Action 上，也就是 function-backed action。</p>
+          <p>AIP Logic 同样如此。在 Logic 里运行函数时，Debugger 的 scenario 会显示所有拟定的本体编辑，但这些编辑此时还不会真正执行。若要写入本体，需要：把已发布的逻辑函数从 Action 调用，或从 Automate 调用。即便逻辑里已经放了 Apply action 块，官方也写了：<strong>必须从 Action 调用这条逻辑函数，编辑才会写回本体</strong>；「即使函数里包含 Apply action 块，只要不是从 Action 执行，本体也不会被修改」。</p>
+          <p>为了让逻辑函数能够编辑本体，入门文档给出的步骤是：在 Use LLM 块中配置 Apply actions 工具 → 迭代完成后 Publish → 再创建一个由该已发布逻辑函数支撑的新 Action → 在 Workshop 模块里使用这个 Action。文档在核心概念里也概括为：要编辑本体，逻辑函数必须先发布，再从 Action 调用。</p>
+          <p>Automate 这边要再分清两种 effect：</p>
+          <ul>
+            <li><strong>Function effect</strong>：不会应用函数返回的本体编辑。若自动化需要写本体，应配置 function-backed action，再用 Action effect。</li>
+            <li><strong>Logic effect</strong>：可以自动运行 AIP Logic 函数，但只能调用「输出为本体编辑列表」的逻辑函数。若逻辑函数启用了 staged writes，它不再返回本体编辑列表，在选择器里会显示为不可用；这时要先用 AIP Logic Usage 页的 <strong>Create action</strong>（或在 Ontology Manager 里为该函数创建 Action），再改用 Action effect。文档也提到，可以关闭 staged writes 以回到旧行为；给一条原本返回编辑列表的逻辑函数打开 staged writes，会发布新的主版本，因为输出类型变了。</li>
+          </ul>
+          <p>经 API gateway 对外时，分工也很明确：Query 是只读子集，不能修改本体或外部系统；需要编辑能力时应使用 Action。</p>
+        </section>
+
+        <section id="s6">
+          <h2>6. 何时用 Function，何时用 AIP Logic</h2>
+          <p>官方没有单独一页写成「决策树」，但把 AIP 功能对照、按语言的功能表，以及 Logic FAQ 放在一起，已经够得出可核实的选用标准。下面这张表是本课按这些文档整理的，不是 Palantir 原文表格。</p>
+          <p class="table-caption">表 2　选用标准（据 AIP 功能对照、Functions 概述、语言功能表、AIP Logic FAQ 与 Blocks 整理）</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">更适合</th>
+                  <th scope="col">典型情况</th>
+                  <th scope="col">依据</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Functions（TypeScript / Python）</td>
+                  <td>规则是确定的：计算、过滤、聚合、按链接批量改对象、把业务规则写成可单测的代码</td>
+                  <td>Functions 概述与 function-backed actions：用代码表达简单规则写不清的复杂编辑</td>
+                </tr>
+                <tr>
+                  <td>Functions</td>
+                  <td>要调外部 API、Webhook，或在 Pipeline Builder 里把函数当 sidecar</td>
+                  <td>语言功能表：外部 API 仅代码函数支持；Webhook 在 TSv1 为完整支持，TSv2 / Python 为部分支持；Pipeline Builder 仅 Python 为 Yes，AIP Logic 为 No</td>
+                </tr>
+                <tr>
+                  <td>Functions（尤其 TSv1）</td>
+                  <td>要做文档 OCR、音频转写等完整媒体操作</td>
+                  <td>语言功能表：媒体处理上 AIP Logic 为 No，TSv1 为完整支持，TSv2 / Python 为部分支持</td>
+                </tr>
+                <tr>
+                  <td>AIP Logic</td>
+                  <td>任务本身依赖 LLM：根据非结构化文本做判断、推荐、起草，并要在 Debugger 里看思维链、用 Evals 迭代提示词</td>
+                  <td>AIP 功能对照：无代码环境，用于创建、测试、部署 AI 驱动的函数；适合调度或优化一类复杂过程</td>
+                </tr>
+                <tr>
+                  <td>AIP Logic + 已有 Functions</td>
+                  <td>模型负责「何时调用、如何解释」，确定性计算、检索或写回仍交给已有函数或 Action</td>
+                  <td>Blocks 的 Execute function / Call function；FAQ 建议尽量使用不耗 token 的确定性块；语义搜索教程也走「先写 FoO，再从 Logic 调用」</td>
+                </tr>
+                <tr>
+                  <td>Ontology SQL functions</td>
+                  <td>只要对对象做可复用、参数化的只读 SQL，并不需要代码仓库或 LLM</td>
+                  <td>Ontology SQL functions 文档：发布后可在 Workshop、Actions、Automate、OSDK 使用，也可被 TS / Python 函数调用；只读</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>语言功能表里还有一行容易读反：AIP Logic 的「Language model integration」是 <strong>No</strong>。它指的是「经代理端点、用模型别名和 Platform SDK 去调语言模型」这条代码路径（TypeScript v2 与 Python 为 Yes），并不表示 AIP Logic 不能用 LLM——Logic 自己的路径是 Use LLM 块。同一张表还写明：Ontology interfaces 目前只有 TypeScript v2 为 Yes；AIP Logic 支持 serverless，不支持 deployed execution；staged writes（Beta）在该表中仅 TypeScript v2 与 Python 为 Yes，AIP Logic 为 No。关于 staged writes，Automate 的 Logic effects 文档又提到了「启用 staged writes 的逻辑函数」，两处口径不完全一致，见第 9 节。</p>
+        </section>
+
+        <section id="s7">
+          <h2>7. 典型例子（均来自官方示例）</h2>
+          <p>以下代码和提示词均改写自官方文档中的示例或示意（notional）材料，只为说明机制；对象类型名称以文档为准，不是某家租户里的真实模型。不要直接复制到未导入相应对象类型的仓库里运行。</p>
+          <h3>示例 A：对象上的只读函数（Functions on objects）</h3>
+          <p>官方入门用 <code>Airport</code> 对象，把 <code>city</code> 和 <code>country</code> 拼成可读的地点字符串。这是最典型的 FoO：输入是一个对象，输出是给 Workshop 变量或界面使用的值。下面保留 TypeScript v1 原文结构。</p>
+<pre><code>import { Function } from "@foundry/functions-api";
+import { Airport } from "@foundry/ontology-api";
+
+export class MyFunctions {
+  @Function()
+  public airportLocation(airport: Airport): string {
+    return `${airport.city}, ${airport.country}`;
+  }
+}</code></pre>
+          <p>出处：<a href="https://palantir.com/docs/foundry/functions/foo-getting-started/" rel="noopener noreferrer" target="_blank">Getting started with functions on objects</a>。同一页还给出了 TypeScript v2 的等价写法（默认导出，类型为 <code>Osdk.Instance&lt;Airport&gt;</code>）。</p>
+          <h3>示例 B：准备链接编辑的函数（仍须经由 Action 才写入）</h3>
+          <p>官方 Ontology edits 页用员工与工单的多对多链接 <code>assignedTickets</code>：为一名 <code>Employee</code> 增加一张工单链接、并移除另一张。函数返回的是编辑，而不是立刻改库。</p>
+<pre><code>import { Edits, OntologyEditFunction } from "@foundry/functions-api";
+import { Employee, Ticket } from "@foundry/ontology-api";
+
+export class TicketLinkFunctions {
+  @Edits(Employee, Ticket)
+  @OntologyEditFunction()
+  public reassignTicket(
+    employee: Employee,
+    ticketToAssign: Ticket,
+    ticketToUnassign: Ticket
+  ): void {
+    employee.assignedTickets.add(ticketToAssign);
+    employee.assignedTickets.remove(ticketToUnassign);
+  }
+}</code></pre>
+          <p>出处：<a href="https://palantir.com/docs/foundry/functions/edits-overview/" rel="noopener noreferrer" target="_blank">Ontology edits</a>。该页同时给出 TypeScript v2（<code>createEditBatch</code>）和 Python（<code>FoundryClient().ontology.edits()</code>）写法。</p>
+          <h3>示例 C：AIP Logic 的示意提示词，以及调用已有函数</h3>
+          <p>Blocks 文档里有一段示意提示词：让模型只看投诉邮件正文，寻找类似历史邮件，并只返回一条过往有效的解决方案，而不是罗列每封邮件的发现。</p>
+          <p>官方示意提示词大意是：<em>You are my complaint helper agent. Find other emails that describe similar events to those described in the input email. Look only at the email body. Determine the best solution based on what has worked in the past. Return your one solution recommendation, do not list findings from every email.</em></p>
+          <p>同一页的 Execute function 示例则是：先调用一个语义搜索函数，再借助相似事件返回处理说明文本。这正是第 4 节说的「确定性检索放在代码函数里，Logic 负责编排」。Apply action 块的示例则是：给某个 incident 赋予优先级，且不经过 LLM，以保证参数填写是确定的。出处：<a href="https://palantir.com/docs/foundry/logic/blocks/" rel="noopener noreferrer" target="_blank">AIP Logic · Blocks</a>。</p>
+          <h3>示例 D：Ontology SQL function（另一种「函数」）</h3>
+          <p>若需求只是「按参数查出一类对象」，官方给出的是在 SQL Studio Object mode 里发布一条参数化 SQL，而不是新建 TypeScript 仓库。参数只能是字面量，不能是一段 SQL 片段；ObjectSet 参数只能出现在 <code>FROM</code> 子句。</p>
+<pre><code>DECLARE @animalParam STRING = 'dog';
+
+SELECT *
+FROM `ri.ontology.main.object-type...`
+WHERE animaltype = @animalParam;</code></pre>
+          <p>出处：<a href="https://palantir.com/docs/foundry/sql-warehousing/sql-functions/" rel="noopener noreferrer" target="_blank">Ontology SQL functions</a>。发布后它会像其他本体函数一样出现在 Workshop、Actions、Automate 和 OSDK 里，但仍然是只读的。</p>
+        </section>
+
+        <section id="s8">
+          <h2>8. 常见坑与已公布限制</h2>
+          <ul>
+            <li><strong>编辑函数「跑通了」不等于已经改库。</strong>functions helper、Logic Debugger 里看到的是拟定编辑。没有经 Action（或符合条件的 Automate Logic / Action effect）就不会写入。见第 5 节。</li>
+            <li><strong>超时在预览环境和生产调用里不一样。</strong>Functions 默认运行时限 60 秒，可在函数配置页修改；Live Preview 允许跑到 280 秒，即使配置页改过也如此。Automate 中的函数异步执行最长 4 小时。TypeScript v1 另外还有不可配置的 30 秒 CPU 时间上限。AIP Logic 在 Debugger 里测试时<strong>不受</strong>五分钟执行时限约束，但从 Workshop 或函数执行 API 调用时会执行该五分钟上限——这是 FAQ 里「调试能过、Workshop / API 失败」的常见原因。</li>
+            <li><strong>内存与对象加载。</strong>TypeScript v1 内存上限 128 MB，且一次 <code>.all()</code> / <code>.allAsync()</code> 不能加载超过 100,000 个对象，也不能一次使用超过 3 次 search around；文档还提示，即使是数万对象也常会先撞上时间或内存上限，这时应改用聚合，或排序后取子集。Serverless 的 Python 与 TypeScript v2 默认内存 1024 MiB，可在 512–5120 MiB 配置。已部署的 Python 函数默认 2 GB，且文档写明目前不能在配置页调整内存。</li>
+            <li><strong>刚编辑完立刻搜索，可能仍看到旧值。</strong>对对象和链接的修改，要等函数执行结束后才传播到对象集 API。因此，依赖被编辑值的 <code>Objects.search()</code>（过滤、search around、聚合）仍会使用旧数据。按主键取回你已经编辑过的那个对象则不同：基础设施会在物化时套用未提交编辑。若要在同一次函数里「先改再搜」，必须自己处理这种滞后。官方示例把某位员工改名为 Bob 后再按新名计数，期望为 1，实际为 0。</li>
+            <li><strong>可选数组在 Action 里会变成空数组。</strong>在代码仓库里跑 <code>@OntologyEditFunction</code> 时，被省略的可选数组是 <code>undefined</code>；经 Action 执行同一函数时，它们会被传成空数组。</li>
+            <li><strong>AIP Logic 的 token 与块切分。</strong>Logic 中的所有活动都计入 token 限制，包括工具返回。限制按块重置。建议只向模型暴露必要属性；必要时把一个大 Use LLM 块拆成多块（每块有自己的上下文窗口）；能用确定性块就不要用 LLM。默认 temperature 为 0。</li>
+            <li><strong>读时权限不会自动保护模型输出和编辑。</strong>Blocks 文档写明：行级 / 列级访问控制（包括 restricted views、对象安全策略、属性安全策略）会在 Query objects 把数据读进提示词时过滤；这些控制<strong>不会</strong>延伸到模型输出，也不会延伸到 Apply actions 组成的本体编辑。下游保护需要再配 marking 或基于分级的访问控制。</li>
+            <li><strong>Live Preview 的权限与通知。</strong>Live Preview 里对象类型权限取决于仓库对底层数据源的权限。测试会发通知的函数时，收件人权限不会被强制执行，因此预览成功、作为 Action 使用时失败是可能的。</li>
+            <li><strong>逻辑文件的位置与执行模式。</strong>逻辑文件必须放在项目文件夹，不能放主文件夹。user-scoped 与 project-scoped 不仅决定权限，也决定谁能看日志；project-scoped 还要求资源已导入同一项目。</li>
+            <li><strong>Ontology SQL 自身的限制</strong>（以免把它当成万能查询层）：只支持读，不支持 <code>INSERT</code> / <code>UPDATE</code> / <code>DELETE</code>；每条查询原则上只有一个 <code>SELECT</code>（外加可选的 <code>DECLARE</code>）；不能在同一条查询里混用对象和 dataset；结果最多截断为 10,000 行；查询执行超时 20 秒；目前仅用于 Object Storage v2。对象集可以作为输入（取决于前端应用），但不能直接作为查询输出。</li>
+          </ul>
+        </section>
+
+        <section id="s9">
+          <h2>9. 本课未核实的地方</h2>
+          <ul>
+            <li>本课只依据 2026-11-21（UTC+8）读到的公开英文文档，没有在 Foundry 租户里实际创建仓库、发布函数或运行 AIP Logic，因此不保证某一具体版本号、控制台文案或权限开关与你所在环境完全一致。</li>
+            <li>关于 AIP Logic 是否支持 staged writes：<a href="https://palantir.com/docs/foundry/functions/language-feature-support/" rel="noopener noreferrer" target="_blank">语言功能表</a>将 AIP Logic 的 “Staged writes support [Beta]” 标为 No；<a href="https://palantir.com/docs/foundry/automate/effect-logic/" rel="noopener noreferrer" target="_blank">Automate · Logic effects</a> 又说明了「启用 staged writes 的逻辑函数」不再返回本体编辑列表、需要改走 Action effect。两处公开口径不一致。本课在第 5 节转述了 Automate 文档的操作含义，但不判断哪一页更新、也不把「AIP Logic 已正式支持 staged writes」写成定论。</li>
+            <li>语言功能表本身注明并非所有语言支持全部特性，个别单元格也可能滞后于产品。若要做实施决策，应以所在租户文档和实际发布结果为准。</li>
+            <li>本课没有把「Ontology 上的计算」单列为一种与 Functions、AIP Logic 并列的产品。文档里的计算，分别落在函数返回值、Workshop 派生列与聚合、Quiver 指标，以及 Ontology SQL 查询上。</li>
+          </ul>
+        </section>
+
+        <section id="s10" class="sources">
+          <h2>来源</h2>
+          <ul>
+            <li><a href="https://palantir.com/docs/foundry/ontology/core-concepts/" rel="noopener noreferrer" target="_blank">Ontology · Core concepts</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/overview/" rel="noopener noreferrer" target="_blank">Functions · Overview</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/getting-started/" rel="noopener noreferrer" target="_blank">Functions · Getting started</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/foo-getting-started/" rel="noopener noreferrer" target="_blank">Functions on objects · Getting started</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/use-functions/" rel="noopener noreferrer" target="_blank">Use functions in the platform</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/language-feature-support/" rel="noopener noreferrer" target="_blank">Feature support by language</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/edits-overview/" rel="noopener noreferrer" target="_blank">Ontology edits</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/enforced-limits/" rel="noopener noreferrer" target="_blank">Enforced limits（与管理已发布函数同一文档组）</a></li>
+            <li><a href="https://palantir.com/docs/foundry/functions/query-functions/" rel="noopener noreferrer" target="_blank">Publish and call query functions through API gateway</a></li>
+            <li><a href="https://palantir.com/docs/foundry/action-types/function-actions-overview/" rel="noopener noreferrer" target="_blank">Function-backed actions · Overview</a></li>
+            <li><a href="https://palantir.com/docs/foundry/aip/aip-features/" rel="noopener noreferrer" target="_blank">AIP features</a></li>
+            <li><a href="https://palantir.com/docs/foundry/logic/core-concepts/" rel="noopener noreferrer" target="_blank">AIP Logic · Core concepts</a></li>
+            <li><a href="https://palantir.com/docs/foundry/logic/getting-started/" rel="noopener noreferrer" target="_blank">AIP Logic · Getting started</a></li>
+            <li><a href="https://palantir.com/docs/foundry/logic/blocks/" rel="noopener noreferrer" target="_blank">AIP Logic · Blocks</a></li>
+            <li><a href="https://palantir.com/docs/foundry/logic/faq/" rel="noopener noreferrer" target="_blank">AIP Logic · FAQ</a></li>
+            <li><a href="https://palantir.com/docs/foundry/logic/execution-mode-settings/" rel="noopener noreferrer" target="_blank">AIP Logic · Execution mode settings</a></li>
+            <li><a href="https://palantir.com/docs/foundry/logic/compute-usage/" rel="noopener noreferrer" target="_blank">AIP Logic · Compute usage</a></li>
+            <li><a href="https://palantir.com/docs/foundry/automate/effect-logic/" rel="noopener noreferrer" target="_blank">Automate · Logic effects</a></li>
+            <li><a href="https://palantir.com/docs/foundry/sql-warehousing/ontology-sql/" rel="noopener noreferrer" target="_blank">Ontology SQL</a></li>
+            <li><a href="https://palantir.com/docs/foundry/sql-warehousing/sql-functions/" rel="noopener noreferrer" target="_blank">Ontology SQL functions</a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回课程目录</a> · <a href="../../">狙击日报</a></p>
+    </footer>
+  </div>
+</body>
+</html>
