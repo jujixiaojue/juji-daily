@@ -83,6 +83,15 @@ window.JUJI_XUETANG_COURSES = [
     published: "2026-11-21",
     order: 9,
   },
+  {
+    id: "palantir-aip-insight",
+    title: "Palantir AIP Insight：从自然语言提问到可检查的分析工作簿",
+    summary:
+      "官方正式名是 AIP Insight（单数）。它不是独立分析应用，而是内置于 Foundry Insight 的应用内助手（copilot）：用自然语言描述想探索的问题，由 AIP 查找相关本体数据并生成可检查、可修改、可保存的 Insight 工作簿。2026-11-19 发布说明称其对所有已启用 AIP 的 enrollment 可用，但目前仍处于 beta；表格、图表、地图布局需手工配置，interfaces 与 derived properties 尚不被该 copilot 支持。",
+    tags: ["产品调研", "使用教程", "本体"],
+    published: "2026-11-23",
+    order: 10,
+  },
 ];
 
 window.JUJI_XUETANG_ALL_TAGS = [

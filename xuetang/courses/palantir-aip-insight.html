@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palantir AIP Insight：从自然语言提问到可检查的分析工作簿｜狙击学堂</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="topnav" aria-label="站点导航">
+      <a href="../">课程目录</a>
+      <a href="../../">狙击日报</a>
+    </nav>
+
+    <header class="course-hero">
+      <a class="back" href="../">← 返回目录</a>
+      <h1>Palantir AIP Insight：从自然语言提问到可检查的分析工作簿</h1>
+      <p class="summary">官方正式名是 AIP Insight（单数）。它不是独立分析应用，而是内置于 Foundry Insight 的应用内助手（copilot）：用自然语言描述想探索的问题，由 AIP 查找相关本体（Ontology）数据，并生成可检查、可修改、可保存的 Insight 工作簿。2026-11-19 发布说明称其对所有已启用 AIP 的 enrollment 可用，但目前仍处于 beta；表格、图表、地图布局需手工配置，interfaces 与 derived properties 尚不被该 copilot 支持。</p>
+      <div class="tags">
+        <span class="tag">产品调研</span>
+        <span class="tag">使用教程</span>
+        <span class="tag theme">本体</span>
+      </div>
+      <div class="course-meta">
+        <span>整理日期：2026-11-23（UTC+8）</span>
+      </div>
+      <div class="scope">
+        <strong>资料范围：</strong>检索日 2026-11-23（UTC+8）。依据 Palantir 官方 2026-11-19「AIP Insight」发布说明长文与配图、2026-03-27 Insight 一般可用（GA）公告，以及 Insight 文档树公开页（总览、入门、分析面板、Filter / Link / Transform、表格 / 图表 / 地图、保存与共享、布局、FAQ、分支等），并对照 AIP 功能总表、启用 AIP、AIP Analyst、AIP Chatbot Studio、Workshop、AIP Assist、Quiver AIP、分析工具对照、开发生命周期等官方页划界。未登录客户环境，未做产品实测；不写价格，不作排名。检索当日 Insight 文档树尚无「AIP Insight」专页。
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="页内目录">
+        <h2>目录</h2>
+        <ol>
+          <li><a href="#s1">导读与学习目标</a></li>
+          <li><a href="#s2">先辨名</a></li>
+          <li><a href="#s3">官方定位</a></li>
+          <li><a href="#s4">能力与已公布限制</a></li>
+          <li><a href="#s5">工作流</a></li>
+          <li><a href="#s6">教学示例（非实测）</a></li>
+          <li><a href="#s7">对本体的依赖</a></li>
+          <li><a href="#s8">与相邻产品的边界</a></li>
+          <li><a href="#s9">适用与不适用</a></li>
+          <li><a href="#s10">权限、可用性与定价</a></li>
+          <li><a href="#s11">文档滞后与未核事项</a></li>
+          <li><a href="#s12">来源</a></li>
+        </ol>
+      </aside>
+
+      <article class="article">
+        <section id="s1">
+          <h2>1. 导读与学习目标</h2>
+          <p>同事口头说的「Palantir 的 aip insight」，在官方材料里对应的是 <strong>AIP Insight</strong>（单数）。读完本课，应能分清三件事：</p>
+          <ul>
+            <li><strong>宿主应用 Insight</strong>：点选式、面向本体数据的分析应用，产物是 workbook（工作簿）。</li>
+            <li><strong>AIP Insight</strong>：做进 Insight 里的应用内助手（in-app copilot），用自然语言起步并生成可检查的工作簿。</li>
+            <li><strong>不要对错号的相邻产品</strong>：例如独立的 AIP Analyst、用来建可部署助手的 AIP Chatbot Studio、以及「不访问你的数据」的 AIP Assist。</li>
+          </ul>
+          <p>本课把<strong>官方陈述</strong>与<strong>分析</strong>分开写。官方陈述只依据已打开的 Palantir 文档或发布说明原意；相邻产品对照先列各产品自己的官方定义，归纳边界时标明为分析，不把它写成官方对比结论。第 6 节操作例子是教学示例，不表示已在真实环境跑通。</p>
+        </section>
+
+        <section id="s2">
+          <h2>2. 先辨名</h2>
+          <p>名字接近的东西不止一个，对错号会把能力范围说错。</p>
+          <p class="table-caption">表 1　辨名：AIP Insight、Insight，以及容易认错的名字</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">名称</th>
+                  <th scope="col">它是什么</th>
+                  <th scope="col">性质</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>AIP Insight</strong></td>
+                  <td>内置于 Insight 的应用内助手：用自然语言把对本体的提问做成可检查、可修改、可保存的工作簿</td>
+                  <td>官方陈述（2026-11-19 发布说明）</td>
+                </tr>
+                <tr>
+                  <td><strong>Insight</strong></td>
+                  <td>点选式本体分析应用：用分析路径过滤对象、沿链接跳转、做聚合和可视化，并把结果保存在 workbook 里</td>
+                  <td>官方陈述（Insight 总览；2026-03-27 GA）</td>
+                </tr>
+                <tr>
+                  <td>AIP Insights（复数）</td>
+                  <td>检索当日在 2026 年官方发布说明全文中未出现</td>
+                  <td>分析（未找到官方用法）</td>
+                </tr>
+                <tr>
+                  <td>AIP Analyst</td>
+                  <td>独立的智能体式分析界面，用自然语言在本体上做即席分析</td>
+                  <td>官方陈述</td>
+                </tr>
+                <tr>
+                  <td>AIP Chatbot Studio（曾用名 AIP Agent Studio）</td>
+                  <td>用来创建可部署的 AIP Chatbots（曾用名 AIP Agents）的构建器</td>
+                  <td>官方陈述</td>
+                </tr>
+                <tr>
+                  <td>AIP Assist</td>
+                  <td>帮助用户在平台里导航、提问的支持工具；官方写明它「does not access your data」</td>
+                  <td>官方陈述</td>
+                </tr>
+                <tr>
+                  <td>「insights」营销用语 / Ontology and AIP observability</td>
+                  <td>解决方案页里的 insight 字样，或观测性功能</td>
+                  <td>分析（排除认错，不当作 AIP Insight 规格）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Insight FAQ 在检索当日仍写：Insight「将很快」能与平台上的 AIP Chatbots（原 AIP Agents）集成。这句话说的是与 <strong>Chatbots</strong> 的集成「即将」到来，全文没有出现 AIP Insight。［官方陈述］来源：<a href="https://palantir.com/docs/foundry/insight/faq/" rel="noopener noreferrer" target="_blank">Insight FAQ</a>。</p>
+          <p>［分析］FAQ 与 2026-11-19 发布说明不同步。不能把「即将集成 Chatbots」自动理解成 AIP Insight 已经是、或即将是 Chatbot / Agent 集成。</p>
+        </section>
+
+        <section id="s3">
+          <h2>3. 官方定位</h2>
+          <p>发布说明条目：日期 November 19, 2026；类型 FEATURE；类别 Analytics；应用 Insight；标题 <strong>Build Insight workbooks with AIP</strong>。［官方陈述］来源：<a href="https://palantir.com/docs/foundry/announcements/release-notes/2026/" rel="noopener noreferrer" target="_blank">2026 年发布说明</a>。</p>
+          <p>短描述原文要点：用 AIP Insight（your in-app copilot）把关于本体的问题变成工作簿；描述想探索的内容，AIP 帮助找到相关数据并构建可检查、可 refining、可保存的工作簿。入口有两处：Insight 首页的 <strong>Start an analysis with AIP</strong>，以及工作簿分析路径功能区里的 <strong>AIP</strong>。</p>
+          <p>长文进一步写明：</p>
+          <ol>
+            <li>AIP Insight 是直接做进 <a href="https://palantir.com/docs/foundry/insight/overview/" rel="noopener noreferrer" target="_blank">Insight</a> 的助手。</li>
+            <li>它把「关于你的 Ontology 的问题」变成工作簿。</li>
+            <li>AIP 生成的分析步骤在工作簿里可见、可编辑，以便检查结果如何产生并自行修改步骤。</li>
+            <li>上述两处入口只对有 AIP 访问权限的用户显示。</li>
+            <li>可以继续对话深入探索，也可以用 Insight 既有工具自行 refining；保存后问题演化时还能再打开。</li>
+            <li><strong>AIP Insight is available on all enrollments with AIP enabled.</strong></li>
+            <li><strong>AIP Insight is currently in the beta phase of development.</strong></li>
+          </ol>
+          <figure class="figure" aria-labelledby="fig-official-caption">
+            <div class="figure-frame">
+              <img src="../assets/palantir-aip-insight-workbook.png" alt="官方示意图：由自然语言提问生成的 Insight 工作簿，可见 AIP 对话、分析步骤与结果" width="1275" height="667" loading="lazy">
+            </div>
+            <figcaption id="fig-official-caption" class="figure-caption">图 1　官方示意图（发布说明配图）：An Insight workbook built from a natural-language question, with the AIP conversation, analysis steps, and results visible together. 来源：<a href="https://www.palantir.com/docs/resources/foundry/announcements/release-notes/2026-11-17-155403-insight-image-pn.png" rel="noopener noreferrer" target="_blank">Palantir 文档资源</a>。配图文件名带 2026-11-17，公告条目日期为 2026-11-19；本课按条目日期引用公告，配图仅作产品界面示意，不据此编造额外能力。</figcaption>
+          </figure>
+          <p>宿主应用 Insight 的定义［官方陈述］：</p>
+          <blockquote>
+            <p>Insight is a point-and-click application for exploring and analyzing Ontology data. Build step-by-step analysis paths to filter objects, traverse object links, aggregate results, and create visualizations.</p>
+          </blockquote>
+          <p>2026-03-27 的 GA 公告补充：Insight 面向需要探索本体数据、下钻对象类型之间关系、并在结果上采取行动、但不需要深厚技术背景的 operational users 和 analysts。［官方陈述］</p>
+          <p>［分析］AIP Insight 是「在已经存在的 Insight 分析体验里，用自然语言起步并继续对话」，而不是替换 Insight，也不是另做一个智能体工作室。产物仍然是 Insight workbook；检查与修改走的是分析路径，而不是不可见的黑盒答案。</p>
+        </section>
+
+        <section id="s4">
+          <h2>4. 能力与已公布限制</h2>
+          <p>先把 <strong>copilot 能自动做的</strong> 和 <strong>宿主 Insight 已有、但不能算进 copilot 自动化</strong> 分开。把后者说成「AIP Insight 已经能自动做」，是本课明确反对的做法。</p>
+
+          <h3>4.1 官方写明的 copilot 能力</h3>
+          <p class="table-caption">表 2　AIP Insight copilot 能力（均据 2026-11-19 发布说明）</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">能力</th>
+                  <th scope="col">官方原意（摘要）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>自然语言提问</td><td>Describe what you want to explore in natural language</td></tr>
+                <tr><td>查找相关数据</td><td>AIP helps you find relevant data</td></tr>
+                <tr><td>生成工作簿</td><td>build a workbook to answer your question</td></tr>
+                <tr><td>步骤可见可编辑</td><td>analysis steps AIP creates are visible and editable</td></tr>
+                <tr><td>可检查结果如何产生</td><td>inspect how the results were produced and modify the steps yourself</td></tr>
+                <tr><td>创建与编辑分析路径</td><td>It can create and edit analysis paths</td></tr>
+                <tr><td>继续对话</td><td>Continue the conversation to explore further</td></tr>
+                <tr><td>改用既有工具 refining</td><td>or refine the workbook yourself using Insight’s existing tools</td></tr>
+                <tr><td>保存后再打开</td><td>Save your workbook to return to it as your questions evolve</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>4.2 官方写明的 copilot 限制（不可删）</h3>
+          <ul>
+            <li>目前处于 <a href="https://palantir.com/docs/foundry/platform-overview/development-life-cycle/" rel="noopener noreferrer" target="_blank">beta</a> 开发阶段。</li>
+            <li><strong>可以</strong>创建和编辑分析路径。</li>
+            <li><strong>表格、图表、地图布局必须手工配置</strong>（table, chart, and map layouts must be configured manually）。</li>
+            <li><strong>部分 Insight 功能尚不被 copilot 支持</strong>；官方点名包括 <strong>interfaces</strong>（接口）与 <strong>derived properties</strong>（派生属性）。</li>
+          </ul>
+          <p>［分析］这不是「Insight 没有 interfaces 或 derived properties」。Insight 本身已在 2026-10-14 发布说明中支持用 Ontology interfaces 做跨对象类型分析，表格文档也说明可添加 derived property。限制针对的是 <strong>AIP Insight 这个 copilot 还不会帮你做这些事</strong>；宿主能力与 copilot 能力在检索当日并不对齐。</p>
+          <p>发布说明没有写：默认模型、是否多步自主规划、是否自动写 SQL、是否自动执行 writeback（写回）、上下文窗口、多语言提问、准确率，或一次提问触发多少次模型调用。这些应视为未知，<strong>不要默认与 AIP Analyst 相同</strong>。</p>
+
+          <h3>4.3 宿主 Insight 已有、但不能自动算作 copilot 能力</h3>
+          <p class="table-caption">表 3　宿主 Insight 能力摘录（用户 refining 时可能用到；来源见各行）</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">宿主能力</th>
+                  <th scope="col">要点</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>分析路径与工具丝带</td>
+                  <td>逐步堆 Filter、Link、Transform 卡片；可选中某步查看结果；卡片不能重排，但可在步骤间插入</td>
+                </tr>
+                <tr>
+                  <td>Filter / Link / Transform</td>
+                  <td>过滤对象；沿对象类型链接 pivot；集合运算、Group by、SQL sandbox 等</td>
+                </tr>
+                <tr>
+                  <td>SQL sandbox</td>
+                  <td>仅当路径里只有一种对象类型时可用；可与其他对象类型 join 且不必依赖 link types；结果是物化预览，<strong>不会写回路径，也不是本体化结果</strong></td>
+                </tr>
+                <tr>
+                  <td>表格 / 图表 / 地图</td>
+                  <td>展示对象、做分布与指标、按地理属性筛选；筛选会进入分析路径</td>
+                </tr>
+                <tr>
+                  <td>写回（Action）</td>
+                  <td>可在分析结果上创建、更新、删除对象；需对象类型编辑权限、数据源写权限等</td>
+                </tr>
+                <tr>
+                  <td>保存、分享、发布 object set</td>
+                  <td>可不保存即席分析；保存后可分享；路径可发布为平台级 object set</td>
+                </tr>
+                <tr>
+                  <td>Global Branching</td>
+                  <td>可切到某 branch 看该分支本体并跑 action；<strong>在 branch 上不能保存工作簿或布局、不能发布 object set、不能导出 Excel</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="s5">
+          <h2>5. 工作流：从提问到可保存的工作簿</h2>
+          <p>实线步骤是发布说明已写明的交互；「手工配置布局 / 用既有工具 refining」是宿主能力，不是发布说明对 copilot 自动排版的承诺。</p>
+          <figure class="figure" aria-labelledby="fig-flow-caption">
+            <div class="figure-frame">
+              <svg viewBox="0 0 720 320" role="img" aria-label="从 AIP 提问到保存 Insight 工作簿的流程">
+                <defs>
+                  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0 L10 5 L0 10 z" fill="#667eea"></path>
+                  </marker>
+                </defs>
+                <rect x="20" y="16" width="680" height="44" rx="10" fill="#eef2ff" stroke="#667eea" stroke-width="1.2"></rect>
+                <text x="360" y="44" text-anchor="middle" font-size="14" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">前提：enrollment 已启用 AIP，且当前用户具有 AIP access</text>
+
+                <rect x="40" y="86" width="200" height="56" rx="10" fill="#fff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="140" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">首页：Start an analysis with AIP</text>
+                <text x="140" y="130" text-anchor="middle" font-size="11" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">或工作簿功能区中的 AIP</text>
+
+                <line x1="240" y1="114" x2="286" y2="114" stroke="#667eea" stroke-width="2" marker-end="url(#arr)"></line>
+
+                <rect x="294" y="86" width="170" height="56" rx="10" fill="#f5eefc" stroke="#764ba2" stroke-width="1.5"></rect>
+                <text x="379" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">自然语言描述</text>
+                <text x="379" y="130" text-anchor="middle" font-size="11" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">想探索的内容</text>
+
+                <line x1="464" y1="114" x2="510" y2="114" stroke="#667eea" stroke-width="2" marker-end="url(#arr)"></line>
+
+                <rect x="518" y="86" width="170" height="56" rx="10" fill="#eef2ff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="603" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">查找数据并生成</text>
+                <text x="603" y="130" text-anchor="middle" font-size="11" fill="#5b6472" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">可检查的工作簿</text>
+
+                <line x1="603" y1="142" x2="603" y2="176" stroke="#667eea" stroke-width="2" marker-end="url(#arr)"></line>
+
+                <rect x="200" y="180" width="320" height="48" rx="10" fill="#fff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="360" y="209" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">分析步骤可见、可编辑；自行核对并改步骤</text>
+
+                <line x1="280" y1="228" x2="220" y2="256" stroke="#667eea" stroke-width="2" marker-end="url(#arr)"></line>
+                <line x1="440" y1="228" x2="500" y2="256" stroke="#667eea" stroke-width="2" marker-end="url(#arr)"></line>
+
+                <rect x="40" y="260" width="220" height="44" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 4"></rect>
+                <text x="150" y="287" text-anchor="middle" font-size="12" fill="#475569" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">继续对话，或 Filter / Link / Transform</text>
+
+                <rect x="300" y="260" width="180" height="44" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="5 4"></rect>
+                <text x="390" y="287" text-anchor="middle" font-size="12" fill="#475569" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">手工配置表 / 图 / 地图</text>
+
+                <rect x="510" y="260" width="170" height="44" rx="10" fill="#eef2ff" stroke="#667eea" stroke-width="1.5"></rect>
+                <text x="595" y="287" text-anchor="middle" font-size="12" font-weight="700" fill="#3730a3" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">Save workbook</text>
+              </svg>
+            </div>
+            <figcaption id="fig-flow-caption" class="figure-caption">图 2　教学示意：从入口提问到保存工作簿。实线框对应 2026-11-19 发布说明已写明的步骤；虚线框是宿主 Insight 既有工具可能做的事，不是 copilot 自动排版承诺。若人在 Global Branch 上，宿主还禁止保存工作簿——发布说明未把 branching 与 AIP Insight 合写，但保存会受宿主限制影响。［分析］</figcaption>
+          </figure>
+        </section>
+
+        <section id="s6">
+          <h2>6. 教学示例（明确为示例，非实测）</h2>
+          <p>下面的场景和提问都是教学示例，用来把第 5 节官方步骤串成一句可说清的话。对象类型名称借用 Insight GA 公告与官方 SQL 截图里出现过的示例域（<code>Aircraft</code>、<code>Flights</code>、<code>Airports</code>，以及 <code>City = El Paso</code>），<strong>不代表本课已在任何环境执行过这些提问</strong>。</p>
+          <p><strong>示例设定：</strong> enrollment 已启用 AIP，本人有 AIP 访问权限；Ontology 中已有上述对象类型及链接。</p>
+          <ol>
+            <li>打开 Insight 首页，选择 <strong>Start an analysis with AIP</strong>。［官方入口］</li>
+            <li>用自然语言输入类似：「找出近期经停 El Paso 机场的飞机，并按机型汇总。」（示例提问，非官方提示模板）</li>
+            <li>按官方描述，AIP 应帮助查找相关数据，并生成带分析路径的工作簿；路径步骤可见、可编辑。应打开各步卡片，核对过滤条件、链接跳转和对象数量，而不是只读最终数字。</li>
+            <li>若还想看趋势或地图：按官方限制，<strong>表格、图表、地图布局需自己在 Charts / Maps 等页签里配置</strong>，不要期待 copilot 已经排好版。</li>
+            <li>若提问依赖 interfaces 跨多种对象类型聚合，或要用 derived properties：按发布说明，当前 copilot 还做不了；应改用 Insight 既有工具手工做，或换提问。</li>
+            <li>可继续对话收窄范围，或直接在路径里改 Filter / Link / Transform。满意后保存工作簿。</li>
+          </ol>
+          <p><strong>示例故意不承诺的事情：</strong> 不保证一定选对对象类型；不保证自动写出可用 SQL；不保证自动执行写回 Action；也不给出准确率。这些都没有官方规格。</p>
+        </section>
+
+        <section id="s7">
+          <h2>7. 对本体的依赖</h2>
+          <ul>
+            <li>AIP Insight 长文第一句就是 “Turn questions about your Ontology into workbooks…”。［官方陈述］</li>
+            <li>Insight 总览把「Your data is modeled in the Ontology」列为推荐使用条件之首。</li>
+            <li>官方分析工具对照页写：Insight 面向 operational users 分析本体并创建 object set；它利用 object types、interfaces、link types 和 actions。</li>
+            <li>对照页同时把 <strong>Contour</strong> 留给「部分或全部数据尚未映射进 Ontology」或需要在很大表数据上分析的情况。</li>
+          </ul>
+          <p>［分析］AIP Insight 官方设想的输入是已经进 Ontology 的对象数据，而不是任意数据集或未建模的原始表。发布说明没有写它能否像 AIP Analyst 那样把 dataset、Notepad、Workshop 模块、函数直接加进上下文；在没有官方句子之前，不应假定可以。</p>
+          <p>宿主细节与 copilot 限制对得上的两处：Insight 已支持 interfaces，但 AIP Insight copilot 尚不支持；SQL sandbox 的 join 结果不是本体化数据，也不能直接改变路径。</p>
+        </section>
+
+        <section id="s8">
+          <h2>8. 和相邻产品的边界</h2>
+          <p>检索当日 Palantir 没有「AIP Insight 与某某」专页。下表先用各产品自己的官方定义；表后归纳标为分析。</p>
+          <p class="table-caption">表 4　相邻产品边界（官方定义摘要）</p>
+          <div class="table-wrap">
+            <table class="note-table">
+              <thead>
+                <tr>
+                  <th scope="col">产品</th>
+                  <th scope="col">官方怎么定位</th>
+                  <th scope="col">是否独立应用 / 构建器</th>
+                  <th scope="col">主要产物或用法</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>AIP Insight</strong></td>
+                  <td>内置于 Insight 的 in-app copilot</td>
+                  <td>否，挂在 Insight 里</td>
+                  <td>可检查、可 refining、可保存的 Insight workbook；可创建和编辑 analysis paths</td>
+                </tr>
+                <tr>
+                  <td><strong>Insight</strong></td>
+                  <td>点选式探索与分析本体数据</td>
+                  <td>是，Analytics 应用</td>
+                  <td>workbook、可发布的 object set、可在结果上写回</td>
+                </tr>
+                <tr>
+                  <td><strong>AIP Analyst</strong></td>
+                  <td>智能体式工作流，自然语言在本体上做即席分析</td>
+                  <td>是；可嵌入 Workshop 或 iframe</td>
+                  <td>可保存为 Compass 中的 analysis 资源</td>
+                </tr>
+                <tr>
+                  <td><strong>AIP Chatbot Studio</strong></td>
+                  <td>创建可部署的 AIP Chatbots（原 Agents）</td>
+                  <td>是，构建器</td>
+                  <td>可部署 chatbot；也可放进 Workshop</td>
+                </tr>
+                <tr>
+                  <td><strong>AIP Assist</strong></td>
+                  <td>平台导航与帮助</td>
+                  <td>平台侧栏</td>
+                  <td>基于文档与上下文的帮助；官方写明不访问你的数据</td>
+                </tr>
+                <tr>
+                  <td><strong>Quiver 中的 AIP</strong></td>
+                  <td>在 Quiver 里用自然语言生成并配置卡片</td>
+                  <td>Quiver 内功能，不是 Insight copilot</td>
+                  <td>Quiver 分析卡片与图；时间序列等</td>
+                </tr>
+                <tr>
+                  <td><strong>AIP Logic</strong></td>
+                  <td>无代码创建由本体数据支撑的 AI 函数</td>
+                  <td>是，构建器</td>
+                  <td>AI 函数、自动化</td>
+                </tr>
+                <tr>
+                  <td><strong>Contour</strong></td>
+                  <td>面向表数据、大规模点选分析</td>
+                  <td>是</td>
+                  <td>Contour 分析；数据未进本体时更常走这里</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>官方已经直接做过对照的两组［官方陈述］：</p>
+          <ul>
+            <li><strong>Insight vs Object Explorer：</strong> Object Explorer 是本体主页与搜索发现处；Insight 更适合已经对要分析的数据有所了解、需要直观分析工作流的人。</li>
+            <li><strong>Insight vs Contour vs Quiver：</strong> 点选分析三件套——Insight 面向 operational users 分析本体并创建 object set；Quiver 支持更高级本体分析与仪表盘；Contour 面向表数据与大规模分析。</li>
+          </ul>
+          <p>［分析，非官方对比页］可以这样记，但不要说成 Palantir 官方结论：</p>
+          <ul>
+            <li>要在 Insight 里用自然语言起步、得到能打开、能改步骤、能保存的工作簿 → <strong>AIP Insight</strong>。</li>
+            <li>要独立智能体分析会话、可嵌入 Workshop、并可把 dataset / 函数等作为上下文 → 公开文档写得更完整的是 <strong>AIP Analyst</strong>；发布说明没有说 AIP Insight 具备这些。</li>
+            <li>要可在应用里反复使用、甚至经 SDK / API 对外提供的助手 → <strong>Chatbot Studio</strong>。</li>
+            <li>只想问平台怎么用、且不能碰业务数据 → <strong>AIP Assist</strong>；不能把 Assist「不访问你的数据」套到会查找本体数据的 AIP Insight 上。</li>
+            <li>要在 Quiver 卡片画布 / 时间序列 / 仪表盘里用自然语言 → <strong>Quiver 的 AIP 功能</strong>。</li>
+          </ul>
+          <p>《AIP features》参考表与《Enable AIP features》举例清单，检索当日都<strong>没有点名</strong> AIP Insight（也未列入 AIP Analyst）。［官方陈述］缺席说明文档尚未更新，不能反向推导「官方认为它们不是 AIP 功能」。权限仍以发布说明的「enrollment 已启用 AIP + 用户具有 AIP access」为准。</p>
+        </section>
+
+        <section id="s9">
+          <h2>9. 适用与不适用</h2>
+          <p><strong>官方建议使用 Insight 宿主的情况</strong>［官方陈述］：数据已建模进本体；需要不用写代码的可视化下钻；想探索对象关系（Link）；想从分析结果写回本体；角色是 analyst / investigator；已经对要分析的数据有所了解（否则更建议先用 Object Explorer）。</p>
+          <p><strong>官方描述的 AIP Insight 增量</strong>［官方陈述］：希望用自然语言描述探索意图；希望分析步骤可见可编辑，而不是只拿到一句结论；希望随后继续对话或改用既有工具 refining，并保存工作簿。</p>
+          <p><strong>官方已划出的不适用 / 尚未支持</strong>［官方陈述］：</p>
+          <ul>
+            <li>数据还没进本体 → 官方更指向 Contour 等表分析工具。</li>
+            <li>需要 copilot 自动排好表格、图表、地图布局 → 官方要求手工配置。</li>
+            <li>提问依赖 interfaces 或 derived properties → copilot 尚不支持。</li>
+            <li>需要生产级、可对外部署的助手或应用 → Chatbot Studio、Workshop、OSDK / API。</li>
+            <li>只想问平台文档且不能访问业务数据 → AIP Assist。</li>
+            <li>主要做时间序列、Quiver 仪表盘并嵌入 Workshop → Quiver。</li>
+            <li>把 beta 当成与 GA 相同的长期承诺 → 官方 beta 定义写明不保证一定进入后续阶段。</li>
+            <li>人在 Global Branch 上又必须保存工作簿 / 发布 object set / 导出 Excel → 宿主禁用这些操作。</li>
+          </ul>
+        </section>
+
+        <section id="s10">
+          <h2>10. 权限、可用性与定价：已知和未知</h2>
+          <h3>10.1 可用性（已知）</h3>
+          <ul>
+            <li>对所有已启用 AIP 的 enrollment 可用；两个入口只对有 AIP access 的用户显示；目前处于 beta。［官方陈述］</li>
+            <li>官方 beta 定义要点：向更广泛客户提供前可能缓慢放量；文档会标注 beta；<strong>不保证</strong>一定进入后续阶段，尽管绝大多数会进入 GA。</li>
+            <li>新 enrollment 默认启用 AIP；更早的 enrollment 可能要在 Control Panel &gt; AIP settings 手动打开；启用可能带来额外 compute usage。［官方陈述］</li>
+            <li>多份 AIP 文档页脚写：功能可用性 subject to change and may differ between customers。</li>
+            <li>Insight 应用本身：2026-03-27 宣布将从 3 月 30 日那一周起对所有 enrollment 一般可用。</li>
+          </ul>
+          <p>［分析］「对所有已启用 AIP 的 enrollment 可用」与「处于 beta、而 beta 允许尚未进入每个 enrollment」同时出现在官方文本里。更稳妥的读法是：广泛提供仍以 enrollment 启用 AIP、用户有 AIP access 为前提，并保留 beta 的能力与放量变化。具体环境看不看得到按钮，要以该环境为准；本课未实测。</p>
+
+          <h3>10.2 权限（已知与未知）</h3>
+          <p><strong>已知：</strong> 看到入口需 AIP access；工作簿分享走 Compass 角色（Discoverer / Viewer / Editor / Owner）；写回需要对象类型编辑权限与数据源写权限等。</p>
+          <p><strong>未知（检索当日未在 AIP Insight 相关官方文本中找到）：</strong> 是否有独立 Control Panel 开关；copilot 检索时如何强制对象级 / 属性级权限；提示词是否发送给第三方托管模型及保留策略；Viewer 能否在别人的工作簿里继续对话。AIP 总览引导读者去 SafeBase 上的总体安全 FAQ，那不是 AIP Insight 专页——本课不转述未能稳定抽出的条款。</p>
+
+          <h3>10.3 定价与用量</h3>
+          <ul>
+            <li><strong>未找到 AIP Insight 的公开价目或按次报价。</strong> 本课不编造价格。</li>
+            <li>启用 AIP 可能带来额外 compute usage，并指向 AIP compute usage 文档。［官方陈述］</li>
+            <li>AIP Analyst 有专门的用量说明（LLM token + 工具调用背后的计算）。［分析］这是 Analyst 的计量规则，<strong>不能</strong>自动当成 AIP Insight 的计量规则。</li>
+          </ul>
+        </section>
+
+        <section id="s11">
+          <h2>11. 文档滞后与检索日尚未核到的事项</h2>
+          <ol>
+            <li>检索当日（2026-11-23，UTC+8）Insight 文档树中没有 AIP Insight 专页；第一手说明仍是 2026-11-19 发布说明长文。</li>
+            <li>《AIP features》参考表未列入 AIP Insight，也未列入 AIP Analyst。</li>
+            <li>《Enable AIP features》开关清单未点名 Insight / AIP Insight。</li>
+            <li>Insight FAQ 仍写将「即将」与 AIP Chatbots 集成，未提及已发布的 AIP Insight。</li>
+            <li>Insight FAQ 仍写 interface 分析扩展「即将到来」，但 2026-10-14 发布说明已宣布宿主支持 interfaces。</li>
+            <li>《Types of analysis》里「Learn how to get started with Insight」链到了 Contour 入门页——官方文档错误链接；正确入门页是 <a href="https://palantir.com/docs/foundry/insight/getting-started/" rel="noopener noreferrer" target="_blank">Insight getting started</a>。</li>
+            <li>未找到中文官方正文的稳定 URL；未登录客户环境，入口是否出现、模型与生成质量均未实测。</li>
+            <li>未找到 AIP Insight 公开价格、专有安全白皮书、默认模型，或与 AIP Analyst 的官方对比页。</li>
+          </ol>
+        </section>
+
+        <section id="s12" class="sources">
+          <h2>12. 来源</h2>
+          <p>检索日 2026-11-23（UTC+8）。课文反复使用的官方入口：</p>
+          <ul>
+            <li><a href="https://palantir.com/docs/foundry/announcements/release-notes/2026/" rel="noopener noreferrer" target="_blank">2026 年发布说明</a>（含 2026-11-19 AIP Insight 与 2026-03-27 Insight GA）</li>
+            <li><a href="https://www.palantir.com/docs/resources/foundry/announcements/release-notes/2026-11-17-155403-insight-image-pn.png" rel="noopener noreferrer" target="_blank">AIP Insight 官方示意图</a></li>
+            <li><a href="https://palantir.com/docs/foundry/insight/overview/" rel="noopener noreferrer" target="_blank">Insight 总览</a></li>
+            <li><a href="https://palantir.com/docs/foundry/insight/getting-started/" rel="noopener noreferrer" target="_blank">Insight 入门</a></li>
+            <li><a href="https://palantir.com/docs/foundry/insight/faq/" rel="noopener noreferrer" target="_blank">Insight FAQ</a></li>
+            <li><a href="https://palantir.com/docs/foundry/insight/save-and-share/" rel="noopener noreferrer" target="_blank">保存与分享 / 权限角色</a></li>
+            <li><a href="https://palantir.com/docs/foundry/analytics/types-of-analysis/" rel="noopener noreferrer" target="_blank">分析工具对照</a></li>
+            <li><a href="https://palantir.com/docs/foundry/platform-overview/development-life-cycle/" rel="noopener noreferrer" target="_blank">开发生命周期（beta / GA）</a></li>
+            <li><a href="https://palantir.com/docs/foundry/aip/enable-aip-features/" rel="noopener noreferrer" target="_blank">启用 AIP</a></li>
+            <li><a href="https://palantir.com/docs/foundry/aip/aip-features/" rel="noopener noreferrer" target="_blank">AIP 功能参考</a></li>
+            <li><a href="https://palantir.com/docs/foundry/aip-analyst/overview/" rel="noopener noreferrer" target="_blank">AIP Analyst 总览</a></li>
+            <li><a href="https://palantir.com/docs/foundry/chatbot-studio/overview/" rel="noopener noreferrer" target="_blank">AIP Chatbot Studio</a></li>
+            <li><a href="https://palantir.com/docs/foundry/workshop/overview/" rel="noopener noreferrer" target="_blank">Workshop 总览</a></li>
+            <li><a href="https://palantir.com/docs/foundry/assist/overview/" rel="noopener noreferrer" target="_blank">AIP Assist 总览</a></li>
+            <li><a href="https://palantir.com/docs/foundry/quiver/quiver-aip/" rel="noopener noreferrer" target="_blank">Quiver 中的 AIP 功能</a></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+
+    <footer class="foot">
+      <p>本网页仅供个人学习笔记参考。</p>
+      <p><a href="../">返回课程目录</a> · <a href="../../">狙击日报</a></p>
+    </footer>
+  </div>
+</body>
+</html>

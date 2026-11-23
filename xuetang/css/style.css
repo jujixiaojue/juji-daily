@@ -486,6 +486,20 @@ a:hover {
   border-radius: 4px;
 }
 
+.article blockquote {
+  margin: 0.85rem 0 1.15rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--primary);
+  background: var(--muted);
+  border-radius: 0 8px 8px 0;
+  color: var(--sub);
+}
+
+.article blockquote p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .article pre {
   margin: 0.85rem 0 1.15rem;
   padding: 0.9rem 1rem;
@@ -578,7 +592,8 @@ a:hover {
   overflow: hidden;
 }
 
-.figure-frame svg {
+.figure-frame svg,
+.figure-frame img {
   display: block;
   width: 100%;
   max-width: 100%;
