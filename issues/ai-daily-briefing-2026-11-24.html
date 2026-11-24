@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狙击日报｜2026年11月24日 · AI 每日早报</title>
+  <style>
+    :root {
+      --primary: #667eea;
+      --primary-2: #764ba2;
+      --bg: #f5f6fb;
+      --card: #ffffff;
+      --muted: #f8f9fa;
+      --text: #1f2937;
+      --sub: #4b5563;
+      --line: #e5e7eb;
+      --ai: #4f46e5;
+      --warn: #b45309;
+      --ok: #047857;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: #4f46e5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+    header.hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      opacity: .95;
+      margin-bottom: 12px;
+    }
+    header.hero h1 {
+      margin: 0 0 6px;
+      font-size: 36px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    header.hero .sub {
+      margin: 0 0 18px;
+      font-size: 15px;
+      opacity: .92;
+    }
+    header.hero .date {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+    .overview {
+      background: rgba(255,255,255,.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+    }
+    .archive {
+      margin: 16px 0 0;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--sub);
+      font-size: 14px;
+      border: 1px solid var(--line);
+    }
+    .sec {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px 24px 18px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+      border: 1px solid var(--line);
+    }
+    .sec h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+    }
+    .item { margin: 0 0 16px; padding: 0 0 16px; border-bottom: 1px dashed var(--line); }
+    .item:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 4px; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 650; }
+    .meta { color: var(--sub); font-size: 13px; margin-bottom: 6px; }
+    .src { font-size: 13px; color: var(--sub); margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tag-ai { background: #eef2ff; color: var(--ai); }
+    .tag-other { background: #f3f4f6; color: #4b5563; }
+    .tag-cat { background: #f3e8ff; color: #6d28d9; }
+    .tag-warn { background: #fff7ed; color: var(--warn); }
+    .insight {
+      background: var(--muted);
+      border-left: 4px solid #764ba2;
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .insight strong { color: #5b21b6; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 8px 0 12px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--muted); font-weight: 650; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul.clean { margin: 6px 0 0; padding-left: 1.2em; }
+    ul.clean li { margin: 4px 0; }
+    .note { font-size: 13px; color: var(--sub); }
+    footer.foot {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--sub);
+      font-size: 13px;
+      padding: 18px 8px 0;
+    }
+    @media (max-width: 720px) {
+      header.hero { padding: 26px 18px 20px; }
+      header.hero h1 { font-size: 28px; }
+      .sec { padding: 18px 16px 12px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">JUJI DAILY</div>
+      <h1>狙击日报</h1>
+      <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
+      <p class="date">2026年11月24日 星期二（UTC+8）</p>
+      <div class="overview">
+        今日概览：亚马逊威胁情报披露，一个据其评估具有中国关联（中等置信度）的行为方，使用开源渗透测试框架 Cairn 的自主 Agent，在约 11 分钟内发现并利用医疗影像标注软件 MONAI Label 的零日漏洞获得服务器 root 权限。Together AI 于 11 月 21 日通报，编码 Agent 将私有仓库凭证提交到公开代码库，导致 6–7 月部分无服务器推理提示样本被下载；OpenRouter 随后宣布下架 3 家推理供应商，并将 125 个端点移出零数据保留（ZDR）资格。Google 于 11 月 23 日起在美国向 Search AI Mode 的 Personal Intelligence 可选接入 Google Wallet（只读），Drive 与 Gemini 应用将在随后数周跟进。
+      </div>
+    </header>
+
+    <div class="archive">
+      <strong>归档：</strong>
+      <a href="./issues/ai-daily-briefing-2026-11-24.html">2026-11-24（今日）</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-23.html">2026-11-23</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-20.html">2026-11-20</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-19.html">2026-11-19</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-18.html">2026-11-18</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-17.html">2026-11-17</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-16.html">2026-11-16</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a>
+      · <a href="./xuetang/">狙击学堂</a>
+      · 公开页面：<a href="https://jujixiaojue.github.io/juji-daily/">https://jujixiaojue.github.io/juji-daily/</a>
+    </div>
+
+    <section class="sec" id="s1">
+      <h2>📊 GitHub Trending 日报</h2>
+      <p class="note">数据来自 GitHub Trending Today 对 <a href="https://github.com/trending">github.com/trending</a> 的快照，采集时间为 2026年11月23日 06:57 UTC（14:57 UTC+8）。星标数为该快照中的累计值，「今日新增」为 GitHub 公布的当日增长。优先列出 AI / ML / Agent 相关项目。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>项目</th>
+            <th>语言</th>
+            <th>简介</th>
+            <th>星标 / 今日新增</th>
+            <th>标注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="https://github.com/elementalsouls/Claude-BugHunter">elementalsouls/Claude-BugHunter</a></td>
+            <td>Python</td>
+            <td>面向外部红队与漏洞狩猎的 Claude Code skill 合集：82 个 skill、15 条斜杠命令，以及按 24 类漏洞整理的披露报告模式。</td>
+            <td>18.4k / +1,716（+10%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="https://github.com/obra/superpowers">obra/superpowers</a></td>
+            <td>Shell</td>
+            <td>一套面向软件开发的 agentic skills 框架与方法。</td>
+            <td>324k / +788（+0.2%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td>
+            <td>Python</td>
+            <td>宣称「让所有软件变为 Agent-Native」，配套站点 CLI-Hub：clianything.cc。</td>
+            <td>63k / +699（+1.1%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><a href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></td>
+            <td>TypeScript</td>
+            <td>为 Agent 提供搜索、抓取与访问 550 余个数据源的知识基础设施 API。</td>
+            <td>207k / +915（+0.4%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><a href="https://github.com/jingyaogong/minimind">jingyaogong/minimind</a></td>
+            <td>Python</td>
+            <td>从零训练 64M 参数大模型的教学项目，宣称可在约两小时内完成。</td>
+            <td>69k / +473（+0.7%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><a href="https://github.com/mvanhorn/last30days-skill">mvanhorn/last30days-skill</a></td>
+            <td>Python</td>
+            <td>跨 Reddit、X、YouTube、HN、Polymarket 与网页检索近 30 天材料并做综述的 Agent skill。</td>
+            <td>73k / +668（+0.9%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><a href="https://github.com/google-labs-code/stitch-skills">google-labs-code/stitch-skills</a></td>
+            <td>TypeScript</td>
+            <td>面向 Stitch MCP 服务器的 Agent Skills 库，遵循 Agent Skills 开放标准，可与 Antigravity、Gemini CLI、Claude Code、Cursor 等配合。</td>
+            <td>12k / +494（+4.3%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
+            <td>HTML</td>
+            <td>为 Claude Code、Codex、GitHub Copilot、Cursor 等编码 Agent 准备的编辑式图表设计技能，自称覆盖 52 种图表类型，输出自包含 HTML + SVG。</td>
+            <td>70.5k / +518（+0.7%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><a href="https://github.com/zhouxiaoka/autoclip">zhouxiaoka/autoclip</a></td>
+            <td>Python</td>
+            <td>开源 AI 视频剪辑桌面工具，将长视频自动剪成短视频并生成字幕、封面与发布文案。</td>
+            <td>13.8k / +641（+4.9%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><a href="https://github.com/cursor/plugins">cursor/plugins</a></td>
+            <td>TypeScript</td>
+            <td>Cursor 插件规范与官方插件。</td>
+            <td>18.6k / +294（+1.6%）</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">同期榜上还有增长更快但体量较小的 <a href="https://github.com/mjmirza/app-store-compliance">mjmirza/app-store-compliance</a>（+621，+17%，含面向编码 Agent 的上架合规 skill），以及非 AI 主项目 nginx、AFFiNE、Ghost-Downloader-3 等，此处不展开。</p>
+      <p class="src">来源：<a href="https://githubtrending.today/">GitHub Trending Today</a>（采集 2026-11-23 06:57 UTC）</p>
+    </section>
+
+    <section class="sec" id="s2">
+      <h2>🤖 AI Agent 前沿洞察</h2>
+
+      <div class="item">
+        <h3>亚马逊威胁情报：Cairn 自主 Agent 发现并利用 MONAI Label 零日漏洞</h3>
+        <p>AWS Security Blog 于 11 月 20 日发布、由 CJ Moses 署名的调查指出：亚马逊威胁情报在 9 月 10 日发现一台未做身份验证、对外公开的 Cairn 实例。Cairn 是开源的自主渗透测试与问题求解框架。操作者向 Agent 提供目标 IP，并以自然语言给出「获得 shell 访问」一类目标，由多个 Agent 自行规划、执行并调整步骤。该活动约 48 小时，始于 9 月 8 日，目标为东亚、中国大陆以外的大学网络。亚马逊根据简体中文提示词、脚本时区为中国标准时间以及目标选择，以「中等置信度」评估操作者具有中国关联。</p>
+        <p>BleepingComputer 将受影响软件识别为开源医疗影像标注工具 MONAI Label。亚马逊称，Agent 在约 11 分钟内完成 API 测绘并发现上传参数中的路径遍历，从而向任意位置写文件；在后续会话中，它们把 Python 反向 shell 写入启动时会被导入的文件，再触发训练 API，使新进程以 root 权限回连。亚马逊以「高置信度」判断该漏洞在发现时为 zero-day。项目咨询于 11 月 18 日发布：受影响版本包含 0.8.5 及更早版本，咨询中未列出已修补发行版，并写明修复将进入下一版本；默认关闭身份验证时，任一可访问该服务器的网络客户端均可利用该缺陷。亚马逊称受影响机构不是 AWS 客户，已通过政府合作方联系对方。</p>
+        <p>并非所有行动都成功：针对一所大学未认证 Redis 的行动持续约 16 小时、148 个连续步骤后失败；针对 GPU 服务器的另一次行动超过 6 小时，Agent 从公开来源拼出约 80 个真实用户名并测试了 3 万余组凭据，仍未获得可用登录。</p>
+        <p class="src">来源：<a href="https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/">AWS Security Blog（2026-11-20）</a>；<a href="https://ai.info/news/aws-cairn-ai-agents-medical-software-zero-day">AI.info 综述（2026-11-22）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>Shepherd：用「元 Agent」管理其他 Agent 的开源尝试</h3>
+        <p>IEEE Spectrum 于 11 月 19 日报道，东北大学、斯坦福大学与加州大学伯克利分校的研究者（包括 Simon Yu、Derek Chong、Weiyan Shi 等）介绍了开源框架 Shepherd。它被描述为一个用于监督和管理其他 AI Agent 的「元 Agent」，借鉴软件开发中的版本控制思路，记录 Agent 的动作与状态，使一个 Agent 能够检查并操作另一个 Agent。文章强调：随着多 Agent 系统进入真实工作流，Agent 管理本身正在成为独立问题。</p>
+        <p class="src">来源：<a href="https://spectrum.ieee.org/ai-agent-manager">IEEE Spectrum《Shepherd: The Quiet Power Of An AI Agent Manager》（2026-11-19）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>DeepSeek Harness 预发布 v0.2.3-alpha.1：把本地 Agent 接到国内办公套件</h3>
+        <p>11 月 22 日，DeepSeek 放出 DeepSeek Harness（dsh）预发布版本 v0.2.3-alpha.1。中文技术媒体与更新日志转述称，该版本新增可选的飞书、钉钉、企业微信、腾讯文档等连接器，另有 Linear、Notion 等；用户在插件页完成一次授权后，可在对话中调用。报道同时提到任务时间线、代码审阅和插件市场等界面改动。这是一次客户端 / Harness 更新，不是新模型发布。</p>
+        <p class="src">来源：<a href="https://juejin.cn/post/7710655550249779227">掘金《dsh 0.2.3 拆解》（2026-11-22）</a>；<a href="https://finance.sina.com.cn/wm/2026-11-23/doc-iniztfne8287053.shtml">量子位 / 新浪转载（2026-11-23）</a></p>
+      </div>
+
+      <div class="insight">
+        <strong>未来方向洞察：</strong>过去 72 小时里，Agent 同时出现在两条反差鲜明的轨道上。一条是进攻性自动化：Cairn 表明，只要给出目标和网络入口，现有开源 Harness 已能在无人逐步点选的情况下发现并利用未知漏洞，且失败时会长时间、多步骤地换方法。另一条是办公落地：本地 Harness 开始直接连接飞书、钉钉和文档，浏览器侧栏里的 Computer 也可以在用户已登录的标签页里办事。两者共用同一套能力——规划、工具调用、持久尝试——差别主要在授权边界、身份核验和失败后是否被允许继续。对做 Agent / 本体中台的团队，这提示「能不能跑完任务」之外，还需要把身份、权限范围、审计和人工回收，设计成默认路径而不是事后补丁。
+      </div>
+    </section>
+
+    <section class="sec" id="s3">
+      <h2>🧬 Ontology（本体）生态动态</h2>
+
+      <div class="item">
+        <h3>Microsoft Foundry IQ 将知识图谱与 GraphRAG Zero 交给 Agent 检索</h3>
+        <p>微软在 11 月 17 日的 Foundry 博客与 Azure 博客中介绍：Azure AI Search 现以 Foundry IQ 为名，并把知识图谱作为面向 Agent 的检索能力。Microsoft Research 同期文章写道，GraphRAG Zero 旨在为 Agent 提供可连续更新、接近交互速度的关联上下文，用于推理、决策与行动；该能力现可作为选项用于 Foundry IQ，并出现在 GitHub 的 Repo Mind Light 等场景。与「把文档切成段落再向量检索」不同，这里强调的是对象、关系与社区级摘要，使跨文档的整体性问题可以被图结构导航。</p>
+        <p class="src">来源：<a href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-introducing-knowledge-graphs-engineered-for-agents/4572683">Microsoft Foundry Blog：Foundry IQ 知识图谱（2026-11-17）</a>；<a href="https://www.microsoft.com/en-us/research/story/the-evolution-of-graphrag-advancing-systems-and-evaluation-together/">Microsoft Research：The evolution of GraphRAG</a>；<a href="https://azure.microsoft.com/en-us/blog/introducing-the-new-microsoft-iq-putting-your-organizations-intelligence-to-work-in-every-agent/">Azure Blog：Introducing the new Microsoft IQ</a></p>
+      </div>
+
+      <div class="item">
+        <h3>Collate Ontology Studio：把业务概念做成可发布、可导出的模型</h3>
+        <p>Collate（OpenMetadata 背后的公司）于 11 月 17 日宣布 Ontology Studio：在同一工作区中把业务概念、属性、约束建成独立本体，再映射到数据资产，并交给 Agent 使用。文档将 Studio 分为查看、编辑等模式，强调本体可单独发布，而不是只作为术语表里的一段文字。对关注「业务对象是否能约束 Agent 查询」的团队，这是本周仍在被文档和报道展开的一项产品落地，而非仅停留在概念文章。</p>
+        <p class="src">来源：<a href="https://www.getcollate.io/blog/announcing-collate-ontology-studio">Collate 公告（2026-11-17）</a>；<a href="https://docs.getcollate.io/ai-2-0/how-to-guides/ontology/studio">Collate 文档：Ontology Studio</a></p>
+      </div>
+
+      <div class="item">
+        <h3>Ontology（ONT）官方：讨论 Agent 行动前的身份检查；近几日未见新的主网发布</h3>
+        <p>Ontology 官方新闻站在 11 月 20 日刊出文章 <em>AI agent identity: what a service must check before an agent acts</em>，由 Geoff R 撰写。导语写明：银行报告有 AI Agent 在未经核验的同意下尝试在客户账户中执行操作，文章讨论服务在 Agent 行动前应做的检查。截至本早报检索时，官方新闻列表在该文之后没有更新的主网升级或产品发布说明；主网相关公告仍停留在 9 月初的暂停、审查与 v3.1.5 恢复同步。</p>
+        <p class="src">来源：<a href="https://ont.io/news/">Ontology 官方新闻（文章日期 2026-11-20）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s4">
+      <h2>🏢 AI 公司要闻</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> Google：Search AI Mode 可选接入 Wallet，Drive 与 Gemini 将跟进</h3>
+        <p>Google Search 产品副总裁 Robby Stein 于 11 月 23 日发文：即日起在美国开始推送，用户可在 AI Mode 的 Personal Intelligence 中选择安全连接 Google Wallet；Google Drive 与 Gemini 应用将在随后数周加入。Wallet、Drive、Gemini 将与已支持的 Gmail、日历和相册一起，为搜索提供个人上下文。官方写明：若连接 Wallet，AI Mode 只能读取账户信息，不能转移、管理或投资资金。用户在 Search Personalization 的 Connected Apps 中自行开关；随后还可在定制回复下方通过 “Personalization” 图标查看所用上下文，并在对话中更正（例如「我不再吃素」）。</p>
+        <p class="src">来源：<a href="https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/">Google 官方博客（2026-11-23）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">政策</span> Together AI：编码 Agent 泄露凭证，6–7 月部分提示样本被下载</h3>
+        <p>Together AI CEO Vipul Ved Prakash 于 11 月 21 日发布安全通报：公司为软件测试，将授权范围内的提示样本存放在 Hugging Face 私有仓库，样本主要来自 2026 年 6 月 24 日、7 月 4 日、7 月 8 日和 7 月 14 日对 MiniMax M3、GLM-5.2、Kimi K2.6 的无服务器推理请求。开发公开仓库 xorl 时，一个 AI 编码 Agent 把可访问该私有仓库的凭证提交到了公开代码库。自动扫描发现后回滚了提交，但暴露窗口内已有未授权方下载样本，并在其中搜索其他服务凭证并做有效性测试；其中 5 个被测凭证是 Dragos 安全实验的金丝雀凭证。公司称正在审查受影响内容，以确定是否涉及敏感个人信息，并将视情况直接通知客户。已采取的措施包括：改用范围受限或短时凭证、对所有 PR 做凭证检查、新账户默认开启零数据保留（ZDR），以及更新对编码 Agent 的开发流程规定。</p>
+        <p class="src">来源：<a href="https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026">Together AI 官方通报（2026-11-21）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">政策</span> OpenRouter：下架 3 家供应商，125 个端点失去 ZDR 资格</h3>
+        <p>OpenRouter 于 11 月 22 日发文称，安全研究者报告部分推理供应商出现数据泄露，或有证据表明其数据政策未被履行。OpenRouter 写明：检测结果并未显示 OpenRouter 自身被侵入或遭到未授权访问。采取的行动包括：基于调查结果下架 3 家供应商；将 125 个端点移出 Zero Data Retention 资格（含被标记的供应商，以及作为预防措施移除的其他端点）；并通知所有可能受影响的客户。文章列出已公开的供应商说明，包括 Atlas Cloud、Novita、Phala，以及上述 Together AI 通报。并非所有受影响供应商都已公开发文。</p>
+        <p class="src">来源：<a href="https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/">OpenRouter 公告（2026-11-22）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> 蚂蚁 Ant Ling 发布开源权重医疗模型 LingSante-3.1-flash</h3>
+        <p>Ant Group 的 inclusionAI / Ant Ling 于 11 月 22 日在 Hugging Face 以 MIT 许可发布 LingSante-3.1-flash。模型卡写明：该模型为 5600 亿总参数、每 token 激活 250 亿参数的 MoE（512 个专家中路由 8 个，另有 1 个共享专家），上下文窗口 100 万 token，基于 Ling-3.1-flash 架构。模型卡明确：它用于研究与评估，「不是医疗器械，不得作为诊断、处方或治疗的独立依据」；输出可能不正确、不完整、过时或缺少所引证据支持，基准与模拟环境结果「不能证明临床有效性」。Ant Ling 自行报告的分数包括 HealthBench Professional 65.72、Humanity's Last Exam（纯文本、含工具）72.22、BrowseComp（含上下文）94.10，并称在这三项上高于 GPT-6 Astra、Claude Opus 5.5 和 Gemini 4 Argon——以上为开发者自己的评测，而非独立复核。</p>
+        <p class="src">来源：<a href="https://huggingface.co/inclusionAI/LingSante-3.1-flash">Hugging Face：inclusionAI/LingSante-3.1-flash</a>；<a href="https://ai.info/news/ant-ling-lingsante-3-1-flash-open-medical-model">AI.info 综述（2026-11-23）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">政策</span> OpenAI 首席科学家建议以困惑度建立跨实验室的共同度量</h3>
+        <p>OpenAI 首席科学家 Jakub Pachocki 于 11 月 22 日发表《Perplexity and Intelligence》，主张以困惑度（或等价的交叉熵损失）比较不同开发者的预训练进展，并作为共同安全标准的参考。文章回顾了从 GPT-3.5 到当前模型在其内部持有数据集上的 log-perplexity 变化，并写到：当损失进入约 0.68–0.7 窗口时，应预期出现进一步的、今日评测未必覆盖的能力。该文已在昨日早报中作为主文推荐，此处仅作连续性记录。</p>
+        <p class="src">来源：<a href="https://openai.com/index/perplexity-and-intelligence/">OpenAI《Perplexity and Intelligence》（2026-11-22）</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s5">
+      <h2>💊 AI 制药板块</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">融资 / 合作</span> 默克与 Isomorphic Labs 就肿瘤小分子达成战略研究合作</h3>
+        <p>默克（Merck &amp; Co., 在美国和加拿大以外称 MSD）于 11 月 19 日宣布，与 Alphabet 旗下 Isomorphic Labs 达成研究合作：针对一个具有战略重要性的肿瘤靶点，发现治疗性小分子候选物。Isomorphic Labs 使用其药物设计引擎 IsoDDE，结合默克为此次合作提供的部分高质量专有数据，进行计算预测并交付分子设计；默克负责由此产生的任何产品的临床前与临床开发、生产及商业化。协议包括预付款，以及研究、开发、监管和销售里程碑付款和分级特许权使用费；Isomorphic Labs 还可选择共同资助开发以换取更高费率。官方新闻未披露具体金额。默克研发实验室的 George Addona 在声明中强调，要发挥 AI/ML 在分子发明中的作用，关键是湿实验与干实验职能的紧密协同。</p>
+        <p>这是「AI 从头设计 / 计算设计候选分子」路径上的合作，交付物是设计出的候选分子，而非已上市药物；进入人体临床仍取决于默克后续开发。该合作发布于 Isomorphic Labs 11 月 17 日宣布完成 50 亿美元 C 轮之后数日。中文媒体（新浪、虎嗅、环球生技等）报道称本轮由 Greenoaks 与红杉资本联合领投，Alphabet、a16z、淡马锡、Thrive Capital、MGX 等参与，并有报道称其投后估值约 500 亿美元、公开管道中尚无进入人体临床的项目——估值与管线表述来自媒体，官方新闻稿未在本次检索中逐条确认，相关数字标为需对照官方融资公告。</p>
+        <p class="src">来源：<a href="https://www.merck.com/news/merck-and-isomorphic-labs-enter-strategic-research-collaboration/">默克官方新闻稿（2026-11-19）</a>；融资背景参见 <a href="https://finance.sina.com.cn/tech/roll/2026-11-18/doc-inizcrpi1673195.shtml">新浪科技（2026-11-18）</a>、<a href="https://news.gbimonthly.com/tw/article/show.php?num=91542">环球生技（2026-11-19）</a></p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">临床进展</span> Recursion：REC-4881 注册 III 期方案与 FDA 对齐</h3>
+        <p>Recursion 于 11 月 18 日宣布，已与美国 FDA 就其在家族性腺瘤性息肉病（FAP）中对 REC-4881 的注册 III 期试验设计达成对齐。REC-4881 是在研口服 MEK1/2 抑制剂，属于临床试验中的候选药物，不是已上市药物。公开报道将其研发路径归为 AI 辅助的药物发现与开发，宜与「已有人体数据的在研管线」和「尚无临床管线的平台型合作」区分看待。CEO 随后在行业媒体中讨论了该 III 期所用的新型终点设计。</p>
+        <p class="src">来源：<a href="https://www.pharmaceutical-technology.com/news/recursion-ceo-details-novel-phase-iii-endpoint-for-rare-disease-drug/">Pharmaceutical Technology（2026-11-19）</a>；公司 11 月 18 日公告转述见 <a href="https://seekingalpha.com/news/4524302-recursion-announces-alignment-with-fda-on-registrational-phase-3-trial-design-for-rec-4881">Seeking Alpha 转载标题页</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s6">
+      <h2>🕸️ 本体生态公司动态</h2>
+
+      <div class="item">
+        <h3>Palantir：McCarthy 在 DevCon 7 展示基于 Ontology 数据的领域模型工厂</h3>
+        <p>Palantir 官方账号于 11 月 19 日发布 DevCon 7 相关说明：McCarthy Building Companies 介绍了一套建立在 Ontology 关联数据、Model Studio、GPU Hubs 与 AIP Evals 上的「主权模型工厂」。引用称，对约 40 亿参数的小模型微调后，在其评估集上达到约 73% 的平衡准确率，对比 Astra 的 62%，误报减少约 20%，成本仅为后者的一个分数。这是客户案例陈述，评估集与对比协议由展示方提供，不宜直接外推为通用基准。</p>
+        <p class="src">来源：<a href="https://x.com/PalantirTech/status/2123414683138801672">Palantir 官方帖文（2026-11-19）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>Collate：把可导出的业务本体做成独立于模型供应商的资产</h3>
+        <p>Ontology Studio 的产品定位之一，是让业务概念、关系和约束成为可版本化、可发布、可导出的资产，而不是锁在某一个模型或某一家云的提示词里。对正在建设本体中台的团队，这与「切换模型后仍保留对象定义」是同一类工程问题。详细能力见官方文档中的本体、查看模式与发布说明。</p>
+        <p class="src">来源：<a href="https://www.getcollate.io/ontology-studio">Collate Ontology Studio 产品页</a></p>
+      </div>
+
+      <div class="item">
+        <h3>IndyKite 开源 Intent Agent，并用意图约束 Agent 可调用的工具</h3>
+        <p>身份与授权公司 IndyKite 在 11 月中旬宣布开源 Intent Agent，试图为「Agent 如何用机器可读方式表达意图」提供一个标准形态：把自然语言请求转成关于谁、要做什么、在何种范围之内的结构化意图，再与意图基访问控制（IBAC）结合，按该意图过滤可调用的 MCP 工具或 A2A skill。公告日期分别落在 11 月 10 日与 17 日前后，本周仍在被行业媒体引用。这属于 Web3 / 企业身份与 Agent 交叉地带的访问控制实践，重点不在代币价格。</p>
+        <p class="src">来源：<a href="https://www.indykite.ai/news/indykite-open-sources-the-intent-agent-to-set-a-standard-for-how-ai-agents-express-intent">IndyKite 新闻稿</a>；<a href="https://www.indykite.ai/news/indykite-launches-intent-based-access-control-that-limits-every-ai-agent-to-the-task">IBAC 发布说明</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s7">
+      <h2>📈 AI 模型比较（Artificial Analysis 能力榜）</h2>
+
+      <div class="item">
+        <h3>a) Intelligence Index v5.0.1：按推理档位列出，不同版本不可直接比较</h3>
+        <p>Artificial Analysis Intelligence Index 当前公开版本为 <strong>v5.0.1</strong>，由 9 项评测按知识工作、编码、科学、综合四类各 25% 合成，包括 AA-Briefcase v1.1、AutomationBench-AA、GDP.pdf、FrontierCode-AA 2.0、Terminal-Bench 4.0、Terminal-Bench-Science 0.1、CritPt v2（困难子集）、AA-Omniscience v1.1、HLE-Diamond。v5 与更早的 v4.3.2 成员不同，分数不可直接对比。同一模型的 max / xhigh / high / medium 也是不同推理档位，应分开读，而不是把「某个实验室的最高分」当成单一官方名次。</p>
+        <p>第三方站点 BenchLeader 在 2026 年 11 月 24 日汇总的 AA 公开榜快照中，给出了按配置排列的 v5.0.1 分数（该站声明数据取自 artificialanalysis.ai 公开榜单）。前列如下：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>配置</th>
+              <th>实验室</th>
+              <th>档位</th>
+              <th>v5.0.1</th>
+              <th>结果日期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Claude Fable 5.2</td><td>Anthropic</td><td>max</td><td>64.6</td><td>2026-11-09</td></tr>
+            <tr><td>Claude Fable 5.2</td><td>Anthropic</td><td>xhigh</td><td>62.2</td><td>2026-11-09</td></tr>
+            <tr><td>GPT-6.2 Astra</td><td>OpenAI</td><td>max</td><td>62.1</td><td>2026-11-17</td></tr>
+            <tr><td>Claude Fable 5.2</td><td>Anthropic</td><td>high</td><td>61.8</td><td>2026-11-09</td></tr>
+            <tr><td>GPT-6.2 Astra</td><td>OpenAI</td><td>xhigh</td><td>61.6</td><td>2026-11-17</td></tr>
+            <tr><td>Gemini 4 Neon</td><td>Google</td><td>xhigh</td><td>61.4</td><td>2026-11-18</td></tr>
+            <tr><td>GPT-6.2 Astra</td><td>OpenAI</td><td>high</td><td>60.1</td><td>2026-11-17</td></tr>
+            <tr><td>Gemini 4 Carbon</td><td>Google</td><td>high</td><td>60.0</td><td>2026-10-28</td></tr>
+            <tr><td>Gemini 4 Neon</td><td>Google</td><td>high</td><td>59.6</td><td>2026-11-18</td></tr>
+            <tr><td>Claude Opus 5.5</td><td>Anthropic</td><td>max</td><td>59.1</td><td>2026-09-22</td></tr>
+          </tbody>
+        </table>
+        <p class="note">另有汇总站 airacescoreboard 在 11 月 23 日 15:56（布加勒斯特时间）按「每个实验室一个最佳非弃用模型」整理时，将 GPT-6.2 Astra 的 61.6 列为该口径第一——与上表按配置排列、Fable 5.2 max 为 64.6 并不矛盾，只是汇总方式不同。读榜时请同时看版本号和推理档位。</p>
+        <p class="src">来源：<a href="https://artificialanalysis.ai/models">Artificial Analysis 模型页</a>；<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader 对 AA Intelligence Index v5.0.1 的快照（标注 2026-11-24）</a>；<a href="https://airacescoreboard.com/aa-index/">airacescoreboard 实验室口径快照（2026-11-23）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>b) Coding Agent Index 与近期新模型</h3>
+        <p>Artificial Analysis 在 11 月 14 日宣布 Coding Agent Index v2.1，将 FrontierCode 升级为 2.0、Terminal-Bench 升级为 4.1，并保留 SWE-Atlas-QnA-AA。官方说明当时写：Claude Fable 5.2 与 Claude Opus 5.5 在该指数上以 58 分并列领先（Fable 在 Claude Code 的 xhigh 与 high；Opus 5.5 max 在 Claude Code，以及与 GPT-6 Luna High 组成的 Cognition 多模型 Harness）。Google 于 11 月 18 日左右发布 Gemini 4 Neon 时，官方材料称其在 Coding Agent Index 上为 58.6、位列第一。两则数字日期不同，后发布的 Neon 可能已经改写了 11 月 14 日的并列领先局面；本日未能从 Artificial Analysis 官方页抓到更新后的完整 Coding Agent 表，若需引用「当前第一」，建议直接打开官方榜单核对，上表 Neon 58.6 以 Google 发布材料为准。</p>
+        <p>近期进入能力讨论的新模型还包括：11 月 17 日的 GPT-6.2 Astra / Sol，11 月 18 日的 Gemini 4 Neon，11 月 16 日的 Qwen4-Max，以及 Thinking Machines 的 Inkling 2 Mini（本周继续被作为可在 32GB 内存 Mac 上运行的开源编码模型讨论）。蚂蚁 LingSante-3.1-flash 则是面向医疗工作流的开源权重模型，见公司要闻，不纳入通用 Intelligence Index 前列。</p>
+        <p class="src">来源：<a href="https://x.com/ArtificialAnlys/status/2121393821955334328">Artificial Analysis 关于 Coding Agent Index v2.1 的说明（2026-11-14）</a>；Gemini 4 Neon 发布材料转述见 DeepMind / 行业报道（2026-11-18）</p>
+      </div>
+
+      <div class="item">
+        <h3>c) 主流模型输入 / 输出定价简表（$/百万 token）</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>模型</th>
+              <th>输入</th>
+              <th>输出</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>GPT-6.2 Astra</td><td>8</td><td>40</td><td>OpenAI：较前代降 20%；缓存输入 0.40</td></tr>
+            <tr><td>GPT-6.2 Sol</td><td>2</td><td>10</td><td>OpenAI 日常档</td></tr>
+            <tr><td>Claude Fable 5.2</td><td>8</td><td>40</td><td>OpenAI 发布稿称 Astra 与 Fable 5.2 对齐该价</td></tr>
+            <tr><td>Gemini 4 Neon</td><td>3</td><td>15</td><td>Google DeepMind 官方，100 万 token 上下文</td></tr>
+            <tr><td>Gemini 4 Carbon</td><td>4</td><td>20</td><td>第三方榜单与此前发布材料一致，建议以 Google 价目为准</td></tr>
+            <tr><td>Qwen4-Max</td><td>1.5</td><td>4.5</td><td>第三方汇总；阿里云还公布缓存输入 0.075</td></tr>
+          </tbody>
+        </table>
+        <p class="src">来源：OpenAI GPT-6.2 发布说明；Google DeepMind Gemini 4 Neon 发布说明；Qwen4-Max 价格见第三方汇总与阿里云材料，使用前请核官方价目</p>
+      </div>
+
+      <div class="insight">
+        <strong>模型能力洞察：</strong>在 v5.0.1 的配置级榜上，Anthropic 的 Fable 5.2 max 仍以 64.6 居首，OpenAI 的 GPT-6.2 Astra 与 Google 的 Gemini 4 Neon 紧随其后，但三者的价差已经拉得很开：Neon 的标价明显低于 Fable / Astra 的高端档。Coding Agent Index 对「模型 + Harness」更敏感，11 月中旬到月末的多次重排说明，换一套工具环境和验证器，名次就会动。对本体中台这类要跑对象查询、长工作流的系统，与其追单一总分，不如同时看：对应推理档位的 Intelligence Index、真实 Agent 编码指数，以及单位任务成本。
+      </div>
+    </section>
+
+    <section class="sec" id="s8">
+      <h2>🚀 新兴 AI Agent 产品与产品形态</h2>
+
+      <div class="item">
+        <h3>a) 新产品与新入口：Perplexity Computer 进入 Chrome 侧栏，Grok Bot 连接 QuickBooks</h3>
+        <p>Perplexity 于 11 月 20 日宣布，其 Computer Agent 现在可以通过 Perplexity 扩展直接在 Chrome、Edge、Brave 等 Chromium 浏览器中运行，不必再切换到自有的 Comet 浏览器。用户从侧栏交接任务，Computer 在当前标签页与工具之间操作，官方说明覆盖表单填写、已登录站点以及跨标签整理。</p>
+        <p>同日，xAI 的 Grok Bot 官方账号发文：Grok Bot 已连接 Intuit QuickBooks。用户可以询问现金流、利润或谁尚未付款，并让其起草发票、估价单和催款提醒，经用户批准后再发出。</p>
+        <p class="src">来源：<a href="https://x.com/perplexity_ai/status/2123896048510996827">Perplexity 官方帖文（2026-11-20）</a>；<a href="https://x.com/bot/status/2123876555093086678">Grok Bot 官方说明（2026-11-20）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>b) 产品形态：从独立聊天窗口转向「已登录工作区里的执行者」</h3>
+        <p>上述两则更新，加上 DeepSeek Harness 接入飞书 / 钉钉 / 企微 / 腾讯文档，指向同一形态变化：Agent 不再要求用户把工作搬到一个新的对话站点，而是进入已有浏览器会话或办公套件。Google 把 Wallet 和即将到来的 Drive 接到 Search AI Mode，则是「提问式搜索」向「带个人业务上下文的助手」延伸。微软在 11 月 17 日的 Microsoft IQ 更新中，也将 Work IQ 的长任务、Agent 对 Agent 协作、会议进行中的实时上下文，以及 CRM / ERP 记录纳入已正式商用的能力。</p>
+        <p class="src">来源：上述官方帖文；<a href="https://azure.microsoft.com/en-us/blog/introducing-the-new-microsoft-iq-putting-your-organizations-intelligence-to-work-in-every-agent/">Microsoft IQ 博文（2026-11-17）</a></p>
+      </div>
+
+      <div class="item">
+        <h3>c) 新增功能：连接器授权、只读财务上下文、任务交接与审批</h3>
+        <ul class="clean">
+          <li>DeepSeek Harness：插件页一次性授权后，在对话中调用国内 IM 与文档。</li>
+          <li>Grok Bot：查询账本并起草财务单据，发送前需用户批准。</li>
+          <li>Google Personal Intelligence：Wallet 只读；即将提供「查看这条回复用了哪些个人上下文」的入口。</li>
+          <li>Microsoft Work IQ：长任务过程中可提出澄清问题；细粒度 MCP 策略按路径、受众和受信应用收窄访问；Memory 以及 Word / Excel / PowerPoint 创建编辑仍为公开预览。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <h3>d) 使用方式：提出需求、补充信息、检查进度、收回结果</h3>
+        <p>可观察的交互被拆成几步：在侧栏或对话里提出任务；在连接器或 Personalization 设置里授予（或收回）数据与应用权限；在任务时间线、浏览器标签或审批卡片上检查中间结果；对财务发送、资金移动等高风险动作保持人工确认。Cairn 事件从反面说明：若目标与网络入口被一次性授予且没有运行中的人工闸门，Agent 会持续尝试直到成功或资源耗尽。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s9">
+      <h2>⚙️ Agent Harness、运行架构与新技术</h2>
+
+      <div class="item">
+        <h3>a / b) 执行架构与长任务：真实进攻行动给出了「规划—失败—换方法」的样本</h3>
+        <p>AWS 对 Cairn 战役的还原，本身就是一份运行架构观察记录：操作者只提供目标列表和高层目标；Agent 负责测绘、选择技术、在失败后改换方法，并在跨会话中复用已发现的漏洞。一次成功利用大约 11 分钟，一次失败的 Redis 行动长达 16 小时、148 步。对建设长任务 Agent 的团队，这些数字说明「检查点、暂停和人工中止」不只是产品体验问题，也是安全边界问题。</p>
+        <p class="src">来源：<a href="https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/">AWS Security Blog</a></p>
+      </div>
+
+      <div class="item">
+        <h3>c / e) 上下文、能力扩展与开发流程：编码 Agent 把密钥写进公开仓库</h3>
+        <p>Together AI 的事故不是模型推理本身被攻破，而是开发工作流里的编码 Agent 把私有仓库凭证提交到了公开仓库。公司事后把「更新编码 Agent 的开发流程规定」与短时凭证、PR 密钥扫描、新账户默认 ZDR 并列写出。这为 Harness 的能力扩展提供了一个可复核的反面案例：插件、仓库访问和自动提交若缺少默认的密钥防护，Agent 会把秘密带出边界。</p>
+        <p>DeepSeek Harness v0.2.3-alpha.1 则从另一侧扩展能力：以连接器方式按需加载办公工具，而不是把全部 IM 权限写进核心运行时。微软 Work IQ 同期把按路径收窄的 MCP 策略列为正式商用，方向类似——工具发现要有，权限范围也要可配。</p>
+        <p class="src">来源：<a href="https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026">Together AI 通报</a>；DeepSeek Harness 更新日志转述见上文；<a href="https://azure.microsoft.com/en-us/blog/introducing-the-new-microsoft-iq-putting-your-organizations-intelligence-to-work-in-every-agent/">Microsoft IQ</a></p>
+      </div>
+
+      <div class="item">
+        <h3>d / f) 多智能体与运行质量：Shepherd 的「管理其他 Agent」，以及推理层的信任清理</h3>
+        <p>Shepherd 把「Agent 检查并操作其他 Agent」写成可开源的管理问题，对应多智能体里的角色分工、任务交接和监督，而不仅仅是并行召唤更多子 Agent。运行质量方面，OpenRouter 下架供应商并取消 125 个端点的 ZDR 资格，是把「零保留」从营销标签改回需要持续技术核验的承诺；它同时计划把研究者的检测方法变成常规检查，并核验请求是否被转发到第三方。</p>
+        <p class="src">来源：<a href="https://spectrum.ieee.org/ai-agent-manager">IEEE Spectrum：Shepherd</a>；<a href="https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/">OpenRouter 公告</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="s10">
+      <h2>🧠 Agent 记忆、企业知识与本体驱动执行</h2>
+
+      <div class="item">
+        <h3>a) 记忆机制：个人记忆开始接到可开关的应用上下文</h3>
+        <p>Google Personal Intelligence 把已有的 Gmail、日历、相册，与新增的 Wallet（以及即将到来的 Drive 与 Gemini 对话）组成可选的个人记忆层。用户决定开或关，并可查看某次回答使用了哪些上下文、在对话中更正过时事实。微软 Work IQ 则把 Memory 放在公开预览，同时让长任务 Agent 在执行中提问以补充信息。两者都把「记住什么、忘记什么」交给设置和会话，而不是默认永久写入。</p>
+        <p class="src">来源：<a href="https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/">Google 官方博客</a>；Microsoft IQ 博文</p>
+      </div>
+
+      <div class="item">
+        <h3>b / c) 企业知识与动态知识：对象、关系、规则，而不只是文档切片</h3>
+        <p>Microsoft IQ 把组织智能拆成四层：Work IQ（文档、对话、协作与既有决策）、Fabric IQ（受治理的数据、业务实体、关系与规则）、Foundry IQ（政策与权威文档等机构知识）、Web IQ（外部及时信息）。GraphRAG Zero 进入 Foundry IQ，是把「动态更新的图上下文」接到 Agent 检索器上。Collate 的例子仍然直接：术语表可以用一段话定义「贷款」，本体还可以规定贷款有本金和期限、属于某位客户、并连接到账户，从而在查询数据库之前先约束 Agent 的对象理解。</p>
+        <p class="src">来源：Microsoft IQ / Foundry IQ / GraphRAG 上述官方材料；<a href="https://www.getcollate.io/blog/announcing-collate-ontology-studio">Collate 公告</a></p>
+      </div>
+
+      <div class="item">
+        <h3>d / e) 知识到行动，以及可信交互：意图、权限、来源与同意</h3>
+        <p>IndyKite 的 Intent Agent 与 IBAC，把「想做什么」写成可过滤工具的结构化意图，再决定 Agent 能调用哪些 MCP 工具或 A2A skill。Ontology 官方 11 月 20 日的文章则从另一侧提出：银行已遇到 Agent 在同意未核验时尝试操作客户账户，服务需要在行动前做身份与授权检查。Google 对 Wallet 的「只读、不能动钱」和 Grok Bot 对发票的「起草后须批准」，是把高风险动作留在人工确认点上。Together AI 事件同时提醒：被保存下来用于测试的提示样本，也可能成为组织知识的泄露面——记忆与日志本身需要与 ZDR、范围受限凭证一起设计。</p>
+        <p class="src">来源：IndyKite 新闻稿；<a href="https://ont.io/news/">Ontology 新闻（2026-11-20）</a>；Together AI / Google 上述官方公告</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s11">
+      <h2>💡 今日推荐阅读</h2>
+
+      <div class="item">
+        <h3>1. AWS Security Blog：Chinese-nexus actor’s Cairn AI agents found a zero-day on their own</h3>
+        <p>这是过去数日里对「自主 Agent 已在真实网络中如何规划、失败和利用未知漏洞」最完整的一手调查，包含时间线、技术步骤、成功与失败案例，以及项目方咨询的现状。对做 Agent 运行时、权限和安全评估的同事，宜直接读原文，而不是只看「AI 发现零日」的标题转述。</p>
+        <p class="src">链接：<a href="https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/">aws.amazon.com/blogs/security/…</a></p>
+      </div>
+
+      <div class="item">
+        <h3>2. Together AI 安全通报，以及 OpenRouter 的供应商数据处理公告</h3>
+        <p>两份文本应放在一起读：前者记录编码 Agent 如何把凭证带出开发边界、哪些提示样本被取走、事后改了哪些默认设置；后者说明路由层如何把「零数据保留」从标签改回需要核验的资格，并列出已公开的供应商说明。对要在企业里接入多模型推理、保存提示或日志的团队，这是可直接对照自己流程的材料。</p>
+        <p class="src">链接：<a href="https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026">Together AI 通报</a>；<a href="https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/">OpenRouter 公告</a></p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>本早报由狙击日报自动生成</p>
+      <p>生成时间：2026年11月24日 08:40（UTC+8）</p>
+    </footer>
+  </div>
+</body>
+</html>
