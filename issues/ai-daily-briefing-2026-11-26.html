@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狙击日报｜2026年11月26日 · AI 每日早报</title>
+  <style>
+    :root {
+      --primary: #667eea;
+      --primary-2: #764ba2;
+      --bg: #f5f6fb;
+      --card: #ffffff;
+      --muted: #f8f9fa;
+      --text: #1f2937;
+      --sub: #4b5563;
+      --line: #e5e7eb;
+      --ai: #4f46e5;
+      --warn: #b45309;
+      --ok: #047857;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: #4f46e5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+    header.hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      opacity: .95;
+      margin-bottom: 12px;
+    }
+    header.hero h1 {
+      margin: 0 0 6px;
+      font-size: 36px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    header.hero .sub {
+      margin: 0 0 18px;
+      font-size: 15px;
+      opacity: .92;
+    }
+    header.hero .date {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+    .overview {
+      background: rgba(255,255,255,.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+    }
+    .archive {
+      margin: 16px 0 0;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--sub);
+      font-size: 14px;
+      border: 1px solid var(--line);
+    }
+    .sec {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px 24px 18px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+      border: 1px solid var(--line);
+    }
+    .sec h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+    }
+    .item { margin: 0 0 16px; padding: 0 0 16px; border-bottom: 1px dashed var(--line); }
+    .item:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 4px; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 650; }
+    .meta { color: var(--sub); font-size: 13px; margin-bottom: 6px; }
+    .src { font-size: 13px; color: var(--sub); margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tag-ai { background: #eef2ff; color: var(--ai); }
+    .tag-other { background: #f3f4f6; color: #4b5563; }
+    .tag-cat { background: #f3e8ff; color: #6d28d9; }
+    .tag-warn { background: #fff7ed; color: var(--warn); }
+    .insight {
+      background: var(--muted);
+      border-left: 4px solid #764ba2;
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .insight strong { color: #5b21b6; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 8px 0 12px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--muted); font-weight: 650; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul.clean { margin: 6px 0 0; padding-left: 1.2em; }
+    ul.clean li { margin: 4px 0; }
+    .note { font-size: 13px; color: var(--sub); }
+    footer.foot {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--sub);
+      font-size: 13px;
+      padding: 18px 8px 0;
+    }
+    @media (max-width: 720px) {
+      header.hero { padding: 26px 18px 20px; }
+      header.hero h1 { font-size: 28px; }
+      .sec { padding: 18px 16px 12px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">JUJI DAILY</div>
+      <h1>狙击日报</h1>
+      <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
+      <p class="date">2026年11月26日 星期四（UTC+8）</p>
+      <div class="overview">
+        今日概览：Google 于 11 月 24 日宣布 Workspace 官方 MCP 服务器与 CLI 全面可用，作为智能体访问 Gmail、Drive、Docs 等应用的默认入口，并写明自 2027 年 2 月 1 日起以技术手段强制走上述通道，而不再使用传统 REST API。OpenAI 同日发布研究称，GPT-6 系列可仅靠推理与通用代码设计蛋白质结构与序列；与合作方 Onava 的湿实验中，322 个 minibinder 有 35 个（10.9%）对预定靶点呈结合阳性，但该实验管线中专用生物学模型仍参与了序列生成与候选筛选。Anthropic 在 Claude 的 Mac / Windows 客户端以测试版上线「Install as app」，可将 Artifacts 安装为独立桌面应用。戴尔公布 2027 财年第三季度营收 549 亿美元，并称人工智能业务积压订单达 1323 亿美元。
+      </div>
+    </header>
+
+    <div class="archive">
+      <strong>归档：</strong>
+      <a href="./issues/ai-daily-briefing-2026-11-26.html">2026-11-26（今日）</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-25.html">2026-11-25</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-24.html">2026-11-24</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-23.html">2026-11-23</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-20.html">2026-11-20</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-19.html">2026-11-19</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-18.html">2026-11-18</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-17.html">2026-11-17</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-16.html">2026-11-16</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a>
+    </div>
+
+    <section class="sec" id="s1">
+      <h2>📊 GitHub Trending 日报</h2>
+      <p class="note">以下为 GitStock 对 GitHub Trending 日榜的 2026-11-26 快照（官方当日归档页撰写时尚未放出）。列表按该快照顺序，优先收录与 AI / ML / Agent 相关的项目；同榜第 7 位为 nginx/nginx（C，非 AI 相关，故不展开）。星标总数与「今日新增」均来自该快照，并非自行估算。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>项目</th>
+            <th>语言</th>
+            <th>简介</th>
+            <th>星标 / 今日新增</th>
+            <th>标记</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="https://github.com/elementalsouls/Claude-BugHunter">elementalsouls/Claude-BugHunter</a></td>
+            <td>Python</td>
+            <td>面向 Claude Code 的漏洞猎捕与外部红队技能包：快照写明 85 项技能、16 个斜杠命令，以及 24 类漏洞的已披露报告模式和企业身份、基础设施攻击矩阵。</td>
+            <td>22,967 / +1,652</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="https://github.com/obra/superpowers">obra/superpowers</a></td>
+            <td>Shell</td>
+            <td>智能体技能框架与软件开发方法论。</td>
+            <td>326,595 / +903</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td>
+            <td>Python</td>
+            <td>定位为「让所有软件对 Agent 原生可用」，配套站点为 clianything.cc。</td>
+            <td>65,658 / +1,106</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><a href="https://github.com/jingyaogong/minimind">jingyaogong/minimind</a></td>
+            <td>Python</td>
+            <td>从零训练 64M 规模大语言模型的开源教程与实现，项目说明称约两小时可完成。</td>
+            <td>70,929 / +826</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><a href="https://github.com/cursor/plugins">cursor/plugins</a></td>
+            <td>TypeScript</td>
+            <td>Cursor 插件规范与官方插件。</td>
+            <td>19,523 / +416</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><a href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></td>
+            <td>TypeScript</td>
+            <td>为智能体提供检索与抓取的知识基础设施，项目说明称可通过同一 API 接入 550 余家数据提供方。</td>
+            <td>210,011 / +1,135</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><a href="https://github.com/openvinotoolkit/openvino">openvinotoolkit/openvino</a></td>
+            <td>C++</td>
+            <td>用于优化和部署 AI 推理的开源工具包。</td>
+            <td>12,650 / +191</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
+            <td>HTML</td>
+            <td>面向 Claude Code、Codex、GitHub Copilot、Cursor 等编码智能体的编辑型图表技能，自称 52 种图表类型，输出自包含 HTML + SVG。</td>
+            <td>73,004 / +1,141</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><a href="https://github.com/mvanhorn/last30days-skill">mvanhorn/last30days-skill</a></td>
+            <td>Python</td>
+            <td>可跨 Reddit、X、YouTube、Hacker News、Polymarket 与网页检索并综合摘要的 Agent Skill。</td>
+            <td>75,088 / +945</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><a href="https://github.com/google-labs-code/stitch-skills">google-labs-code/stitch-skills</a></td>
+            <td>TypeScript</td>
+            <td>配合 Stitch MCP 服务器的 Agent Skills 库，说明称遵循 Agent Skills 开放标准，兼容 Gemini CLI、Claude Code、Cursor 等。</td>
+            <td>12,970 / +355</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="src">来源：<a href="https://gitstock.org/trending">GitStock Trending（2026-11-26 日榜快照）</a>；项目页见上表各仓库链接。官方 Trending：<a href="https://github.com/trending">github.com/trending</a>。</p>
+    </section>
+
+    <section class="sec" id="s2">
+      <h2>🤖 AI Agent 前沿洞察</h2>
+
+      <div class="item">
+        <h3>Google Workspace：官方 MCP 服务器与 CLI 全面可用，并设定智能体接入门槛</h3>
+        <p>11 月 24 日，Google Workspace 产品博客与 Workspace Updates 同步宣布：Workspace 的官方 Model Context Protocol（MCP）服务器与 CLI 正式全面可用（Generally Available），作为智能体访问 Workspace 数据的「默认前门」。官方说明称，MCP 服务器面向云端与网页智能体，可开箱使用 Gmail、Google Drive、Docs、Sheets、Slides、Calendar、Chat 和 Tasks（Keep 即将加入）；CLI 面向本地与桌面智能体及工作流自动化，提供范围受限的登录与 IT 治理。</p>
+        <p>同一公告给出治理安排：新的 Workspace AI Tools Addendum 要求智能体通过 MCP 或 CLI 接入，而不是传统 REST API，技术强制执行自 <strong>2027 年 2 月 1 日</strong>开始。外部智能体须使用专用 OAuth 客户端 ID，配合最小权限范围；用量配额的计费自 <strong>2027 年 4 月 1 日</strong>开始。发送外部邮件、更改 Drive 共享权限或进行批量编辑等影响较大的操作，需按 IT 策略取得用户确认。管理员可在管理控制台查看、审计和撤销智能体；用户侧查看活动与撤销权限的能力官方写明为即将推出。</p>
+        <p class="src">来源：<a href="https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace">Google Workspace 产品博客（2026-11-24）</a>；<a href="https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html">Google Workspace Updates（2026-11-24）</a>；<a href="https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise">Google Cloud 安全博客（2026-11-24）</a>；开发者参考：<a href="https://developers.google.com/workspace/reference/mcp">workspacemcp.googleapis.com</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>OpenAI：GPT-6 系列展示蛋白质设计能力，湿实验给出可核对的结合率</h3>
+        <p>OpenAI 于 11 月 24 日发布研究文章，并附预印本《GPT-6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models》。文中称，GPT-6 系列可在不调用专用生物学模型的前提下，仅靠推理与通用编程工具设计新的蛋白质三维结构与氨基酸序列；在多项计算评测中，内部研究模型达到或超过专用模型，但「预测完整蛋白质结构」仍是明确短板。</p>
+        <p>湿实验与合作方 Onava 完成，需把「结构由通用模型设计」与「管线中仍使用专用模型」分开看。实验一：由预发布版 GPT-6.2 设计三维结构，专用模型提供氨基酸序列并协助筛选候选；实验室共测试 322 个 minibinder、覆盖 5 个靶点，其中 35 个（10.9%）对预定靶点呈结合阳性（PD-L1 5 个、IL-7Rα 3 个、TrkA 1 个、VEGF-A 8 个、IL-17A 18 个）。官方同时写明，RFdiffusion 原研究曾报告更高命中率，而命中率高度依赖于送检前的筛选尺度和结合的定义。实验二则让 GPT-6.2 在给定三维配合结构、隐藏原始序列的条件下重写序列：MDM2 为 75/88（85%）、VEGF-A 为 26/42（62%）、PD-1 为 8/59（14%）；对模型自生成、此前未发表的结构，107 条新序列中有 14 条（13.1%）显示结合。这是通用大模型蛋白质设计的实验室结果，并非已上市药物或临床试验数据。</p>
+        <p class="src">来源：<a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/">OpenAI 研究文章（2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>Anthropic：Claude Artifacts 可在 Mac / Windows 上安装为独立应用</h3>
+        <p>Anthropic 在 Claude 帮助与产品文档中宣布，「Install as app」功能以测试版在 Claude for Mac 和 Windows 中推出：把常用 Artifact 安装后，可拥有独立图标并在独立窗口中打开，而不再只存在于 Claude 会话里。安装后的应用可使用 Claude 与用户已授权的连接器，并在底层 Artifact 被编辑后自动更新；向 Claude 发出的请求计入所属方案的用量上限。用户无需自行打包或签名，也无需单独的 API 密钥，但需要保持在线并登录 Claude 才能打开。</p>
+        <p>权限分为三档：默认（仅相当于浏览器内可做的事）、应用权限（通知、全局快捷键、置顶窗口等受控能力），以及完整计算机访问（可在未逐次询问的情况下运行程序、读写或删除文件）。完整访问仅适用于用户自己制作的应用，或 Team / Enterprise 中由本组织人员制作的应用；每次更新后（包括用户自己的编辑）都会重新询问权限。官方写明 Anthropic 不会在安装前审查这些应用。HIPAA-ready 组织与混合部署不可使用该功能；Team 默认开启但关闭完整访问，Enterprise 需由所有者打开后才可用。</p>
+        <p class="src">来源：<a href="https://claude.com/resources/articles/install-as-app">Claude 官方说明：Turn artifacts into Mac and Windows apps</a>；报道参见 <a href="https://www.macrumors.com/2026/11/25/claude-install-artifacts-desktop-apps/">MacRumors（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="insight">
+        <strong>未来方向洞察：</strong>今日几条主线指向同一件事：智能体正在从「会对话的助手」变成「要登录工作区、要写文件、要改共享权限、甚至要设计分子」的执行者。Google 把 MCP/CLI 做成企业前门并给出强制时间表，说明治理已经从原则走到接口层；Claude 把 Artifact 做成可安装的桌面应用，则把「产物」变成「常驻工具」。与此同时，蛋白质设计的湿实验提醒我们：通用模型开始进入需要实验室验证的科学工作流，但命中率、筛选标准和专用模型是否仍在环内，都必须写进结论里，而不能只看标题。对做 Agent / 本体中台的团队，接下来更关键的可能不是再多一个聊天入口，而是：动作走哪条官方通道、权限如何按对象回收、以及执行结果如何被独立验证。
+      </div>
+    </section>
+
+    <section class="sec" id="s3">
+      <h2>🧬 Ontology（本体）生态动态</h2>
+
+      <div class="item">
+        <h3>Google 将 Workspace 权限、DLP 与分类标签接到智能体的每一次调用</h3>
+        <p>Workspace 官方 MCP / CLI 的治理设计，对本体中台有直接对照价值：官方称每一次调用都会对照组织的 Workspace 权限、数据丢失防护（DLP）规则和分类标签；附件还禁止将智能体用于持久化原始存储或模型训练，并要求在断开连接时删除相关数据、在限定窗口内清除派生数据。这意味着「对象、权限和动作」被放到了协议层，而不只是写在提示词里。技术强制执行日期为 2027 年 2 月 1 日，给现有直接调用 REST API 的集成留下迁移窗口。</p>
+        <p class="src">来源：<a href="https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace">Google Workspace 产品博客（2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>分析师回顾 Neo4j Context Engine：以多层本体向智能体提供可治理上下文</h3>
+        <p>ISG 分析师 Matt Aslett 于 11 月 25 日撰文，讨论知识图谱如何为智能体提供业务定义、指标、概念与流程等上下文，并回顾 Neo4j 将其产品定位扩展为 Graph Intelligence Platform。需注明：Neo4j Context Engine 的官方发布日期为 2026 年 10 月 20 日，当时处于私人预览；官方说明称企业可定义、连接、治理并持续丰富业务与数据上下文，通过其所述的六层相互连接本体，在决策与行动点向智能体提供上下文。11 月 25 日的文章是分析评论，不是当天的新产品发布。</p>
+        <p class="src">来源：<a href="https://isg-one.com/analyst-perspective/neo4j-adds-context-to-graph-intelligence-platform">ISG：Neo4j Adds Context to Graph Intelligence Platform（2026-11-25）</a>；官方发布：<a href="https://neo4j.com/press-releases/neo4j-context-engine/">Neo4j Context Engine 新闻稿（2026-10-20）</a>；<a href="https://neo4j.com/blog/news/neo4j-context-engine/">Neo4j 博客</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>AutoOntologyBench 仍是本周可对照的评测锚点</h3>
+        <p>11 月 20 日提交的论文 AutoOntologyBench（arXiv:2611.27734）继续为「Agent 能否构建对下游任务有用的本体」提供可核对数字：在 7 个领域、18 个真实知识源上的 19,947 项经审计任务中，作者报告智能体自建本体在检索之上再提高 6.1 个百分点的任务成功率，但仍落后专家参考本体 13.0 个百分点。该文已在 11 月 25 日早报中作为推荐阅读，代码与资源位于 GitHub 仓库 VinyehShaw/AutoOntologyBench。近日未见作者发布新的官方修订说明。</p>
+        <p class="src">来源：<a href="https://arxiv.org/abs/2611.27734">arXiv:2611.27734（提交于 2026-11-20）</a>；<a href="https://github.com/VinyehShaw/AutoOntologyBench">GitHub: VinyehShaw/AutoOntologyBench</a>。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s4">
+      <h2>🏢 AI 公司要闻</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> Google：Workspace MCP / CLI 全面可用，并公布智能体接入时间表</h3>
+        <p>见上文。对开发者而言，官方已提供 MCP 参考与配置指南，并同步要求审阅 Workspace AI Tools Addendum。</p>
+        <p class="src">来源：<a href="https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace">Google Workspace 博客（2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">技术突破</span> OpenAI：发布 GPT-6 蛋白质设计研究与湿实验数据</h3>
+        <p>见上文。这是通用前沿模型在蛋白质设计上的实验室结果，官方同时写明专用模型仍参与了部分序列生成与候选筛选。</p>
+        <p class="src">来源：<a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/">OpenAI（2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> Anthropic：Artifacts 可安装为 Mac / Windows 桌面应用</h3>
+        <p>见上文。该功能以测试版覆盖各档方案，但对 HIPAA-ready 与混合部署关闭。</p>
+        <p class="src">来源：<a href="https://claude.com/resources/articles/install-as-app">Claude 官方说明</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">融资 / 财报</span> 戴尔：2027 财年第三季度营收 549 亿美元，人工智能业务积压订单 1323 亿美元</h3>
+        <p>戴尔科技于 11 月 24 日公布截至 2026 年 10 月 30 日的 2027 财年第三季度业绩（SEC 展示文件 Exhibit 99.1）：净营收 549.37 亿美元，同比增长 103%；净利润 56.73 亿美元，同比增长 266%；摊薄每股收益 8.82 美元，非 GAAP 摊薄每股收益 9.45 美元。基础设施解决方案集团（ISG）营收 420 亿美元，同比增长 198%；其中人工智能优化服务器营收 220 亿美元，同比增长 291%。副董事长兼首席运营官 Jeff Clarke 表示，当季预订 602 亿美元订单后，人工智能业务积压订单达到创纪录的 1323 亿美元；超过 7,500 家客户在部署 Dell AI Factories。公司将全年营收指引由 1,920 亿美元上调至 2,020 亿美元，将人工智能优化服务器全年营收指引由 740 亿美元上调至 780 亿美元。客户端解决方案集团营收 129 亿美元，同比增长 3%。董事会另批准增加 250 亿美元股票回购授权。</p>
+        <p class="src">来源：<a href="https://www.sec.gov/Archives/edgar/data/1571996/000157199626000050/exhibit991earnings8kq3fy27.htm">Dell Technologies 2027 财年第三季度业绩稿（Exhibit 99.1，2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">政策</span> 英国 NCSC：称自 9 月以来观察到人工智能驱动的攻击「明显上升」</h3>
+        <p>据 Recorded Future 旗下 The Record 11 月 24 日报道，英国国家网络安全中心（NCSC）于周二表示，自 9 月以来观察到人工智能驱动网络攻击的「明显上升」（marked rise），并提到涉及开源自主渗透测试工具（报道举例包括 Artex、Cairn）的入侵。报道转述称，被利用的漏洞本身并不新鲜，变化在于人工智能工具执行简单攻击的速度。Infosecurity Magazine 于 11 月 25 日亦报道了 NCSC 针对此类智能体化工具的应对建议。Cairn 相关事件已在 11 月 24 日早报中出现过，本期只补充监管机构的公开表态，不重复事件细节。</p>
+        <p class="src">来源：<a href="https://therecord.media/cyberattacks-uk-artificial-intelligence">The Record（2026-11-24）</a>；<a href="https://www.infosecurity-magazine.com/news/ncsc-tips-tackle-agentic-threat/">Infosecurity Magazine（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>国内主要实验室：近 1–3 日未见新的官方模型或旗舰产品发布</h3>
+        <p>在可核对的公开来源中，百度、阿里、字节跳动、月之暗面等近 1–3 日未见新的官方旗舰模型或产品发布稿。11 月 23 日早报已记录月之暗面公布 Kimi K3.1 Pro 完整权重、以及微软将 GPT-6.2 Sol 写入 Microsoft 365 Copilot 等事项，本期不再展开。若有遗漏的官方公告，标为待持续跟踪。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s5">
+      <h2>💊 AI 制药板块</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">技术突破 / 科研</span> OpenAI 与 Onava：通用模型设计的 minibinder 在湿实验中给出 10.9% 结合阳性率</h3>
+        <p>这是今日最需要区分口径的一条。OpenAI 的主张是：GPT-6 系列具备「内在的」蛋白质设计能力，可用推理和代码生成结构与序列，而不必调用专用生物学模型。但实验一的实验室管线明确写了「专用模型随后提出氨基酸序列并协助筛选」。因此，10.9%（35/322）应表述为「在 GPT-6.2 三维设计 + 专用模型序列与筛选的管线中，对 5 个靶点的实验室结合阳性率」，不宜简化成「通用模型完全独自完成湿实验」。实验二更接近「由 GPT-6.2 直接设计序列」，但候选筛选仍有专用模型参与。所有结果均为体外结合证据，不是临床试验，也不是已上市药物。</p>
+        <p class="src">来源：<a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/">OpenAI（2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产业数据</span> Oliver Wyman 分析：AI 原生生物技术公司 II 期推进率高于行业，但样本仍然有限</h3>
+        <p>PYMNTS 于 11 月 23 日引述 Oliver Wyman 分析：在有限的临床数据下，AI 原生生物技术公司的 II 期推进率为 45%，而行业整体为 29%；分析称早期试验成功率比行业高出 40% 以上。同期，AI 药物发现的投资与授权交易在 2024 年为 120 亿美元，2025 年为 430 亿美元，2026 年上半年新增 460 亿美元。文中同时给出限制：AI 发现的分子仍只占临床管线约 1%–2%；II 期样本为 46 个项目，其中约一半仍在进行。因此该对比是初步观察，不是对全部管线的结论。</p>
+        <p>同一报道还提到：FDA 药品中心助理主任 Gabriel Innes 在 RAPS 会议上称，该中心已收到 1,500 余份与 AI 相关的申报，且自 2016 年以来呈指数增长，其中多数是启动人体试验的申请，其次是新药与生物制品许可申请；FDA 与欧洲药品管理局（EMA）已在今年 1 月发布 10 条人工智能药品开发指导原则，性质是可参考原则，不是具有约束力的法规。</p>
+        <p class="src">来源：<a href="https://www.pymnts.com/news/artificial-intelligence/2026/ai-drug-developers-post-higher-trial-success-as-deals-hit-46-billion/">PYMNTS 引述 Oliver Wyman（2026-11-23）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>口径提醒：近期出现的高额合作报道需核对原始日期</h3>
+        <p>检索中多次出现「英矽智能与 SK 生物制药高达 25 亿美元、聚焦神经免疫疾病」的报道。核对后，英矽智能港交所自愿公告与 EurekAlert 新闻稿的日期为 2026 年 6 月 22 日，并非近 1–3 日新签的协议；部分聚合站点在 11 月再次展示该稿，不作为今日新事件。此前早报已记录的 Isomorphic Labs 融资、Recursion REC-4881 注册 III 期方案与 FDA 对齐、以及英矽智能与罗欣药业的合作，本期不再重复。</p>
+        <p class="src">来源：<a href="https://www.eurekalert.org/news-releases/1132838">EurekAlert（2026-06-22）</a>；英矽智能港交所自愿公告（2026-06-22）。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s6">
+      <h2>🕸️ 本体生态公司动态</h2>
+
+      <div class="item">
+        <h3>Google：把企业协作套件做成智能体可调用、可审计的对象层</h3>
+        <p>Workspace MCP 覆盖邮件、文档、表格、日历、聊天和任务等对象，并要求高影响动作经过确认、调用经过权限与 DLP 检查。对「基于本体的企业动作」而言，这是一套已经进入强制时间表的厂商实现：对象在官方工具里被枚举，动作有确认与审计，断开后有数据删除义务。它并不自称「Ontology 产品」，但具备对象、关系（共享权限、标签）和受控动作这三项中台能力。</p>
+        <p class="src">来源：<a href="https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace">Google Workspace 博客（2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>Neo4j：Context Engine 仍处私人预览，分析文章将其放回「为 Agent 提供上下文」的主线</h3>
+        <p>10 月 20 日的官方发布称，Context Engine 使企业能够定义、连接、治理并持续丰富业务与数据上下文，供智能体在决策和行动时使用，当时为私人预览并招募早期设计合作伙伴。11 月 25 日 ISG 评论将其放在 Graph Intelligence Platform 的产品叙事中。本期未检索到 11 月 24–26 日的正式 GA 公告。</p>
+        <p class="src">来源：<a href="https://neo4j.com/press-releases/neo4j-context-engine/">Neo4j 新闻稿（2026-10-20）</a>；<a href="https://isg-one.com/analyst-perspective/neo4j-adds-context-to-graph-intelligence-platform">ISG（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>Ontology（ONT）及 Web3+AI：近几日未见可核对的主网或产品发布</h3>
+        <p>公开检索未发现 Ontology 公链项目在近 1–3 日发布新的主网升级、企业本体产品或可验证的生态合作公告。按惯例不将代币价格波动写入本栏。Palantir 基于 Ontology 数据微调领域小模型、Collate Ontology Studio 等事项已在 11 月 23–25 日早报中记录，本期不重复展开。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s7">
+      <h2>📈 AI 模型比较（Artificial Analysis 能力榜）</h2>
+      <p class="note">Artificial Analysis 综合榜请以官网当前版本为准；不同版本分数不可直接比较。本期打开的第三方转载榜（BenchLeader）仍标注为 <strong>Intelligence Index v5.0.1</strong>，数据截至 2026 年 11 月 26 日，编码分项仍写 Terminal-Bench 4.0。昨日早报曾说明官网展示为 v5.0.2（其中编码项为 Terminal-Bench 4.1）。下方排名与分数来自 BenchLeader 对 v5.0.1 的快照，仅作参考，<strong>不能当作 v5.0.2 的官方分数</strong>。阅读时必须同时看推理档位（max / xhigh / high 等）。</p>
+
+      <div class="item">
+        <h3>Intelligence Index：Claude Fable 5.2（max）仍居首，GPT-6.2 Astra 紧随其后</h3>
+        <p>BenchLeader 标注为 v5.0.1、数据截至 11 月 26 日的 Top 10 如下：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>模型（推理档位）</th>
+              <th>v5.0.1 分数</th>
+              <th>实验室</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Claude Fable 5.2（max）</td><td>64.8</td><td>Anthropic</td></tr>
+            <tr><td>2</td><td>Claude Fable 5.2（xhigh）</td><td>62.2</td><td>Anthropic</td></tr>
+            <tr><td>3</td><td>GPT-6.2 Astra（max）</td><td>62.2</td><td>OpenAI</td></tr>
+            <tr><td>4</td><td>Claude Fable 5.2（high）</td><td>61.9</td><td>Anthropic</td></tr>
+            <tr><td>5</td><td>GPT-6.2 Astra（xhigh）</td><td>61.8</td><td>OpenAI</td></tr>
+            <tr><td>6</td><td>Gemini 4 Neon（xhigh）</td><td>61.5</td><td>Google</td></tr>
+            <tr><td>7</td><td>GPT-6.2 Astra（high）</td><td>60.3</td><td>OpenAI</td></tr>
+            <tr><td>8</td><td>Gemini 4 Carbon（high）</td><td>60.1</td><td>Google</td></tr>
+            <tr><td>9</td><td>Gemini 4 Neon（high）</td><td>59.8</td><td>Google</td></tr>
+            <tr><td>10</td><td>Claude Opus 5.5（max）</td><td>59.1</td><td>Anthropic</td></tr>
+          </tbody>
+        </table>
+        <p>同快照中，GPT-6.2 Sol（max）为 57.3；开放权重一侧，Kimi K3.1 Pro 为 46.5。与 11 月 25 日同一来源的 Top 10 相比，名次与分数未见变动。OfficeChai 对 Artificial Analysis 图表的解读（11 月 17 日）曾提到：在 Coding Agent Index v2.1（于各模型自有 Harness 上运行 FrontierCode-AA 2.0、Terminal-Bench 4.1 与 SWE-Atlas-QnA-AA）中，GPT-6.2 Astra（max）在 Codex 中的分数为 53，与 GPT-6 Astra 持平；GPT-6.2 Sol 由 GPT-6.1 Sol 的 52 降至 49。上述编码分本期未重新打开 Artificial Analysis 编码榜页复核，引用时请以官网为准。</p>
+        <p class="src">来源：<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader v5.0.1 快照（数据截至 2026-11-26）</a>；<a href="https://artificialanalysis.ai/models">Artificial Analysis Models</a>；<a href="https://artificialanalysis.ai/leaderboards">Artificial Analysis Leaderboards</a>；OfficeChai 对 AA 图表的解读（2026-11-17）。</p>
+      </div>
+
+      <div class="item">
+        <h3>主流模型输入 / 输出定价简表（$/百万 token）</h3>
+        <p>下表只列出本期仍能核对到来源的分项单价，不把第三方「综合单价」当作官方输入/输出价。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>模型</th>
+              <th>输入</th>
+              <th>输出</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GPT-6.2 Astra</td>
+              <td>8</td>
+              <td>40</td>
+              <td>缓存输入 0.40；较 GPT-6 Astra 低 20%</td>
+            </tr>
+            <tr>
+              <td>GPT-6.2 Sol</td>
+              <td>2</td>
+              <td>10</td>
+              <td>与 GPT-6.1 Sol 相同</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="src">来源：OfficeChai 对 Artificial Analysis 的转述（2026-11-17）。Claude Fable 5.2 与 Gemini 4 系列的官方分项单价本期仍未在同一来源中完整列出，故不编造。</p>
+      </div>
+
+      <div class="insight">
+        <strong>模型能力洞察：</strong>能力榜的领先带仍由 Fable 5.2 的高推理档与 GPT-6.2 Astra 组成，Gemini 4 Neon / Carbon 进入第一梯队但未占据榜首；开放权重模型与头部闭源模型的分差依然明显。更值得放到中台选型里的，是「综合智力」与「编码 Agent、科学实验、单任务成本」可能指向不同模型：Astra 在接近的分数带上被描述为单价更低，但既有编码 Agent 指数解读显示其相对上一代几乎没有拉开，Sol 甚至出现回退。OpenAI 同期给出的蛋白质湿实验，则是另一类能力证据——它不进入 Intelligence Index，却直接检验模型能否产出可在实验室验证的科学对象。选型时仍需注明评测版本、推理档位和任务类型。
+      </div>
+    </section>
+
+    <section class="sec" id="s8">
+      <h2>🚀 新兴 AI Agent 产品与产品形态</h2>
+
+      <div class="item">
+        <h3>a) 新产品与新入口：Artifacts 变成可安装的桌面应用，Workspace 变成官方 Agent 通道</h3>
+        <p>Claude 的「Install as app」把原先会话里的 Artifact（图表、页面、内部工具）变成 Mac / Windows 上的独立应用：有图标、可通知、可放在菜单栏或系统托盘，并随 Artifact 更新而更新。官方举例包括图像编辑器 Linnet、文件管理器 Phosphor、整理规则工具 Sift、带 Claude 的终端 Tern，以及查看本机性能的菜单栏应用 Vitals。体验入口是 Claude 桌面客户端中的「Install as app」，文档见 Claude 官方说明。</p>
+        <p>Google 则把 Workspace MCP 服务器和 CLI 做成智能体接入邮件与文档的官方入口，并提供开发者参考与配置指南。这不是一个面向消费者的新聊天机器人，而是一条给已有 Agent 产品使用的企业级通道，并附带 2027 年 2 月的技术强制时间表。</p>
+        <p class="src">来源：<a href="https://claude.com/resources/articles/install-as-app">Claude 官方说明</a>；<a href="https://developers.google.com/workspace/reference/mcp">Google Workspace MCP Reference</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>b / d) 产品形态与使用方式：从聊天窗口，走向「已安装的工具」和「先批准再下单的购物执行者」</h3>
+        <p>Claude 的安装应用把使用方式改成：先在对话里描述并试运行 Artifact，再点击安装；此后像普通应用一样打开、接收通知、在需要时请求权限。Team / Enterprise 管理员可开关应用权限与完整访问。</p>
+        <p>Forter Intelligence 于 11 月 24 日更新的购物智能体统计（数据来自其全球商户网络，不是全市场普查）显示：在 2026 年 11 月 18–24 日这 7 天内，Meta 的 Muse 占该网络中智能体订单的 51%，其后为 Grok 22%、ChatGPT 18%、Instinct 4%、ChatGPT Agent 3%、Google 2%。过去 90 天（8 月 27 日至 11 月 24 日）Muse 占订单的 45%、消费额的 43%；Muse 平均订单金额为 219 美元，全部智能体平均为 230 美元。Forter 将 Muse 归类为「爬取型智能体」：打开商家自己的页面、填写表单并走结账流程，以便在没有专门集成的店铺下单；支付使用 Stripe 的 Link，为智能体生成一次性卡号。Meta 对 Muse 的产品描述是：它在专用安全虚拟机中运行浏览器，可在 Muse 应用或 WhatsApp 中使用，并在购买前征求批准。该统计只覆盖 Forter 网络内被识别到的智能体订单。</p>
+        <p class="src">来源：<a href="https://ai.forter.com/meta-muse-shopping">Forter Intelligence：Meta’s Muse shopping agent（更新于 2026-11-24）</a>；<a href="https://ai.forter.com/agentic-commerce-statistics">Forter Agentic Commerce Statistics</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>c) 新增功能：确认、撤销、配额，以及按需请求本机权限</h3>
+        <p>Google 为外部智能体增加专用身份、即将到来的限时批准、用户确认和用量配额；Claude 为安装应用设置了分档权限，并在每次更新后重新询问。两者都把「提出需求—补充授权—检查或收回结果」写成产品流程，而不是事后补丁。开源一侧，GitHub 日榜上的 stitch-skills、CLI-Anything、last30days-skill 继续显示「技能包 + MCP + 可复用工作流」这一形态在开发者工具中的扩散。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s9">
+      <h2>⚙️ Agent Harness、运行架构与新技术</h2>
+
+      <div class="item">
+        <h3>a / f) 执行架构与运行质量：把策略检查放到每一次工具调用上</h3>
+        <p>Google Cloud 与 Workspace 的配套博客写明：在 Workspace 侧，AI Tools Addendum 要求智能体走 MCP 或 CLI，每次调用对照权限、DLP 和分类标签；在 Google Cloud 侧，Agent Gateway 在协议层执行 IAM 与默认拒绝的出站规则，并可通过 Service Extensions 把自定义检查路由到 Identity-Aware Proxy、自有策略引擎或第三方安全工具。智能体在 Agent Registry 中拥有独立的 Agent Identity，不使用共享或长期密钥。高影响动作（发送邮件、修改共享、变更 IAM 或生产基础设施）可被要求经过人的确认或多因素验证。这是一套已公布时间表的运行质量方案：可观测、可撤销、可按身份限额。</p>
+        <p class="src">来源：<a href="https://cloud.google.com/blog/products/identity-security/deploying-agents-safely-in-your-enterprise">Google Cloud 博客（2026-11-24）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>e / c) 能力扩展与上下文：HyperHarness 从用户历史生成个性化运行框架</h3>
+        <p>论文 HyperHarness: Learning to Generate Personalized Agent Harnesses from User Histories（arXiv:2611.29062，提交于 2026 年 11 月 21 日）提出：与其为每个用户单独搜索一套提示或工作流，不如训练一个可复用的「历史 → Harness」生成器，直接根据用户历史合成可执行的检索与答题引导代码。作者在 MemoryCD 上用 Qwen3.5-9B、覆盖 223 名用户和 2,676 次请求的对照中报告：生成式检索把答题时的平均 token 从长上下文的 32.51k 降至 3.15k（降低 90.32%），同时保持相当的任务分数。在成本曲线上，该方法先支付一次共享训练代价，再对每个用户做一次轻量构建；论文称在大约 9–35 名用户之后，累计代价可低于按用户反复搜索的基线。这是可复现的研究实现（以论文与代码声明为准），尚不是某一家主流产品的正式发布说明。</p>
+        <p class="src">来源：<a href="https://arxiv.org/abs/2611.29062">arXiv:2611.29062（2026-11-21）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>f) 运行质量的另一面：监管机构开始点名智能体化攻击工具</h3>
+        <p>英国 NCSC 关于「人工智能驱动攻击明显上升」的表态，把开源自主渗透测试框架从研究样本推进到监管观察名单。对运行架构的含义是：长任务、工具调用和失败重试在提高企业 Agent 能力的同时，也被用于加速已知漏洞的利用。本期不展开具体攻击步骤；需要关注的是权限最小化、出站默认拒绝、以及工具调用审计是否覆盖「子 Agent」和外部技能包。</p>
+        <p class="src">来源：<a href="https://therecord.media/cyberattacks-uk-artificial-intelligence">The Record（2026-11-24）</a>。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s10">
+      <h2>🧠 Agent 记忆、企业知识与本体驱动执行</h2>
+
+      <div class="item">
+        <h3>a / b) 记忆与企业知识：用历史生成规则，而不是把全部记录塞进上下文</h3>
+        <p>HyperHarness 把「个人记忆」做成可执行的检索与答题规则：模型不是在每次提问时重读全部历史，而是先从历史中归纳出该用户适用的检索程序。论文还比较了「缺少证据」与「被无关文本干扰」：在部分数据集上，注入干扰项比删除同等记录伤害更大。这对组织记忆的启示是：更新和遗忘不仅是存档策略，也是过滤误导性记录的问题。</p>
+        <p class="src">来源：<a href="https://arxiv.org/abs/2611.29062">arXiv:2611.29062</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>c / d) 动态知识到行动：对象、标签、权限，先于模型自由发挥</h3>
+        <p>Workspace 的设计把邮件、文件、日历和任务视为可被调用的对象，并把共享权限变更、外部发送和批量编辑设为必须确认的动作；分类标签与 DLP 在每次请求时生效。Neo4j Context Engine 的官方表述则是：在决策与行动点提供经治理的业务上下文，并且「用得越多越好」。两者都在回答同一问题：智能体根据哪些对象、关系和规则选择动作，以及这些依据能否被撤回。</p>
+        <p class="src">来源：<a href="https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace">Google Workspace 博客</a>；<a href="https://neo4j.com/blog/news/neo4j-context-engine/">Neo4j Context Engine 博客</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>e) 可信交互：确认、引用限制，以及实验室里的「阳性」定义</h3>
+        <p>Claude 安装应用要求完整访问仅授予来源可信的应用，并在每次更新后重新授权；Google 则把确认、审计和撤销放进管理控制台。OpenAI 的蛋白质实验提供了另一种可信性样本：它同时公布命中率、各靶点计数，并主动写明专用模型的角色以及与 RFdiffusion 命中率不可直接对比的原因。对本体驱动执行来说，可信性不只是「给出链接」，还包括说明管线里还有谁、筛掉了什么、以及阳性意味着什么。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s11">
+      <h2>💡 今日推荐阅读</h2>
+
+      <div class="item">
+        <h3>1. Google Workspace：Built for trust and control: New AI agent protections and developer tools</h3>
+        <p>这是一份把智能体接入企业协作套件的官方说明，同时给出 MCP / CLI 的覆盖范围、强制执行日期、确认机制和数据使用禁令。对正在设计 Agent / 本体中台权限模型的团队，它比一般产品发布稿更接近「可落地的接口契约」。</p>
+        <p class="src">推荐阅读：<a href="https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace">workspace.google.com 博客（2026-11-24）</a>；配套更新：<a href="https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html">Workspace Updates</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>2. OpenAI：GPT-6 models demonstrate intrinsic protein-design capabilities</h3>
+        <p>文章同时给出计算评测、两套湿实验设计和明确的限制条件（完整结构预测仍弱、专用模型仍参与部分管线、命中率不可简单横向比较）。适合用来讨论：当通用 Agent 进入科学对象的设计时，什么样的证据才算「可验证」。</p>
+        <p class="src">推荐阅读：<a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/">openai.com 研究文章（2026-11-24）</a>。</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      本早报由狙击日报自动生成<br>
+      生成时间：2026年11月26日 09:15（UTC+8）
+    </footer>
+  </div>
+</body>
+</html>
