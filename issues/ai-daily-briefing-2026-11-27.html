@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狙击日报｜2026年11月27日 · AI 每日早报</title>
+  <style>
+    :root {
+      --primary: #667eea;
+      --primary-2: #764ba2;
+      --bg: #f5f6fb;
+      --card: #ffffff;
+      --muted: #f8f9fa;
+      --text: #1f2937;
+      --sub: #4b5563;
+      --line: #e5e7eb;
+      --ai: #4f46e5;
+      --warn: #b45309;
+      --ok: #047857;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    a { color: #4f46e5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+    header.hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 32px 28px;
+      box-shadow: 0 16px 40px rgba(102, 126, 234, 0.25);
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      opacity: .95;
+      margin-bottom: 12px;
+    }
+    header.hero h1 {
+      margin: 0 0 6px;
+      font-size: 36px;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+    }
+    header.hero .sub {
+      margin: 0 0 18px;
+      font-size: 15px;
+      opacity: .92;
+    }
+    header.hero .date {
+      font-size: 14px;
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+    .overview {
+      background: rgba(255,255,255,.14);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+    }
+    .archive {
+      margin: 16px 0 0;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--sub);
+      font-size: 14px;
+      border: 1px solid var(--line);
+    }
+    .sec {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px 24px 18px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.04);
+      border: 1px solid var(--line);
+    }
+    .sec h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+    }
+    .item { margin: 0 0 16px; padding: 0 0 16px; border-bottom: 1px dashed var(--line); }
+    .item:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 4px; }
+    .item h3 { margin: 0 0 6px; font-size: 17px; font-weight: 650; }
+    .meta { color: var(--sub); font-size: 13px; margin-bottom: 6px; }
+    .src { font-size: 13px; color: var(--sub); margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tag-ai { background: #eef2ff; color: var(--ai); }
+    .tag-other { background: #f3f4f6; color: #4b5563; }
+    .tag-cat { background: #f3e8ff; color: #6d28d9; }
+    .tag-warn { background: #fff7ed; color: var(--warn); }
+    .insight {
+      background: var(--muted);
+      border-left: 4px solid #764ba2;
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .insight strong { color: #5b21b6; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 8px 0 12px;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--muted); font-weight: 650; }
+    tr:nth-child(even) td { background: #fafafa; }
+    ul.clean { margin: 6px 0 0; padding-left: 1.2em; }
+    ul.clean li { margin: 4px 0; }
+    .note { font-size: 13px; color: var(--sub); }
+    footer.foot {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--sub);
+      font-size: 13px;
+      padding: 18px 8px 0;
+    }
+    @media (max-width: 720px) {
+      header.hero { padding: 26px 18px 20px; }
+      header.hero h1 { font-size: 28px; }
+      .sec { padding: 18px 16px 12px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">JUJI DAILY</div>
+      <h1>狙击日报</h1>
+      <p class="sub">AI 每日早报 · 面向 Agent / 本体中台</p>
+      <p class="date">2026年11月27日 星期五（UTC+8）</p>
+      <div class="overview">
+        今日概览：Anthropic 于 11 月 25 日发布工程文章，说明其用 Claude Agent 将对外 Messages API 从 Python 迁到 Rust，并把生产流量对照做成校验器；官方称每请求 CPU 约降 70%、首 token 中位时延约降 20%，且未中断服务。OpenClaw Foundation 公布日常办公任务评测 ShellBench：12 个模型、5 种 Harness、共 53,100 次评分，最好成绩约为六成通过。Cloudflare 同日推出 Search for Agents，在站点域名下以 <code>/.well-known/search</code> 向智能体提供可发现的检索入口。Claude Duet 产品页已将这一主动式智能体的研究预览地区扩展至日本等地。
+      </div>
+    </header>
+
+    <div class="archive">
+      <strong>归档：</strong>
+      <a href="./issues/ai-daily-briefing-2026-11-27.html">2026-11-27（今日）</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-26.html">2026-11-26</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-25.html">2026-11-25</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-24.html">2026-11-24</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-23.html">2026-11-23</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-20.html">2026-11-20</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-19.html">2026-11-19</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-18.html">2026-11-18</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-17.html">2026-11-17</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-16.html">2026-11-16</a>
+      · <a href="./issues/ai-daily-briefing-2026-11-14.html">2026-11-14（首期）</a>
+    </div>
+
+    <section class="sec" id="s1">
+      <h2>⭐ GitHub Trending 日报</h2>
+      <p class="note">以下为 2026 年 11 月 27 日上午（UTC+8）读取的 GitHub Trending 日榜，优先保留 AI / Agent 相关项目；非 AI 的 nginx 未列入主表。星标数为当时页面显示的合计与「stars today」。榜单与昨日高度重合，但合计星标与当日增量已更新；增长较快的新面孔包括面向应用商店合规的 Agent Skill，以及 CI/CD 可靠性 Agent。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>项目</th>
+            <th>语言</th>
+            <th>简介</th>
+            <th>星标 / 今日</th>
+            <th>类型</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="https://github.com/elementalsouls/Claude-BugHunter">elementalsouls/Claude-BugHunter</a></td>
+            <td>Python</td>
+            <td>面向 Claude Code 的漏洞猎捕与外部红队技能包：说明称含 85 项技能、16 个斜杠命令，以及 24 类漏洞的已披露报告模式。</td>
+            <td>24,561 / +1,597</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="https://github.com/obra/superpowers">obra/superpowers</a></td>
+            <td>Shell</td>
+            <td>智能体技能框架与软件开发方法论。</td>
+            <td>327,483 / +854</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td>
+            <td>Python</td>
+            <td>定位为「让所有软件对 Agent 原生可用」，配套站点为 clianything.cc。</td>
+            <td>66,355 / +746</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><a href="https://github.com/jingyaogong/minimind">jingyaogong/minimind</a></td>
+            <td>Python</td>
+            <td>从零训练约 64M 规模大语言模型的开源教程与实现，项目说明称约两小时可完成。</td>
+            <td>71,624 / +702</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><a href="https://github.com/cursor/plugins">cursor/plugins</a></td>
+            <td>TypeScript</td>
+            <td>Cursor 插件规范与官方插件。</td>
+            <td>19,783 / +270</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><a href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></td>
+            <td>TypeScript</td>
+            <td>为智能体提供检索与抓取的知识基础设施，项目说明称可通过同一 API 接入 550 余家数据提供方。</td>
+            <td>210,935 / +1,046</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><a href="https://github.com/openvinotoolkit/openvino">openvinotoolkit/openvino</a></td>
+            <td>C++</td>
+            <td>用于优化和部署 AI 推理的开源工具包。</td>
+            <td>12,819 / +176</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
+            <td>HTML</td>
+            <td>面向 Claude Code、Codex、GitHub Copilot、Cursor 等编码智能体的编辑型图表技能，自称 52 种图表类型，输出自包含 HTML + SVG。</td>
+            <td>73,836 / +955</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><a href="https://github.com/mvanhorn/last30days-skill">mvanhorn/last30days-skill</a></td>
+            <td>Python</td>
+            <td>可跨 Reddit、X、YouTube、Hacker News、Polymarket 与网页检索并综合摘要的 Agent Skill。</td>
+            <td>75,746 / +759</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><a href="https://github.com/mjmirza/app-store-compliance">mjmirza/app-store-compliance</a></td>
+            <td>Shell</td>
+            <td>应用商店与合规预检手册及编码智能体技能：说明称收录拒绝模式与修复、隐私清单与 Data safety 检查，并跟踪包括欧盟 AI 法案在内的截止日期。相对基数的当日增幅明显高于多数老牌项目。</td>
+            <td>7,028 / +562</td>
+            <td><span class="tag tag-ai">AI 相关</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>同榜还出现 <a href="https://github.com/google-labs-code/stitch-skills">google-labs-code/stitch-skills</a>（TypeScript，13,287 / +309，配合 Stitch MCP 的 Agent Skills 库）和 <a href="https://github.com/Tracer-Cloud/opensre">Tracer-Cloud/opensre</a>（Python，15,818 / +327，定位为开源 CI/CD 可靠性 Agent）。</p>
+      <p class="src">来源：<a href="https://github.com/trending">GitHub Trending</a>（2026-11-27 上午读取）；对照快照：<a href="https://gitstock.org/trending">GitStock Trending（标注日期 2026-11-27）</a>。官方日榜同时列出 nginx（非 AI，未计入上表）。</p>
+    </section>
+
+    <section class="sec" id="s2">
+      <h2>🤖 AI Agent 前沿洞察</h2>
+
+      <div class="item">
+        <h3>Anthropic：用生产流量做校验器，将 Messages API 从 Python 迁到 Rust</h3>
+        <p>11 月 25 日，Anthropic 发布工程文章 <em>Migrating our Messages API to Rust</em>。Messages API 是客户以及 Claude Code、Cowork 等自家应用访问 Claude 的主要接口。文中称，自 2024 年初至 2026 年秋，该 API 流量约增长 1,800 倍。Claude 约用一周写出核心请求路径的首个 Rust 版本；但真正的瓶颈是校验：Python 服务在迁移期间仍在变更，模型输出具有非确定性，且工程团队不能直接阅读客户请求。</p>
+        <p>官方做法是把仍在线上的 Python API 当作「正确性」来源，对生产流量做对照（shadowing），按差异出现的步骤、位置和长度形成指纹并归组，再自动派发 Agent 修复。文中给出一个关键对照：2026 年 4 月，Rust 版本测试通过率约 98%，但在生产流量上只有约四分之一的输入与 Python 一致——测试未覆盖的细节（例如工具调用 JSON 里 emoji 的转义方式）会在真实请求中被反复放大。CPU 数字来自单一区域，首 token 时延来自客户 Claude Code 请求的较短窗口。最终，官方称迁到 Rust 后每请求 CPU 约降低 70%，首 token 中位时延约降低 20%，且未中断服务、也未冻结功能开发；面向公众的流量在 2026 年 9 月切到 Rust。</p>
+        <p class="src">来源：<a href="https://www.anthropic.com/research/migrating-api-to-rust">Anthropic 工程文章（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>OpenClaw Foundation：ShellBench 显示头部 Agent 日常任务通过率约六成</h3>
+        <p>OpenClaw Foundation 于 11 月 24 日发布 ShellBench，并同时挂出论文预印本（arXiv:2611.32946）。评测与 Parsewave、Hugging Face、Red Hat、加州大学伯克利分校的研究者合作，从超过 1,000 万条匿名真实智能体交互中归纳出 100 项日常任务（如对账、核对过期说明、整理邮件与收据），工作区文件数中位数为 188。评测覆盖 12 个模型、5 种 Agent Harness（Claude Code、Codex、Hermes、OpenClaw、Pi）和三档推理力度，共 53,100 次评分运行。</p>
+        <p>按各 Harness 平均，通过率最高的是 GPT-6 Astra（62.5%）、Claude Fable 5.2（61.9%）和 GPT-6.1 Sol（61.4%），前三名只差 1.1 个百分点，也就是最好成绩仍会在约四成尝试中漏掉某项要求。可靠性更低：Astra 在三次尝试中至少成功一次的任务占 75.1%，但三次全部成功的只有 48.8%。官方按记录到的 token 用量和研究所用单价估算（不含评分成本）：Astra 每次约 1.10 美元，Fable 5.2 约 0.83 美元，Sol 约 0.19 美元，即 Sol 以约六分之一的费用接近最高通过率。</p>
+        <p>安全方面，53,100 次运行中有 15.7% 至少未通过一项安全检查；在全部正确性标准都满足的 26,151 次运行里，仍有 2,589 次（9.9%）未满足安全要求。换模型带来的通过率差距中位数为 45.7 个百分点，换 Harness 仅为 6.2 个百分点；但 Harness 仍会改变 token 用量、改写次数和完成时间。这些是该基金会在自有任务集上的结果，不是跨全部办公场景的定论。</p>
+        <p class="src">来源：<a href="https://openclaw.ai/blog/shellbench">OpenClaw 博客（2026-11-24）</a>；论文：<a href="https://arxiv.org/abs/2611.32946">arXiv:2611.32946</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>Cloudflare：Search for Agents 把站点检索做成智能体可发现的标准入口</h3>
+        <p>Cloudflare 于 11 月 25 日宣布 Search for Agents：在控制台为某个站点打开开关后，系统会自动创建 AI Search 实例、开始索引内容，并在该域名下暴露检索接口。智能体可通过页面中的 <code>agent:endpoint</code> 等元数据，或（在已开启 Markdown for Agents 时）通过 Markdown 的 YAML 头发现地址，然后向 <code>https://example.com/.well-known/search?q=...</code> 发送 GET 或 HTTP QUERY 请求。返回的是相关内容的 Markdown，而不是由检索服务生成的最终答案，以便智能体再用自己的模型处理。</p>
+        <p>官方写明该功能对所有方案开放（含 Free，但有额度限制），用量受 AI Search 定价与方案限额约束，并仍受该域名的机器人管理、AI Crawl Control 和 WAF 等设置影响。这是一种「站点自己提供检索入口」的集成方式，不是通用搜索引擎替代品。</p>
+        <p class="src">来源：<a href="https://blog.cloudflare.com/search-for-agents/">Cloudflare 博客（2026-11-25）</a>；<a href="https://developers.cloudflare.com/changelog/post/2026-11-25-search-for-agents/">Cloudflare Changelog</a>。</p>
+      </div>
+
+      <div class="insight">
+        <strong>未来方向洞察：</strong>今天几条消息指向同一个工程问题：生成已经很快，难的是可重复的校验和可发现的接口。Anthropic 把旧系统当成校验器，用指纹归组差异再派 Agent 修复，说明「长任务能否交付」取决于有没有机械、持续的对错信号。ShellBench 则给出另一面：最好的模型在杂乱办公任务上大约六成通过，一次成功并不等于三次都成功，而且正确完成也不等于通过安全检查。Cloudflare 把检索收成域名下的标准入口，则是在降低智能体靠爬页猜内容的成本。对 Agent / 本体中台来说，下一阶段更可能比的是：对象和权限能否被调用、结果能否被对照、失败能否被归类，而不是再多一个聊天窗口。
+      </div>
+    </section>
+
+    <section class="sec" id="s3">
+      <h2>📚 Ontology（本体）生态动态</h2>
+
+      <div class="item">
+        <h3>站点知识开始被写成智能体可调用的对象，而不只是待爬页面</h3>
+        <p>Cloudflare Search for Agents 的设计，把「网站上有哪些可引用的文档」做成带发现元数据的检索对象：智能体先发现端点，再按关键词或自然语言取回 Markdown 片段，并自己决定如何引用。这对本体中台的启示不是又多了一种爬虫协议，而是知识提供方开始规定：哪些内容可以被检索、以什么格式返回、以及仍受哪些访问控制约束。</p>
+        <p class="src">来源：<a href="https://blog.cloudflare.com/search-for-agents/">Cloudflare 博客（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>Neo4j：近期官方材料仍把本体与图作为 Agent 的治理上下文</h3>
+        <p>在近 1–3 日可核对的来源中，未见 Neo4j 新的产品发布稿。仍值得作为背景对照的是 11 月 5 日的 <em>Neo4j Ontology Graph Specification</em>：官方把它写成面向 AI 的、开放且偏实用的本体图层约定；以及 11 月 11–12 日围绕 Relate by Neo4j（嵌入式图数据库，面向智能体）的介绍与黑客松公告。昨日早报已介绍的 Neo4j Context Engine，本期不再展开。若有新的版本说明，标为待持续跟踪。</p>
+        <p class="src">来源：<a href="https://neo4j.com/blog/developer/the-neo4j-ontology-graph-specification-a-pragmatic-open-ai-first-approach/">Neo4j Ontology Graph Specification（2026-11-05）</a>；<a href="https://neo4j.com/blog/news/meet-relate-by-neo4j-an-embedded-database-for-ai-agents/">Meet Relate by Neo4j（2026-11-11）</a>；<a href="https://neo4j.com/blog/graph-database/announcing-the-relate-by-neo4j-hackathon-2026-build-ai-agents-on-an-embedded-graph-database/">Relate 黑客松公告（2026-11-12）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>ShellBench：引用依据被写成可评分的任务要求</h3>
+        <p>ShellBench 官方说明称，在 77 项任务中有 87 条评分标准检查答案是否点名所使用的文件，包括用于裁定冲突信息的记录。这把「知识从哪里来」从写作风格改成了任务是否完成的一部分，与本体驱动执行里「先给出对象和出处，再执行动作」是同一类约束，只是评测场景是办公文件而不是企业对象目录。</p>
+        <p class="src">来源：<a href="https://openclaw.ai/blog/shellbench">OpenClaw 博客（2026-11-24）</a>。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s4">
+      <h2>🏢 AI 公司要闻</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> Anthropic：Claude Duet 研究预览的公开地区名单现已包含日本</h3>
+        <p>Anthropic 产品页写明：Claude Duet 是主动式智能体，由 Opus 5.5 驱动，可在用户离开时继续工作，并在关键步骤等待确认。页面当前列出的可用地区为美国、印度、印度尼西亚、巴西和日本，面向 Pro、Max 与 Ultra 方案；官方同时写明 Team 与 Enterprise 尚不在列，研究预览阶段走等待名单、不另向这些个人方案加收费用的表述见产品页常见问题。Duet 以独立的 iOS / Android 应用提供，电脑端可在 claude.ai 打开；它使用同一 Claude 账号中的记忆、技能和连接器，并称可连接 6,000 余个连接器与插件。发送消息、付款等敏感操作需用户批准。这是地区名单与产品页的更新，不等于在日本已全面公测或已对团队版开放。</p>
+        <p class="src">来源：<a href="https://www.claude.com/duet">Claude Duet 产品页</a>（2026-11-27 读取）。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> OpenAI：开始向部分 Pro 用户合并 Chat 与 Work 的用量额度</h3>
+        <p>TechCrunch 11 月 25 日报道，OpenAI 已开始向一小部分 Pro 订阅用户推出统一的 Chat 与 Work 体验。发言人向该媒体表示：Chat 与 Work 将共用一个用量额度；Instant 对话保持不限额度、也不计入该共享额度，用尽后仍可继续使用 Instant；大多数用户预计不会更频繁地遇到重置，但「最重的一小部分用户」可能会更早触达上限。更广的共享额度计划于 12 月推行。这是用量与界面合并，不是新模型发布。</p>
+        <p class="src">来源：<a href="https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/">TechCrunch（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> OpenAI：Private Inference 进入小范围客户测试</h3>
+        <p>The Next Web 11 月 25 日报道，OpenAI 首席执行官 Sam Altman 在 X 上宣布，Private Inference 已开始与一小部分企业客户进行测试。报道称该功能属于 Private Intelligence 方案，使用机密计算，在处理过程中保护提示词与回复；官方产品说明将其标为 alpha。它与 9 月开始推出的 Private Safety Processing（在不保留客户数据的前提下做滥用检查）并列。报道转述相关负责人称，这是更大规模推广前的第一步，并正在准备更多算力，但未给出时间表。本期未能打开 OpenAI 官方产品页原文，细节以官方说明为准。</p>
+        <p class="src">来源：<a href="https://thenextweb.com/news/openai-private-inference-testing-customers">The Next Web（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产品发布</span> 蚂蚁集团：Ling-3.2-air 以 MIT 许可公开权重</h3>
+        <p>TechNode 11 月 25 日报道，蚂蚁集团已在 Hugging Face 发布 Ling-3.2-air 的权重，采用 MIT 许可，允许开发者下载并用于商业改编。该模型为原生多模态混合专家模型，总参数约 1,240 亿、每个 token 激活约 55 亿，面向可调用软件工具的专业与办公任务。Artificial Analysis 变更日志在 11 月 23 日将其 Intelligence Index 记为 23。部分报道还转述蚂蚁在自有 AutomationBench-AA 上的任务完成率：由 Ling-3.0-flash-VL 的 15.7% 升至 61%；该对比是公司自有评测，外部尚未作为独立复现结果公布。</p>
+        <p class="src">来源：<a href="https://technode.com/2026/11/25/ant-releases-ling-3-2-air-multimodal-model-under-mit-license/">TechNode（2026-11-25）</a>；<a href="https://artificialanalysis.ai/changelog">Artificial Analysis Changelog（2026-11-23 条目）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">政策</span> 美国 FCC：有条件批准 SpaceX 部署最多 100 万颗「Starmind」卫星用于轨道数据中心</h3>
+        <p>美国联邦通信委员会（FCC）于 11 月 25 日发布新闻稿，宣布授权最多 100 万颗 Starmind 卫星，用于在太空支持数据中心计算。Ars Technica 同日报道，这是有条件授权：SpaceX 有 7 年时间部署第一颗可运行卫星，须在 2035 年 11 月部署 10 万颗、在 2040 年 11 月完成全部星座。报道还写明，FCC 未批准将部分高于约 600 公里轨道的卫星弃置于「地球弃置轨道或日心轨道」的豁免申请，理由是资料不足；在获得豁免前，不打算以大气再入方式处置的 Starmind 卫星不能按该替代方案部署。授权不等于轨道数据中心在技术或经济上已经可行，也不等于卫星已经发射。</p>
+        <p class="src">来源：<a href="https://www.fcc.gov/document/fcc-authorizes-1-million-satellites-data-centers-space-0">FCC 新闻稿（2026-11-25）</a>；<a href="https://arstechnica.com/space/2026/11/the-fcc-has-authorized-spacex-to-deploy-1-million-satellites/">Ars Technica（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">市场</span> 标普：将英伟达 AA 评级列入 CreditWatch Negative</h3>
+        <p>The Next Web 11 月 26 日报道，标普全球评级将英伟达的 AA 信用评级列入 CreditWatch Negative，关注治理与董事会独立性等问题，并称若相关缺口仍在，评级可能下调一档至 AA-。这是信用评级观察，不是产品或技术发布，也不等于已经降级。Moody's 是否维持原评级，请以评级机构原文为准。</p>
+        <p class="src">来源：<a href="https://thenextweb.com/news/nvidia-credit-rating-sp-creditwatch-governance">The Next Web（2026-11-26）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>国内其他主要实验室：近 1–3 日未见新的官方旗舰模型发布</h3>
+        <p>在可核对的公开来源中，百度、阿里、字节跳动、月之暗面近 1–3 日未见新的官方旗舰模型或产品发布稿。蚂蚁集团的 Ling-3.2-air 见上条。11 月 24–26 日早报已记录的 Google Workspace 官方 MCP / CLI、OpenAI GPT-6 蛋白质设计湿实验、戴尔科技财报等，本期不再展开。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s5">
+      <h2>💊 AI 制药板块</h2>
+
+      <div class="item">
+        <h3><span class="tag tag-cat">产业观察</span> 《European Biotechnology》：AI 制药的瓶颈正在转向可训练的实验室数据</h3>
+        <p>该刊 11 月 23 日的长篇观察提出：对部分药企和 AI 制药公司而言，实验室产出的标准化扰动数据本身正在成为可交易的产品，而不只是某一候选分子的副产品。文中举例：Roche 与 Genentech 曾两次向 Recursion 各支付 3,000 万美元，以换取大规模生物学数据集，两次付款都不附带一个药物；今年 7 月，GSK 同意向 Relation Therapeutics 支付最高 1.10 亿美元，用于类似的数据驱动合作。Recursion 已交付六份基于图像的「phenomap」；其中两份覆盖神经科学全基因组，一份来自公司自制的万亿量级 iPSC 来源神经元细胞子集，另一份来自超过 1,000 亿个小胶质细胞和 4,600 万张图像。文中写明，Genentech 在 2026 年 8 月行使期权，将第一个神经科学靶点推进到早期发现。</p>
+        <p>文章同时给出需要分开看的口径：早期 AI 制药公司曾加快产生候选分子，但 Exscientia 的首个候选在 I 期后终止，BenevolentAI 的领先项目在 IIa 期未能优于安慰剂；作者写到「截至今日，尚无 AI 设计的药物上市」。这不是对全部管线的判决，而是提醒：计算设计、湿实验数据生产、临床试验和上市审批是不同阶段。文中还转述 Relation 首席执行官 David Roblin 的说法：实验不再只为回答单个生物学问题，而是为了让模型学习生物学的底层规则；因此记录条件、对照和扰动的元数据成为实验的一部分。</p>
+        <p class="src">来源：<a href="https://european-biotechnology.com/background/ai-drug-discoverys-new-bottleneck-is-the-lab/">European Biotechnology（2026-11-23）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>口径提醒：通用模型蛋白质设计仍是体外结合证据，高额合作需核对原始日期</h3>
+        <p>OpenAI 与 Onava 于 11 月 24 日公布的 GPT-6.2 minibinder 湿实验已在昨日早报详细记录：实验一为「通用模型设计三维结构 + 专用模型提供序列并协助筛选」，322 个候选中 35 个（10.9%）对预定靶点呈结合阳性，不是临床试验，也不是已上市药物。本期检索中再次出现「英矽智能与 SK 生物制药高达 25 亿美元」等稿件，其原始公告日期为 2026 年 6 月 22 日，不是近 1–3 日新签协议。此前早报已记录的 Isomorphic Labs 融资、Recursion 部分临床进展，本期不重复。</p>
+        <p class="src">来源：<a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/">OpenAI（2026-11-24）</a>；英矽智能相关原始公告日期见既有港交所 / EurekAlert 记录（2026-06-22）。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s6">
+      <h2>🕸️ 本体生态公司动态</h2>
+
+      <div class="item">
+        <h3>企业侧：图数据库与检索入口仍是「知识到行动」的主要产品形态</h3>
+        <p>近 1–3 日可核对的公司动态，主要仍落在基础设施而不是新的本体平台融资：Cloudflare 把站点知识做成智能体可发现的检索对象；Neo4j 近期官方文档继续强调 Ontology Graph Specification 与面向智能体的嵌入式图库 Relate。二者都不以代币价格为卖点，关注的是对象、关系和调用入口能否被治理。</p>
+      </div>
+
+      <div class="item">
+        <h3>Web3 + AI 交叉：近 1–3 日未见可独立核对的新融资或技术发布</h3>
+        <p>在可核对的公开来源中，本期未发现基于 Ontology 公链或 Web3+AI 交叉领域、且能定位到近 1–3 日官方公告的新一轮融资或主要版本发布。若只有行情波动或转载旧闻，不作为今日新事件。有新的技术或合作公告时再补录。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s7">
+      <h2>📈 AI 模型比较（Artificial Analysis 能力榜）</h2>
+      <p class="note">Artificial Analysis 综合榜请以官网当前版本为准；不同版本分数不可直接比较。本期打开的第三方转载榜（BenchLeader）仍标注为 <strong>Intelligence Index v5.0.1</strong>，数据截至 2026 年 11 月 27 日，编码分项仍写 Terminal-Bench 4.0。Artificial Analysis 官网变更日志在 11 月 24 日写明已发布 <strong>v5.0.2</strong>（Terminal-Bench 更新为 4.1，任务数仍为 66，但校验器有更新，并对 FrontierCode 2.0 使用最新轨迹扫描器）。下方排名与分数来自 BenchLeader 对 v5.0.1 的快照，仅作参考，<strong>不能当作 v5.0.2 的官方分数</strong>。阅读时必须同时看推理档位（max / xhigh / high 等）。</p>
+
+      <div class="item">
+        <h3>Intelligence Index：Claude Fable 5.2（max）仍居首，GPT-6.2 Astra 紧随其后</h3>
+        <p>BenchLeader 标注为 v5.0.1、数据截至 11 月 27 日的 Top 10 如下，与 11 月 26 日同一来源相比名次与分数未见变动：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>模型（推理档位）</th>
+              <th>v5.0.1 分数</th>
+              <th>实验室</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Claude Fable 5.2（max）</td><td>64.8</td><td>Anthropic</td></tr>
+            <tr><td>2</td><td>Claude Fable 5.2（xhigh）</td><td>62.2</td><td>Anthropic</td></tr>
+            <tr><td>3</td><td>GPT-6.2 Astra（max）</td><td>62.2</td><td>OpenAI</td></tr>
+            <tr><td>4</td><td>Claude Fable 5.2（high）</td><td>61.9</td><td>Anthropic</td></tr>
+            <tr><td>5</td><td>GPT-6.2 Astra（xhigh）</td><td>61.8</td><td>OpenAI</td></tr>
+            <tr><td>6</td><td>Gemini 4 Neon（xhigh）</td><td>61.5</td><td>Google</td></tr>
+            <tr><td>7</td><td>GPT-6.2 Astra（high）</td><td>60.3</td><td>OpenAI</td></tr>
+            <tr><td>8</td><td>Gemini 4 Carbon（high）</td><td>60.1</td><td>Google</td></tr>
+            <tr><td>9</td><td>Gemini 4 Neon（high）</td><td>59.8</td><td>Google</td></tr>
+            <tr><td>10</td><td>Claude Opus 5.5（max）</td><td>59.1</td><td>Anthropic</td></tr>
+          </tbody>
+        </table>
+        <p>同快照中，GPT-6.2 Sol（max）为 57.3。Artificial Analysis 变更日志将蚂蚁 Ling-3.2-air 的 Intelligence Index 记为 23，与头部闭源模型不在同一分数带，且该条目日期为 11 月 23 日，早于 v5.0.2 的方法论更新说明。</p>
+        <p class="src">来源：<a href="https://www.benchleader.com/benchmarks/aa_intelligence_index_v5">BenchLeader v5.0.1 快照（数据截至 2026-11-27）</a>；<a href="https://artificialanalysis.ai/changelog">Artificial Analysis Changelog</a>；<a href="https://artificialanalysis.ai/models">Artificial Analysis Models</a>；<a href="https://artificialanalysis.ai/leaderboards">Artificial Analysis Leaderboards</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>新评测：AA-Robotics-Sim v0.1 让语言模型在仿真中控制人形机器人</h3>
+        <p>Artificial Analysis 于 11 月 25 日发布 AA-Robotics-Sim v0.1：在仿真中把前沿语言模型接入编码 Agent Harness，控制 Unitree G1 人形机器人（29 个关节、三指手和头部相机），完成 10 项家庭与工业任务。每个任务先进行 5 次练习，只保留模型自己写下的笔记、代码和技能，再在 10 个新场景中评分。官方称：所有受测模型在导航任务中都能走到目标且不碰到包裹；大多数能在多数回合中弹完玩具钢琴的完整旋律；但没有模型能可靠地装洗碗机（90 个回合里只有 5 个盘子最终进入碗篮），也没有任何模型把一件衣物成功放入洗衣机。GPT-6.2 Astra 以 71.0 分领先，比 Claude Fable 5.2 的 57.5 和 GPT-6.2 Sol 的 53.7 分别高 13.5 和 17.3 分；在 100 次评估回合中，Astra 成功 61 次，Fable 5.2 为 43 次，Sol 为 41 次。这是仿真研究预览，不是真机部署成绩，也不可与 Intelligence Index 直接比较。</p>
+        <p class="src">来源：<a href="https://artificialanalysis.ai/articles/aa-robotics-sim">Artificial Analysis：AA-Robotics-Sim v0.1（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>主流模型输入 / 输出定价简表（$/百万 token）</h3>
+        <p>下表只列出仍能核对到来源的分项单价。BenchLeader 另给出「每百万 token 综合单价」（例如 Fable 5.2 与 GPT-6.2 Astra 显示为 16 美元），本期不把它当作官方输入/输出价。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>模型</th>
+              <th>输入</th>
+              <th>输出</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GPT-6.2 Astra</td>
+              <td>8</td>
+              <td>40</td>
+              <td>缓存输入 0.40；较 GPT-6 Astra 低 20%</td>
+            </tr>
+            <tr>
+              <td>GPT-6.2 Sol</td>
+              <td>2</td>
+              <td>10</td>
+              <td>与 GPT-6.1 Sol 相同</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="src">来源：OfficeChai 对 Artificial Analysis 的转述（2026-11-17）。Claude Fable 5.2 与 Gemini 4 系列的官方分项单价本期仍未在同一来源中完整列出，故不编造。</p>
+      </div>
+
+      <div class="insight">
+        <strong>模型能力洞察：</strong>综合智力榜的领先带仍由 Fable 5.2 的高推理档与 GPT-6.2 Astra 组成，昨日到今日的 v5.0.1 转载快照没有名次变化；但官网已提示 v5.0.2 更新了编码校验器，后续若只看旧版分数会低估方法论切换。更值得放到中台选型里的，是同一模型在不同任务上的分化：Astra 在 AA-Robotics-Sim 上明显领先，ShellBench 上却与 Fable、Sol 几乎持平，而 Sol 的单次费用大约只有 Astra 的六分之一。Ling-3.2-air 以 MIT 许可和较低的 Intelligence Index 出现，更接近「可路由的开源工作流模型」，而不是榜首竞争者。选型时仍需注明评测版本、推理档位、任务类型和单次成本。
+      </div>
+    </section>
+
+    <section class="sec" id="s8">
+      <h2>🚀 新兴 AI Agent 产品与产品形态</h2>
+
+      <div class="item">
+        <h3>a / b) 新产品与形态：主动式「数字同事」继续从聊天框里走出来</h3>
+        <p>Claude Duet 的产品页把它写成会主动找到你的助手，而不是等你打开对话：早上给出简报、接手大小任务、在发送或付款前请求确认，并在云端电脑里运行。地区名单扩展到日本等地，说明这一形态正在从单一市场的研究预览向外复制。使用方式是：用文字或语音像给同事留言一样交代需求，在同一条线程里查看进度和成品（文档、表格或幻灯片），并在需要判断时被叫回来。</p>
+        <p>另一侧，MyClaw 3.0 在 11 月下旬以「始终在线的 AI 团队、共享记忆」为卖点出现在 Product Hunt 等渠道，官方介绍称可选用 Claude Code、Codex、Hermes、Pi、OpenClaw 等 Harness，并在托管电脑上通过 Slack、Telegram、WhatsApp 等渠道接收定期任务。Airbots 则把「首席参谋」放进 WhatsApp 和 iMessage，强调在邮件、日历和客户记录之间准备回复、会议简报或 CRM 更新，再请用户批准。这两条以产品页和第三方发布页为主，功能范围请以官方演示或文档为准。</p>
+        <p class="src">来源：<a href="https://www.claude.com/duet">Claude Duet 产品页</a>；<a href="https://hunted.space/product/myclaw-3-0">MyClaw 3.0 发布概述（标注 2026-11-25）</a>；<a href="https://www.goairspeed.com/blog/airbots-ai-chief-of-staff-for-every-sales-rep">Airbots 介绍（2026-11-19）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>c / d) 开源与工作台：个人电脑上的 Agent，以及「人在回路」的计划注释</h3>
+        <p>本周 GitHub 周榜靠前的开源项目包括 n8n 的 <a href="https://github.com/n8n-io/nod">n8n-io/nod</a>：定位为「拥有自己电脑的开源个人 Agent」，可在真实网站上追发票、准备会议或取消试用，行动前先询问，并在用户本机运行、模型自选。另一个是 <a href="https://github.com/backnotprop/plannotator">backnotprop/plannotator</a>，把自己写成让人保持在回路中的工作区：规划、批注、审查代码，并把反馈一键发回给智能体。二者都在回答「用户如何提出需求、补充信息、检查进度和接收结果」，而不是再做一个聊天机器人。</p>
+        <p class="src">来源：<a href="https://github.com/n8n-io/nod">n8n-io/nod</a>；<a href="https://github.com/backnotprop/plannotator">backnotprop/plannotator</a>；周榜对照：<a href="https://githubtrending.today/weekly/">GitHub Trending This Week（采集于 2026-11-27）</a>。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s9">
+      <h2>⚙️ Agent Harness、运行架构与新技术</h2>
+
+      <div class="item">
+        <h3>a / f) 执行与运行质量：把旧系统变成校验器，而不是只靠测试套件</h3>
+        <p>Anthropic 的 Rust 迁移给出一套可复核的运行架构：先定义「与生产 API 行为一致」为正确，再在请求路径上设置检查点，对输入与输出分别对照，用指纹归组同一类差异，然后派 Agent 修复并由人审核合并。4 月时测试通过率与生产一致性的巨大落差，说明测试套件会过早宣布「快完成了」。对中台的直接含义是：规划、工具调用和动态调整之后，还需要一个不依赖阅读客户原文也能工作的差异信号，以及可审计的修复闭环。官方写明，工程师逐步从内层循环退到规则和审核，公众流量在 9 月切换。</p>
+        <p class="src">来源：<a href="https://www.anthropic.com/research/migrating-api-to-rust">Anthropic（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>b / e) 长任务与能力扩展：评测显示模型仍比 Harness 更能决定日常任务成败</h3>
+        <p>ShellBench 在五种主流 Harness 上跑同一批杂乱办公任务，结论并不是「换一个运行框架就能跨过可靠性门槛」。换模型的通过率差距中位数是 45.7 个百分点，换 Harness 是 6.2；头部五模型里，两个差距分别收窄到 15.2 和 9.9。Harness 仍然影响耗时、token 和改写次数，也对安全通过率几乎没有整体拉开。三次运行中「至少一次成功」与「三次都成功」的落差，则直接对应长任务里的失败重试：能做完一次，不等于可以交给无人值守的循环。</p>
+        <p class="src">来源：<a href="https://openclaw.ai/blog/shellbench">OpenClaw 博客</a>；<a href="https://arxiv.org/abs/2611.32946">arXiv:2611.32946</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>c / d) 上下文与协作：可发现的检索端点，以及仿真里留下的技能文件</h3>
+        <p>Cloudflare 把站点检索做成 <code>/.well-known/search</code>，是一种无需为每个 Agent 单独集成的上下文获取方式：返回片段而不是最终答案，权限仍留在站点设置里。AA-Robotics-Sim 则要求模型在练习阶段只把笔记、代码和技能写成文件，评估时从这些文件的副本起步——这是把上下文和可复用工作流显式落到文件系统，而不是依赖一次会话的长上下文。二者都已有公开说明或可复核的评测协议，前者已在 Cloudflare 网络上线，后者仍是仿真研究预览。</p>
+        <p class="src">来源：<a href="https://blog.cloudflare.com/search-for-agents/">Cloudflare 博客</a>；<a href="https://artificialanalysis.ai/articles/aa-robotics-sim">AA-Robotics-Sim v0.1</a>。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s10">
+      <h2>🧠 Agent 记忆、企业知识与本体驱动执行</h2>
+
+      <div class="item">
+        <h3>a / b) 记忆机制：个人记忆随账号走，团队记忆被写成共享工作区</h3>
+        <p>Claude Duet 明确使用同一 Claude 账号里已有的记忆、技能和连接器，并从第一条消息起就在同一线程中延续，而不再另外「开一个新机器人」。MyClaw 3.0 的产品叙述则把多枚「队友」放在共享记忆和托管电脑上，经即时通讯渠道接收定期任务。两者都还不是完整的组织记忆系统：Duet 目前不对 Team / Enterprise 开放，MyClaw 的共享记忆范围和遗忘策略需看官方文档再核对。</p>
+        <p class="src">来源：<a href="https://www.claude.com/duet">Claude Duet 产品页</a>；<a href="https://hunted.space/product/myclaw-3-0">MyClaw 3.0 发布概述</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>c / d) 动态知识到行动：先批准，再执行；先有可训练的记录，再谈模型</h3>
+        <p>Duet 把发送消息、付款等动作设为必须确认，并在用户自己的云电脑中处理登录与安全检查。这是「根据对象和权限选择动作」的一种产品实现，依据是连接器里的邮件、日历、支付和文档，而不是自由发挥。制药行业的观察则提供了另一类动态知识：Relation 等公司把扰动实验的元数据视为模型学习的前提——条件记录不一致，模型就会把操作噪声当成生物学效应。对本体驱动执行来说，对象状态的更新和实验/业务记录的一致性，决定了智能体能不能选对下一步。</p>
+        <p class="src">来源：<a href="https://www.claude.com/duet">Claude Duet 产品页</a>；<a href="https://european-biotechnology.com/background/ai-drug-discoverys-new-bottleneck-is-the-lab/">European Biotechnology（2026-11-23）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>e) 可信交互：点名依据，并承认一次成功不够</h3>
+        <p>ShellBench 把「是否写出所用文件、如何处理冲突记录」写成评分标准，并把安全检查从正确性里单独拆出：任务做对了，仍可能在授权或信息可信度上失败。Anthropic 的迁移文章则展示了另一种可信性：不能阅读客户请求时，仍然用对照、指纹和人工审核来解释「我们改对了什么」。对本体中台，可信交互不只是附上链接，还包括说明筛掉了什么、哪一次运行不能外推到每一次运行。</p>
+        <p class="src">来源：<a href="https://openclaw.ai/blog/shellbench">OpenClaw 博客</a>；<a href="https://www.anthropic.com/research/migrating-api-to-rust">Anthropic 工程文章</a>。</p>
+      </div>
+    </section>
+
+    <section class="sec" id="s11">
+      <h2>💡 今日推荐阅读</h2>
+
+      <div class="item">
+        <h3>1. Anthropic：Migrating our Messages API to Rust</h3>
+        <p>这是一份把「生成—校验」缺口写清楚的工程记录：测试通过率、生产一致性、指纹归组和 Agent 修复闭环都有具体数字与时间线。对正在设计 Agent / 本体中台运行质量方案的团队，它比一般迁移故事更接近可对照的方法。</p>
+        <p class="src">推荐阅读：<a href="https://www.anthropic.com/research/migrating-api-to-rust">anthropic.com 工程文章（2026-11-25）</a>。</p>
+      </div>
+
+      <div class="item">
+        <h3>2. OpenClaw Foundation：Introducing ShellBench</h3>
+        <p>用 100 项来自真实交互的杂乱办公任务，同时比较模型、Harness、成本、重复成功率和安全检查。适合用来讨论：日常 Agent 的「能做」和「每次都能做、并且做得安全」之间还有多远。</p>
+        <p class="src">推荐阅读：<a href="https://openclaw.ai/blog/shellbench">openclaw.ai 博客（2026-11-24）</a>；论文：<a href="https://arxiv.org/abs/2611.32946">arXiv:2611.32946</a>。</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      本早报由狙击日报自动生成<br>
+      生成时间：2026年11月27日 09:20（UTC+8）
+    </footer>
+  </div>
+</body>
+</html>
